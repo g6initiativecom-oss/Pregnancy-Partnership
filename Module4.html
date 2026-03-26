@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 — Your Birth Preferences | Pregnancy Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F0E8DC;
+    --sand: #C9B89E;
+    --clay: #9C7A52;
+    --terracotta: #8B3A2A;
+    --deep: #1A100C;
+    --forest: #1E3320;
+    --gold: #A8782A;
+    --mid: #4A3020;
+    --plum: #3D1F3A;
+    --correct: #1E3320;
+    --incorrect: #8B3A2A;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+body {
+background: var(–cream);
+color: var(–deep);
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 300;
+}
+
+nav {
+background: var(–deep);
+padding: 1.2rem 4rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+
+.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 1.2rem; color: var(–cream); text-decoration: none; }
+.nav-logo span { color: var(–gold); }
+.nav-back { font-size: 0.75rem; color: rgba(240,232,220,0.5); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
+.nav-back:hover { color: var(–gold); }
+
+.reading-progress { height: 3px; background: rgba(201,169,110,0.2); position: sticky; top: 57px; z-index: 99; }
+.reading-progress-fill { height: 100%; background: var(–gold); width: 0%; transition: width 0.1s linear; }
+
+.module-hero {
+background: var(–plum);
+padding: 5rem 4rem 4rem;
+position: relative;
+overflow: hidden;
+}
+
+.module-hero::before {
+content: ‘04’;
+position: absolute;
+right: 3rem;
+top: 50%;
+transform: translateY(-50%);
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 14rem;
+font-weight: 300;
+color: rgba(255,255,255,0.04);
+line-height: 1;
+pointer-events: none;
+}
+
+.module-eyebrow { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+.module-eyebrow::before { content: ‘’; width: 2rem; height: 1px; background: var(–gold); }
+
+.module-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: white; line-height: 1.1; margin-bottom: 1.5rem; max-width: 16ch; }
+.module-title em { font-style: italic; color: rgba(240,232,220,0.65); }
+
+.module-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
+.meta-pill { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 0.4rem; }
+
+.module-content { max-width: 780px; margin: 0 auto; padding: 4rem 2rem; }
+.section-block { margin-bottom: 3.5rem; }
+
+.section-block h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; color: var(–deep); line-height: 1.2; margin-bottom: 1.2rem; }
+.section-block h2 em { font-style: italic; color: var(–terracotta); }
+.section-block p { font-size: 1rem; line-height: 1.85; color: var(–mid); margin-bottom: 1rem; }
+.section-block strong { color: var(–deep); font-weight: 500; }
+.eyebrow-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–terracotta); margin-bottom: 0.5rem; display: block; }
+
+/* RESEARCH BOX */
+.research-box { background: var(–deep); padding: 2.5rem; margin: 2rem 0; position: relative; overflow: hidden; }
+.research-box::before { content: ‘”’; position: absolute; top: -1rem; left: 1.5rem; font-family: ‘Cormorant Garamond’, serif; font-size: 8rem; color: rgba(255,255,255,0.05); line-height: 1; }
+.research-box p { font-family: ‘Cormorant Garamond’, serif; font-size: 1.25rem; font-style: italic; color: var(–cream); line-height: 1.6; margin-bottom: 0.6rem; position: relative; z-index: 1; }
+.research-source { font-size: 0.7rem; color: var(–gold); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* EVIDENCE PREFERENCES */
+.pref-card { background: white; border-left: 4px solid var(–plum); margin: 1.2rem 0; }
+.pref-header { background: var(–plum); padding: 0.9rem 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+.pref-name { font-family: ‘Cormorant Garamond’, serif; font-size: 1.15rem; color: var(–cream); }
+.pref-badge { margin-left: auto; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(–gold); border: 1px solid rgba(168,120,42,0.4); padding: 0.2rem 0.6rem; flex-shrink: 0; }
+.pref-body { padding: 1.2rem 1.5rem; }
+.pref-body p { font-size: 0.9rem; line-height: 1.7; color: var(–mid); margin-bottom: 0.6rem; }
+.pref-body strong { color: var(–deep); font-weight: 500; }
+.pref-evidence { font-size: 0.72rem; color: var(–gold); font-style: italic; margin-top: 0.5rem; }
+
+/* FLEXIBILITY */
+.ifthen-block { background: white; margin: 1rem 0; padding: 1.2rem 1.5rem; border-left: 3px solid var(–gold); }
+.ifthen-label { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(–gold); margin-bottom: 0.4rem; font-weight: 500; }
+.ifthen-text { font-size: 0.9rem; line-height: 1.7; color: var(–mid); }
+.ifthen-text strong { color: var(–deep); font-weight: 500; }
+
+/* COMMUNICATION TIPS */
+.comm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(–sand); margin: 1.5rem 0; }
+.comm-col { background: white; padding: 1.5rem; }
+.comm-header { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 500; padding-bottom: 0.6rem; border-bottom: 2px solid; }
+.comm-col.do .comm-header { color: var(–forest); border-color: var(–forest); }
+.comm-col.dont .comm-header { color: var(–terracotta); border-color: var(–terracotta); }
+.comm-item { font-size: 0.85rem; line-height: 1.6; color: var(–mid); padding: 0.5rem 0; border-bottom: 1px solid rgba(201,184,158,0.3); display: flex; gap: 0.6rem; }
+.comm-item:last-child { border-bottom: none; }
+.comm-icon { flex-shrink: 0; }
+
+/* SAGE */
+.sage-section { background: var(–forest); padding: 2.5rem; margin: 3rem 0; }
+.sage-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–gold); margin-bottom: 0.8rem; }
+.sage-title { font-family: ‘Cormorant Garamond’, serif; font-size: 1.3rem; color: var(–cream); margin-bottom: 1.2rem; }
+.sage-prompts { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+.sage-prompts li { font-size: 0.88rem; color: rgba(240,232,220,0.75); line-height: 1.6; padding-left: 1.2rem; position: relative; }
+.sage-prompts li::before { content: ‘→’; position: absolute; left: 0; color: var(–gold); }
+.sage-btn { display: inline-block; margin-top: 1.5rem; background: var(–gold); color: var(–deep); padding: 0.7rem 1.5rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; }
+.sage-btn:hover { background: var(–cream); }
+
+/* SOURCES */
+.sources-section { border-top: 1px solid var(–sand); padding-top: 2rem; margin-top: 3rem; }
+.sources-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(–clay); margin-bottom: 1rem; }
+.source-item { font-size: 0.78rem; color: var(–clay); line-height: 1.7; margin-bottom: 0.6rem; padding-left: 1rem; border-left: 2px solid var(–sand); }
+
+/* TEMPLATE DIVIDER */
+.template-divider {
+background: var(–plum);
+padding: 4rem 2rem;
+text-align: center;
+}
+
+.template-divider h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: white; margin-bottom: 0.8rem; }
+.template-divider h2 em { font-style: italic; color: var(–gold); }
+.template-divider p { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-bottom: 2rem; max-width: 52ch; margin-left: auto; margin-right: auto; line-height: 1.7; }
+
+.btn-open-template {
+background: var(–gold);
+color: var(–deep);
+border: none;
+padding: 1rem 2.5rem;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem;
+font-weight: 500;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.btn-open-template:hover { background: white; transform: translateY(-2px); }
+
+/* ===== BIRTH PREFERENCES TEMPLATE ===== */
+#template-section { display: none; }
+#template-section.active { display: block; }
+
+.template-bar {
+background: var(–plum);
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: sticky;
+top: 57px;
+z-index: 98;
+flex-wrap: wrap;
+gap: 0.8rem;
+}
+
+.template-bar-title { font-family: ‘Cormorant Garamond’, serif; font-size: 1rem; color: var(–cream); }
+.template-bar-title span { color: var(–gold); font-style: italic; }
+
+.btn-print {
+background: var(–gold);
+color: var(–deep);
+border: none;
+padding: 0.6rem 1.4rem;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.75rem;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.2s;
+}
+
+.btn-print:hover { background: white; }
+
+.template-body {
+max-width: 820px;
+margin: 0 auto;
+padding: 3rem 2rem;
+}
+
+.template-intro {
+background: white;
+border-left: 4px solid var(–gold);
+padding: 1.5rem 2rem;
+margin-bottom: 2rem;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+font-style: italic;
+color: var(–mid);
+line-height: 1.7;
+}
+
+.template-names {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 1rem;
+margin-bottom: 2rem;
+}
+
+.name-field label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(–clay); display: block; margin-bottom: 0.4rem; }
+.name-field input {
+width: 100%;
+border: none;
+border-bottom: 1.5px solid var(–sand);
+background: transparent;
+padding: 0.5rem 0;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+color: var(–deep);
+outline: none;
+transition: border-color 0.2s;
+}
+.name-field input:focus { border-color: var(–plum); }
+
+.template-section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.3rem;
+font-weight: 400;
+color: white;
+background: var(–plum);
+padding: 0.7rem 1.2rem;
+margin: 2rem 0 1rem;
+display: flex;
+align-items: center;
+gap: 0.6rem;
+}
+
+.template-section-title span { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(–gold); margin-left: auto; }
+
+.pref-row {
+display: grid;
+grid-template-columns: 1.2fr 2fr;
+gap: 1rem;
+padding: 0.8rem 0;
+border-bottom: 1px solid rgba(201,184,158,0.4);
+align-items: start;
+}
+
+.pref-row:last-child { border-bottom: none; }
+
+.pref-label {
+font-size: 0.85rem;
+color: var(–mid);
+font-weight: 400;
+line-height: 1.5;
+padding-top: 0.3rem;
+}
+
+.pref-label small { display: block; font-size: 0.72rem; color: var(–clay); margin-top: 0.2rem; font-style: italic; }
+
+.pref-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.pref-chip {
+border: 1.5px solid var(–sand);
+padding: 0.35rem 0.8rem;
+font-size: 0.78rem;
+color: var(–mid);
+cursor: pointer;
+transition: all 0.15s;
+user-select: none;
+border-radius: 2px;
+background: white;
+}
+
+.pref-chip:hover { border-color: var(–plum); color: var(–plum); }
+.pref-chip.selected { background: var(–plum); border-color: var(–plum); color: white; }
+
+.pref-notes {
+width: 100%;
+border: none;
+border-bottom: 1.5px solid var(–sand);
+background: transparent;
+padding: 0.4rem 0;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.82rem;
+color: var(–deep);
+outline: none;
+resize: none;
+transition: border-color 0.2s;
+margin-top: 0.4rem;
+}
+
+.pref-notes:focus { border-color: var(–plum); }
+.pref-notes::placeholder { color: var(–clay); font-style: italic; }
+
+.flexibility-statement {
+background: rgba(61,31,58,0.06);
+border: 1.5px solid rgba(61,31,58,0.2);
+padding: 1.5rem;
+margin: 2rem 0;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+font-style: italic;
+color: var(–plum);
+line-height: 1.7;
+text-align: center;
+}
+
+.template-footer-actions {
+display: flex;
+gap: 1rem;
+justify-content: center;
+margin-top: 3rem;
+flex-wrap: wrap;
+}
+
+.btn-template-print {
+background: var(–plum);
+color: white;
+border: none;
+padding: 1rem 2.5rem;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.88rem;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.3s;
+}
+
+.btn-template-print:hover { background: var(–deep); transform: translateY(-2px); }
+
+.btn-nav-module {
+padding: 1rem 2rem;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.82rem;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+cursor: pointer;
+text-decoration: none;
+display: inline-block;
+border: none;
+transition: background 0.3s;
+}
+
+.btn-prev-m { background: var(–sand); color: var(–deep); }
+.btn-prev-m:hover { background: var(–clay); color: white; }
+.btn-next-m { background: var(–forest); color: white; }
+.btn-next-m:hover { background: var(–deep); }
+
+footer { background: var(–deep); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem; color: var(–cream); }
+.footer-logo span { color: var(–gold); }
+.footer-copy { font-size: 0.7rem; color: rgba(240,232,220,0.35); }
+
+/* PRINT STYLES */
+@media print {
+nav, .reading-progress, .template-bar, .template-divider, .module-hero, .module-content, .sage-section, .sources-section, footer, .template-footer-actions { display: none !important; }
+#template-section { display: block !important; }
+.template-body { padding: 0; max-width: 100%; }
+body { background: white; }
+.pref-chip.selected { background: #3D1F3A !important; color: white !important; -webkit-print-color-adjust: exact; }
+.template-section-title { background: #3D1F3A !important; -webkit-print-color-adjust: exact; }
+.flexibility-statement { page-break-inside: avoid; }
+}
+
+@media (max-width: 640px) {
+nav, footer { padding: 1rem 1.5rem; }
+.module-hero { padding: 3rem 1.5rem 2.5rem; }
+.module-content, .template-body { padding: 2rem 1rem; }
+.template-names { grid-template-columns: 1fr; }
+.pref-row { grid-template-columns: 1fr; }
+.comm-grid { grid-template-columns: 1fr; }
+.template-bar { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Pregnancy <span>Partnership</span></a>
+  <a href="index.html#course" class="nav-back">← Back to Course</a>
+</nav>
+
+<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
+
+<div class="module-hero">
+  <div class="module-eyebrow">Module 4 of 5</div>
+  <h1 class="module-title">Your Birth <em>Preferences</em></h1>
+  <div class="module-meta">
+    <div class="meta-pill">📖 15 min read</div>
+    <div class="meta-pill">📋 Fillable template</div>
+    <div class="meta-pill">🖨️ Print for hospital bag</div>
+    <div class="meta-pill">👥 Complete together</div>
+  </div>
+</div>
+
+<div class="module-content" id="moduleContent">
+
+  <!-- INTRO -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Before You Begin</span>
+    <h2>This isn't a form. <em>It's a conversation.</em></h2>
+    <p>A birth preferences document is one of the most misunderstood tools in childbirth education. It is not a contract. It is not a guarantee. It is not a way to control your birth.</p>
+    <p>It is a conversation starter — with your care provider before labor, and with each other right now. The research is clear: the couples who benefit most from birth planning are not the ones who wrote the most detailed document. They are the ones who talked about it together, aligned their expectations, and walked into the birth room knowing each other's priorities.</p>
+    <p>This module gives you the evidence behind evidence-based preferences, teaches you how to hold your document with flexibility, and then walks you through completing your own Birth Preferences Template together — the one that goes in the hospital bag.</p>
+  </div>
+
+  <!-- WHY TOGETHER -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 1 — Why Do This Together</span>
+    <h2>The process matters as much as <em>the plan</em></h2>
+
+```
+<div class="research-box">
+  <p>"A more positive birth experience was associated with higher relationship satisfaction and fewer depression and anxiety symptoms for both parents at two months, 14 months, and two years postpartum."</p>
+  <div class="research-source">Hein et al. · Journal of Affective Disorders · 2023 · Nearly 2,000 couples</div>
+</div>
+
+<p>A 2024 qualitative study from Radboud University Medical Center found that when couples collaborated on a birth plan, partners reported feeling more prepared and more actively involved during labor — and birthing parents reported gaining specific insight into their partner's expectations that they hadn't known before. The planning conversation revealed things they hadn't talked about. That conversation is the point.</p>
+<p>A 2022 meta-analysis found that marital satisfaction declines significantly during the first year after the birth of a first child — but that couples who engaged in shared preparation experienced slower declines, particularly among fathers. <strong>Building your birth preferences document together is not just birth preparation. It is relationship preparation.</strong></p>
+<p>And there's one more finding worth sitting with: research shows that women who had birth plans that had not been discussed with their providers actually reported lower satisfaction and a lower sense of control than women who had no birth plan at all. The document alone isn't the intervention. The conversation is.</p>
+```
+
+  </div>
+
+  <!-- WHAT TO INCLUDE -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 2 — Evidence-Based Preferences</span>
+    <h2>What the research says about <em>specific preferences</em></h2>
+    <p>These are the preferences most commonly included in birth plans — with the evidence behind each. Understanding the "why" means you can advocate for these preferences with confidence, and decide which ones genuinely matter to you.</p>
+
+```
+<div class="pref-card">
+  <div class="pref-header">
+    <div class="pref-name">Delayed Cord Clamping</div>
+    <div class="pref-badge">Strong evidence</div>
+  </div>
+  <div class="pref-body">
+    <p>Waiting at least 30–60 seconds — and often 1–3 minutes or until the cord stops pulsing — before clamping and cutting the umbilical cord. Current ACOG guidelines support delayed cord clamping for all births as standard of care.</p>
+    <p><strong>Why it matters:</strong> A Cochrane review of 48 trials involving over 5,000 term newborns found that delayed cord clamping was associated with significantly higher hemoglobin and ferritin levels at 3–6 months — meaning better iron stores. A 2022 RCT found that delayed clamping until cord pulsation stopped (average 5 minutes) significantly improved developmental scores at 2 years in preterm infants. For term births, the benefit is primarily iron status and early neurological development.</p>
+    <div class="pref-evidence">McDonald & Middleton, Cochrane, 2013; Andersson et al., 2022; ACOG Committee Opinion, 2020</div>
+  </div>
+</div>
+
+<div class="pref-card">
+  <div class="pref-header">
+    <div class="pref-name">Immediate Skin-to-Skin Contact</div>
+    <div class="pref-badge">Strong evidence</div>
+  </div>
+  <div class="pref-body">
+    <p>Placing the baby directly on the birthing parent's (or partner's, in a cesarean) bare chest immediately after birth — before any non-urgent procedures — and keeping them there for at least the first hour.</p>
+    <p><strong>Why it matters:</strong> A systematic review of 38 studies found that early skin-to-skin contact significantly increased exclusive breastfeeding rates and duration, reduced neonatal pain responses, and improved thermoregulation (temperature stability). Additional research shows it promotes maternal attachment, reduces postpartum hemorrhage through oxytocin release, and decreases infant crying and stress hormones. The first hour after birth — sometimes called the "golden hour" — is a critical window for bonding and breastfeeding initiation that, once missed, cannot be replicated.</p>
+    <div class="pref-evidence">Moore et al., Cochrane, 2016; Neczypor & Holley, Nursing for Women's Health, 2017</div>
+  </div>
+</div>
+
+<div class="pref-card">
+  <div class="pref-header">
+    <div class="pref-name">Freedom of Movement During Labor</div>
+    <div class="pref-badge">Well-supported</div>
+  </div>
+  <div class="pref-body">
+    <p>The ability to walk, use a birth ball, change positions, and use hydrotherapy during labor — rather than being confined to bed with continuous monitoring unless medically indicated.</p>
+    <p><strong>Why it matters:</strong> Lamaze International's Healthy Birth Practices, based on comprehensive evidence reviews, identify freedom of movement as one of the six core practices for healthy birth. Research shows that upright positions and movement during labor are associated with shorter first stages, less need for pain medication, fewer episiotomies, and higher satisfaction. ACOG's own guidance acknowledges that for low-risk labors, intermittent monitoring — rather than continuous electronic fetal monitoring — is appropriate and supports mobility.</p>
+    <div class="pref-evidence">Lamaze International Healthy Birth Practice #2; Lawrence et al., Cochrane, 2013; ACOG Practice Bulletin on Intrapartum Fetal Monitoring</div>
+  </div>
+</div>
+
+<div class="pref-card">
+  <div class="pref-header">
+    <div class="pref-name">Delayed Non-Urgent Newborn Procedures</div>
+    <div class="pref-badge">Increasingly supported</div>
+  </div>
+  <div class="pref-body">
+    <p>Requesting that non-urgent newborn procedures — eye drops, vitamin K injection, first bath — be delayed until after the first hour of skin-to-skin contact, unless medically necessary to do sooner.</p>
+    <p><strong>Why it matters:</strong> Eye prophylaxis (erythromycin drops) is legally required in most US states and cannot be waived, but it can typically be delayed 1 hour. Vitamin K injection prevents a rare but serious bleeding disorder — declining it carries real risk and couples should discuss this with their provider. The first bath is the most flexible: a 2022 systematic review of studies involving over 39,000 newborns found that delaying the first bath for at least 6 hours prevents hypothermia, helps maintain blood sugar, and significantly improves exclusive breastfeeding rates at discharge.</p>
+    <div class="pref-evidence">Gupta et al., Journal of Global Health, 2022; Neczypor & Holley, 2017</div>
+  </div>
+</div>
+
+<div class="pref-card">
+  <div class="pref-header">
+    <div class="pref-name">Early Breastfeeding Initiation</div>
+    <div class="pref-badge">Strong evidence</div>
+  </div>
+  <div class="pref-body">
+    <p>Initiating breastfeeding within the first hour after birth — ideally during skin-to-skin contact — before supplementation, pacifiers, or formula unless medically indicated.</p>
+    <p><strong>Why it matters:</strong> WHO and UNICEF recommend breastfeeding within the first hour as a "Baby-Friendly" standard. Research shows that early initiation significantly improves long-term breastfeeding duration and exclusivity. The colostrum present in the first feedings — sometimes called "liquid gold" — provides passive immunity, gut colonization with beneficial bacteria, and important developmental signals. The partner's role in protecting this window — by holding space, keeping the environment calm, and supporting positioning — is active and meaningful.</p>
+    <div class="pref-evidence">WHO/UNICEF Baby-Friendly Hospital Initiative; Moore et al., Cochrane, 2016</div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- FLEXIBILITY -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 3 — Holding It Loosely</span>
+    <h2>When birth doesn't go <em>as planned</em></h2>
+
+```
+<div class="research-box">
+  <p>"When birth deviates from the plan, trauma is prevented not by the plan being followed — but by the person feeling heard, informed, and included in decisions."</p>
+  <div class="research-source">Bell et al. · Midwifery · 2022 · Systematic integrative review</div>
+</div>
+
+<p>The research on birth trauma and unmet expectations is clear: what determines whether a deviation from the birth plan becomes a source of distress is not whether the plan was followed — it is whether the person felt like an informed participant in what happened. A cesarean birth from a birth plan that included unmedicated vaginal birth can be experienced as deeply positive if the couple felt included in the decision. An uncomplicated vaginal birth can be experienced as traumatic if the person felt decisions were made without them.</p>
+<p>This is why the doula and midwifery literature consistently teaches one practice above all others for flexibility: <strong>If/Then thinking.</strong></p>
+<p>Before labor, work through these scenarios together:</p>
+
+<div class="ifthen-block">
+  <div class="ifthen-label">If / Then Scenario</div>
+  <div class="ifthen-text"><strong>If</strong> labor is not progressing and augmentation is recommended... <strong>Then</strong> our preference is to use the BRAIN framework, ask for 15 minutes to discuss, and make the decision together.</div>
+</div>
+<div class="ifthen-block">
+  <div class="ifthen-label">If / Then Scenario</div>
+  <div class="ifthen-text"><strong>If</strong> I ask for an epidural even if our plan was unmedicated... <strong>Then</strong> the partner's job is to support that decision immediately and without question — it is always the birthing person's choice.</div>
+</div>
+<div class="ifthen-block">
+  <div class="ifthen-label">If / Then Scenario</div>
+  <div class="ifthen-text"><strong>If</strong> a cesarean becomes necessary... <strong>Then</strong> our priorities are: skin-to-skin in the OR if possible, partner stays with baby at all times, delayed cord clamping if safe, and we discuss what happened together afterward.</div>
+</div>
+<div class="ifthen-block">
+  <div class="ifthen-label">If / Then Scenario</div>
+  <div class="ifthen-text"><strong>If</strong> the birth goes very differently from everything we planned... <strong>Then</strong> we remember that the preferences document was a communication tool — not a measure of success. A healthy baby and a birthing person who felt heard are the only measures that matter.</div>
+</div>
+```
+
+  </div>
+
+  <!-- COMMUNICATION -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 4 — Communicating Your Preferences</span>
+    <h2>How you say it matters as much as <em>what you say</em></h2>
+    <p>A national survey of 567 obstetric providers found that 66.5% did not routinely recommend birth plans — and that nearly one-third believed they were predictive of poor outcomes. The research suggests this perception is driven not by birth plans themselves, but by birth plans that are long, demanding, or presented for the first time during active labor.</p>
+    <p>Here is what actually works:</p>
+
+```
+<div class="comm-grid">
+  <div class="comm-col do">
+    <div class="comm-header">✓ Frame it this way</div>
+    <div class="comm-item"><span class="comm-icon">✓</span> "We would appreciate delayed cord clamping if possible."</div>
+    <div class="comm-item"><span class="comm-icon">✓</span> "What is your practice around skin-to-skin after birth?"</div>
+    <div class="comm-item"><span class="comm-icon">✓</span> "We've prepared a one-page preferences document — can we walk through it together at our 36-week visit?"</div>
+    <div class="comm-item"><span class="comm-icon">✓</span> "We understand plans change — we're flexible. These are just our starting priorities."</div>
+    <div class="comm-item"><span class="comm-icon">✓</span> Discuss at 32–36 weeks — not for the first time at admission</div>
+  </div>
+  <div class="comm-col dont">
+    <div class="comm-header">✗ Avoid this framing</div>
+    <div class="comm-item"><span class="comm-icon">✗</span> "You must delay cord clamping."</div>
+    <div class="comm-item"><span class="comm-icon">✗</span> "Under no circumstances should anyone give my baby formula."</div>
+    <div class="comm-item"><span class="comm-icon">✗</span> Handing a 4-page document to a nurse during active labor</div>
+    <div class="comm-item"><span class="comm-icon">✗</span> Treating preferences as non-negotiable demands regardless of circumstances</div>
+    <div class="comm-item"><span class="comm-icon">✗</span> Never discussing it with your provider before the birth day</div>
+  </div>
+</div>
+
+<p>The research confirms it: couples who discussed their birth plan with care providers at a prenatal visit — using collaborative, curious language — reported higher satisfaction, greater sense of control, and better preparation for unexpected decisions. The conversation also revealed misalignments early enough to address them — or, if significant, to consider a different provider.</p>
+```
+
+  </div>
+
+  <!-- SAGE -->
+
+  <div class="sage-section">
+    <div class="sage-label">🌿 Ask Sage — Before You Fill In the Template</div>
+    <div class="sage-title">Questions about specific preferences or how to discuss them with your provider?</div>
+    <ul class="sage-prompts">
+      <li>"Sage, what should we know about delayed cord clamping if we're planning a cesarean?"</li>
+      <li>"Sage, how do we bring up our birth preferences at our 36-week appointment without seeming difficult?"</li>
+      <li>"Sage, we're planning an unmedicated birth but I'm scared I'll want an epidural. How should we handle that in our preferences document?"</li>
+      <li>"Sage, what does skin-to-skin during a cesarean look like — is that even possible?"</li>
+    </ul>
+    <a href="https://www.chatbase.co/chatbot-iframe/a6dHWV4SmL2bw1GvMW5As" target="_blank" class="sage-btn">Open Sage →</a>
+  </div>
+
+  <!-- SOURCES -->
+
+  <div class="sources-section">
+    <div class="sources-label">Sources Cited in This Module</div>
+    <div class="source-item">Afshar, Y., et al. (2018). Birth plans: Impact on mode of delivery and satisfaction. <em>Birth, 45</em>(1), 43–49.</div>
+    <div class="source-item">Bell, C.H., Muggleton, S., & Davis, D.L. (2022). Birth plans: A systematic, integrative review. <em>Midwifery, 111</em>, 103372.</div>
+    <div class="source-item">DONA International. (2022). Position Paper: The Birth Doula's Role in Perinatal Care. dona.org.</div>
+    <div class="source-item">Gupta, S., et al. (2022). Timing of first bath in term healthy newborns: A systematic review. <em>Journal of Global Health, 12</em>, 12004.</div>
+    <div class="source-item">Hein, S., et al. (2023). Going through it together: Dyadic associations between birth experience and mental health. <em>Journal of Affective Disorders, 323</em>, 245–254.</div>
+    <div class="source-item">Lamaze International. (2018). Healthy Birth Practice Papers. <em>Journal of Perinatal Education</em> (special series).</div>
+    <div class="source-item">McDonald, S.J. & Middleton, P. (2013). Effect of timing of umbilical cord clamping: Cochrane review. <em>Cochrane Database of Systematic Reviews.</em></div>
+    <div class="source-item">Moore, E.R., et al. (2016). Early skin-to-skin contact for mothers and their healthy newborn infants. <em>Cochrane Database of Systematic Reviews.</em></div>
+    <div class="source-item">Neczypor, J.L. & Holley, S.L. (2017). Providing Evidence-Based Care During the Golden Hour. <em>Nursing for Women's Health, 21</em>(6), 462–472.</div>
+    <div class="source-item">Nunes-Costa, R., et al. (2022). Transition to Parenthood and Marital Satisfaction: A Meta-Analysis. <em>Frontiers in Psychology, 13</em>, 901362.</div>
+    <div class="source-item">van Dijk, A.E., et al. (2024). Birth plans and shared decision-making. <em>BMC Pregnancy and Childbirth, 24</em>, 429.</div>
+  </div>
+
+</div><!-- end module-content -->
+
+<!-- TEMPLATE DIVIDER -->
+
+<div class="template-divider" id="templateDivider">
+  <h2>Now build <em>yours.</em></h2>
+  <p>Complete your Birth Preferences Template together — then print it and bring it to the hospital. This is your assignment for Module 4. Take your time. Talk through each section. This is the conversation that matters.</p>
+  <button class="btn-open-template" onclick="openTemplate()">Open Birth Preferences Template →</button>
+</div>
+
+<!-- BIRTH PREFERENCES TEMPLATE -->
+
+<div id="template-section">
+  <div class="template-bar">
+    <div class="template-bar-title">Birth Preferences Template · <span>Pregnancy Partnership</span></div>
+    <button class="btn-print" onclick="window.print()">🖨️ Print This Document</button>
+  </div>
+
+  <div class="template-body">
+
+```
+<div class="template-intro">
+  "We understand that birth is unpredictable and that our care team's primary goal — like ours — is a safe and positive experience. These are our preferences, not demands. We trust your expertise and want to work together. Thank you for taking the time to read this."
+</div>
+
+<!-- NAMES -->
+<div class="template-names">
+  <div class="name-field">
+    <label>Birthing Parent's Name</label>
+    <input type="text" placeholder="First name">
+  </div>
+  <div class="name-field">
+    <label>Partner / Support Person</label>
+    <input type="text" placeholder="First name">
+  </div>
+  <div class="name-field">
+    <label>Due Date / Care Provider</label>
+    <input type="text" placeholder="Date · Provider name">
+  </div>
+</div>
+
+<!-- BIRTH SETTING -->
+<div class="template-section-title">🏥 Birth Setting & Support <span>Select all that apply</span></div>
+
+<div class="pref-row">
+  <div class="pref-label">Birth setting <small>Where we are planning to give birth</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Hospital</div>
+    <div class="pref-chip" onclick="toggle(this)">Birth center</div>
+    <div class="pref-chip" onclick="toggle(this)">Home birth</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Support people present <small>Who we want in the room during labor</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Partner only</div>
+    <div class="pref-chip" onclick="toggle(this)">Partner + doula</div>
+    <div class="pref-chip" onclick="toggle(this)">Partner + family member</div>
+    <div class="pref-chip" onclick="toggle(this)">Limited to essential staff</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Photography / video <small>During labor and birth</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Photos welcome</div>
+    <div class="pref-chip" onclick="toggle(this)">Video welcome</div>
+    <div class="pref-chip" onclick="toggle(this)">Birth moment only</div>
+    <div class="pref-chip" onclick="toggle(this)">No photos/video</div>
+  </div>
+</div>
+
+<!-- ENVIRONMENT -->
+<div class="template-section-title">🌿 Labor Environment <span>Select all that apply</span></div>
+
+<div class="pref-row">
+  <div class="pref-label">Atmosphere <small>How we'd like the room to feel</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Dim lighting</div>
+    <div class="pref-chip" onclick="toggle(this)">Quiet environment</div>
+    <div class="pref-chip" onclick="toggle(this)">Music playing</div>
+    <div class="pref-chip" onclick="toggle(this)">Minimal interruptions</div>
+    <div class="pref-chip" onclick="toggle(this)">Staff knock before entering</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Movement <small>During labor</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Freedom to walk</div>
+    <div class="pref-chip" onclick="toggle(this)">Birth ball access</div>
+    <div class="pref-chip" onclick="toggle(this)">Shower / hydrotherapy</div>
+    <div class="pref-chip" onclick="toggle(this)">Birth tub if available</div>
+    <div class="pref-chip" onclick="toggle(this)">Wireless monitoring preferred</div>
+  </div>
+</div>
+
+<!-- PAIN MANAGEMENT -->
+<div class="template-section-title">💊 Pain Management <span>Select all that apply</span></div>
+
+<div class="pref-row">
+  <div class="pref-label">Our approach to pain relief <small>Starting intention — always open to change</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Unmedicated preferred</div>
+    <div class="pref-chip" onclick="toggle(this)">Open to all options</div>
+    <div class="pref-chip" onclick="toggle(this)">Planning epidural</div>
+    <div class="pref-chip" onclick="toggle(this)">Will decide during labor</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Non-pharmacological support <small>Techniques we want available</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Counter-pressure</div>
+    <div class="pref-chip" onclick="toggle(this)">Massage</div>
+    <div class="pref-chip" onclick="toggle(this)">Hydrotherapy</div>
+    <div class="pref-chip" onclick="toggle(this)">Position changes</div>
+    <div class="pref-chip" onclick="toggle(this)">Breathing support</div>
+    <div class="pref-chip" onclick="toggle(this)">Birth ball</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Epidural preference <small>If we request or are offered one</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Please offer when appropriate</div>
+    <div class="pref-chip" onclick="toggle(this)">Only if we ask — don't offer</div>
+    <div class="pref-chip" onclick="toggle(this)">Planning to request one</div>
+  </div>
+</div>
+
+<!-- INTERVENTIONS -->
+<div class="template-section-title">🏥 Interventions & Monitoring <span>Select all that apply</span></div>
+
+<div class="pref-row">
+  <div class="pref-label">Fetal monitoring preference <small>Subject to medical necessity</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Intermittent preferred if low-risk</div>
+    <div class="pref-chip" onclick="toggle(this)">Wireless monitor if available</div>
+    <div class="pref-chip" onclick="toggle(this)">Continuous monitoring is fine</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">IV / hep lock preference</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Hep lock only if possible</div>
+    <div class="pref-chip" onclick="toggle(this)">IV is fine</div>
+    <div class="pref-chip" onclick="toggle(this)">Defer to care team</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Augmentation / Pitocin <small>If labor is slow to progress</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Discuss with us first using BRAIN</div>
+    <div class="pref-chip" onclick="toggle(this)">Prefer to try position changes first</div>
+    <div class="pref-chip" onclick="toggle(this)">We trust your recommendation</div>
+  </div>
+</div>
+
+<!-- PUSHING & BIRTH -->
+<div class="template-section-title">👶 Pushing Stage & Birth <span>Select all that apply</span></div>
+
+<div class="pref-row">
+  <div class="pref-label">Pushing guidance preference</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Coached pushing</div>
+    <div class="pref-chip" onclick="toggle(this)">Spontaneous / self-directed pushing</div>
+    <div class="pref-chip" onclick="toggle(this)">Open to either</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Pushing position</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Upright / squatting preferred</div>
+    <div class="pref-chip" onclick="toggle(this)">Side-lying</div>
+    <div class="pref-chip" onclick="toggle(this)">Hands and knees</div>
+    <div class="pref-chip" onclick="toggle(this)">Whatever feels right</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Perineal support / episiotomy</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Prefer to avoid episiotomy if possible</div>
+    <div class="pref-chip" onclick="toggle(this)">Warm compresses welcome</div>
+    <div class="pref-chip" onclick="toggle(this)">Defer to care team judgment</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Who catches the baby</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Care provider</div>
+    <div class="pref-chip" onclick="toggle(this)">Partner if possible</div>
+    <div class="pref-chip" onclick="toggle(this)">Birthing parent if possible</div>
+    <div class="pref-chip" onclick="toggle(this)">No preference</div>
+  </div>
+</div>
+
+<!-- CORD & PLACENTA -->
+<div class="template-section-title">🌿 Cord & Placenta <span>Select all that apply</span></div>
+
+<div class="pref-row">
+  <div class="pref-label">Cord clamping <small>Evidence strongly supports delayed clamping</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Delayed until cord stops pulsing</div>
+    <div class="pref-chip" onclick="toggle(this)">Delayed at least 1–3 minutes</div>
+    <div class="pref-chip" onclick="toggle(this)">Defer to care team</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Who cuts the cord</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Partner would like to cut</div>
+    <div class="pref-chip" onclick="toggle(this)">Care provider please</div>
+    <div class="pref-chip" onclick="toggle(this)">No preference</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Placenta</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">We would like to see it</div>
+    <div class="pref-chip" onclick="toggle(this)">We would like to keep it</div>
+    <div class="pref-chip" onclick="toggle(this)">No preference</div>
+  </div>
+</div>
+
+<!-- NEWBORN -->
+<div class="template-section-title">🍼 Newborn Care <span>Select all that apply</span></div>
+
+<div class="pref-row">
+  <div class="pref-label">Immediate skin-to-skin <small>Golden hour — evidence strongly supports this</small></div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Immediate skin-to-skin with birthing parent</div>
+    <div class="pref-chip" onclick="toggle(this)">Partner skin-to-skin if birthing parent unavailable</div>
+    <div class="pref-chip" onclick="toggle(this)">Delay non-urgent procedures until after first hour</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Newborn procedures timing</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Delay bath at least 6 hours</div>
+    <div class="pref-chip" onclick="toggle(this)">Delay eye drops until after 1 hour if possible</div>
+    <div class="pref-chip" onclick="toggle(this)">Vitamin K — injection</div>
+    <div class="pref-chip" onclick="toggle(this)">Vitamin K — oral (discuss with provider)</div>
+    <div class="pref-chip" onclick="toggle(this)">Defer to standard hospital protocol</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">Feeding intention</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Breastfeeding — initiate in first hour</div>
+    <div class="pref-chip" onclick="toggle(this)">Formula feeding</div>
+    <div class="pref-chip" onclick="toggle(this)">Combination / undecided</div>
+    <div class="pref-chip" onclick="toggle(this)">No formula without our consent</div>
+    <div class="pref-chip" onclick="toggle(this)">Lactation consultant requested</div>
+  </div>
+</div>
+
+<!-- IF CESAREAN -->
+<div class="template-section-title">⚕️ If a Cesarean Becomes Necessary <span>Select all that apply</span></div>
+
+<div class="pref-row">
+  <div class="pref-label">Partner presence in OR</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Partner present throughout</div>
+    <div class="pref-chip" onclick="toggle(this)">Partner with baby at all times</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">During surgery</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Clear drape / gentle cesarean if possible</div>
+    <div class="pref-chip" onclick="toggle(this)">Lower drape to see birth moment</div>
+    <div class="pref-chip" onclick="toggle(this)">Music in OR welcome</div>
+    <div class="pref-chip" onclick="toggle(this)">Calm quiet environment</div>
+  </div>
+</div>
+
+<div class="pref-row">
+  <div class="pref-label">After delivery</div>
+  <div class="pref-options">
+    <div class="pref-chip" onclick="toggle(this)">Skin-to-skin in OR if safe</div>
+    <div class="pref-chip" onclick="toggle(this)">Partner holds baby while closing</div>
+    <div class="pref-chip" onclick="toggle(this)">Delayed cord clamping if safe</div>
+  </div>
+</div>
+
+<!-- NOTES -->
+<div class="template-section-title">📝 Additional Notes <span>Anything else important to us</span></div>
+<div style="padding: 1rem 0;">
+  <textarea class="pref-notes" rows="4" placeholder="Any allergies, cultural or religious considerations, previous birth experiences that should inform our care, specific concerns, or anything else your team should know about us..."></textarea>
+</div>
+
+<!-- FLEXIBILITY STATEMENT -->
+<div class="flexibility-statement">
+  "We have prepared this document thoughtfully — and we hold it with open hands. We trust this care team. We know birth is unpredictable. Our goal is a safe experience in which we feel heard, informed, and included in decisions. That matters more to us than any single preference on this page."<br><br>
+  <em>— [Birthing Parent's name] &amp; [Partner's name]</em>
+</div>
+
+<div class="template-footer-actions">
+  <button class="btn-template-print" onclick="window.print()">🖨️ Print This Document</button>
+  <a href="module3.html" class="btn-nav-module btn-prev-m">← Module 3</a>
+  <a href="module5.html" class="btn-nav-module btn-next-m">Continue to Module 5 →</a>
+</div>
+
+<p style="font-size:0.72rem; color:var(--clay); text-align:center; margin-top:1.5rem; font-style:italic;">Pregnancy Partnership · For educational purposes only · Not a substitute for medical advice · Discuss all preferences with your care provider</p>
+```
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Pregnancy <span>Partnership</span></div>
+  <div class="footer-copy">© 2026 Pregnancy Partnership · Educational use only · Not a substitute for medical advice</div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const content = document.getElementById('moduleContent');
+  const divider = document.getElementById('templateDivider');
+  const total = divider.offsetTop - content.offsetTop;
+  const scrolled = window.scrollY - content.offsetTop + window.innerHeight * 0.3;
+  const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+  document.getElementById('readingProgress').style.width = pct + '%';
+});
+
+function toggle(el) {
+  el.classList.toggle('selected');
+}
+
+function openTemplate() {
+  document.getElementById('templateDivider').style.display = 'none';
+  const t = document.getElementById('template-section');
+  t.classList.add('active');
+  t.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
