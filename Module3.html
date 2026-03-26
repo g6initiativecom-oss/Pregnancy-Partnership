@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 — Navigating the Hospital | Pregnancy Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F0E8DC;
+    --sand: #C9B89E;
+    --clay: #9C7A52;
+    --terracotta: #8B3A2A;
+    --deep: #1A100C;
+    --forest: #1E3320;
+    --gold: #A8782A;
+    --mid: #4A3020;
+    --navy: #1A2640;
+    --correct: #1E3320;
+    --incorrect: #8B3A2A;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+body {
+background: var(–cream);
+color: var(–deep);
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 300;
+}
+
+nav {
+background: var(–deep);
+padding: 1.2rem 4rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: sticky;
+top: 0;
+z-index: 100;
+}
+
+.nav-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.2rem;
+color: var(–cream);
+text-decoration: none;
+}
+
+.nav-logo span { color: var(–gold); }
+
+.nav-back {
+font-size: 0.75rem;
+color: rgba(240,232,220,0.5);
+text-decoration: none;
+letter-spacing: 0.08em;
+transition: color 0.2s;
+}
+
+.nav-back:hover { color: var(–gold); }
+
+.reading-progress {
+height: 3px;
+background: rgba(201,169,110,0.2);
+position: sticky;
+top: 57px;
+z-index: 99;
+}
+
+.reading-progress-fill {
+height: 100%;
+background: var(–gold);
+width: 0%;
+transition: width 0.1s linear;
+}
+
+.module-hero {
+background: var(–navy);
+padding: 5rem 4rem 4rem;
+position: relative;
+overflow: hidden;
+}
+
+.module-hero::before {
+content: ‘03’;
+position: absolute;
+right: 3rem;
+top: 50%;
+transform: translateY(-50%);
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 14rem;
+font-weight: 300;
+color: rgba(255,255,255,0.04);
+line-height: 1;
+pointer-events: none;
+}
+
+.module-eyebrow {
+font-size: 0.7rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 1rem;
+display: flex;
+align-items: center;
+gap: 0.8rem;
+}
+
+.module-eyebrow::before {
+content: ‘’;
+width: 2rem;
+height: 1px;
+background: var(–gold);
+}
+
+.module-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(2.5rem, 5vw, 4rem);
+font-weight: 300;
+color: white;
+line-height: 1.1;
+margin-bottom: 1.5rem;
+max-width: 16ch;
+}
+
+.module-title em { font-style: italic; color: var(–gold); }
+
+.module-meta {
+display: flex;
+gap: 2rem;
+flex-wrap: wrap;
+}
+
+.meta-pill {
+font-size: 0.72rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.5);
+display: flex;
+align-items: center;
+gap: 0.4rem;
+}
+
+.module-content {
+max-width: 780px;
+margin: 0 auto;
+padding: 4rem 2rem;
+}
+
+.section-block { margin-bottom: 3.5rem; }
+
+.section-block h2 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(1.6rem, 3vw, 2.2rem);
+font-weight: 300;
+color: var(–deep);
+line-height: 1.2;
+margin-bottom: 1.2rem;
+}
+
+.section-block h2 em { font-style: italic; color: var(–terracotta); }
+
+.section-block p {
+font-size: 1rem;
+line-height: 1.85;
+color: var(–mid);
+margin-bottom: 1rem;
+}
+
+.section-block strong { color: var(–deep); font-weight: 500; }
+
+.eyebrow-label {
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–terracotta);
+margin-bottom: 0.5rem;
+display: block;
+}
+
+/* ALARMING STAT BOX */
+.alarm-box {
+background: var(–navy);
+padding: 2.5rem;
+margin: 2rem 0;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1.5px;
+background-color: rgba(26,38,64,0.15);
+}
+
+.alarm-stat {
+background: var(–navy);
+padding: 2rem 1.5rem;
+text-align: center;
+}
+
+.alarm-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2.8rem;
+font-weight: 300;
+color: var(–gold);
+line-height: 1;
+margin-bottom: 0.5rem;
+}
+
+.alarm-label {
+font-size: 0.78rem;
+color: rgba(240,232,220,0.7);
+line-height: 1.5;
+}
+
+.alarm-source {
+font-size: 0.6rem;
+color: rgba(240,232,220,0.35);
+margin-top: 0.4rem;
+font-style: italic;
+}
+
+/* RESEARCH BOX */
+.research-box {
+background: var(–deep);
+padding: 2.5rem;
+margin: 2rem 0;
+position: relative;
+overflow: hidden;
+}
+
+.research-box::before {
+content: ‘”’;
+position: absolute;
+top: -1rem;
+left: 1.5rem;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 8rem;
+color: rgba(255,255,255,0.05);
+line-height: 1;
+}
+
+.research-box p {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.25rem;
+font-style: italic;
+color: var(–cream);
+line-height: 1.6;
+margin-bottom: 0.6rem;
+position: relative;
+z-index: 1;
+}
+
+.research-source {
+font-size: 0.7rem;
+color: var(–gold);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+}
+
+/* BRAIN FRAMEWORK */
+.brain-grid {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap: 1.5px;
+background: var(–sand);
+margin: 1.5rem 0;
+}
+
+.brain-card {
+background: white;
+padding: 1.5rem 1rem;
+text-align: center;
+}
+
+.brain-letter {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 3rem;
+font-weight: 600;
+color: var(–navy);
+line-height: 1;
+margin-bottom: 0.3rem;
+}
+
+.brain-word {
+font-size: 0.65rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 0.6rem;
+font-weight: 500;
+}
+
+.brain-question {
+font-size: 0.78rem;
+color: var(–mid);
+line-height: 1.5;
+font-style: italic;
+}
+
+/* SCENARIO CARDS */
+.scenario-card {
+background: white;
+border-left: 4px solid var(–navy);
+margin: 1.2rem 0;
+overflow: hidden;
+}
+
+.scenario-header {
+background: var(–navy);
+padding: 0.8rem 1.5rem;
+display: flex;
+align-items: center;
+gap: 0.8rem;
+}
+
+.scenario-label {
+font-size: 0.65rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–gold);
+font-weight: 500;
+}
+
+.scenario-body {
+padding: 1.2rem 1.5rem;
+}
+
+.scenario-body p {
+font-size: 0.9rem;
+line-height: 1.7;
+color: var(–mid);
+margin-bottom: 0.6rem;
+}
+
+.scenario-body strong { color: var(–deep); font-weight: 500; }
+
+.scenario-response {
+background: rgba(26,38,64,0.06);
+border-left: 3px solid var(–navy);
+padding: 0.9rem 1.2rem;
+margin-top: 0.6rem;
+font-size: 0.88rem;
+line-height: 1.7;
+color: var(–navy);
+font-style: italic;
+}
+
+/* SHIFT CHANGE */
+.shift-steps {
+display: flex;
+flex-direction: column;
+gap: 0;
+margin: 1.5rem 0;
+}
+
+.shift-step {
+display: flex;
+gap: 1.2rem;
+padding: 1.2rem;
+background: white;
+border-bottom: 1px solid var(–sand);
+align-items: flex-start;
+}
+
+.shift-step:last-child { border-bottom: none; }
+
+.step-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.8rem;
+font-weight: 300;
+color: var(–gold);
+line-height: 1;
+flex-shrink: 0;
+width: 32px;
+text-align: center;
+margin-top: 0.1rem;
+}
+
+.step-content { flex: 1; }
+
+.step-title {
+font-weight: 500;
+font-size: 0.9rem;
+color: var(–deep);
+margin-bottom: 0.3rem;
+}
+
+.step-desc {
+font-size: 0.85rem;
+color: var(–mid);
+line-height: 1.6;
+}
+
+/* BIRTH PLAN TIPS */
+.tip-list {
+display: flex;
+flex-direction: column;
+gap: 0.8rem;
+margin: 1.5rem 0;
+}
+
+.tip-item {
+background: white;
+padding: 1rem 1.5rem;
+border-left: 3px solid var(–gold);
+font-size: 0.9rem;
+line-height: 1.7;
+color: var(–mid);
+}
+
+.tip-item strong { color: var(–deep); font-weight: 500; }
+
+/* SAGE */
+.sage-section {
+background: var(–forest);
+padding: 2.5rem;
+margin: 3rem 0;
+}
+
+.sage-label {
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 0.8rem;
+}
+
+.sage-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.3rem;
+color: var(–cream);
+margin-bottom: 1.2rem;
+}
+
+.sage-prompts {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+
+.sage-prompts li {
+font-size: 0.88rem;
+color: rgba(240,232,220,0.75);
+line-height: 1.6;
+padding-left: 1.2rem;
+position: relative;
+}
+
+.sage-prompts li::before {
+content: ‘→’;
+position: absolute;
+left: 0;
+color: var(–gold);
+}
+
+.sage-btn {
+display: inline-block;
+margin-top: 1.5rem;
+background: var(–gold);
+color: var(–deep);
+padding: 0.7rem 1.5rem;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.75rem;
+font-weight: 500;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+text-decoration: none;
+transition: all 0.3s ease;
+}
+
+.sage-btn:hover { background: var(–cream); }
+
+/* SOURCES */
+.sources-section {
+border-top: 1px solid var(–sand);
+padding-top: 2rem;
+margin-top: 3rem;
+}
+
+.sources-label {
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–clay);
+margin-bottom: 1rem;
+}
+
+.source-item {
+font-size: 0.78rem;
+color: var(–clay);
+line-height: 1.7;
+margin-bottom: 0.6rem;
+padding-left: 1rem;
+border-left: 2px solid var(–sand);
+}
+
+/* QUIZ DIVIDER */
+.quiz-divider {
+background: var(–navy);
+padding: 4rem 2rem;
+text-align: center;
+margin-top: 2rem;
+}
+
+.quiz-divider h2 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(2rem, 4vw, 3rem);
+font-weight: 300;
+color: white;
+margin-bottom: 0.8rem;
+}
+
+.quiz-divider h2 em { font-style: italic; color: var(–gold); }
+
+.quiz-divider p {
+font-size: 0.95rem;
+color: rgba(255,255,255,0.6);
+margin-bottom: 2rem;
+max-width: 50ch;
+margin-left: auto;
+margin-right: auto;
+line-height: 1.7;
+}
+
+.btn-start-quiz {
+background: var(–gold);
+color: var(–deep);
+border: none;
+padding: 1rem 2.5rem;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem;
+font-weight: 500;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.btn-start-quiz:hover { background: white; transform: translateY(-2px); }
+
+/* QUIZ */
+#quiz-section { display: none; background: var(–cream); }
+#quiz-section.active { display: block; }
+
+.quiz-header-bar {
+background: var(–deep);
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: sticky;
+top: 57px;
+z-index: 98;
+}
+
+.quiz-title-bar {
+font-size: 0.75rem;
+color: rgba(240,232,220,0.6);
+letter-spacing: 0.08em;
+text-transform: uppercase;
+}
+
+.quiz-progress-bar {
+width: 140px;
+height: 3px;
+background: rgba(255,255,255,0.15);
+border-radius: 2px;
+overflow: hidden;
+}
+
+.quiz-progress-fill {
+height: 100%;
+background: var(–gold);
+transition: width 0.4s ease;
+width: 0%;
+}
+
+.quiz-progress-text {
+font-size: 0.72rem;
+color: rgba(240,232,220,0.5);
+}
+
+.quiz-inner {
+max-width: 720px;
+margin: 0 auto;
+padding: 3rem 2rem;
+}
+
+.q-num {
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–clay);
+margin-bottom: 0.8rem;
+}
+
+.q-text {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+font-weight: 400;
+line-height: 1.4;
+color: var(–deep);
+margin-bottom: 2rem;
+max-width: 58ch;
+}
+
+.options-list { display: flex; flex-direction: column; gap: 0.7rem; }
+
+.opt-btn {
+background: white;
+border: 1.5px solid var(–sand);
+padding: 1rem 1.4rem;
+text-align: left;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem;
+color: var(–deep);
+cursor: pointer;
+transition: all 0.2s ease;
+line-height: 1.5;
+position: relative;
+border-radius: 2px;
+}
+
+.opt-btn:hover:not(:disabled) { border-color: var(–navy); background: #F5F7FA; transform: translateX(4px); }
+.opt-btn.correct { background: rgba(30,51,32,0.08); border-color: var(–correct); color: var(–correct); font-weight: 500; }
+.opt-btn.correct::after { content: ‘✓’; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(–correct); font-weight: 700; }
+.opt-btn.incorrect { background: rgba(139,58,42,0.08); border-color: var(–incorrect); color: var(–incorrect); }
+.opt-btn.incorrect::after { content: ‘✗’; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(–incorrect); font-weight: 700; }
+.opt-btn.dimmed { opacity: 0.35; cursor: default; }
+.opt-btn:disabled { cursor: default; }
+
+.q-feedback {
+display: none;
+padding: 1.5rem;
+margin-top: 1rem;
+border-left: 3px solid var(–gold);
+background: white;
+animation: fadeUp 0.3s ease;
+}
+
+.q-feedback.show { display: block; }
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(6px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-tag {
+font-size: 0.62rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+margin-bottom: 0.5rem;
+font-weight: 500;
+}
+
+.q-feedback p { font-size: 0.88rem; line-height: 1.75; color: var(–mid); margin: 0; }
+.q-feedback p strong { color: var(–deep); font-weight: 500; }
+
+.btn-next-q {
+display: none;
+margin-top: 1.5rem;
+background: var(–deep);
+color: white;
+border: none;
+padding: 0.85rem 1.8rem;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.8rem;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.btn-next-q.show { display: inline-block; }
+.btn-next-q:hover { background: var(–navy); }
+
+/* RESULTS */
+.results-section {
+display: none;
+max-width: 720px;
+margin: 0 auto;
+padding: 3rem 2rem;
+text-align: center;
+}
+
+.results-section.show { display: block; }
+
+.score-ring {
+width: 130px;
+height: 130px;
+border-radius: 50%;
+background: var(–deep);
+border: 4px solid var(–gold);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 0 auto 2rem;
+}
+
+.score-big { font-family: ‘Cormorant Garamond’, serif; font-size: 2.8rem; color: white; line-height: 1; font-weight: 300; }
+.score-sub { font-size: 0.65rem; color: var(–gold); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.result-heading { font-family: ‘Cormorant Garamond’, serif; font-size: 1.8rem; font-weight: 300; color: var(–deep); margin-bottom: 0.8rem; line-height: 1.3; }
+.result-heading em { font-style: italic; color: var(–terracotta); }
+.result-body { font-size: 0.92rem; line-height: 1.8; color: var(–mid); max-width: 50ch; margin: 0 auto 2rem; }
+
+.review-cards { text-align: left; display: flex; flex-direction: column; gap: 0.8rem; margin: 2rem 0; }
+.review-card { background: white; padding: 1rem 1.2rem; border-left: 3px solid var(–sand); font-size: 0.82rem; }
+.review-card.right { border-color: var(–correct); }
+.review-card.wrong { border-color: var(–incorrect); }
+.review-card .rq { color: var(–clay); font-size: 0.78rem; font-style: italic; margin-bottom: 0.3rem; }
+.review-card .ra { color: var(–deep); font-weight: 500; }
+
+.result-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+
+.btn-retry-quiz { background: transparent; border: 1.5px solid var(–terracotta); color: var(–terracotta); padding: 0.8rem 1.8rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+.btn-retry-quiz:hover { background: var(–terracotta); color: white; }
+
+.btn-nav { padding: 0.8rem 1.8rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; text-decoration: none; display: inline-block; border: none; }
+.btn-prev { background: var(–sand); color: var(–deep); }
+.btn-prev:hover { background: var(–clay); color: white; }
+.btn-next { background: var(–forest); color: white; }
+.btn-next:hover { background: var(–deep); }
+
+.results-citation { font-size: 0.7rem; color: var(–clay); font-style: italic; margin-top: 2.5rem; }
+
+footer { background: var(–deep); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem; color: var(–cream); }
+.footer-logo span { color: var(–gold); }
+.footer-copy { font-size: 0.7rem; color: rgba(240,232,220,0.35); }
+
+@media (max-width: 640px) {
+nav, footer { padding: 1rem 1.5rem; }
+.module-hero { padding: 3rem 1.5rem 2.5rem; }
+.module-content, .quiz-inner, .results-section { padding: 2.5rem 1.2rem; }
+.brain-grid { grid-template-columns: 1fr 1fr; }
+.alarm-box { grid-template-columns: 1fr; }
+.quiz-header-bar { flex-wrap: wrap; gap: 0.5rem; }
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Pregnancy <span>Partnership</span></a>
+  <a href="index.html#course" class="nav-back">← Back to Course</a>
+</nav>
+
+<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
+
+<div class="module-hero">
+  <div class="module-eyebrow">Module 3 of 5</div>
+  <h1 class="module-title">Navigating the <em>Hospital</em></h1>
+  <div class="module-meta">
+    <div class="meta-pill">📖 20 min read</div>
+    <div class="meta-pill">🏥 Real scenarios</div>
+    <div class="meta-pill">🧠 BRAIN framework</div>
+    <div class="meta-pill">❓ 10-question quiz</div>
+  </div>
+</div>
+
+<div class="module-content" id="moduleContent">
+
+  <!-- INTRO -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Before You Begin</span>
+    <h2>The hospital is not in <em>charge of you.</em></h2>
+    <p>You are walking into a medical environment staffed by professionals who genuinely want a healthy outcome for you and your baby. They are your allies, not your adversaries. But the hospital is also a system — with routines, protocols, rotating staff, and time pressures that don't always center your specific wishes and values.</p>
+    <p>This module teaches you how to navigate that system as a team. How to communicate clearly, ask the right questions, advocate without creating conflict, and make decisions together under pressure. Not to fight the hospital — but to be informed, active participants in everything that happens inside it.</p>
+    <p><strong>The partner's role in this module is specific and critical:</strong> you are the communicator, the question-asker, and the steady presence that allows the birthing person to focus entirely on labor while someone they trust handles the logistics.</p>
+  </div>
+
+  <!-- INFORMED CONSENT -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 1 — Your Rights</span>
+    <h2>Informed consent is your <em>legal right.</em></h2>
+    <p>Before any procedure during labor, your care provider is ethically and legally required to explain what they want to do, why, what the risks and benefits are, and what your alternatives are — and then give you the opportunity to say yes or no. This is called informed consent.</p>
+    <p>Here is what the research actually shows about how consistently this happens:</p>
+
+```
+<div class="alarm-box">
+  <div class="alarm-stat">
+    <div class="alarm-num">44.7%</div>
+    <div class="alarm-label">of oxytocin administrations occurred without consent being sought</div>
+    <div class="alarm-source">Jacques et al., IJGO, 2025 · 7,394 women</div>
+  </div>
+  <div class="alarm-stat">
+    <div class="alarm-num">60.2%</div>
+    <div class="alarm-label">of episiotomies performed without consent being sought</div>
+    <div class="alarm-source">Jacques et al., IJGO, 2025</div>
+  </div>
+  <div class="alarm-stat">
+    <div class="alarm-num">&lt;20%</div>
+    <div class="alarm-label">of women reported providing informed consent to all interventions during second stage labor</div>
+    <div class="alarm-source">Häggsgård et al., PLoS ONE, 2024 · 2,800 women</div>
+  </div>
+</div>
+
+<p>These numbers are not from developing countries with limited resources. They are from France and Sweden — two of the most developed healthcare systems in the world. The gap between what informed consent is supposed to look like and what actually happens during labor is significant.</p>
+
+<div class="research-box">
+  <p>"What matters most for a positive birth experience is not whether everything goes perfectly — but whether the birthing person felt involved in the decisions being made about their body and their baby."</p>
+  <div class="research-source">Hodnett, American Journal of Obstetrics and Gynecology, 2002 · confirmed by VIP Study, Hinton et al., 2023</div>
+</div>
+
+<p>The same research confirms the inverse: when decisions are made <em>for</em> people rather than <em>with</em> them — even medically appropriate decisions — those births are significantly more likely to be experienced as traumatic, disempowering, and distressing. The intervention itself matters less than whether the person felt heard and included.</p>
+<p><strong>One finding of particular importance for partners:</strong> the 2025 French study found that women who had a birth preferences document were significantly less likely to report that consent was missing. Having a document — and a partner who knows how to use it — changes the dynamic in the room.</p>
+```
+
+  </div>
+
+  <!-- BRAIN FRAMEWORK -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 2 — Your Decision Tool</span>
+    <h2>The BRAIN framework — <em>five questions that change everything</em></h2>
+    <p>The BRAIN framework is one of the most widely taught tools in doula training, midwifery education, and childbirth preparation programs worldwide. DONA International — the world's largest doula certifying organization, with over 12,000 certified doulas across 56+ countries — teaches informed decision-making as a core competency, and the BRAIN framework is the primary tool used in DONA-approved training to teach this skill.</p>
+    <p>When your care provider recommends any intervention or procedure during labor, walk through these five questions:</p>
+
+```
+<div class="brain-grid">
+  <div class="brain-card">
+    <div class="brain-letter">B</div>
+    <div class="brain-word">Benefits</div>
+    <div class="brain-question">"What are the benefits of doing this right now?"</div>
+  </div>
+  <div class="brain-card">
+    <div class="brain-letter">R</div>
+    <div class="brain-word">Risks</div>
+    <div class="brain-question">"What are the risks if we do this?"</div>
+  </div>
+  <div class="brain-card">
+    <div class="brain-letter">A</div>
+    <div class="brain-word">Alternatives</div>
+    <div class="brain-question">"Are there alternative approaches we could try?"</div>
+  </div>
+  <div class="brain-card">
+    <div class="brain-letter">I</div>
+    <div class="brain-word">Intuition</div>
+    <div class="brain-question">"What does our gut tell us?"</div>
+  </div>
+  <div class="brain-card">
+    <div class="brain-letter">N</div>
+    <div class="brain-word">Nothing</div>
+    <div class="brain-question">"What happens if we do nothing or wait?"</div>
+  </div>
+</div>
+
+<p>An interventional study found that shared decision-making about labor interventions — the core principle the BRAIN framework encodes — significantly improved childbirth experience scores and satisfaction compared to routine care where providers made decisions for the mother. The framework works not because it delays care, but because it ensures both of you understand what you're agreeing to.</p>
+
+<p><strong>Important context:</strong> BRAIN is not a tool for refusing care or creating conflict. Most of the time, after asking these questions, you will understand the recommendation and agree with it. The questions are about being an informed participant — not an adversary. The goal is shared decision-making, not resistance.</p>
+
+<p><strong>The "N" — Nothing — is often the most powerful question.</strong> The doula and midwifery literature emphasizes that asking "what happens if we wait 20 minutes and reassess?" is one of the most useful questions in the birth room. Many interventions that feel urgent are actually time-sensitive but not immediately critical — and a brief pause to discuss can make the difference between a decision made under panic and one made with clarity.</p>
+
+<p>Practice BRAIN scenarios together before labor. The more familiar the framework feels, the easier it is to use under pressure.</p>
+```
+
+  </div>
+
+  <!-- COMMUNICATION -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 3 — Communicating as a Team</span>
+    <h2>Advocate without <em>creating conflict</em></h2>
+    <p>The partner's role in the hospital is not to be a gatekeeper or a guard. It is to be a communicator — calm, clear, curious rather than confrontational. The research is consistent: collaborative communication between couples and care providers produces better outcomes and higher satisfaction than adversarial dynamics.</p>
+
+```
+<p>Here are the real scenarios you will likely encounter and how to navigate them:</p>
+
+<div class="scenario-card">
+  <div class="scenario-header">
+    <div class="scenario-label">Scenario 1 — A new nurse comes on shift and doesn't know your preferences</div>
+  </div>
+  <div class="scenario-body">
+    <p>Shift changes typically happen every 12 hours. Research from The Joint Commission identifies patient handoffs as one of the leading sources of communication breakdown in hospitals. Your new nurse received a clinical briefing — but likely not the personal context of your birth preferences.</p>
+    <div class="scenario-response">"Hi, I'm Tony — this is Cassandra. We're so glad you're here. We have a birth preferences document — can I give you a copy? The main things that matter most to us are [X] and [Y]. Is there anything you need from us to make this work well?"</div>
+    <p style="margin-top:0.8rem;">Warm, brief, specific. You are informing — not demanding. You are building rapport in the first 60 seconds, which shapes every interaction that follows.</p>
+  </div>
+</div>
+
+<div class="scenario-card">
+  <div class="scenario-header">
+    <div class="scenario-label">Scenario 2 — A procedure is recommended and you need time to decide</div>
+  </div>
+  <div class="scenario-body">
+    <p>Your care provider recommends augmentation, internal monitoring, or another intervention. You want to discuss it as a couple before agreeing.</p>
+    <div class="scenario-response">"Thank you for explaining that. Can we have just two or three minutes to talk through this together before we decide? We want to make sure we're on the same page."</div>
+    <p style="margin-top:0.8rem;">This is entirely reasonable in any non-emergency situation. In an emergency — when the care team communicates urgency — respond accordingly. But most labor decisions allow for a brief conversation. Claiming that time is not obstructive. It is your right.</p>
+  </div>
+</div>
+
+<div class="scenario-card">
+  <div class="scenario-header">
+    <div class="scenario-label">Scenario 3 — The birthing person is overwhelmed and can't speak for themselves</div>
+  </div>
+  <div class="scenario-body">
+    <p>During active labor and transition, the laboring person may not be able to communicate clearly with care providers. This is one of the most important moments for the partner to step in — calmly and respectfully.</p>
+    <div class="scenario-response">"She's in the middle of a contraction — can we give her 30 seconds? She'd like to answer that herself when she's ready." Or: "We discussed this before — her preference is [X]. Can you help us with that?"</div>
+    <p style="margin-top:0.8rem;">You are not speaking over her. You are protecting her space to be in labor while ensuring her preferences are represented. Know her wishes before you get to the hospital so you can speak with confidence.</p>
+  </div>
+</div>
+
+<div class="scenario-card">
+  <div class="scenario-header">
+    <div class="scenario-label">Scenario 4 — An unexpected recommendation you weren't prepared for</div>
+  </div>
+  <div class="scenario-body">
+    <p>The care team recommends a cesarean, a forceps delivery, or another intervention you hadn't anticipated.</p>
+    <div class="scenario-response">"We want to understand this fully. Can you help us understand — what's driving this recommendation right now? What happens if we wait? What are our options?"</div>
+    <p style="margin-top:0.8rem;">These are not combative questions. They are the questions any informed patient has the right to ask. In a genuine emergency your care team will communicate that urgency clearly — and when they do, trust them. In the absence of urgency, BRAIN is your tool.</p>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- SHIFT CHANGES -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 4 — Institutional Realities</span>
+    <h2>Shift changes, rotating staff, <em>and how to handle them</em></h2>
+    <p>Research confirms that labor ward handoffs — the moments when one nurse or midwife hands care of you to another — are associated with communication gaps that can affect your experience. A study of patient handover perceptions found that families often felt uninformed and uncertain during these transitions.</p>
+    <p>Here is your shift change protocol — five steps that take 90 seconds and make a significant difference:</p>
+
+```
+<div class="shift-steps">
+  <div class="shift-step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-title">Introduce yourselves by name</div>
+      <div class="step-desc">"Hi — I'm Tony, this is Cassandra." First names immediately make the interaction personal rather than transactional.</div>
+    </div>
+  </div>
+  <div class="shift-step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-title">Acknowledge the transition warmly</div>
+      <div class="step-desc">"We're really glad you're here — we know shifts are long." A moment of recognition builds goodwill immediately.</div>
+    </div>
+  </div>
+  <div class="shift-step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-title">Offer your birth preferences document</div>
+      <div class="step-desc">"We have a birth preferences document — can I give you a copy so you have our priorities?" A physical document is more reliable than verbal handoff notes.</div>
+    </div>
+  </div>
+  <div class="shift-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-title">State your two or three most important preferences</div>
+      <div class="step-desc">"The things that matter most to us right now are [delayed cord clamping] and [skin-to-skin immediately after birth]." Keep it specific and short.</div>
+    </div>
+  </div>
+  <div class="shift-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-title">Open the door to collaboration</div>
+      <div class="step-desc">"Is there anything you need from us to make tonight go smoothly?" This signals you are a partner, not a problem.</div>
+    </div>
+  </div>
+</div>
+
+<p>Bring multiple printed copies of your birth preferences document to the hospital — one for the chart, one to hand to each new nurse or midwife. Research confirms that women with birth plans were significantly less likely to report missing consent for procedures. The document is not just a wish list — it is a communication tool that actively changes how your care is delivered.</p>
+```
+
+  </div>
+
+  <!-- BIRTH PLAN -->
+
+  <div class="section-block">
+    <span class="eyebrow-label">Part 5 — Your Birth Preferences Document</span>
+    <h2>Birth plans work — when <em>held the right way</em></h2>
+    <p>A systematic integrative review of 11 studies across six countries found that birth plans were associated with positive outcomes when developed collaboratively with care providers. Women with birth plans reported higher satisfaction, greater sense of control, and better obstetric outcomes. A randomized controlled trial confirmed significantly higher childbirth experience scores for women who had a birth plan versus those who did not.</p>
+    <p>Here is what the evidence and doula literature say about how to write and use one effectively:</p>
+
+```
+<div class="tip-list">
+  <div class="tip-item"><strong>Keep it to one page.</strong> Care providers are busy. A one-page document with clear bullet points gets read. A four-page document with every contingency mapped out gets set aside. Priority, not comprehensiveness.</div>
+  <div class="tip-item"><strong>Use preferences language, not demands language.</strong> "Our preference is delayed cord clamping" lands differently than "We insist on delayed cord clamping." The first opens a conversation; the second starts a negotiation.</div>
+  <div class="tip-item"><strong>Discuss it with your provider at a prenatal appointment before labor.</strong> The 2023 scoping review found that couples who discussed their birth plan with providers ahead of time were better prepared for decision-making under stress. The conversation the plan generates is as valuable as the plan itself.</div>
+  <div class="tip-item"><strong>Include a flexibility statement.</strong> Something like: "We understand birth is unpredictable. These are our preferences, not demands. We trust your expertise and want to work together." This signals you are partners, not adversaries.</div>
+  <div class="tip-item"><strong>Know the difference between preferences and non-negotiables.</strong> Some things matter to you deeply; others are preferences you hold loosely. Know which is which before you arrive — so when circumstances change, you can adjust with clarity rather than grief.</div>
+  <div class="tip-item"><strong>Bring more copies than you think you need.</strong> At minimum: one for the admission chart, one for each nurse (you may have 2-3 during a long labor), one for yourself to reference.</div>
+</div>
+
+<p>Module 4 will walk you through building your birth preferences document together — step by step. You will leave that module with a completed, personalized document ready to print and bring to the hospital.</p>
+```
+
+  </div>
+
+  <!-- SAGE -->
+
+  <div class="sage-section">
+    <div class="sage-label">🌿 Ask Sage — Navigate With Confidence</div>
+    <div class="sage-title">Questions about your rights, your options, or how to handle specific situations?</div>
+    <ul class="sage-prompts">
+      <li>"Sage, can you walk me through a BRAIN conversation I could have if my provider recommends Pitocin?"</li>
+      <li>"Sage, what should we do if we feel like our preferences aren't being respected during labor?"</li>
+      <li>"Sage, how do we handle it if we disagree with a recommendation but the nurse seems impatient?"</li>
+      <li>"Sage, what are the most important questions to ask when we first arrive at the hospital in labor?"</li>
+    </ul>
+    <a href="https://www.chatbase.co/chatbot-iframe/a6dHWV4SmL2bw1GvMW5As" target="_blank" class="sage-btn">Open Sage →</a>
+  </div>
+
+  <!-- SOURCES -->
+
+  <div class="sources-section">
+    <div class="sources-label">Sources Cited in This Module</div>
+    <div class="source-item">DONA International. (2018). Standards of Practice, Code of Ethics: Birth Doula. dona.org.</div>
+    <div class="source-item">Häggsgård, C., et al. (2024). Informed consent to midwifery practices during the second stage of labor. <em>PLoS ONE, 19</em>(6), e0304418.</div>
+    <div class="source-item">Hinton, L., et al. (2023). Shared decision-making during childbirth: The VIP mixed-methods study. NIHR Health and Social Care Delivery Research.</div>
+    <div class="source-item">Jacques, M., et al. (2025). Consent for interventions during childbirth: A national population-based study. <em>IJGO, 168</em>(1), 333–342.</div>
+    <div class="source-item">Jenkinson, B., Krske, S., & Kildea, S. (2022). Birth plans: A systematic, integrative review. <em>Midwifery, 111</em>, 103370.</div>
+    <div class="source-item">Mirghafourvand, M., et al. (2023). Shared decision-making about labor analgesia. <em>Journal of Maternal-Fetal & Neonatal Medicine.</em></div>
+    <div class="source-item">Ranjbar, F., et al. (2022). Effect of implementing a birth plan on outcomes: A randomized controlled trial. <em>BMC Pregnancy and Childbirth, 22</em>, 862.</div>
+    <div class="source-item">Shareef, N., et al. (2023). Birth plans for shared decision-making: A scoping review. <em>Women and Birth, 36</em>(3), e295–e304.</div>
+    <div class="source-item">Hodnett, E.D. (2002). Pain and women's satisfaction with childbirth. <em>AJOG, 186</em>(5), S160–S172.</div>
+  </div>
+
+</div>
+
+<!-- QUIZ DIVIDER -->
+
+<div class="quiz-divider" id="quizDivider">
+  <h2>You know your rights. Now <em>prove it.</em></h2>
+  <p>10 questions on informed consent, the BRAIN framework, communication strategies, and birth planning. Take it together — every piece of feedback teaches you something you'll use in the birth room.</p>
+  <button class="btn-start-quiz" onclick="startQuiz()">Start the Knowledge Check →</button>
+</div>
+
+<!-- QUIZ -->
+
+<div id="quiz-section">
+  <div class="quiz-header-bar">
+    <div class="quiz-title-bar">Module 3 · Knowledge Check</div>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qProgressFill"></div></div>
+      <div class="quiz-progress-text" id="qProgressText">0 / 10</div>
+    </div>
+  </div>
+
+  <div class="quiz-inner" id="quizInner">
+    <div class="q-num" id="qNum">Question 1 of 10</div>
+    <div class="q-text" id="qText"></div>
+    <div class="options-list" id="optionsList"></div>
+    <div class="q-feedback" id="qFeedback">
+      <div class="feedback-tag" id="feedbackTag"></div>
+      <p id="feedbackContent"></p>
+    </div>
+    <button class="btn-next-q" id="btnNextQ" onclick="nextQ()">Next Question →</button>
+  </div>
+
+  <div class="results-section" id="resultsSection">
+    <div class="score-ring">
+      <div class="score-big" id="scoreBig">0</div>
+      <div class="score-sub">out of 10</div>
+    </div>
+    <div class="result-heading" id="resultHeading"></div>
+    <p class="result-body" id="resultBody"></p>
+    <div class="review-cards" id="reviewCards"></div>
+    <div class="result-actions">
+      <button class="btn-retry-quiz" onclick="retryQuiz()">Retake Quiz</button>
+      <a href="module2.html" class="btn-nav btn-prev">← Module 2</a>
+      <a href="module4.html" class="btn-nav btn-next">Continue to Module 4 →</a>
+    </div>
+    <p class="results-citation">Sources: Jacques et al. (2025); Häggsgård et al. (2024); Hodnett (2002); DONA International (2018); Jenkinson et al. (2022)</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Pregnancy <span>Partnership</span></div>
+  <div class="footer-copy">© 2026 Pregnancy Partnership · Educational use only · Not a substitute for medical advice</div>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  const content = document.getElementById('moduleContent');
+  const divider = document.getElementById('quizDivider');
+  const total = divider.offsetTop - content.offsetTop;
+  const scrolled = window.scrollY - content.offsetTop + window.innerHeight * 0.3;
+  const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
+  document.getElementById('readingProgress').style.width = pct + '%';
+});
+
+const questions = [
+  {
+    q: "A 2025 French national study of 7,394 women found that informed consent was not sought for what percentage of episiotomies performed during labor?",
+    options: ["About 10% — a small minority","About 25% — roughly one in four","60.2% — more than half","Only in emergency situations"],
+    correct: 2,
+    feedback: "<strong>60.2% of episiotomies were performed without consent being sought</strong> (Jacques et al., 2025). The same study found consent was missing for 44.7% of oxytocin administrations and 36.6% of emergency cesareans. These numbers come from France — one of the world's most developed healthcare systems. Informed consent is both a legal right and a practical predictor of better outcomes. Knowing this is not meant to create fear — it's meant to empower you to expect and request the information you are entitled to."
+  },
+  {
+    q: "What does the landmark research by Hodnett (2002), confirmed by the UK's VIP study, show about what most determines a positive birth experience?",
+    options: ["Whether the birth was unmedicated","The length of labor — shorter labors produce better memories","The type of birth (vaginal vs. cesarean)","The quality of communication and whether the birthing person felt involved in decisions — more than pain, pain relief, or intervention type"],
+    correct: 3,
+    feedback: "<strong>Communication and involvement in decision-making matter more than the type of birth.</strong> This is one of the most important findings in birth research. A person who has a cesarean but felt heard, respected, and involved in the decision can have a profoundly positive birth experience. A person who has an uncomplicated vaginal birth but felt decisions were made without them can carry lasting feelings of disempowerment. Your role as a partner — ensuring she feels informed and included — has a direct impact on how she remembers this birth for the rest of her life."
+  },
+  {
+    q: "What does the 'N' stand for in the BRAIN framework, and why is the doula and midwifery literature particularly emphatic about it?",
+    options: ["Necessary — asking if the intervention is strictly necessary","Nothing — asking what happens if we do nothing or wait, which is often the most powerful question in the birth room","Nurse — asking to speak with the nurse before agreeing","Normal — asking if this intervention is standard for all patients"],
+    correct: 1,
+    feedback: "<strong>'N' stands for Nothing — 'What happens if we do nothing or wait?'</strong> The doula and midwifery literature emphasizes this as one of the most powerful questions in the birth room. Many interventions that feel urgent are time-sensitive but not immediately critical. Asking 'what happens if we wait 20 minutes and reassess?' can be the difference between a decision made under panic and one made with clarity. It also signals to your care team that you want to be informed participants — which often improves the quality of communication for the rest of your labor."
+  },
+  {
+    q: "Your nurse recommends internal fetal monitoring. You haven't discussed this before and want to understand it better. What is the most effective partner response?",
+    options: ["Immediately refuse — you didn't put it in your birth preferences","Say yes right away to avoid seeming difficult","Ask: 'Can you help us understand what's driving that recommendation? What are the benefits and what happens if we wait?' Then discuss as a couple","Ask her to leave and come back when you've decided"],
+    correct: 2,
+    feedback: "<strong>Calm, curious questions are the most effective advocacy.</strong> The BRAIN framework gives you a structure: Benefits, Risks, Alternatives, Intuition, Nothing. You don't need to memorize the acronym in the moment — you just need to ask what you need to know before saying yes. Most care providers respond well to genuine curiosity. The goal is shared decision-making, not resistance. After asking these questions, you may fully agree with the recommendation — and you'll agree with understanding rather than just compliance."
+  },
+  {
+    q: "A 2022 systematic review of 11 studies across six countries found what about birth plans specifically?",
+    options: ["Birth plans had no measurable effect on outcomes or satisfaction","Birth plans led to more conflict with care providers","Birth plans developed collaboratively with care providers were associated with better obstetric outcomes, more realistic expectations, greater satisfaction, and a stronger sense of control","Birth plans only benefited first-time parents"],
+    correct: 2,
+    feedback: "<strong>Collaborative birth plans improve outcomes, satisfaction, and sense of control</strong> (Jenkinson et al., 2022). Critically — the key word is collaborative. Plans developed in isolation without discussion with care providers showed weaker benefits. The conversation the plan generates between the couple and their provider is as important as the document itself. This is why Module 4 walks you through building your birth preferences document and then discussing it with your care team at a prenatal appointment — not just writing it at home."
+  },
+  {
+    q: "A new nurse arrives at the beginning of her shift. She hasn't been briefed on your birth preferences. What is the most effective first 60 seconds?",
+    options: ["Hand her your birth plan without saying anything and let her read it","List every item on your birth preferences document in detail","Introduce yourselves by name, acknowledge the shift change warmly, offer your birth preferences document, state your two or three most important preferences, and invite collaboration","Wait to see if she asks about your preferences before bringing them up"],
+    correct: 2,
+    feedback: "<strong>Warm, brief, specific — and collaborative.</strong> Research from The Joint Commission identifies patient handoffs as one of the leading sources of communication breakdown in hospitals. Your new nurse received a clinical briefing — not the personal context of your preferences. A 90-second introduction that builds rapport, provides context, and invites partnership sets the tone for every interaction that follows. Bring multiple printed copies of your birth preferences document so you always have one to hand to new staff."
+  },
+  {
+    q: "What percentage of women in a 2024 Swedish study reported providing informed consent to all midwifery practices and interventions during the second stage of labor?",
+    options: ["About 80% — most women felt informed","About 50% — roughly half","Fewer than 1 in 5 — less than 20%","Nearly all women — informed consent was consistently provided"],
+    correct: 2,
+    feedback: "<strong>Fewer than 1 in 5 women reported providing informed consent to all interventions</strong> during second stage labor (Häggsgård et al., 2024). The same study found a significant association between informed consent and women's feelings of safety and control — even after adjusting for other factors. This is why teaching couples to expect and request informed consent is one of the most evidence-based things this module can do. You have the right to information before procedures. Knowing that right changes how you show up."
+  },
+  {
+    q: "The birthing person is in the middle of a strong contraction when the nurse asks a question about her preferences. What does the partner do?",
+    options: ["Answer for her immediately — efficiency matters during labor","Tell the nurse to come back later when it's more convenient","Give the laboring person space to answer herself after the contraction, or if she genuinely can't respond, speak for her based on preferences you discussed beforehand","Ignore the nurse and focus on supporting the contraction"],
+    correct: 2,
+    feedback: "<strong>Protect her space to be in labor — then speak for her if needed.</strong> During active labor and transition, the laboring person may not be able to communicate clearly with care providers. This is one of the most important moments for the partner. If the contraction is peaking, a calm 'she'd like to answer that herself — can we give her 30 seconds?' is entirely reasonable. If she genuinely can't respond and a decision is needed, speaking from your knowledge of her preferences is not speaking over her — it's being the partner she needs you to be."
+  },
+  {
+    q: "Research shows that women with birth plans were significantly less likely to report what, compared to women without birth plans?",
+    options: ["Less likely to need an epidural","Less likely to report missing informed consent for procedures — 21% less likely for oxytocin administration","Less likely to have a cesarean","Less likely to experience postpartum depression"],
+    correct: 1,
+    feedback: "<strong>Women with birth plans were 21% less likely to report missing consent for oxytocin administration</strong> (Jacques et al., 2025, adjusted prevalence ratio 0.79). The document itself changes the dynamic in the room. It signals to your care team that you are informed, engaged participants — which changes how they communicate with you. A birth preferences document is not just a wish list. It is a practical tool that actively improves the quality of the consent process you experience."
+  },
+  {
+    q: "What does the doula and midwifery literature consistently teach about how birth plans should be held during labor?",
+    options: ["As a binding contract — every preference must be honored regardless of circumstances","As a rigid script that must be followed exactly to have a successful birth","As flexible preferences that reflect values and priorities — held openly, with contingency thinking built in, and with trust in the care team when circumstances change","As a negotiating document to use if providers don't comply with your wishes"],
+    correct: 2,
+    feedback: "<strong>Held flexibly — as a communication tool, not a contract.</strong> The evidence strongly supports this framing. When birth plans are treated as rigid expectations, the gap between expectations and reality can reduce satisfaction even when everything goes medically well. The doula and midwifery literature teaches: frame preferences not demands, discuss contingency scenarios ('if this happens, our preference would be...'), include a flexibility statement, and understand that the most valuable function of the birth plan is the conversation it starts. A birth plan that gets 'deviated from' during labor is not a failed birth plan — it is a plan that prepared you to adapt."
+  }
+];
+
+let cQ = 0, score = 0, userAnswers = [], answered = false;
+
+function startQuiz() {
+  document.getElementById('quizDivider').style.display = 'none';
+  const qs = document.getElementById('quiz-section');
+  qs.classList.add('active');
+  qs.scrollIntoView({ behavior: 'smooth' });
+  cQ = 0; score = 0; userAnswers = []; answered = false;
+  renderQ();
+}
+
+function renderQ() {
+  answered = false;
+  const q = questions[cQ];
+  document.getElementById('qNum').textContent = 'Question ' + (cQ+1) + ' of ' + questions.length;
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('qProgressFill').style.width = (cQ / questions.length * 100) + '%';
+  document.getElementById('qProgressText').textContent = cQ + ' / ' + questions.length;
+  const list = document.getElementById('optionsList');
+  list.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => selectA(i);
+    list.appendChild(btn);
+  });
+  document.getElementById('qFeedback').classList.remove('show');
+  const btnNext = document.getElementById('btnNextQ');
+  btnNext.classList.remove('show');
+  btnNext.textContent = cQ === questions.length - 1 ? 'See My Results →' : 'Next Question →';
+}
+
+function selectA(sel) {
+  if (answered) return;
+  answered = true;
+  const q = questions[cQ];
+  const btns = document.querySelectorAll('.opt-btn');
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add('correct');
+    else if (i === sel && sel !== q.correct) b.classList.add('incorrect');
+    else b.classList.add('dimmed');
+  });
+  const ok = sel === q.correct;
+  if (ok) score++;
+  userAnswers.push({ ok, q: q.q, a: q.options[q.correct] });
+  const fb = document.getElementById('qFeedback');
+  const tag = document.getElementById('feedbackTag');
+  tag.textContent = ok ? '✓ Correct — here\'s why it matters' : '✗ Not quite — here\'s what to know';
+  tag.style.color = ok ? 'var(--correct)' : 'var(--terracotta)';
+  fb.style.borderColor = ok ? 'var(--correct)' : 'var(--incorrect)';
+  document.getElementById('feedbackContent').innerHTML = q.feedback;
+  fb.classList.add('show');
+  document.getElementById('btnNextQ').classList.add('show');
+}
+
+function nextQ() {
+  cQ++;
+  if (cQ >= questions.length) showResults();
+  else renderQ();
+}
+
+function showResults() {
+  document.getElementById('qProgressFill').style.width = '100%';
+  document.getElementById('qProgressText').textContent = '10 / 10';
+  document.getElementById('quizInner').style.display = 'none';
+  document.getElementById('scoreBig').textContent = score;
+  let h, b;
+  if (score === 10) { h = 'Perfect. <em>You\'re ready to advocate.</em>'; b = 'You know your rights, your tools, and your role. Walk into that hospital as an informed, confident partner.'; }
+  else if (score >= 8) { h = 'Strong. <em>Almost there.</em>'; b = 'You know the material. Review the questions you missed — they\'re the ones most likely to come up in the moment.'; }
+  else if (score >= 6) { h = 'Good foundation. <em>A few gaps to close.</em>'; b = 'The core concepts are there. Go back through the BRAIN framework and the communication scenarios before your birth.'; }
+  else { h = 'Review and retake. <em>This module matters.</em>'; b = 'The hospital environment can feel overwhelming. The more familiar this material is before labor, the more confident you\'ll be when it counts.'; }
+  document.getElementById('resultHeading').innerHTML = h;
+  document.getElementById('resultBody').textContent = b;
+  const cards = document.getElementById('reviewCards');
+  cards.innerHTML = '<h3 style="font-family:\'Cormorant Garamond\',serif;font-size:1.2rem;font-weight:400;margin-bottom:1rem;color:var(--deep);">Your answers reviewed</h3>';
+  userAnswers.forEach((a, i) => {
+    const d = document.createElement('div');
+    d.className = 'review-card ' + (a.ok ? 'right' : 'wrong');
+    d.innerHTML = `<div class="rq">${a.ok?'✓':'✗'} Q${i+1}: ${a.q.substring(0,75)}${a.q.length>75?'...':''}</div><div class="ra">Correct: ${a.a}</div>`;
+    cards.appendChild(d);
+  });
+  document.getElementById('resultsSection').classList.add('show');
+  document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+}
+
+function retryQuiz() {
+  document.getElementById('resultsSection').classList.remove('show');
+  document.getElementById('quizInner').style.display = 'block';
+  cQ = 0; score = 0; userAnswers = []; answered = false;
+  renderQ();
+  document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
