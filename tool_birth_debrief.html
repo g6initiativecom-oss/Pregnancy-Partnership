@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Birth Story | Pregnancy Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#F0E8DC; font-family:'DM Sans',sans-serif; display:flex; justify-content:center; padding:2rem; }
+.page { width:8.5in; min-height:11in; background:white; padding:0.65in; box-shadow:0 4px 40px rgba(0,0,0,0.12); }
+
+.gold-bar { height:4px; background:linear-gradient(90deg,#A8782A,#1E3320); margin-bottom:0.5in; }
+
+.header { text-align:center; margin-bottom:0.5in; }
+.eyebrow { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:#A8782A; margin-bottom:0.2rem; }
+h1 { font-family:‘Cormorant Garamond’,serif; font-size:2.8rem; font-weight:300; color:#1A100C; line-height:1.1; }
+h1 em { font-style:italic; color:#8B3A2A; }
+.tagline { font-size:0.8rem; color:#9C7A52; margin-top:0.2rem; font-style:italic; }
+
+.details-row { display:grid; grid-template-columns:repeat(3,1fr); gap:0.25in; margin-bottom:0.4in; }
+.detail-field { border-bottom:1.5px solid #C9B89E; padding-bottom:0.12in; }
+.detail-label { font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#9C7A52; margin-bottom:0.1rem; }
+.detail-line { height:0.28in; }
+
+.section { margin-bottom:0.35in; }
+.section-label { font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#8B3A2A; font-weight:500; margin-bottom:0.12in; display:flex; align-items:center; gap:0.5rem; }
+.section-label::after { content:’’; flex:1; height:1px; background:#E8DDD0; }
+
+.write-area {
+border:1px solid #E8DDD0; padding:0.2in;
+min-height:0.9in; background:#FDFCFA;
+font-size:0.75rem; color:#C9B89E; font-style:italic;
+line-height:2;
+background-image: repeating-linear-gradient(transparent, transparent 1.6em, #F0EDE8 1.6em, #F0EDE8 calc(1.6em + 1px));
+}
+
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:0.3in; }
+
+.quote-area {
+background:#1A100C; padding:0.25in;
+min-height:1.2in; position:relative;
+}
+.quote-area::before {
+content:’”’; position:absolute; top:0.05in; left:0.15in;
+font-family:‘Cormorant Garamond’,serif; font-size:4rem; color:rgba(168,120,42,0.2); line-height:1;
+}
+.quote-prompt { font-size:0.65rem; color:rgba(240,232,220,0.4); font-style:italic; margin-bottom:0.15in; }
+.quote-lines { background-image:repeating-linear-gradient(transparent, transparent 1.6em, rgba(255,255,255,0.06) 1.6em, rgba(255,255,255,0.06) calc(1.6em + 1px)); min-height:0.8in; }
+
+.stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:#C9B89E; margin-bottom:0.35in; }
+.stat-box { background:white; padding:0.15in 0.12in; text-align:center; }
+.stat-label-small { font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; color:#9C7A52; margin-bottom:0.06rem; }
+.stat-fill { height:0.28in; border-bottom:1.5px solid #C9B89E; margin-top:0.06rem; }
+
+.footer { border-top:1px solid #E8DDD0; margin-top:0.4in; padding-top:0.2in; display:flex; justify-content:space-between; align-items:center; }
+.footer-quote { font-family:‘Cormorant Garamond’,serif; font-size:0.85rem; font-style:italic; color:#C9B89E; max-width:60%; }
+.footer-brand { font-family:‘Cormorant Garamond’,serif; font-size:0.9rem; color:#C9B89E; text-align:right; }
+.footer-brand span { color:#A8782A; }
+
+.print-btn { position:fixed; top:1rem; right:1rem; background:#1E3320; color:white; border:none; padding:0.7rem 1.5rem; font-family:‘DM Sans’,sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; }
+@media print { body { background:white; padding:0; } .page { box-shadow:none; } .print-btn { display:none; } }
+</style>
+
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+<div class="page">
+  <div class="gold-bar"></div>
+
+  <div class="header">
+    <div class="eyebrow">Pregnancy Partnership</div>
+    <h1>Our Birth<br><em>Story</em></h1>
+    <div class="tagline">Fill this in together in the first few days. You'll be glad you wrote it down.</div>
+  </div>
+
+  <div class="details-row">
+    <div class="detail-field">
+      <div class="detail-label">Baby's name</div>
+      <div class="detail-line"></div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Date of birth</div>
+      <div class="detail-line"></div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Time of birth</div>
+      <div class="detail-line"></div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Weight</div>
+      <div class="detail-line"></div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Length</div>
+      <div class="detail-line"></div>
+    </div>
+    <div class="detail-field">
+      <div class="detail-label">Birth setting / hospital</div>
+      <div class="detail-line"></div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-label-small">Labor started</div>
+      <div class="stat-fill"></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label-small">Total labor length</div>
+      <div class="stat-fill"></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label-small">Type of birth</div>
+      <div class="stat-fill"></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label-small">Pain relief used</div>
+      <div class="stat-fill"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What happened — the short version</div>
+    <div class="write-area"></div>
+  </div>
+
+  <div class="two-col">
+    <div class="section">
+      <div class="section-label">The moment that stands out most</div>
+      <div class="write-area" style="min-height:0.8in;"></div>
+    </div>
+    <div class="section">
+      <div class="section-label">What surprised us</div>
+      <div class="write-area" style="min-height:0.8in;"></div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:0.35in;">
+    <div class="section">
+      <div class="section-label">To the birthing parent — from the partner</div>
+      <div class="quote-area">
+        <div class="quote-prompt">What I want you to know about how you showed up that day...</div>
+        <div class="quote-lines"></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label">To the partner — from the birthing parent</div>
+      <div class="quote-area">
+        <div class="quote-prompt">What I want you to know about what your presence meant...</div>
+        <div class="quote-lines"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="margin-top:0.35in;">
+    <div class="section-label">One thing we want to remember forever</div>
+    <div class="write-area" style="min-height:0.6in;"></div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-quote">"You are not a spectator anymore."</div>
+    <div class="footer-brand">Pregnancy <span>Partnership</span></div>
+  </div>
+</div>
+</body>
+</html>
