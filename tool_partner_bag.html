@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner Hospital Bag | Pregnancy Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#F0E8DC; font-family:'DM Sans',sans-serif; display:flex; justify-content:center; align-items:flex-start; padding:3rem; }
+
+/* Half-page horizontal card — index card proportions but bigger */
+.card {
+width:8.5in;
+background:white;
+box-shadow:0 4px 40px rgba(0,0,0,0.12);
+overflow:hidden;
+}
+
+.top-bar { height:5px; background:linear-gradient(90deg,#1A2640,#A8782A,#8B3A2A); }
+
+.inner { padding:0.45in 0.55in; }
+
+.header { display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3in; }
+.title-block h1 { font-family:‘Cormorant Garamond’,serif; font-size:1.7rem; font-weight:300; color:#1A100C; line-height:1.1; }
+h1 em { font-style:italic; color:#1A2640; }
+.subtitle { font-size:0.68rem; color:#9C7A52; margin-top:0.1rem; }
+.brand { font-family:‘Cormorant Garamond’,serif; font-size:0.9rem; color:#1A100C; text-align:right; }
+.brand span { color:#A8782A; }
+.brand small { display:block; font-size:0.6rem; color:#C9B89E; font-family:‘DM Sans’,sans-serif; font-weight:300; }
+
+.cols { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:#C9B89E; }
+
+.col { background:white; padding:0.2in 0.18in; }
+
+.col-title {
+font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase;
+color:white; background:#1A2640; padding:0.08in 0.12in;
+margin:-0.2in -0.18in 0.15in; font-weight:500;
+}
+
+.item { display:flex; align-items:flex-start; gap:0.1in; padding:0.07in 0; border-bottom:1px solid #F5F2EE; }
+.item:last-child { border-bottom:none; }
+.box { width:12px; height:12px; border:1.5px solid #C9B89E; flex-shrink:0; margin-top:2px; }
+.item-text { font-size:0.7rem; color:#3A2010; line-height:1.4; flex:1; }
+.item-note { font-size:0.6rem; color:#9C7A52; display:block; }
+
+.bottom-bar {
+background:#1A100C; padding:0.15in 0.55in;
+display:flex; justify-content:space-between; align-items:center;
+}
+.bottom-text { font-size:0.68rem; color:rgba(240,232,220,0.7); font-style:italic; }
+.bottom-text strong { color:#A8782A; font-style:normal; }
+
+.print-btn { position:fixed; top:1rem; right:1rem; background:#1A2640; color:white; border:none; padding:0.7rem 1.5rem; font-family:‘DM Sans’,sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; }
+@media print { body { background:white; padding:0; } .card { box-shadow:none; } .print-btn { display:none; } }
+</style>
+
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+<div class="card">
+  <div class="top-bar"></div>
+  <div class="inner">
+    <div class="header">
+      <div class="title-block">
+        <h1>Partner's Hospital<br><em>Bag List</em></h1>
+        <div class="subtitle">What the partner packs · Not the standard "what to bring for mom" list · This one is yours</div>
+      </div>
+      <div class="brand">Pregnancy <span>Partnership</span><small>pregnancypartnership.com</small></div>
+    </div>
+
+```
+<div class="cols">
+  <div class="col">
+    <div class="col-title">Your Comfort</div>
+    <div class="item"><div class="box"></div><div class="item-text">Change of clothes<span class="item-note">You may be there 24–48 hrs</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Comfortable shoes<span class="item-note">You'll be on your feet</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Layers / light jacket<span class="item-note">Hospitals run cold</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Toothbrush & toiletries</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Pillow (labeled)<span class="item-note">Hospital pillows are flat</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Earplugs (for recovery room)</div></div>
+  </div>
+
+  <div class="col">
+    <div class="col-title">Food & Energy</div>
+    <div class="item"><div class="box"></div><div class="item-text">High-protein snacks<span class="item-note">Nuts, bars, jerky</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Easy meals<span class="item-note">Sandwiches, wraps</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Electrolyte drinks</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Coffee / energy option</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Mints / gum<span class="item-note">Close proximity for hours</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Cash for vending / cafeteria</div></div>
+  </div>
+
+  <div class="col">
+    <div class="col-title">Tech & Practical</div>
+    <div class="item"><div class="box"></div><div class="item-text">Phone charger + cable</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Portable battery pack</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Headphones<span class="item-note">For waiting periods</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Camera / settings ready</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Contraction log sheet</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Parking confirmed + cash</div></div>
+  </div>
+
+  <div class="col">
+    <div class="col-title">Your Support Tools</div>
+    <div class="item"><div class="box"></div><div class="item-text">Birth preferences — 3 copies<span class="item-note">One for each nurse shift</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">BRAIN framework card</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Labor support reference card</div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Tennis ball<span class="item-note">Counter-pressure tool</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">Playlist ready<span class="item-note">Ask before playing</span></div></div>
+    <div class="item"><div class="box"></div><div class="item-text">This checklist ✓</div></div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="bottom-bar">
+    <div class="bottom-text"><strong>Remember:</strong> Once active labor begins, put the phone away. Your presence — undivided — is the most important thing in that bag.</div>
+    <div style="font-family:'Cormorant Garamond',serif; font-size:0.8rem; color:rgba(240,232,220,0.4);">For educational use only</div>
+  </div>
+</div>
+</body>
+</html>
