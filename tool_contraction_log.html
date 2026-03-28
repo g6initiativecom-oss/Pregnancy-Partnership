@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contraction Timing Log | Pregnancy Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#F0E8DC; font-family:'DM Sans',sans-serif; display:flex; justify-content:center; padding:2rem; }
+.page { width:8.5in; min-height:11in; background:white; padding:0.55in; box-shadow:0 4px 40px rgba(0,0,0,0.12); }
+.gold-bar { height:4px; background:linear-gradient(90deg,#8B3A2A,#A8782A); margin-bottom:0.35in; }
+.header { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #1A100C; padding-bottom:0.25in; margin-bottom:0.3in; }
+.brand { font-family:'Cormorant Garamond',serif; font-size:0.95rem; color:#1A100C; }
+.brand span { color:#A8782A; }
+h1 { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:#1A100C; line-height:1.1; }
+h1 em { font-style:italic; color:#8B3A2A; }
+.subtitle { font-size:0.72rem; color:#9C7A52; margin-top:0.15rem; }
+
+.how-to { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:#C9B89E; margin-bottom:0.3in; }
+.how-card { background:#1A100C; padding:0.18in 0.15in; }
+.how-num { font-family:‘Cormorant Garamond’,serif; font-size:1.8rem; color:#A8782A; line-height:1; }
+.how-title { font-size:0.72rem; color:#F0E8DC; font-weight:500; margin:0.05rem 0; }
+.how-desc { font-size:0.65rem; color:rgba(240,232,220,0.7); line-height:1.5; }
+
+.rule-box { background:#EDE5D8; border-left:4px solid #A8782A; padding:0.15in 0.2in; margin-bottom:0.25in; display:flex; justify-content:space-between; align-items:center; gap:0.3in; }
+.rule-text { font-size:0.75rem; color:#3A2010; line-height:1.6; }
+.rule-text strong { color:#1A100C; font-weight:600; }
+.rule-highlight { background:#1A100C; padding:0.15in 0.25in; text-align:center; flex-shrink:0; }
+.rule-big { font-family:‘Cormorant Garamond’,serif; font-size:1.8rem; color:#A8782A; line-height:1; font-weight:300; }
+.rule-small { font-size:0.6rem; color:rgba(240,232,220,0.6); letter-spacing:0.1em; text-transform:uppercase; }
+
+table { width:100%; border-collapse:collapse; margin-bottom:0.2in; }
+thead tr { background:#1A100C; }
+thead th { font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:#F0E8DC; padding:0.12in 0.15in; text-align:left; font-weight:500; }
+thead th:nth-child(5) { color:#A8782A; }
+tbody tr:nth-child(even) { background:#FAFAF8; }
+tbody tr:nth-child(odd) { background:white; }
+td { padding:0.13in 0.15in; border-bottom:1px solid #F0EDE8; font-size:0.75rem; color:#3A2010; }
+td:nth-child(1) { color:#C9B89E; font-size:0.65rem; font-weight:500; }
+td:nth-child(5) { font-weight:500; color:#8B3A2A; }
+
+.phase-markers { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:#C9B89E; margin-bottom:0.25in; }
+.phase-card { background:white; padding:0.15in; }
+.phase-name { font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; color:#8B3A2A; margin-bottom:0.06rem; }
+.phase-pattern { font-size:0.78rem; color:#1A100C; font-weight:500; }
+.phase-note { font-size:0.65rem; color:#9C7A52; margin-top:0.04rem; line-height:1.4; }
+
+.footer { border-top:1px solid #E8DDD0; margin-top:0.2in; padding-top:0.18in; display:flex; justify-content:space-between; }
+.footer-note { font-size:0.58rem; color:#C9B89E; font-style:italic; }
+.footer-brand { font-family:‘Cormorant Garamond’,serif; font-size:0.82rem; color:#C9B89E; }
+.footer-brand span { color:#A8782A; }
+
+.print-btn { position:fixed; top:1rem; right:1rem; background:#8B3A2A; color:white; border:none; padding:0.7rem 1.5rem; font-family:‘DM Sans’,sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; }
+@media print { body { background:white; padding:0; } .page { box-shadow:none; } .print-btn { display:none; } }
+</style>
+
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+<div class="page">
+  <div class="gold-bar"></div>
+  <div class="header">
+    <div>
+      <h1>Contraction<br><em>Timing Log</em></h1>
+      <div class="subtitle">Start timing when contractions become regular · Print 2 copies · Partner fills this in</div>
+    </div>
+    <div class="brand">Pregnancy <span>Partnership</span></div>
+  </div>
+
+  <div class="how-to">
+    <div class="how-card">
+      <div class="how-num">1</div>
+      <div class="how-title">Start Time</div>
+      <div class="how-desc">Write the clock time when the contraction begins. This is your reference point for "frequency."</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">2</div>
+      <div class="how-title">Duration</div>
+      <div class="how-desc">How long the contraction lasts in seconds. Time from when it starts to when it fully ends.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">3</div>
+      <div class="how-title">Gap</div>
+      <div class="how-desc">Time from the START of one contraction to the START of the next. This is the "frequency" number.</div>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule-text">Call your care provider when contractions reach the <strong>5-1-1 pattern</strong>: 5 minutes apart (start to start), lasting at least 1 minute, consistently for 1 hour. Some providers say 4-1-1 — confirm with yours in advance. When in doubt, call.</div>
+    <div class="rule-highlight">
+      <div class="rule-big">5-1-1</div>
+      <div class="rule-small">Call threshold</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Start Time</th>
+        <th>Duration (seconds)</th>
+        <th>Gap from last (min)</th>
+        <th>Intensity (1–10)</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 28 rows -->
+      <tr><td>1</td><td></td><td></td><td>—</td><td></td><td></td></tr>
+      <tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>6</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>7</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>8</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>9</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>10</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>11</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>12</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>13</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>14</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>15</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>16</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>17</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>18</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>19</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>20</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>21</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>22</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>23</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>24</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>25</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>26</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>27</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>28</td><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="phase-markers">
+    <div class="phase-card">
+      <div class="phase-name">Early Labor</div>
+      <div class="phase-pattern">Irregular → 5–20 min apart</div>
+      <div class="phase-note">30–60 sec long. Stay home. Rest, eat, walk. Can still talk through them.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-name">Active Labor</div>
+      <div class="phase-pattern">3–5 min apart</div>
+      <div class="phase-note">45–60 sec long. Head to hospital. Cannot talk through contractions.</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-name">Transition</div>
+      <div class="phase-pattern">2–3 min apart</div>
+      <div class="phase-note">60–90 sec long. Most intense. Shortest phase. Birth is close. Stay present.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">For educational purposes only · Always follow your care provider's specific guidance on when to call · pregnancypartnership.com</div>
+    <div class="footer-brand">Pregnancy <span>Partnership</span></div>
+  </div>
+</div>
+</body>
+</html>
