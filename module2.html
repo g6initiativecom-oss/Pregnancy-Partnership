@@ -7,893 +7,181 @@
 <title>Module 2 — The Partner Playbook | Pregnancy Partnership</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #F0E8DC;
-    --sand: #C9B89E;
-    --clay: #9C7A52;
-    --terracotta: #8B3A2A;
-    --deep: #1A100C;
-    --forest: #1E3320;
-    --gold: #A8782A;
-    --mid: #4A3020;
-    --correct: #1E3320;
-    --incorrect: #8B3A2A;
-  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#F0E8DC; color:#1A100C; font-family:'DM Sans',sans-serif; font-weight:300; }
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+nav { background:#1A100C; padding:1.2rem 4rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+.nav-logo { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; color:#F0E8DC; text-decoration:none; }
+.nav-logo span { color:#A8782A; }
+.nav-back { font-size:0.75rem; color:rgba(240,232,220,0.5); text-decoration:none; letter-spacing:0.08em; transition:color 0.2s; }
+.nav-back:hover { color:#A8782A; }
 
-body {
-background: #F0E8DC;
-color: #1A100C;
-font-family: ‘DM Sans’, sans-serif;
-font-weight: 300;
-}
+.reading-progress { height:3px; background:rgba(201,169,110,0.2); position:sticky; top:57px; z-index:99; }
+.reading-progress-fill { height:100%; background:#A8782A; width:0%; transition:width 0.1s linear; }
 
-nav {
-background: #1A100C;
-padding: 1.2rem 4rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: sticky;
-top: 0;
-z-index: 100;
-}
+.module-hero { background:#8B3A2A; padding:5rem 4rem 4rem; position:relative; overflow:hidden; }
+.module-hero::before { content:‘02’; position:absolute; right:3rem; top:50%; transform:translateY(-50%); font-family:‘Cormorant Garamond’,serif; font-size:14rem; font-weight:300; color:rgba(255,255,255,0.04); line-height:1; pointer-events:none; }
+.module-eyebrow { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(240,232,220,0.6); margin-bottom:1rem; display:flex; align-items:center; gap:0.8rem; }
+.module-eyebrow::before { content:’’; width:2rem; height:1px; background:rgba(240,232,220,0.4); }
+.module-title { font-family:‘Cormorant Garamond’,serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:300; color:#F0E8DC; line-height:1.1; margin-bottom:1.5rem; max-width:14ch; }
+.module-title em { font-style:italic; color:#F0C880; }
+.module-meta { display:flex; gap:2rem; flex-wrap:wrap; }
+.meta-pill { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,232,220,0.5); display:flex; align-items:center; gap:0.4rem; }
 
-.nav-logo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.2rem;
-color: #F0E8DC;
-text-decoration: none;
-}
+.lesson-nav { background:#1A100C; border-bottom:1px solid rgba(255,255,255,0.06); padding:0 4rem; display:flex; gap:0; overflow-x:auto; }
+.lesson-tab { padding:1rem 1.5rem; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,232,220,0.4); cursor:pointer; border-bottom:2px solid transparent; transition:all 0.2s; white-space:nowrap; background:none; border-top:none; border-left:none; border-right:none; font-family:‘DM Sans’,sans-serif; font-weight:400; }
+.lesson-tab:hover { color:rgba(240,232,220,0.7); }
+.lesson-tab.active { color:#A8782A; border-bottom-color:#A8782A; }
+.lesson-tab.completed::after { content:’ ✓’; }
 
-.nav-logo span { color: #A8782A; }
+.module-content { max-width:780px; margin:0 auto; padding:4rem 2rem; }
+.lesson-panel { display:none; }
+.lesson-panel.active { display:block; }
 
-.nav-back {
-font-size: 0.75rem;
-color: rgba(240,232,220,0.5);
-text-decoration: none;
-letter-spacing: 0.08em;
-transition: color 0.2s;
-}
+.lesson-header { margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid #C9B89E; }
+.lesson-num { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:#8B3A2A; margin-bottom:0.6rem; display:block; }
+.lesson-header h1 { font-family:‘Cormorant Garamond’,serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; color:#1A100C; line-height:1.15; }
+.lesson-header h1 em { font-style:italic; color:#8B3A2A; }
+.lesson-intro { font-size:1.05rem; line-height:1.85; color:#4A3020; margin-top:1rem; max-width:60ch; }
 
-.nav-back:hover { color: #A8782A; }
+.section-block { margin-bottom:3.5rem; }
+.section-block h2 { font-family:‘Cormorant Garamond’,serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:300; color:#1A100C; line-height:1.2; margin-bottom:1.2rem; }
+.section-block h2 em { font-style:italic; color:#8B3A2A; }
+.section-block h3 { font-family:‘Cormorant Garamond’,serif; font-size:1.3rem; font-weight:400; color:#1A100C; margin:2rem 0 0.8rem; padding-top:1.5rem; border-top:1px solid #C9B89E; }
+.section-block p { font-size:1rem; line-height:1.85; color:#4A3020; margin-bottom:1rem; }
+.section-block strong { color:#1A100C; font-weight:500; }
+.eyebrow-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#8B3A2A; margin-bottom:0.5rem; display:block; }
 
-.reading-progress {
-height: 3px;
-background: rgba(201,169,110,0.2);
-position: sticky;
-top: 57px;
-z-index: 99;
-}
+.partner-callout { background:rgba(139,58,42,0.06); border-left:3px solid #8B3A2A; padding:0.9rem 1.2rem; margin:1rem 0; font-size:0.88rem; line-height:1.7; color:#4A3020; }
+.partner-callout strong { color:#8B3A2A; }
 
-.reading-progress-fill {
-height: 100%;
-background: #A8782A;
-width: 0%;
-transition: width 0.1s linear;
-}
+.forest-callout { background:rgba(30,51,32,0.06); border-left:3px solid #1E3320; padding:0.9rem 1.2rem; margin:1rem 0; font-size:0.88rem; line-height:1.7; color:#1E3320; }
+.forest-callout strong { color:#1E3320; }
 
-.module-hero {
-background: #8B3A2A;
-padding: 5rem 4rem 4rem;
-position: relative;
-overflow: hidden;
-}
+.research-box { background:#1A100C; padding:2.5rem; margin:2rem 0; position:relative; overflow:hidden; }
+.research-box::before { content:’”’; position:absolute; top:-1rem; left:1.5rem; font-family:‘Cormorant Garamond’,serif; font-size:8rem; color:rgba(255,255,255,0.05); line-height:1; }
+.research-box p { font-family:‘Cormorant Garamond’,serif; font-size:1.3rem; font-style:italic; color:#F0E8DC; line-height:1.6; margin-bottom:0.8rem; position:relative; z-index:1; }
+.research-source { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(168,120,42,0.7); }
 
-.module-hero::before {
-content: ‘02’;
-position: absolute;
-right: 3rem;
-top: 50%;
-transform: translateY(-50%);
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 14rem;
-font-weight: 300;
-color: rgba(255,255,255,0.06);
-line-height: 1;
-pointer-events: none;
-}
+.stat-block { background:#8B3A2A; padding:2rem 2.5rem; margin:2rem 0; display:flex; align-items:center; gap:2rem; }
+.stat-num { font-family:‘Cormorant Garamond’,serif; font-size:3.5rem; font-weight:300; color:#F0C880; line-height:1; flex-shrink:0; }
+.stat-text { font-size:0.9rem; line-height:1.7; color:rgba(240,232,220,0.85); }
+.stat-text strong { color:#F0E8DC; }
 
-.module-eyebrow {
-font-size: 0.7rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: rgba(240,232,220,0.6);
-margin-bottom: 1rem;
-display: flex;
-align-items: center;
-gap: 0.8rem;
-}
+.truth-box { border:1.5px solid #C9B89E; padding:1.8rem 2rem; margin:2rem 0; position:relative; }
+.truth-label { position:absolute; top:-0.6rem; left:1.5rem; background:#F0E8DC; padding:0 0.5rem; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; }
+.truth-box p { font-size:0.95rem; line-height:1.8; color:#4A3020; }
+.truth-box strong { color:#1A100C; font-weight:500; }
 
-.module-eyebrow::before {
-content: ‘’;
-width: 2rem;
-height: 1px;
-background: rgba(240,232,220,0.4);
-}
-
-.module-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(2.5rem, 5vw, 4rem);
-font-weight: 300;
-color: white;
-line-height: 1.1;
-margin-bottom: 1.5rem;
-max-width: 16ch;
-}
-
-.module-title em { font-style: italic; color: rgba(240,232,220,0.7); }
-
-.module-meta {
-display: flex;
-gap: 2rem;
-flex-wrap: wrap;
-}
-
-.meta-pill {
-font-size: 0.72rem;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: rgba(255,255,255,0.55);
-display: flex;
-align-items: center;
-gap: 0.4rem;
-}
-
-.module-content {
-max-width: 780px;
-margin: 0 auto;
-padding: 4rem 2rem;
-}
-
-.section-block { margin-bottom: 3.5rem; }
-
-.section-block h2 {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(1.6rem, 3vw, 2.2rem);
-font-weight: 300;
-color: #1A100C;
-line-height: 1.2;
-margin-bottom: 1.2rem;
-}
-
-.section-block h2 em { font-style: italic; color: #8B3A2A; }
-
-.section-block p {
-font-size: 1rem;
-line-height: 1.85;
-color: #4A3020;
-margin-bottom: 1rem;
-}
-
-.section-block strong { color: #1A100C; font-weight: 500; }
-
-.eyebrow-label {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #8B3A2A;
-margin-bottom: 0.5rem;
-display: block;
-}
-
-/* STAT BAR */
-.stat-bar {
-background: #1A100C;
-padding: 2rem 2.5rem;
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 1.5rem;
-margin: 2rem 0;
-}
-
-.stat-item { text-align: center; }
-
-.stat-num {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 2.5rem;
-font-weight: 300;
-color: #A8782A;
-line-height: 1;
-margin-bottom: 0.4rem;
-}
-
-.stat-label {
-font-size: 0.75rem;
-color: rgba(240,232,220,0.6);
-line-height: 1.5;
-}
-
-.stat-source {
-font-size: 0.6rem;
-color: rgba(240,232,220,0.3);
-margin-top: 0.3rem;
-font-style: italic;
-}
+/* THREE R’s CARDS */
+.three-r-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:#C9B89E; margin:2rem 0; }
+.r-card { background:#1A100C; padding:2rem 1.5rem; }
+.r-letter { font-family:‘Cormorant Garamond’,serif; font-size:4rem; font-weight:300; color:#A8782A; line-height:1; margin-bottom:0.3rem; }
+.r-word { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; font-style:italic; color:#F0E8DC; margin-bottom:0.8rem; }
+.r-desc { font-size:0.82rem; color:rgba(240,232,220,0.7); line-height:1.6; }
+.r-example { font-size:0.78rem; color:rgba(168,120,42,0.8); margin-top:0.8rem; font-style:italic; border-top:1px solid rgba(255,255,255,0.08); padding-top:0.8rem; }
 
 /* TECHNIQUE CARDS */
-.technique-card {
-background: white;
-margin: 1.5rem 0;
-overflow: hidden;
-border-left: 4px solid #8B3A2A;
-transition: border-color 0.3s;
-}
-
-.technique-card:hover { border-color: #A8782A; }
-
-.technique-header {
-background: #1A100C;
-padding: 1.2rem 1.8rem;
-display: flex;
-align-items: center;
-gap: 1rem;
-}
-
-.technique-icon {
-font-size: 1.4rem;
-flex-shrink: 0;
-}
-
-.technique-name {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.3rem;
-font-weight: 400;
-color: #F0E8DC;
-}
-
-.technique-tag {
-margin-left: auto;
-font-size: 0.6rem;
-letter-spacing: 0.12em;
-text-transform: uppercase;
-color: #A8782A;
-border: 1px solid rgba(168,120,42,0.4);
-padding: 0.2rem 0.6rem;
-flex-shrink: 0;
-}
-
-.technique-body {
-padding: 1.5rem 1.8rem;
-}
-
-.technique-body p {
-font-size: 0.92rem;
-line-height: 1.75;
-color: #4A3020;
-margin-bottom: 0.8rem;
-}
-
-.technique-body strong { color: #1A100C; font-weight: 500; }
-
-.how-to {
-background: rgba(30,51,32,0.06);
-border-left: 3px solid #1E3320;
-padding: 1rem 1.2rem;
-margin-top: 0.8rem;
-}
-
-.how-to-label {
-font-size: 0.62rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: #1E3320;
-margin-bottom: 0.5rem;
-font-weight: 500;
-}
-
-.how-to p {
-font-size: 0.88rem;
-line-height: 1.7;
-color: #1E3320;
-margin: 0;
-}
-
-.evidence-tag {
-display: inline-flex;
-align-items: center;
-gap: 0.4rem;
-font-size: 0.62rem;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: #A8782A;
-background: rgba(168,120,42,0.08);
-padding: 0.25rem 0.7rem;
-margin-top: 0.8rem;
-border: 1px solid rgba(168,120,42,0.2);
-}
-
-/* RESEARCH BOX */
-.research-box {
-background: #1A100C;
-padding: 2.5rem;
-margin: 2rem 0;
-position: relative;
-overflow: hidden;
-}
-
-.research-box::before {
-content: ‘”’;
-position: absolute;
-top: -1rem;
-left: 1.5rem;
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 8rem;
-color: rgba(255,255,255,0.05);
-line-height: 1;
-}
-
-.research-box p {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.25rem;
-font-style: italic;
-color: #F0E8DC;
-line-height: 1.6;
-margin-bottom: 0.6rem;
-position: relative;
-z-index: 1;
-}
-
-.research-source {
-font-size: 0.7rem;
-color: #A8782A;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-}
+.technique-card { background:white; border-left:4px solid #C9B89E; padding:2rem; margin:1.5rem 0; transition:border-color 0.3s; }
+.technique-card:hover { border-color:#8B3A2A; }
+.technique-num { font-family:‘Cormorant Garamond’,serif; font-size:2.5rem; font-weight:300; color:#C9B89E; line-height:1; float:right; margin-left:1rem; }
+.technique-name { font-family:‘Cormorant Garamond’,serif; font-size:1.3rem; font-weight:600; color:#1A100C; margin-bottom:0.3rem; }
+.technique-tag { font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#A8782A; margin-bottom:1rem; display:block; }
+.technique-card p { font-size:0.92rem; line-height:1.75; color:#4A3020; margin-bottom:0.7rem; }
+.technique-card strong { color:#1A100C; font-weight:500; }
+.technique-card .forest-callout { clear:both; }
 
 /* SAY / DON’T SAY */
-.say-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 1.5px;
-background: #C9B89E;
-margin: 1.5rem 0;
-}
-
-.say-col {
-background: white;
-padding: 1.5rem;
-}
-
-.say-col-header {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-margin-bottom: 1rem;
-font-weight: 500;
-padding-bottom: 0.6rem;
-border-bottom: 2px solid;
-}
-
-.say-col.do .say-col-header { color: #1E3320; border-color: #1E3320; }
-.say-col.dont .say-col-header { color: #8B3A2A; border-color: #8B3A2A; }
-
-.say-item {
-font-size: 0.88rem;
-line-height: 1.6;
-color: #4A3020;
-padding: 0.5rem 0;
-border-bottom: 1px solid rgba(201,184,158,0.3);
-display: flex;
-gap: 0.6rem;
-align-items: flex-start;
-}
-
-.say-item:last-child { border-bottom: none; }
-
-.say-icon { flex-shrink: 0; font-size: 0.9rem; margin-top: 0.05rem; }
-
-/* 3 R’S */
-.three-r {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 1.5px;
-background: #C9B89E;
-margin: 1.5rem 0;
-}
-
-.r-card {
-background: #1E3320;
-padding: 2rem 1.5rem;
-text-align: center;
-}
-
-.r-letter {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 3.5rem;
-font-weight: 300;
-color: #A8782A;
-line-height: 1;
-margin-bottom: 0.4rem;
-}
-
-.r-word {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-color: #F0E8DC;
-margin-bottom: 0.8rem;
-font-style: italic;
-}
-
-.r-desc {
-font-size: 0.8rem;
-color: rgba(240,232,220,0.65);
-line-height: 1.6;
-}
-
-/* SAGE SECTION */
-.sage-section {
-background: #1E3320;
-padding: 2.5rem;
-margin: 3rem 0;
-}
-
-.sage-label {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #A8782A;
-margin-bottom: 0.8rem;
-}
-
-.sage-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.3rem;
-color: #F0E8DC;
-margin-bottom: 1.2rem;
-}
-
-.sage-prompts {
-list-style: none;
-display: flex;
-flex-direction: column;
-gap: 0.7rem;
-}
-
-.sage-prompts li {
-font-size: 0.88rem;
-color: rgba(240,232,220,0.75);
-line-height: 1.6;
-padding-left: 1.2rem;
-position: relative;
-}
-
-.sage-prompts li::before {
-content: ‘→’;
-position: absolute;
-left: 0;
-color: #A8782A;
-}
-
-.sage-btn {
-display: inline-block;
-margin-top: 1.5rem;
-background: #A8782A;
-color: #1A100C;
-padding: 0.7rem 1.5rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.75rem;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-text-decoration: none;
-transition: all 0.3s ease;
-}
-
-.sage-btn:hover { background: #F0E8DC; }
-
-/* SOURCES */
-.sources-section {
-border-top: 1px solid #C9B89E;
-padding-top: 2rem;
-margin-top: 3rem;
-}
-
-.sources-label {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #9C7A52;
-margin-bottom: 1rem;
-}
-
-.source-item {
-font-size: 0.78rem;
-color: #9C7A52;
-line-height: 1.7;
-margin-bottom: 0.6rem;
-padding-left: 1rem;
-border-left: 2px solid #C9B89E;
-}
-
-/* QUIZ DIVIDER */
-.quiz-divider {
-background: #1E3320;
-padding: 4rem 2rem;
-text-align: center;
-margin-top: 2rem;
-}
-
-.quiz-divider h2 {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(2rem, 4vw, 3rem);
-font-weight: 300;
-color: white;
-margin-bottom: 0.8rem;
-}
-
-.quiz-divider h2 em { font-style: italic; color: #A8782A; }
-
-.quiz-divider p {
-font-size: 0.95rem;
-color: rgba(255,255,255,0.65);
-margin-bottom: 2rem;
-max-width: 50ch;
-margin-left: auto;
-margin-right: auto;
-line-height: 1.7;
-}
-
-.btn-start-quiz {
-background: #A8782A;
-color: #1A100C;
-border: none;
-padding: 1rem 2.5rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.9rem;
-font-weight: 500;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-.btn-start-quiz:hover {
-background: white;
-transform: translateY(-2px);
-}
-
-/* QUIZ */
-#quiz-section { display: none; background: #F0E8DC; }
-#quiz-section.active { display: block; }
-
-.quiz-header-bar {
-background: #1A100C;
-padding: 1rem 2rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: sticky;
-top: 57px;
-z-index: 98;
-}
-
-.quiz-title-bar {
-font-size: 0.75rem;
-color: rgba(240,232,220,0.6);
-letter-spacing: 0.08em;
-text-transform: uppercase;
-}
-
-.quiz-progress-bar {
-width: 140px;
-height: 3px;
-background: rgba(255,255,255,0.15);
-border-radius: 2px;
-overflow: hidden;
-}
-
-.quiz-progress-fill {
-height: 100%;
-background: #A8782A;
-transition: width 0.4s ease;
-width: 0%;
-}
-
-.quiz-progress-text {
-font-size: 0.72rem;
-color: rgba(240,232,220,0.5);
-}
-
-.quiz-inner {
-max-width: 720px;
-margin: 0 auto;
-padding: 3rem 2rem;
-}
-
-.q-num {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #9C7A52;
-margin-bottom: 0.8rem;
-}
-
-.q-text {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-font-weight: 400;
-line-height: 1.4;
-color: #1A100C;
-margin-bottom: 2rem;
-max-width: 58ch;
-}
-
-.options-list {
-display: flex;
-flex-direction: column;
-gap: 0.7rem;
-}
-
-.opt-btn {
-background: white;
-border: 1.5px solid #C9B89E;
-padding: 1rem 1.4rem;
-text-align: left;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.9rem;
-color: #1A100C;
-cursor: pointer;
-transition: all 0.2s ease;
-line-height: 1.5;
-position: relative;
-border-radius: 2px;
-}
-
-.opt-btn:hover:not(:disabled) {
-border-color: #8B3A2A;
-background: #FDF8F4;
-transform: translateX(4px);
-}
-
-.opt-btn.correct {
-background: rgba(30,51,32,0.08);
-border-color: #1E3320;
-color: #1E3320;
-font-weight: 500;
-}
-
-.opt-btn.correct::after {
-content: ‘✓’;
-position: absolute;
-right: 1rem;
-top: 50%;
-transform: translateY(-50%);
-color: #1E3320;
-font-weight: 700;
-}
-
-.opt-btn.incorrect {
-background: rgba(139,58,42,0.08);
-border-color: #8B3A2A;
-color: #8B3A2A;
-}
-
-.opt-btn.incorrect::after {
-content: ‘✗’;
-position: absolute;
-right: 1rem;
-top: 50%;
-transform: translateY(-50%);
-color: #8B3A2A;
-font-weight: 700;
-}
-
-.opt-btn.dimmed { opacity: 0.35; cursor: default; }
-.opt-btn:disabled { cursor: default; }
-
-.q-feedback {
-display: none;
-padding: 1.5rem;
-margin-top: 1rem;
-border-left: 3px solid #A8782A;
-background: white;
-animation: fadeUp 0.3s ease;
-}
-
-.q-feedback.show { display: block; }
-
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(6px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-.feedback-tag {
-font-size: 0.62rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-margin-bottom: 0.5rem;
-font-weight: 500;
-}
-
-.q-feedback p {
-font-size: 0.88rem;
-line-height: 1.75;
-color: #4A3020;
-margin: 0;
-}
-
-.q-feedback p strong { color: #1A100C; font-weight: 500; }
-
-.btn-next-q {
-display: none;
-margin-top: 1.5rem;
-background: #1A100C;
-color: white;
-border: none;
-padding: 0.85rem 1.8rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.8rem;
-font-weight: 500;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-cursor: pointer;
-transition: background 0.3s;
-}
-
-.btn-next-q.show { display: inline-block; }
-.btn-next-q:hover { background: #8B3A2A; }
-
-/* RESULTS */
-.results-section {
-display: none;
-max-width: 720px;
-margin: 0 auto;
-padding: 3rem 2rem;
-text-align: center;
-}
-
-.results-section.show { display: block; }
-
-.score-ring {
-width: 130px;
-height: 130px;
-border-radius: 50%;
-background: #1A100C;
-border: 4px solid #A8782A;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-margin: 0 auto 2rem;
-}
-
-.score-big {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 2.8rem;
-color: white;
-line-height: 1;
-font-weight: 300;
-}
-
-.score-sub {
-font-size: 0.65rem;
-color: #A8782A;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-}
-
-.result-heading {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.8rem;
-font-weight: 300;
-color: #1A100C;
-margin-bottom: 0.8rem;
-line-height: 1.3;
-}
-
-.result-heading em { font-style: italic; color: #8B3A2A; }
-
-.result-body {
-font-size: 0.92rem;
-line-height: 1.8;
-color: #4A3020;
-max-width: 50ch;
-margin: 0 auto 2rem;
-}
-
-.review-cards {
-text-align: left;
-display: flex;
-flex-direction: column;
-gap: 0.8rem;
-margin: 2rem 0;
-}
-
-.review-card {
-background: white;
-padding: 1rem 1.2rem;
-border-left: 3px solid #C9B89E;
-font-size: 0.82rem;
-}
-
-.review-card.right { border-color: #1E3320; }
-.review-card.wrong { border-color: #8B3A2A; }
-.review-card .rq { color: #9C7A52; font-size: 0.78rem; font-style: italic; margin-bottom: 0.3rem; }
-.review-card .ra { color: #1A100C; font-weight: 500; }
-
-.result-actions {
-display: flex;
-gap: 1rem;
-justify-content: center;
-flex-wrap: wrap;
-margin-top: 2rem;
-}
-
-.btn-retry-quiz {
-background: transparent;
-border: 1.5px solid #8B3A2A;
-color: #8B3A2A;
-padding: 0.8rem 1.8rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.8rem;
-font-weight: 500;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-cursor: pointer;
-transition: all 0.3s;
-}
-
-.btn-retry-quiz:hover { background: #8B3A2A; color: white; }
-
-.btn-prev-module, .btn-next-module {
-padding: 0.8rem 1.8rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.8rem;
-font-weight: 500;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-cursor: pointer;
-transition: background 0.3s;
-text-decoration: none;
-display: inline-block;
-border: none;
-}
-
-.btn-prev-module { background: #C9B89E; color: #1A100C; }
-.btn-prev-module:hover { background: #9C7A52; color: white; }
-.btn-next-module { background: #1E3320; color: white; }
-.btn-next-module:hover { background: #1A100C; }
-
-.results-citation {
-font-size: 0.7rem;
-color: #9C7A52;
-font-style: italic;
-margin-top: 2.5rem;
-}
-
-footer {
-background: #1A100C;
-padding: 2rem 4rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-gap: 1rem;
-}
-
-.footer-logo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-color: #F0E8DC;
-}
-
-.footer-logo span { color: #A8782A; }
-
-.footer-copy {
-font-size: 0.7rem;
-color: rgba(240,232,220,0.35);
-}
-
-@media (max-width: 640px) {
-nav, footer { padding: 1rem 1.5rem; }
-.module-hero { padding: 3rem 1.5rem 2.5rem; }
-.module-content, .quiz-inner, .results-section { padding: 2.5rem 1.2rem; }
-.say-grid, .three-r { grid-template-columns: 1fr; }
-.stat-bar { grid-template-columns: 1fr; }
-.quiz-header-bar { flex-wrap: wrap; gap: 0.5rem; }
+.say-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#C9B89E; margin:2rem 0; }
+.say-col { background:white; padding:1.8rem; }
+.say-header { font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; padding-bottom:0.8rem; border-bottom:2px solid; margin-bottom:1rem; }
+.say-col.do .say-header { color:#1E3320; border-color:#1E3320; }
+.say-col.dont .say-header { color:#8B3A2A; border-color:#8B3A2A; }
+.say-item { font-size:0.88rem; color:#3A2010; padding:0.35rem 0; border-bottom:1px solid #F0EDE8; line-height:1.5; }
+.say-item:last-child { border-bottom:none; }
+.say-item em { font-style:italic; color:#9C7A52; font-size:0.8rem; display:block; margin-top:0.1rem; }
+
+/* EPIDURAL STAGE CARDS */
+.stage-card { background:white; border-left:4px solid #C9B89E; padding:2rem; margin:1.5rem 0; }
+.stage-card-title { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; font-weight:600; color:#1A100C; margin-bottom:0.5rem; }
+.stage-label { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#A8782A; margin-bottom:0.4rem; display:block; }
+.stage-card p { font-size:0.92rem; line-height:1.75; color:#4A3020; margin-bottom:0.7rem; }
+
+/* WATER THERAPY */
+.water-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#C9B89E; margin:2rem 0; }
+.water-card { background:#1A2640; padding:1.8rem; }
+.water-title { font-family:‘Cormorant Garamond’,serif; font-size:1rem; color:#F0E8DC; margin-bottom:0.5rem; }
+.water-text { font-size:0.82rem; color:rgba(240,232,220,0.75); line-height:1.6; }
+.water-note { font-size:0.75rem; color:rgba(168,120,42,0.8); margin-top:0.6rem; font-style:italic; }
+
+/* KNOWLEDGE CHECK */
+.knowledge-check { background:#1A100C; padding:3rem; margin:3rem 0 0; }
+.kc-header { font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:#A8782A; margin-bottom:0.5rem; }
+.kc-title { font-family:‘Cormorant Garamond’,serif; font-size:1.8rem; font-weight:300; color:#F0E8DC; margin-bottom:0.5rem; }
+.kc-subtitle { font-size:0.82rem; color:rgba(240,232,220,0.5); margin-bottom:2rem; }
+.kc-question { margin-bottom:2rem; }
+.kc-q-text { font-size:0.95rem; color:#F0E8DC; line-height:1.6; margin-bottom:1rem; font-weight:400; }
+.kc-options { display:flex; flex-direction:column; gap:0.5rem; }
+.kc-option { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.9rem 1.2rem; cursor:pointer; font-size:0.88rem; color:rgba(240,232,220,0.75); transition:all 0.2s; display:flex; align-items:center; gap:0.8rem; text-align:left; font-family:‘DM Sans’,sans-serif; }
+.kc-option:hover { background:rgba(168,120,42,0.1); border-color:rgba(168,120,42,0.3); color:#F0E8DC; }
+.kc-option.correct { background:rgba(30,51,32,0.4); border-color:#1E3320; color:#F0E8DC; }
+.kc-option.incorrect { background:rgba(139,58,42,0.2); border-color:#8B3A2A; color:rgba(240,232,220,0.6); }
+.kc-option.disabled { pointer-events:none; }
+.kc-indicator { width:18px; height:18px; border-radius:50%; border:1.5px solid rgba(255,255,255,0.2); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.7rem; }
+.kc-option.correct .kc-indicator { background:#1E3320; border-color:#1E3320; color:white; }
+.kc-option.incorrect .kc-indicator { background:#8B3A2A; border-color:#8B3A2A; color:white; }
+.kc-feedback { margin-top:0.8rem; padding:0.9rem 1.2rem; font-size:0.85rem; line-height:1.6; border-left:3px solid; display:none; }
+.kc-feedback.correct-fb { background:rgba(30,51,32,0.2); border-color:#1E3320; color:rgba(240,232,220,0.85); }
+.kc-feedback.incorrect-fb { background:rgba(139,58,42,0.15); border-color:#8B3A2A; color:rgba(240,232,220,0.75); }
+.kc-feedback.show { display:block; }
+.kc-score { display:none; background:rgba(168,120,42,0.1); border:1px solid rgba(168,120,42,0.3); padding:1.5rem; margin-top:1rem; text-align:center; }
+.kc-score.show { display:block; }
+.kc-score-num { font-family:‘Cormorant Garamond’,serif; font-size:3rem; color:#A8782A; line-height:1; }
+.kc-score-label { font-size:0.75rem; color:rgba(240,232,220,0.5); letter-spacing:0.1em; text-transform:uppercase; margin-top:0.3rem; }
+.kc-score-msg { font-size:0.9rem; color:#F0E8DC; margin-top:0.8rem; line-height:1.6; }
+
+.next-lesson { background:#F0E8DC; border-top:2px solid #C9B89E; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; }
+.next-label { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:#9C7A52; margin-bottom:0.3rem; }
+.next-title { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; color:#1A100C; }
+.btn-next { background:#8B3A2A; color:#F0E8DC; border:none; padding:0.9rem 2rem; font-family:‘DM Sans’,sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.2s; }
+.btn-next:hover { background:#6B2A1A; }
+.btn-next:disabled { background:#C9B89E; cursor:not-allowed; color:#F0E8DC; }
+
+.tool-download { background:#F0E8DC; padding:3rem 2rem; text-align:center; border-top:1px solid #C9B89E; }
+.tool-download .eyebrow { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.8rem; }
+.tool-download h3 { font-family:‘Cormorant Garamond’,serif; font-size:1.8rem; font-weight:300; color:#1A100C; margin-bottom:0.6rem; }
+.tool-download p { font-size:0.9rem; color:#4A3020; max-width:48ch; margin:0 auto 1.5rem; line-height:1.7; }
+.btn-download { display:inline-block; background:#8B3A2A; color:white; padding:0.9rem 2.5rem; font-family:‘DM Sans’,sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; }
+
+.sage-section { background:white; padding:3rem; border-top:1px solid #C9B89E; text-align:center; }
+.sage-eyebrow { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.5rem; }
+.sage-title { font-family:‘Cormorant Garamond’,serif; font-size:1.6rem; font-weight:300; color:#1A100C; margin-bottom:1.5rem; }
+.sage-prompts { display:flex; flex-direction:column; gap:0.5rem; max-width:60ch; margin:0 auto 1.5rem; }
+.sage-prompt { font-size:0.85rem; color:#9C7A52; font-style:italic; padding:0.6rem; border:1px solid #E8DDD0; }
+.btn-sage { display:inline-block; background:#8B3A2A; color:white; padding:0.8rem 2rem; font-family:‘DM Sans’,sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; }
+
+.complete-banner { background:#8B3A2A; padding:3rem; text-align:center; display:none; }
+.complete-banner.show { display:block; }
+.complete-banner h2 { font-family:‘Cormorant Garamond’,serif; font-size:2rem; font-weight:300; color:#F0E8DC; margin-bottom:0.5rem; }
+.complete-banner p { font-size:0.9rem; color:rgba(240,232,220,0.7); margin-bottom:1.5rem; }
+.btn-module-next { display:inline-block; background:#F0C880; color:#1A100C; padding:1rem 2.5rem; font-family:‘DM Sans’,sans-serif; font-size:0.85rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; }
+
+.citations { padding:3rem 2rem; max-width:780px; margin:0 auto; }
+.citations-title { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#9C7A52; margin-bottom:1.5rem; }
+.citation-item { font-size:0.8rem; color:#9C7A52; line-height:1.6; padding:0.6rem 0; border-bottom:1px solid #E8DDD0; }
+.citation-item em { font-style:italic; }
+
+@media (max-width:768px) {
+nav { padding:1rem 1.5rem; }
+.module-hero { padding:3rem 1.5rem; }
+.lesson-nav { padding:0 1rem; }
+.module-content { padding:2.5rem 1.5rem; }
+.three-r-grid { grid-template-columns:1fr; }
+.say-grid { grid-template-columns:1fr; }
+.water-grid { grid-template-columns:1fr; }
+.stat-block { flex-direction:column; gap:1rem; text-align:center; }
+.next-lesson { flex-direction:column; gap:1.5rem; text-align:center; }
 }
 </style>
 
@@ -902,519 +190,857 @@ nav, footer { padding: 1rem 1.5rem; }
 
 <nav>
   <a href="index.html" class="nav-logo">Pregnancy <span>Partnership</span></a>
-  <a href="index.html#course" class="nav-back">← Back to Course</a>
+  <a href="index.html" class="nav-back">← Back to Course</a>
 </nav>
-
-<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
+<div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
 
 <div class="module-hero">
-  <div class="module-eyebrow">Module 2 of 5</div>
+  <div class="module-eyebrow">Module 02 of 05</div>
   <h1 class="module-title">The Partner <em>Playbook</em></h1>
   <div class="module-meta">
-    <div class="meta-pill">📖 20 min read</div>
-    <div class="meta-pill">🤲 Hands-on techniques</div>
-    <div class="meta-pill">❓ 10-question quiz</div>
-    <div class="meta-pill">👥 Practice together</div>
+    <span class="meta-pill">📖 5 Lessons</span>
+    <span class="meta-pill">✓ Knowledge checks after each lesson</span>
+    <span class="meta-pill">👥 Partner focus</span>
   </div>
 </div>
 
-<div class="module-content" id="moduleContent">
+<div class="lesson-nav">
+  <button class="lesson-tab active" onclick="showLesson(1)" id="tab-1">Lesson 1</button>
+  <button class="lesson-tab" onclick="showLesson(2)" id="tab-2">Lesson 2</button>
+  <button class="lesson-tab" onclick="showLesson(3)" id="tab-3">Lesson 3</button>
+  <button class="lesson-tab" onclick="showLesson(4)" id="tab-4">Lesson 4</button>
+  <button class="lesson-tab" onclick="showLesson(5)" id="tab-5">Lesson 5</button>
+</div>
 
-  <!-- INTRO -->
+<div class="module-content">
 
-  <div class="section-block">
-    <span class="eyebrow-label">Before You Begin</span>
-    <h2>This is the module that <em>changes everything.</em></h2>
-    <p>Module 1 gave you the map. Module 2 gives you the tools.</p>
-    <p>Knowing what labor is and being able to <em>support</em> someone through it are two different things. This module is about the second one. The concrete, physical, in-the-moment things you can do — that have been studied, taught, and practiced across hundreds of thousands of births — that make a real difference to the person you love.</p>
-    <p>You are not a bystander. You are not there to watch. You are there to <strong>do something.</strong> This module teaches you exactly what that something is.</p>
+<!-- ============================================================ -->
+
+<!-- LESSON 1: Why Partners Fail -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel active" id="lesson-1">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 1 of 5</span>
+    <h1>Why Partners <em>Fail</em> — And How You Won't</h1>
+    <p class="lesson-intro">Most partners enter the birth room well-intentioned and genuinely loving — and still fall short. Understanding exactly why that happens is the first step to making sure it doesn't happen to you.</p>
   </div>
 
-  <!-- RESEARCH INTRO -->
-
   <div class="section-block">
-    <span class="eyebrow-label">The Evidence</span>
-    <h2>What the research <em>actually shows</em></h2>
+    <span class="eyebrow-label">The Research</span>
+    <h2>Partners don't fail because they don't care. <em>They fail because nobody taught them.</em></h2>
+    <p>The research on partner support during labor is consistent and somewhat uncomfortable: the presence of a non-birthing partner in the birth room does not automatically improve outcomes or the birthing parent's experience. What improves outcomes is <strong>prepared, active, informed partner support.</strong></p>
+    <p>A partner standing at the bedside checking their phone, asking the nurse what's happening, or saying "you've got this" every few minutes is not a neutral presence — they can actually increase the birthing parent's stress by creating a second situation to manage. This is not a character indictment. It is a preparation failure.</p>
 
 ```
-<div class="stat-bar">
-  <div class="stat-item">
-    <div class="stat-num">39%</div>
-    <div class="stat-label">reduction in cesarean risk with continuous doula-style support</div>
-    <div class="stat-source">Bohren et al., Cochrane Review, 2017</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">41 min</div>
-    <div class="stat-label">shorter average labor with continuous support</div>
-    <div class="stat-source">Bohren et al., 2017 · 16,000 women across 27 RCTs</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">31%</div>
-    <div class="stat-label">reduction in birth dissatisfaction</div>
-    <div class="stat-source">Sakala, Journal of Perinatal Education, 2019</div>
-  </div>
+<div class="stat-block">
+  <div class="stat-num">39%</div>
+  <div class="stat-text"><strong>reduction in cesarean rates</strong> associated with continuous, informed labor support — not just presence, but active, skilled support. Bohren et al., Cochrane Review, 2017.</div>
 </div>
 
-<p>The most comprehensive review of labor support ever conducted — a Cochrane systematic review pooling data from 27 randomized controlled trials involving nearly 16,000 women across 17 countries — found that continuous, engaged support during labor produces measurable improvements across every major birth outcome. Shorter labors. Fewer cesareans. Less pain medication. Higher satisfaction.</p>
-
-<div class="research-box">
-  <p>"Continuous support leads to a 25% reduction in cesarean risk overall — and when the support comes from someone in a doula role, the risk reduction increases to 39%. No harms were identified."</p>
-  <div class="research-source">Bohren et al. · Cochrane Database of Systematic Reviews · 2017</div>
-</div>
-
-<p>These numbers come from the partner being <em>engaged and present</em> — not just in the room. A 2023 study of 980 births found that only <strong>continuous</strong> partner presence — not intermittent, not checking in — predicted lower-intervention births. Being present throughout matters. What you do while you're present matters. This module is about both.</p>
+<p>That statistic is not about doulas alone. It is about informed, continuous support from any person who knows what they are doing. You can be that person. This module teaches you how.</p>
 ```
 
   </div>
 
-  <!-- PENNY SIMKIN -->
+  <div class="section-block">
+    <span class="eyebrow-label">The Four Failure Patterns</span>
+    <h2>How it usually goes wrong — <em>and what's underneath each one</em></h2>
+
+```
+<div class="technique-card">
+  <div class="technique-num">01</div>
+  <div class="technique-name">The Freeze</div>
+  <span class="technique-tag">Most common in active labor and transition</span>
+  <p>The partner stands still, watching, unsure what to do. They want to help but don't know what helping looks like. They're afraid to do the wrong thing. So they do nothing.</p>
+  <p><strong>What's underneath it:</strong> Lack of specific, practical preparation. "Support your partner" is not an instruction. "Apply firm counter-pressure to the sacrum during each contraction" is an instruction.</p>
+  <div class="forest-callout"><strong>The fix:</strong> Specific, practiced techniques. That's Lesson 3 of this module.</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-num">02</div>
+  <div class="technique-name">The Fixer</div>
+  <span class="technique-tag">Most common when labor becomes intense</span>
+  <p>The partner tries to solve the problem. They suggest interventions, ask about epidurals, ask the nurse if something is wrong, propose position changes every five minutes without reading any signals. They are managing their own anxiety by doing things.</p>
+  <p><strong>What's underneath it:</strong> Watching someone in pain is intolerable. The fixer is not being insensitive — they are being overwhelmed. The impulse to fix is the impulse to love. But labor is not a problem to be fixed. It is a process to be supported.</p>
+  <div class="forest-callout"><strong>The fix:</strong> Understanding what labor is supposed to look like, and distinguishing normal intensity from actual distress. That's Module 1. You've already done that work.</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-num">03</div>
+  <div class="technique-name">The Disappearer</div>
+  <span class="technique-tag">Most common in long labors</span>
+  <p>The partner steps out briefly and doesn't come back quickly. They're in the cafeteria, on the phone, in the waiting room with family. Physical absence during an active contraction is the worst thing a partner can do — and long labors create many opportunities for it.</p>
+  <p><strong>What's underneath it:</strong> Long labors are exhausting and there's no clear instruction about when to stay vs. when it's okay to step away. Partners without a plan drift.</p>
+  <div class="forest-callout"><strong>The fix:</strong> A clear protocol — when you leave, who is with your partner, for how long, and how to communicate. Never disappear silently.</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-num">04</div>
+  <div class="technique-name">The Cheerleader</div>
+  <span class="technique-tag">Harmless in early labor, counterproductive in transition</span>
+  <p>"You've got this!" "You're doing so great!" "Almost there!" These phrases feel supportive to the person saying them and can feel disconnected and hollow to the person hearing them during transition. Generic encouragement at peak intensity can feel like the partner doesn't actually understand what's happening.</p>
+  <p><strong>What's underneath it:</strong> The partner genuinely wants to encourage but doesn't have specific, present, responsive language to draw on.</p>
+  <div class="forest-callout"><strong>The fix:</strong> Specific, present, observational language. "You breathed through that one." "That was a strong one — it's over." "I can see how hard you're working." Observation beats cheerleading every time.</div>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">What Prepared Support Actually Looks Like</span>
+    <h2>Presence is not passive. <em>It is a skill.</em></h2>
+    <p>The research literature on labor support uses a consistent phrase: <em>continuous, informed, responsive support.</em> Each word matters.</p>
+    <p><strong>Continuous</strong> means present and attentive throughout, not checking in periodically. <strong>Informed</strong> means understanding what's happening and why. <strong>Responsive</strong> means adapting to what your partner actually needs in real time — not what you think they need or what worked five contractions ago.</p>
+    <p>This module gives you the framework and the specific techniques. But technique without presence is hollow. The single most important thing you bring into that room is your complete, undivided, unhurried attention.</p>
+
+```
+<div class="truth-box">
+  <div class="truth-label">The reframe</div>
+  <p>Your job in the birth room is not to make labor comfortable. It is not to stop labor from being hard. <strong>Your job is to make sure your partner never feels alone in it.</strong> That is a different and achievable goal.</p>
+</div>
+```
+
+  </div>
+
+  <div class="knowledge-check" id="kc-1">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 1 Check-In</div>
+    <div class="kc-subtitle">3 questions before moving on.</div>
+
+```
+<div class="kc-question" id="kc1-q1">
+  <div class="kc-q-text">1. According to the Cochrane Review, informed continuous labor support is associated with what outcome?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q1',this,false,'Shorter labor is sometimes associated with good support, but the landmark statistic from the Cochrane Review specifically references cesarean rates.')"><span class="kc-indicator"></span>Shorter labor duration by 50%</button>
+    <button class="kc-option" onclick="answerKC('kc1-q1',this,true,'Correct. The Bohren et al. Cochrane Review found a 39% reduction in cesarean rates associated with continuous, informed labor support — a significant clinical outcome from preparation alone.')"><span class="kc-indicator"></span>39% reduction in cesarean rates</button>
+    <button class="kc-option" onclick="answerKC('kc1-q1',this,false,'Pain reduction is a common outcome of good support, but the specific landmark statistic cited is the 39% reduction in cesarean rates.')"><span class="kc-indicator"></span>Complete elimination of labor pain</button>
+    <button class="kc-option" onclick="answerKC('kc1-q1',this,false,'While good support improves satisfaction, the clinical outcome most cited in the Cochrane Review is the reduction in cesarean rates.')"><span class="kc-indicator"></span>Higher patient satisfaction scores</button>
+  </div>
+  <div class="kc-feedback" id="kc1-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc1-q2">
+  <div class="kc-q-text">2. A partner who keeps suggesting interventions and asking the nurse questions every few minutes is exhibiting which failure pattern?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q2',this,false,'The Freeze involves inaction — standing still and doing nothing. Repeated interventions and questions is a different pattern.')"><span class="kc-indicator"></span>The Freeze</button>
+    <button class="kc-option" onclick="answerKC('kc1-q2',this,true,'Exactly. The Fixer is managing their own anxiety through action — proposing solutions, asking questions, attempting to resolve the discomfort. The impulse comes from love but the effect is counterproductive.')"><span class="kc-indicator"></span>The Fixer</button>
+    <button class="kc-option" onclick="answerKC('kc1-q2',this,false,'The Disappearer involves physical absence from the room. Being present but hyperactive with suggestions is a different failure pattern.')"><span class="kc-indicator"></span>The Disappearer</button>
+    <button class="kc-option" onclick="answerKC('kc1-q2',this,false,'The Cheerleader uses generic encouragement phrases. Asking clinical questions and suggesting interventions is a different pattern — the Fixer.')"><span class="kc-indicator"></span>The Cheerleader</button>
+  </div>
+  <div class="kc-feedback" id="kc1-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc1-q3">
+  <div class="kc-q-text">3. Which of the following best describes "responsive" support?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q3',this,false,'Responding to every contraction with counter-pressure regardless of signals is not responsive — it is formulaic. Responsive support adapts to what is actually needed.')"><span class="kc-indicator"></span>Applying the same technique every contraction no matter what</button>
+    <button class="kc-option" onclick="answerKC('kc1-q3',this,false,'Following a rigid script is the opposite of responsive. Responsive support reads the situation and adapts — it is not formulaic.')"><span class="kc-indicator"></span>Following a strict script of actions in order</button>
+    <button class="kc-option" onclick="answerKC('kc1-q3',this,true,'Exactly right. Responsive support means reading your partner in real time and adapting to what they actually need — not what you decided they would need beforehand.')"><span class="kc-indicator"></span>Adapting to what your partner actually needs in real time based on their signals</button>
+    <button class="kc-option" onclick="answerKC('kc1-q3',this,false,'Asking what is needed between every contraction interrupts the rhythm and focus of labor. Responsiveness means reading signals, not constant verbal check-ins.')"><span class="kc-indicator"></span>Asking "what do you need?" after every single contraction</button>
+  </div>
+  <div class="kc-feedback" id="kc1-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-1-score">
+  <div class="kc-score-num" id="kc-1-score-num"></div>
+  <div class="kc-score-label">Lesson 1 Complete</div>
+  <div class="kc-score-msg" id="kc-1-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-1">
+    <div><div class="next-label">Up next</div><div class="next-title">Lesson 2 — The 3 R's Framework</div></div>
+    <button class="btn-next" id="btn-next-1" onclick="showLesson(2)" disabled>Continue →</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+
+<!-- LESSON 2: The 3 R's Framework -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-2">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 2 of 5</span>
+    <h1>The 3 R's <em>Framework</em></h1>
+    <p class="lesson-intro">Penny Simkin's 3 R's — Relaxation, Rhythm, Ritual — are the most evidence-supported framework for labor support in existence. They're not techniques. They're principles that make every technique work better.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Who is Penny Simkin</span>
+    <h2>The research behind <em>the framework</em></h2>
+    <p>Penny Simkin is a physical therapist, birth doula, and one of the founders of DONA International — the world's largest doula organization. Her research on labor support spans four decades and is cited in virtually every major study on partner and doula-assisted birth. The 3 R's framework emerged from her observation of thousands of labors: that the most effective support, regardless of technique, always shared three qualities.</p>
+    <p>Understanding <em>why</em> these three principles work — not just what they are — changes how you apply them in real time.</p>
+  </div>
 
   <div class="section-block">
     <span class="eyebrow-label">The Framework</span>
-    <h2>The 3 R's — <em>your coaching structure</em></h2>
-    <p>Penny Simkin is a physical therapist, co-founder of DONA International, and the author of <em>The Birth Partner</em> — required reading for DONA certification and arguably the most influential text in birth support education. Over decades of practice and research, she identified a simple but powerful framework for what effective labor support looks like:</p>
+    <h2>Relaxation, Rhythm, and Ritual — <em>what they are and why they matter</em></h2>
 
 ```
-<div class="three-r">
+<div class="three-r-grid">
   <div class="r-card">
     <div class="r-letter">R</div>
     <div class="r-word">Relaxation</div>
-    <div class="r-desc">Keeping adrenaline low and endorphins flowing. Slow breathing, a calm environment, your steady presence. When the birthing person is relaxed between contractions, labor progresses more efficiently.</div>
+    <div class="r-desc">The physiological state that allows labor to progress efficiently. When the birthing parent is tense, the body releases adrenaline — which counteracts oxytocin (the hormone that drives contractions) and slows labor. Relaxation is not about being comfortable. It is about keeping adrenaline low so the body can do its work.</div>
+    <div class="r-example">Partner's role: Maintain a calm environment. Speak softly. Touch with intention. Lower lights if possible. A tense partner creates a tense birthing parent.</div>
   </div>
   <div class="r-card">
     <div class="r-letter">R</div>
     <div class="r-word">Rhythm</div>
-    <div class="r-desc">Swaying, rocking, circling on a birth ball, walking. Movement helps the baby descend and gives the laboring person something to focus on and anchor to. Match their rhythm — don't try to change it.</div>
+    <div class="r-desc">Repetitive movement or sound that provides a predictable focal point during contractions. Rocking, swaying, patterned breathing, moaning on a consistent note — these all engage the nervous system's natural pain-modulating mechanisms. Rhythm works because predictability reduces threat perception.</div>
+    <div class="r-example">Partner's role: Match and support their rhythm. Sway with them. Breathe visibly. Don't interrupt a rhythm that is working — even if it looks strange to you.</div>
   </div>
   <div class="r-card">
     <div class="r-letter">R</div>
     <div class="r-word">Ritual</div>
-    <div class="r-desc">A repetitive activity the laboring person settles into during each contraction — vocalizing, rocking, focused breathing. Your job is to protect and support that ritual, not interrupt it.</div>
+    <div class="r-desc">A coping activity that the birthing parent repeats consistently with each contraction. It may start as rhythm and evolve into ritual — a specific sequence of actions that becomes deeply familiar and therefore deeply grounding. Ritual is rhythm that has found its full form.</div>
+    <div class="r-example">Partner's role: Once a ritual emerges — protect it. Do not suggest changing it. Do not introduce new elements. A ritual that is working is more valuable than any technique you haven't tried yet.</div>
   </div>
 </div>
-
-<p>The 3 R's are not just theory. Simkin's research connects maintaining relaxation directly to hormone balance: a calm environment keeps adrenaline low and oxytocin (the hormone that drives contractions) flowing. When partners are coached to support relaxation, rhythm, and ritual, they are not just being emotionally supportive — they are actively influencing the physiological progress of labor.</p>
-<p><em>Source: Simkin, P. (2007). Comfort in Labor. Childbirth Connection; Simkin & Bolding (2004). JMWH, 49(6), 489–504.</em></p>
 ```
 
   </div>
-
-  <!-- TECHNIQUES -->
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 1 — The Techniques</span>
-    <h2>What you actually <em>do</em></h2>
-    <p>These are the hands-on tools. Learn them before labor. Practice them now. By the time you need them they should feel familiar, not foreign.</p>
+    <span class="eyebrow-label">Applying the Framework</span>
+    <h2>How to use the 3 R's <em>in practice</em></h2>
+    <p>The 3 R's are not a checklist — they're a diagnostic lens. When support isn't working, ask: which R is missing?</p>
+    <p>If your partner seems tense between contractions and can't settle — <strong>Relaxation</strong> is the priority. Dim the lights, lower your voice, reduce stimulation, slow your own breathing.</p>
+    <p>If contractions are becoming overwhelming and your partner is losing their coping — they need <strong>Rhythm.</strong> Begin something repetitive: slow rocking, counting breaths aloud, rhythmic counter-pressure. Give them something to follow.</p>
+    <p>If a specific coping pattern is working and you're tempted to suggest something different — resist. That's <strong>Ritual</strong> forming. Protect it.</p>
 
 ```
-<div class="technique-card">
-  <div class="technique-header">
-    <div class="technique-icon">✋</div>
-    <div class="technique-name">Counter-Pressure</div>
-    <div class="technique-tag">Most used</div>
-  </div>
-  <div class="technique-body">
-    <p><strong>What it is:</strong> Steady, firm pressure applied to the lower back or sacrum during contractions — particularly valuable during back labor (when the baby is facing the wrong way).</p>
-    <p><strong>Why it works:</strong> Counter-pressure floods the nervous system with competing sensory input, reducing pain perception through the "gate control" mechanism. It also helps relax the surrounding muscles and reduces the pressure the baby's position places on the lower back.</p>
-    <div class="how-to">
-      <div class="how-to-label">How to do it</div>
-      <p>Make a fist or use the heel of your hand. Press firmly and steadily into the center of the lower back or the two bony protrusions on either side (the sacrum). Do not rub — press and hold during the contraction. Ask for feedback: more or less pressure, slightly higher or lower. The "Cook Counter-Pressure" technique, documented in Penny Simkin's practice, involves pressing into the ischial tuberosities (sit bones) while the laboring person is on hands and knees — this is one of the most effective positions for back labor relief.</p>
-    </div>
-    <div class="evidence-tag">📊 Massage reduced pain scores significantly across latent, active, and transition phases — Ranjbaran et al., 2017</div>
-  </div>
+<div class="research-box">
+  <p>"When caregivers support the laboring woman's coping through relaxation, rhythm, and ritual, they work with — rather than against — her body's natural labor process."</p>
+  <div class="research-source">Simkin, P. & Ancheta, R. · The Labor Progress Handbook · 4th Edition</div>
 </div>
 
-<div class="technique-card">
-  <div class="technique-header">
-    <div class="technique-icon">🤝</div>
-    <div class="technique-name">The Double Hip Squeeze</div>
-    <div class="technique-tag">Partner technique</div>
-  </div>
-  <div class="technique-body">
-    <p><strong>What it is:</strong> The partner stands behind the laboring person and presses inward on both sides of the hips during contractions, compressing the hip joints and opening the pelvic outlet.</p>
-    <p><strong>Why it works:</strong> The hip squeeze temporarily widens the diameter of the pelvic outlet, reducing pressure from the baby's descent and providing significant pain relief. It is one of the most commonly taught and consistently valued techniques in doula practice — documented in Simkin's <em>The Labor Progress Handbook</em> as a core comfort intervention.</p>
-    <div class="how-to">
-      <div class="how-to-label">How to do it</div>
-      <p>Stand directly behind the laboring person while they lean forward — hands and knees, leaning over a birth ball, or leaning against a wall or your shoulders. Place both palms flat on the outer surface of the hips, at the widest point. As a contraction begins, press firmly inward and slightly upward — not downward. Hold the pressure throughout the contraction. Release slowly. Ask for feedback on pressure and placement.</p>
-    </div>
-    <div class="evidence-tag">📊 Documented in Simkin & Ancheta, The Labor Progress Handbook, 3rd Ed.</div>
-  </div>
-</div>
-
-<div class="technique-card">
-  <div class="technique-header">
-    <div class="technique-icon">💧</div>
-    <div class="technique-name">Hydrotherapy — Water as Pain Relief</div>
-    <div class="technique-tag">Highly evidence-based</div>
-  </div>
-  <div class="technique-body">
-    <p><strong>What it is:</strong> Labor in water — either a warm shower directed at the lower back, or immersion in a birth tub if available at your birth setting.</p>
-    <p><strong>Why it works:</strong> Warm water relaxes muscles, promotes endorphin release, and reduces the sensation of contractions. A 2024 systematic review of 20 studies involving over 8,000 women found that hydrotherapy significantly reduced pain intensity compared to standard care. The American College of Nurse-Midwives notes that water immersion may reduce the need for pharmacologic labor augmentation by up to 83%.</p>
-    <div class="how-to">
-      <div class="how-to-label">Partner's role in hydrotherapy</div>
-      <p>If a tub or shower is available, encourage its use — especially in active labor. If in a shower, direct the spray to the lower back during contractions. Be present — sit outside the tub, maintain eye contact, keep conversation calm. If the laboring person is in a tub, you can use a cup to pour warm water over the abdomen during contractions. Monitor temperature — water should be warm but not hot (37–38°C / 98–100°F). Stay close.</p>
-    </div>
-    <div class="evidence-tag">📊 Ergin & Taskin, International Journal of Nursing Practice, 2024 · ACNM Position Statement, 2024</div>
-  </div>
-</div>
-
-<div class="technique-card">
-  <div class="technique-header">
-    <div class="technique-icon">🔄</div>
-    <div class="technique-name">Position Changes</div>
-    <div class="technique-tag">Every 20–30 min</div>
-  </div>
-  <div class="technique-body">
-    <p><strong>What it is:</strong> Encouraging and supporting the laboring person to change positions regularly throughout labor — not staying in one position for extended periods.</p>
-    <p><strong>Why it works:</strong> Different positions use gravity differently, encourage the baby to rotate into optimal position, relieve pressure from constant bearing on one area, and keep labor progressing. Movement is one of the most evidence-supported non-pharmacological approaches in the doula and midwifery literature.</p>
-    <div class="how-to">
-      <div class="how-to-label">Positions to know and suggest</div>
-      <p><strong>Hands and knees:</strong> Excellent for back labor — takes pressure off the sacrum and encourages the baby to rotate. Also reduces back pain significantly.<br><br>
-      <strong>Slow dance:</strong> The laboring person drapes their arms around your neck; you hold them and sway together. Deeply comforting — combines movement with physical closeness.<br><br>
-      <strong>Sitting on a birth ball:</strong> Opens the pelvis, allows gentle rocking and swaying, keeps the baby in a favorable position.<br><br>
-      <strong>Side-lying:</strong> Good for rest during a long labor. Use a peanut ball between the knees to keep the pelvis open.<br><br>
-      <strong>Supported squat:</strong> Opens the pelvic outlet significantly during pushing. Stand behind and support under the arms, or use a squat bar if available.</p>
-    </div>
-    <div class="evidence-tag">📊 Simkin & Bolding, Journal of Midwifery and Women's Health, 2004</div>
-  </div>
-</div>
-
-<div class="technique-card">
-  <div class="technique-header">
-    <div class="technique-icon">🌬️</div>
-    <div class="technique-name">Breathing Cues</div>
-    <div class="technique-tag">For every contraction</div>
-  </div>
-  <div class="technique-body">
-    <p><strong>What it is:</strong> Breathing visibly and audibly with the laboring person — modeling slow, steady breath and inviting them to match it.</p>
-    <p><strong>Why it works:</strong> Controlled breathing maintains relaxation, prevents oxygen deprivation, and gives the laboring person a focal point during contractions. Even brief reassuring touch combined with steady breathing — as short as 5–10 seconds — has been shown in randomized trials to reduce expressions of anxiety and lower blood pressure during late active labor.</p>
-    <div class="how-to">
-      <div class="how-to-label">How to guide breathing</div>
-      <p>Don't instruct. Model. Breathe in slowly through your nose, out through your mouth — visibly and audibly. If they're holding their breath or tensing, simply breathe and say quietly: "breathe with me." Follow their lead — if they have a rhythm that's working, match it. Don't try to change a ritual that's working. Only intervene if they're clearly hyperventilating or holding their breath entirely.</p>
-    </div>
-    <div class="evidence-tag">📊 Simkin, Comfort in Labor, Childbirth Connection, 2007</div>
-  </div>
+<div class="partner-callout">
+  <strong>The partner's most common 3 R's mistake:</strong> Interrupting ritual to introduce a new technique. When your partner has found something that works — a specific sway, a low hum, a breathing pattern — do not disrupt it to try something from a book. The ritual is the technique. Let it do its work.
 </div>
 ```
 
   </div>
-
-  <!-- WHAT TO SAY -->
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 2 — Your Words</span>
-    <h2>What to say — and what <em>not to say</em></h2>
-    <p>Words matter in the birth room. The right ones anchor. The wrong ones — even well-intentioned ones — can unravel focus. Penny Simkin's advice from decades of practice: if the laboring person criticizes you or rejects a technique, <em>don't take it personally.</em> She is saying that labor is so difficult right now that nothing helps. You are the safest person for her to express that to. Stay steady.</p>
+    <span class="eyebrow-label">Environment as Support</span>
+    <h2>The room itself is part of <em>your toolkit</em></h2>
+    <p>The hospital environment is not designed for relaxation. Bright lights, beeping monitors, rotating staff, clinical sounds — all of these activate the nervous system's threat response and work against the R of Relaxation. As the partner, you have more control over the environment than you may realize.</p>
+    <p>You can lower the lights. You can ask staff to knock before entering. You can turn the monitor screen away if the numbers are creating anxiety. You can play familiar music at low volume. You can close the door. None of these require permission — they are reasonable adjustments to a shared space.</p>
+
+```
+<div class="truth-box">
+  <div class="truth-label">Environment checklist when you arrive</div>
+  <p>Lights dimmed or adjustable? Monitor screen visible only to staff if numbers are causing anxiety? Door closed when possible? Music or silence as preferred? Temperature comfortable? Unnecessary visitors absent? A calm room is not a luxury — it is a clinical support tool.</p>
+</div>
+```
+
+  </div>
+
+  <div class="knowledge-check" id="kc-2">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 2 Check-In</div>
+    <div class="kc-subtitle">3 questions on the 3 R's.</div>
+
+```
+<div class="kc-question" id="kc2-q1">
+  <div class="kc-q-text">1. Why does tension in the birthing parent slow labor?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q1',this,false,'Pain perception is affected by tension, but the specific physiological mechanism that slows labor involves hormones, not pain signals directly.')"><span class="kc-indicator"></span>Because pain signals interfere with contraction timing</button>
+    <button class="kc-option" onclick="answerKC('kc2-q1',this,true,'Correct. Tension triggers adrenaline release, which counteracts oxytocin — the hormone that drives contractions. This is the physiological basis for why relaxation is not optional in labor support.')"><span class="kc-indicator"></span>Because tension releases adrenaline which counteracts oxytocin</button>
+    <button class="kc-option" onclick="answerKC('kc2-q1',this,false,'Muscle tension can affect pushing efficiency but the specific hormonal mechanism that slows labor progress is the adrenaline-oxytocin relationship.')"><span class="kc-indicator"></span>Because tense muscles can\'t push effectively</button>
+    <button class="kc-option" onclick="answerKC('kc2-q1',this,false,'While breathing affects oxygenation, the specific mechanism by which tension slows labor is hormonal — adrenaline suppresses oxytocin.')"><span class="kc-indicator"></span>Because shallow breathing reduces oxygen to the baby</button>
+  </div>
+  <div class="kc-feedback" id="kc2-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc2-q2">
+  <div class="kc-q-text">2. Your partner has developed a specific sway and low hum that they repeat with every contraction. You want to suggest trying counter-pressure instead. You should:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q2',this,false,'Suggesting a change at the next contraction interrupts an established ritual. If what they\'re doing is working, do not disrupt it.')"><span class="kc-indicator"></span>Suggest it at the next contraction</button>
+    <button class="kc-option" onclick="answerKC('kc2-q2',this,false,'Asking during a contraction is the worst timing — they cannot process new information mid-contraction.')"><span class="kc-indicator"></span>Ask them during a contraction</button>
+    <button class="kc-option" onclick="answerKC('kc2-q2',this,true,'Exactly right. An established ritual that is working is the most valuable thing in that room. Your job is to protect it, not to improve on it. Save new techniques for when the current approach stops working.')"><span class="kc-indicator"></span>Protect the ritual — do not disrupt something that is working</button>
+    <button class="kc-option" onclick="answerKC('kc2-q2',this,false,'Asking the nurse to suggest it doesn\'t solve the problem — and it bypasses your role as the primary support person. If the ritual is working, there\'s nothing to fix.')"><span class="kc-indicator"></span>Ask the nurse to suggest it instead</button>
+  </div>
+  <div class="kc-feedback" id="kc2-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc2-q3">
+  <div class="kc-q-text">3. Which of these is an example of a partner supporting the "Relaxation" R?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q3',this,false,'Counting loudly could actually increase stimulation and tension. Supporting relaxation means reducing environmental stimulation, not adding to it.')"><span class="kc-indicator"></span>Counting loudly to help them pace contractions</button>
+    <button class="kc-option" onclick="answerKC('kc2-q3',this,false,'This describes supporting Rhythm — giving the birthing parent something repetitive to follow. Valuable, but a different R.')"><span class="kc-indicator"></span>Starting a rhythmic sway to give them something to follow</button>
+    <button class="kc-option" onclick="answerKC('kc2-q3',this,false,'This describes protecting Ritual — valuable, but a different R from Relaxation.')"><span class="kc-indicator"></span>Protecting an established coping pattern from interruption</button>
+    <button class="kc-option" onclick="answerKC('kc2-q3',this,true,'Correct. Dimming lights, speaking softly, and slowing your own breathing all reduce stimulation and lower adrenaline — directly supporting the Relaxation R.')"><span class="kc-indicator"></span>Dimming lights, speaking softly, and slowing your own breathing visibly</button>
+  </div>
+  <div class="kc-feedback" id="kc2-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-2-score">
+  <div class="kc-score-num" id="kc-2-score-num"></div>
+  <div class="kc-score-label">Lesson 2 Complete</div>
+  <div class="kc-score-msg" id="kc-2-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-2">
+    <div><div class="next-label">Up next</div><div class="next-title">Lesson 3 — The 5 Techniques</div></div>
+    <button class="btn-next" id="btn-next-2" onclick="showLesson(3)" disabled>Continue →</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+
+<!-- LESSON 3: The 5 Techniques -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-3">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 3 of 5</span>
+    <h1>The 5 Techniques — <em>Hands-On Support</em></h1>
+    <p class="lesson-intro">Five specific, evidence-based techniques you can practice before labor and deploy in the birth room. These are not suggestions — they are skills. Skills get better with practice.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Before You Read This Lesson</span>
+    <h2>These techniques require <em>practice, not just reading.</em></h2>
+    <p>Reading about counter-pressure and actually applying it effectively are different things. Before your due date, practice each of these techniques with your partner — not during labor, but in a calm setting. Ask for feedback. Adjust. Practice again. The birth room is not the place to try something for the first time.</p>
+    <p>Each technique below includes a practice note. Use it.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">The Techniques</span>
+
+```
+<div class="technique-card">
+  <div class="technique-num">01</div>
+  <div class="technique-name">Counter-Pressure</div>
+  <span class="technique-tag">Most valuable for back labor · Active labor through transition</span>
+  <p><strong>What it is:</strong> Firm, steady, sustained pressure applied to the lower back or sacrum during contractions. This works by counteracting the internal pressure of contractions and providing a competing sensory input that interrupts pain signaling.</p>
+  <p><strong>How to do it:</strong> Use the heel of your hand or a closed fist. Find the sacrum — the flat, triangular bone at the base of the spine above the tailbone. Apply firm pressure and hold it steadily through the entire contraction. Do not rub or move. Hold. The pressure should be firm enough to be felt through clothing.</p>
+  <p><strong>Common mistake:</strong> Rubbing instead of holding. Rubbing provides sensation but not the counterforce that makes this technique effective. Hold the pressure steady.</p>
+  <div class="forest-callout"><strong>Practice note:</strong> Practice finding the sacrum before labor. Have your partner lean forward and locate the flat bone at the base of the spine. Practice applying pressure during a moment of discomfort (not a contraction) and ask: is this the right spot? Is the pressure firm enough? Adjust until you can find it reliably in the dark.</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-num">02</div>
+  <div class="technique-name">Double Hip Squeeze</div>
+  <span class="technique-tag">Particularly effective in hands-and-knees position</span>
+  <p><strong>What it is:</strong> Bilateral compression of the hips during contractions. This technique opens the sacroiliac joint slightly and relieves the internal pressure of contractions. It is particularly effective when the baby is in a posterior position (face up, back against the birthing parent's back).</p>
+  <p><strong>How to do it:</strong> Stand behind your partner while they lean forward — hands and knees, leaning over a birth ball, or standing and leaning on a surface. Place both palms on the widest point of the hips, just below the hip bones. Press firmly inward and slightly upward during contractions. Release slowly when the contraction ends. Ask for feedback on placement — the correct position makes a significant difference.</p>
+  <p><strong>Common mistake:</strong> Pressing straight inward without the upward angle. The slight upward component is what opens the sacroiliac joint. Without it, the technique provides pressure but not the same relief.</p>
+  <div class="forest-callout"><strong>Practice note:</strong> The double hip squeeze requires sustained arm strength. Practice the position before labor — it is more physically demanding than it looks. Also practice communicating: "Is this the right spot? More pressure or less?"</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-num">03</div>
+  <div class="technique-name">Breathing Cues and Pacing</div>
+  <span class="technique-tag">Every stage · Never impose, only model</span>
+  <p><strong>What it is:</strong> Modeling slow, visible breathing to provide a rhythm for the birthing parent to follow or return to. This is not instruction — it is demonstration. You breathe, they follow if it helps.</p>
+  <p><strong>How to do it:</strong> Breathe slowly and visibly. Make your exhale audible. If your partner is holding their breath or hyperventilating, make eye contact and breathe with exaggerated slowness without speaking. If verbal cues are needed, "breathe with me" is the complete sentence. Nothing more.</p>
+  <p><strong>What NOT to do:</strong> Do not count aloud. Do not instruct. Do not say "just breathe" — this is patronizing and counterproductive during transition. Model. Let them follow if it serves them.</p>
+  <div class="forest-callout"><strong>Practice note:</strong> Practice slow, visible breathing until it feels natural when you are calm. During stressful moments your own breathing shortens — practice returning to slow breath quickly. Your breathing regulates the room.</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-num">04</div>
+  <div class="technique-name">Position Changes</div>
+  <span class="technique-tag">Every 20–30 minutes in active labor unless in a ritual</span>
+  <p><strong>What it is:</strong> Systematically changing the birthing parent's position every 20–30 minutes to encourage fetal descent, relieve pressure, and prevent stagnation. Different positions serve different purposes at different phases.</p>
+  <p><strong>Key positions and when they help:</strong></p>
+  <p><strong>Walking / upright:</strong> Encourages descent, uses gravity, can speed early active labor. Maintain as long as tolerated.</p>
+  <p><strong>Hands and knees:</strong> Relieves back pressure, excellent for posterior babies, allows double hip squeeze. One of the most effective active labor positions.</p>
+  <p><strong>Slow dance:</strong> Partner and birthing parent face each other, arms around each other, swaying gently. Intimate, upright, rhythmic. Excellent for transition.</p>
+  <p><strong>Birth ball:</strong> Sitting and rocking, or leaning over it on hands and knees. Maintains upright position with support, allows pelvic movement.</p>
+  <p><strong>Side-lying with peanut ball:</strong> When the birthing parent needs rest or has an epidural. The peanut ball between the knees maintains pelvic opening even in a recumbent position.</p>
+  <div class="forest-callout"><strong>Practice note:</strong> Know all five positions before labor. Practice moving between them together so the transitions feel fluid rather than awkward. Know which positions allow you to provide counter-pressure simultaneously.</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-num">05</div>
+  <div class="technique-name">The Slow Dance Hold</div>
+  <span class="technique-tag">Active labor and transition · Most intimate technique</span>
+  <p><strong>What it is:</strong> Partner and birthing parent face each other with arms wrapped around each other, foreheads potentially touching, swaying gently. This is simultaneously a position, a rhythm technique, and a profound moment of connection.</p>
+  <p><strong>Why it works:</strong> Upright position uses gravity. The sway creates rhythm. Physical contact releases oxytocin. Eye contact and closeness activate the parasympathetic nervous system. This technique hits all three R's simultaneously — Relaxation, Rhythm, and Ritual.</p>
+  <p><strong>How to do it:</strong> Stand facing your partner. Let them drape their arms around your neck or shoulders. Place your hands on their lower back or hips. Sway slowly. Match their rhythm. Don't talk unless they do. Be present.</p>
+  <div class="forest-callout"><strong>Practice note:</strong> Practice this before labor — not as a technique, but as a moment of connection. Know how it feels to sway together in silence. In the birth room, the familiarity of it will calm both of you.</div>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">What to Say — and What Not to Say</span>
+    <h2>Words that help. <em>Words that don't.</em></h2>
 
 ```
 <div class="say-grid">
   <div class="say-col do">
-    <div class="say-col-header">✓ Say this</div>
-    <div class="say-item"><span class="say-icon">✓</span> "I'm right here."</div>
-    <div class="say-item"><span class="say-icon">✓</span> "You're doing it."</div>
-    <div class="say-item"><span class="say-icon">✓</span> "Breathe with me."</div>
-    <div class="say-item"><span class="say-icon">✓</span> "That one's over — you did it."</div>
-    <div class="say-item"><span class="say-icon">✓</span> "You're closer with every contraction."</div>
-    <div class="say-item"><span class="say-icon">✓</span> "You're so strong."</div>
-    <div class="say-item"><span class="say-icon">✓</span> "Tell me what you need."</div>
-    <div class="say-item"><span class="say-icon">✓</span> "I've got you."</div>
-    <div class="say-item"><span class="say-icon">✓</span> Short, simple, repeated. Rhythm matters.</div>
+    <div class="say-header">✓ Say this</div>
+    <div class="say-item">"I'm right here."<em>Presence confirmed. Nothing else needed.</em></div>
+    <div class="say-item">"That one's over. You did it."<em>Specific. Factual. Forward-moving.</em></div>
+    <div class="say-item">"Breathe with me."<em>Only when breath has been lost. Then model it.</em></div>
+    <div class="say-item">"You're doing it right now."<em>Response to "I can't do this." Not "you can do it."</em></div>
+    <div class="say-item">"Tell me what you need."<em>Between contractions only. Not during.</em></div>
+    <div class="say-item">"I can see how hard you're working."<em>Observation, not evaluation.</em></div>
+    <div class="say-item">"One at a time."<em>Transition. One contraction is all that exists.</em></div>
   </div>
   <div class="say-col dont">
-    <div class="say-col-header">✗ Don't say this</div>
-    <div class="say-item"><span class="say-icon">✗</span> "Calm down." — invalidating, impossible to execute</div>
-    <div class="say-item"><span class="say-icon">✗</span> "Just breathe." — dismissive, not actionable</div>
-    <div class="say-item"><span class="say-icon">✗</span> "How much longer?" — creates anxiety, ask the nurse</div>
-    <div class="say-item"><span class="say-icon">✗</span> "You should try..." — not the moment for suggestions</div>
-    <div class="say-item"><span class="say-icon">✗</span> "You've got this" on repeat — loses meaning fast</div>
-    <div class="say-item"><span class="say-icon">✗</span> Silence + phone — presence is the job</div>
-    <div class="say-item"><span class="say-icon">✗</span> "It's almost over." — if it isn't, you lose trust</div>
-    <div class="say-item"><span class="say-icon">✗</span> "You can do this." — implied doubt; say "you ARE doing it"</div>
+    <div class="say-header">✗ Avoid this</div>
+    <div class="say-item">"You've got this!"<em>Generic. Hollow during transition. Switch to specific observation.</em></div>
+    <div class="say-item">"Just breathe."<em>Patronizing. Model instead of instruct.</em></div>
+    <div class="say-item">"Calm down."<em>Never. Under any circumstances.</em></div>
+    <div class="say-item">"How much longer do you think?"<em>Nobody knows. This question adds anxiety.</em></div>
+    <div class="say-item">"Do you want an epidural?"<em>Not your decision to raise. Wait for them to bring it up.</em></div>
+    <div class="say-item">"Almost there!"<em>Only if you genuinely know they're almost there.</em></div>
+    <div class="say-item">Silence + looking at your phone<em>The single most damaging thing you can do.</em></div>
   </div>
 </div>
 ```
 
   </div>
 
-  <!-- LASTING IMPACT -->
+  <div class="knowledge-check" id="kc-3">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 3 Check-In</div>
+    <div class="kc-subtitle">3 technique questions.</div>
+
+```
+<div class="kc-question" id="kc3-q1">
+  <div class="kc-q-text">1. When applying counter-pressure, what is the most common mistake?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q1',this,false,'Applying too much pressure is rarely the issue — most partners don\'t apply nearly enough. The specific common mistake is rubbing rather than holding.')"><span class="kc-indicator"></span>Applying too much pressure</button>
+    <button class="kc-option" onclick="answerKC('kc3-q1',this,false,'The upper back is not the target for counter-pressure — the sacrum (lower back) is. But the specific common mistake during technique execution is rubbing rather than holding.')"><span class="kc-indicator"></span>Applying pressure to the upper back</button>
+    <button class="kc-option" onclick="answerKC('kc3-q1',this,true,'Correct. Rubbing provides sensation but not the sustained counterforce that makes the technique effective. Counter-pressure means holding steady — not massaging.')"><span class="kc-indicator"></span>Rubbing instead of holding the pressure steady</button>
+    <button class="kc-option" onclick="answerKC('kc3-q1',this,false,'Applying pressure between contractions is less harmful than the common mistake of rubbing — but the specific error this lesson highlights is the difference between rubbing and holding.')"><span class="kc-indicator"></span>Applying pressure between contractions</button>
+  </div>
+  <div class="kc-feedback" id="kc3-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc3-q2">
+  <div class="kc-q-text">2. Your partner is hyperventilating during a contraction. The best response is:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q2',this,false,'"Just breathe" is specifically listed as something to avoid — it is patronizing and typically not helpful during an intense contraction.')"><span class="kc-indicator"></span>Say "just breathe" firmly and clearly</button>
+    <button class="kc-option" onclick="answerKC('kc3-q2',this,false,'Calling the nurse is appropriate if there is a clinical concern, but hyperventilating during a contraction is typically a coping issue, not a medical emergency — and modeling breath is the first response.')"><span class="kc-indicator"></span>Call the nurse immediately</button>
+    <button class="kc-option" onclick="answerKC('kc3-q2',this,true,'Exactly right. Make eye contact, say "breathe with me," and then visibly model slow breath. This is the complete intervention. Your calm breathing is the cue they need.')"><span class="kc-indicator"></span>Make eye contact, say "breathe with me," and model slow visible breath</button>
+    <button class="kc-option" onclick="answerKC('kc3-q2',this,false,'Counting aloud imposes a rhythm from outside rather than modeling and inviting. And counting during hyperventilation can actually increase anxiety rather than reduce it.')"><span class="kc-indicator"></span>Count aloud to give them a breathing rhythm</button>
+  </div>
+  <div class="kc-feedback" id="kc3-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc3-q3">
+  <div class="kc-q-text">3. Which technique simultaneously supports all three R's (Relaxation, Rhythm, Ritual) at once?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q3',this,false,'Counter-pressure primarily addresses Relaxation and can support Rhythm, but it doesn\'t hit all three R\'s as naturally as the technique specifically described as hitting all three.')"><span class="kc-indicator"></span>Counter-pressure</button>
+    <button class="kc-option" onclick="answerKC('kc3-q3',this,false,'Position changes serve many purposes but aren\'t specifically described as hitting all three R\'s simultaneously in the way the Slow Dance Hold does.')"><span class="kc-indicator"></span>Position changes every 30 minutes</button>
+    <button class="kc-option" onclick="answerKC('kc3-q3',this,false,'Breathing cues support Rhythm primarily. They can support Relaxation, but are not described as the technique that hits all three R\'s simultaneously.')"><span class="kc-indicator"></span>Breathing cues</button>
+    <button class="kc-option" onclick="answerKC('kc3-q3',this,true,'Correct. The Slow Dance Hold uses gravity (position), sway (rhythm), physical contact and oxytocin release (relaxation), and familiarity (ritual). It is the one technique that addresses all three R\'s at the same time.')"><span class="kc-indicator"></span>The Slow Dance Hold</button>
+  </div>
+  <div class="kc-feedback" id="kc3-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-3-score">
+  <div class="kc-score-num" id="kc-3-score-num"></div>
+  <div class="kc-score-label">Lesson 3 Complete</div>
+  <div class="kc-score-msg" id="kc-3-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-3">
+    <div><div class="next-label">Up next</div><div class="next-title">Lesson 4 — Supporting an Epidural Birth</div></div>
+    <button class="btn-next" id="btn-next-3" onclick="showLesson(4)" disabled>Continue →</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+
+<!-- LESSON 4: Supporting an Epidural Birth -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-4">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 4 of 5</span>
+    <h1>Supporting an <em>Epidural Birth</em></h1>
+    <p class="lesson-intro">Most birth education focuses on unmedicated support techniques. But the majority of hospital births include an epidural — and the partner's role doesn't disappear. It changes.</p>
+  </div>
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 3 — Why This Matters Long After Birth</span>
-    <h2>Birth memories <em>last a lifetime.</em></h2>
+    <span class="eyebrow-label">The Reality</span>
+    <h2>More than half of hospital births involve an epidural. <em>Your role still matters enormously.</em></h2>
+    <p>The epidural rate in US hospitals is approximately 73% for vaginal births. This means the majority of the people reading this module will be in a birth room where an epidural is or becomes part of the plan. Yet most partner support education focuses almost entirely on hands-on coping techniques that apply specifically to unmedicated labor.</p>
+    <p>The result is a gap: partners who planned to provide active support feel displaced when an epidural is placed, unsure whether they're still needed or what to do. The answer is clear — <strong>you are still needed, and your role is significant.</strong> It just looks different.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">What Changes</span>
+    <h2>How the epidural changes <em>the birth room dynamic</em></h2>
 
 ```
-<div class="research-box">
-  <p>"Women recall their birth experiences with remarkable accuracy 15 to 20 years later — and the actions and words of their partners are among the most vividly remembered details."</p>
-  <div class="research-source">Penny Simkin · Birth, 18(4), 1991 and Birth, 19(2), 1992</div>
+<div class="stage-card">
+  <span class="stage-label">Before the epidural is placed</span>
+  <div class="stage-card-title">Your most physically demanding role</div>
+  <p>The period before an epidural is placed is often active labor at significant intensity. All of the techniques from Lesson 3 apply fully here. Counter-pressure, position changes, slow dance, breathing cues — this is when they are most needed.</p>
+  <p>The epidural placement itself requires the birthing parent to sit or lie very still through contractions. This is one of the hardest things they'll be asked to do. Your job during placement: stand or sit in front of them, let them hold your hands or press on your shoulders, and breathe with them through each contraction. Do not speak to the anesthesiologist during placement unless directly addressed.</p>
+  <div class="partner-callout"><strong>The placement moment:</strong> Your partner needs to feel your solidity — literally. Let them press against you. Hold still. Be the anchor.</div>
 </div>
 
-<p>Penny Simkin's landmark 1991 study demonstrated that women remember their births with vivid detail for decades — and that the quality of support they received was a major determinant of whether those memories are positive or negative. Women with the highest long-term satisfaction felt they had accomplished something important, felt in control, and had positive memories of the specific actions and words of their partners and caregivers.</p>
-<p>A 2025 randomized controlled trial confirmed this: women who received engaged companion support had significantly higher satisfaction scores across every measured dimension — and partner support during birth has been associated with lower depression and anxiety symptoms even <strong>two years after birth.</strong></p>
-<p>What you do in that room doesn't just affect the birth. It shapes how both of you remember the day your child was born. It shapes the story you tell. That is not a small thing.</p>
-<p><em>Sources: Güner & Yildirim, BMC Pregnancy and Childbirth, 2025; Evans et al., Birth, 2023</em></p>
+<div class="stage-card">
+  <span class="stage-label">After the epidural takes effect</span>
+  <div class="stage-card-title">A different but still vital role</div>
+  <p>Once the epidural is working, pain is significantly reduced. Your partner can often rest, sleep, or have a conversation. This is a welcome relief — and it can create a false sense that your support role is over. It isn't.</p>
+  <p><strong>Position management becomes critical.</strong> With reduced sensation, the birthing parent cannot feel discomfort from staying in one position too long. You, the nurse, and the care team work together to change positions regularly — typically every 30–60 minutes. The peanut ball between the knees in side-lying position is standard practice for maintaining pelvic opening with an epidural.</p>
+  <p><strong>The monitor becomes your shared language.</strong> Since contractions are no longer felt, watching the monitor together gives you shared information about what labor is doing. Ask the nurse to orient you to the monitor display — what is the contraction tracing, what is the fetal heart rate, what are you watching for.</p>
+</div>
+
+<div class="stage-card">
+  <span class="stage-label">Pushing with an epidural</span>
+  <div class="stage-card-title">Guided pushing and your role in it</div>
+  <p>With an epidural, the pushing urge may be absent or reduced. Pushing becomes guided — the care team or nurse will tell the birthing parent when to push based on the monitor, and often for how long and with what technique. This is called directed pushing and it is standard practice with epidural analgesia.</p>
+  <p>Your role during pushing: hold a leg if asked, provide verbal encouragement that is specific and responsive ("that was a strong one," "you can feel the pressure even if not the pain"), maintain eye contact and emotional connection, and follow the care team's guidance on when to be quiet.</p>
+  <div class="forest-callout"><strong>Important:</strong> Some epidurals are "walking" epidurals that preserve some sensation and the pushing urge. Ask the anesthesiologist what to expect for your specific situation.</div>
+</div>
 ```
 
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">What Doesn't Change</span>
+    <h2>The emotional role is <em>identical regardless of pain relief</em></h2>
+    <p>The epidural handles physical pain. It does not handle:</p>
+    <p><strong>Anxiety about the baby.</strong> Monitoring concerns, position changes, any variation from expected — your partner will look to you for emotional grounding. Your job is to stay calm and ask informed questions.</p>
+    <p><strong>The vulnerability of labor.</strong> Even pain-free, labor is a profound experience. Your partner is still in a hospital bed, connected to monitors, not fully in control of their body. Presence, connection, and reassurance still matter.</p>
+    <p><strong>The decisions.</strong> Augmentation, pushing strategies, the progression of labor — all of the BRAIN framework conversations still happen with an epidural. Be present and informed for all of them.</p>
+    <p><strong>The moment of birth.</strong> The epidural does not change what it means to witness the birth of your child together. Be present for it. Put the phone down. That moment is yours.</p>
+  </div>
+
+  <div class="knowledge-check" id="kc-4">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 4 Check-In</div>
+    <div class="kc-subtitle">3 questions on epidural birth support.</div>
+
+```
+<div class="kc-question" id="kc4-q1">
+  <div class="kc-q-text">1. During epidural placement, your partner needs to sit still through a contraction. Your best response is:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q1',this,false,'Stepping away during epidural placement removes your support at the moment it is most needed. The placement requires complete stillness — your physical presence helps them hold still.')"><span class="kc-indicator"></span>Step back to give the anesthesiologist room</button>
+    <button class="kc-option" onclick="answerKC('kc4-q1',this,false,'Talking to the anesthesiologist during placement distracts from the task and the moment. Unless directly addressed, stay quiet and focused on your partner.')"><span class="kc-indicator"></span>Ask the anesthesiologist questions about the procedure</button>
+    <button class="kc-option" onclick="answerKC('kc4-q1',this,true,'Correct. During placement your partner needs your physical solidity. Let them press against you, hold your hands, and use you as their anchor. Breathe with them. Say nothing unless necessary.')"><span class="kc-indicator"></span>Stand in front of them, let them hold you or press against you, breathe together</button>
+    <button class="kc-option" onclick="answerKC('kc4-q1',this,false,'Reminding them to be still adds pressure to an already demanding moment. They know they need to be still — what they need is your physical presence and calm breathing.')"><span class="kc-indicator"></span>Remind them repeatedly to stay still</button>
+  </div>
+  <div class="kc-feedback" id="kc4-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc4-q2">
+  <div class="kc-q-text">2. After a successful epidural, your partner is resting comfortably. Why does position management still matter?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q2',this,false,'While epidurals can occasionally affect blood pressure, the primary reason position management matters after an epidural is that the birthing parent cannot feel discomfort from staying in one position too long.')"><span class="kc-indicator"></span>To prevent blood pressure drops from the epidural medication</button>
+    <button class="kc-option" onclick="answerKC('kc4-q2',this,true,'Correct. With reduced sensation, the birthing parent cannot feel when a position is causing pressure or slowing labor. Regular position changes maintain pelvic opening and encourage fetal descent even without felt sensation.')"><span class="kc-indicator"></span>Because with reduced sensation, they cannot feel discomfort from staying in one position too long</button>
+    <button class="kc-option" onclick="answerKC('kc4-q2',this,false,'Position changes support fetal descent and pelvic opening, but the specific reason they are critical with an epidural is the absence of felt discomfort that would normally signal a change is needed.')"><span class="kc-indicator"></span>Position changes are purely for the partner\'s comfort during a long labor</button>
+    <button class="kc-option" onclick="answerKC('kc4-q2',this,false,'Cord placement is monitored by the care team. Position changes serve a specific purpose related to the birthing parent\'s reduced sensation and maintaining pelvic opening.')"><span class="kc-indicator"></span>To prevent the umbilical cord from getting tangled</button>
+  </div>
+  <div class="kc-feedback" id="kc4-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc4-q3">
+  <div class="kc-q-text">3. Which of the following does an epidural NOT change?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q3',this,false,'Physical coping techniques do change significantly after an epidural takes effect — hands-on support like counter-pressure is no longer the primary need.')"><span class="kc-indicator"></span>The need for hands-on physical coping techniques</button>
+    <button class="kc-option" onclick="answerKC('kc4-q3',this,false,'The pushing process often changes with an epidural — directed pushing is standard because the pushing urge may be reduced or absent.')"><span class="kc-indicator"></span>How pushing is managed</button>
+    <button class="kc-option" onclick="answerKC('kc4-q3',this,true,'Exactly right. An epidural addresses physical pain. It does not reduce anxiety, vulnerability, the need for emotional connection, or the importance of your presence for decisions and the birth moment itself.')"><span class="kc-indicator"></span>The emotional need for presence, connection, and informed support</button>
+    <button class="kc-option" onclick="answerKC('kc4-q3',this,false,'Position management actually becomes more important with an epidural, not less — the absence of sensation means the birthing parent can\'t self-report discomfort from positioning.')"><span class="kc-indicator"></span>The importance of position management</button>
+  </div>
+  <div class="kc-feedback" id="kc4-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-4-score">
+  <div class="kc-score-num" id="kc-4-score-num"></div>
+  <div class="kc-score-label">Lesson 4 Complete</div>
+  <div class="kc-score-msg" id="kc-4-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-4">
+    <div><div class="next-label">Up next</div><div class="next-title">Lesson 5 — Reading Your Partner's Signals in Real Time</div></div>
+    <button class="btn-next" id="btn-next-4" onclick="showLesson(5)" disabled>Continue →</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+
+<!-- LESSON 5: Reading Your Partner's Signals -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-5">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 5 of 5</span>
+    <h1>Reading Your Partner's <em>Signals in Real Time</em></h1>
+    <p class="lesson-intro">Technique without perception is guesswork. This lesson teaches you to read what your partner needs before they can tell you — and to adapt when what's working stops working.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Why This Skill Matters</span>
+    <h2>Labor is not a script. <em>It's a conversation without words.</em></h2>
+    <p>You've learned the techniques. You know the 3 R's. You have specific language. But none of those tools work in isolation — they work in response to what your partner is actually experiencing, contraction by contraction, minute by minute.</p>
+    <p>During active labor and transition, the birthing parent often cannot tell you what they need. Asking "what do you need?" during a contraction is not useful. They are not available for that conversation. <strong>Your job is to observe, interpret, and respond — without waiting to be told.</strong></p>
+    <p>This is the skill that separates prepared partners from genuinely effective ones. And it can be learned.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Reading the Body</span>
+    <h2>What to watch for — <em>phase by phase</em></h2>
+
+```
+<div class="technique-card">
+  <div class="technique-name">Facial expression</div>
+  <span class="technique-tag">Most reliable signal in all phases</span>
+  <p>The face tells you more than words during labor. A furrowed brow and clenched jaw during early contractions signals that intensity is escalating — not that something is wrong. A blank, inward expression during active labor is focus, not distress. A look of panic is different from a look of intense effort and you will learn to tell them apart.</p>
+  <p><strong>What to watch for:</strong> The difference between effortful and overwhelmed. Effortful looks like intense concentration — eyes closed or fixed, jaw loose, breath moving. Overwhelmed looks like widening eyes, rapid shallow breath, head moving side to side, no rhythm.</p>
+  <div class="forest-callout"><strong>Your response to overwhelmed:</strong> Get close. Make eye contact if they'll receive it. Start modeling slow breath immediately. Say "I'm right here" once. Then be quiet and breathe.</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-name">Breath patterns</div>
+  <span class="technique-tag">Critical signal for when to intervene</span>
+  <p>Breathing is your clearest window into coping. Watch for three patterns:</p>
+  <p><strong>Rhythmic breathing:</strong> Slow, patterned, consistent. This is coping. Do not interrupt it. Match it if you can.</p>
+  <p><strong>Breath-holding:</strong> Holding breath through contractions is common and sometimes instinctive. It can cause fatigue faster and occasionally causes lightheadedness. If you see it: model slow visible breath, make eye contact, say "breathe with me" once.</p>
+  <p><strong>Hyperventilation:</strong> Rapid, shallow, uncontrolled breathing. This is the signal to intervene immediately — same response as above, but closer and more deliberate. If it doesn't resolve within one contraction, tell the nurse.</p>
+</div>
+
+<div class="technique-card">
+  <div class="technique-name">Body language between contractions</div>
+  <span class="technique-tag">Your best window for adjustment</span>
+  <p>The spaces between contractions are where you gather information and make adjustments. Watch how your partner settles — or doesn't settle — between contractions. That tells you how the current approach is working.</p>
+  <p><strong>Settling well:</strong> They release tension between contractions, breathe out, may close their eyes or rest. Current support is working. Continue.</p>
+  <p><strong>Not settling:</strong> Tension remains between contractions. They seem restless, unable to find comfort, or increasingly anxious. Time to change something — position, technique, environment, or approach.</p>
+  <div class="partner-callout"><strong>The adjustment window:</strong> Between contractions is your only opportunity to make changes, ask a brief question, or suggest something new. During a contraction — hold steady. After it — adapt.</div>
+</div>
+
+<div class="technique-card">
+  <div class="technique-name">Vocalization</div>
+  <span class="technique-tag">Do not silence what is working</span>
+  <p>Many birthing parents vocalize during labor — moaning, humming, low sounds through contractions. This is a healthy, evidence-supported coping mechanism. It regulates breathing, provides rhythm, and helps maintain focus. It is not a signal that something is wrong.</p>
+  <p><strong>What healthy vocalization sounds like:</strong> Low, rhythmic, consistent in tone. Often mirrors contraction intensity — building and releasing.</p>
+  <p><strong>What distressed vocalization sounds like:</strong> High-pitched, fragmented, escalating without rhythm, or the word "no" repeated rapidly. This signals overwhelm — respond with presence and grounding, not by asking what's wrong.</p>
+  <div class="forest-callout"><strong>Never ask them to be quiet.</strong> Vocalization that is rhythmic and low is the sound of coping. Your job is to protect it.</div>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Reading the Situation</span>
+    <h2>When something changes — <em>how to recognize and respond</em></h2>
+    <p>Labor is not static. The approach that worked at 5 cm may not work at 8 cm. Techniques that helped for two hours may stop helping. This is not failure — it is labor changing, which is exactly what it's supposed to do.</p>
+
+```
+<div class="stage-card">
+  <span class="stage-label">Signal: "That's not helping anymore"</span>
+  <div class="stage-card-title">When current support stops working</div>
+  <p>If a technique that was working stops producing visible relief — if counter-pressure is being pushed away, if a position is being rejected, if verbal support is being met with silence or irritation — stop the technique. Don't repeat it more firmly. Don't explain it. Simply stop and try something else.</p>
+  <p>This is not a criticism of your support. It is labor changing. Read the signal and adapt.</p>
+</div>
+
+<div class="stage-card">
+  <span class="stage-label">Signal: Touch rejection</span>
+  <div class="stage-card-title">When they don't want to be touched</div>
+  <p>Some birthing parents, particularly during transition, reach a point where touch feels intolerable. If your partner pulls away from touch or says "don't touch me" — believe them immediately. Remove your hands without comment or hurt feelings.</p>
+  <p>Touch rejection is not rejection of you. It is a sensory signal from a nervous system under extreme load. Your response: stay close, stay present, make eye contact, breathe visibly. Your presence without touch is still profound support.</p>
+  <div class="partner-callout"><strong>Do not take it personally.</strong> Touch rejection in transition is one of the most commonly misread signals. It is not about you. It is about physiology.</div>
+</div>
+
+<div class="stage-card">
+  <span class="stage-label">Signal: The plateau</span>
+  <div class="stage-card-title">When labor seems to stall</div>
+  <p>Long labors have periods where contraction frequency or intensity seems to level off. This can feel alarming. Before reaching for the call button, consider: position change, movement, a walk if mobility is possible, or simply time. Plateaus are common and often resolve on their own.</p>
+  <p>If a plateau persists or the care team raises a concern, use the BRAIN framework from Module 3 to understand what's happening and what the options are.</p>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Reading Yourself</span>
+    <h2>Your own state is part of <em>the signal system</em></h2>
+    <p>Your nervous system and your partner's nervous system are in constant communication in that room. When you are tense, short-breathed, or visibly anxious — your partner's body registers it. The research on co-regulation is clear: <strong>a calm partner physiologically supports a calmer birthing parent.</strong></p>
+    <p>This is not about performing calm. It is about actually managing your own state so that your presence is a resource rather than an additional stressor.</p>
+
+```
+<div class="truth-box">
+  <div class="truth-label">The most important signal to read</div>
+  <p>Check in with yourself every 30 minutes. Are you tense? Has your breathing shortened? Have you been on your phone? Are you emotionally present or running on autopilot? <strong>The quality of your attention is the quality of your support.</strong> Reset yourself as often as needed. Step out briefly if you need to. Come back ready.</p>
+</div>
+```
+
+  </div>
+
+  <div class="knowledge-check" id="kc-5">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 5 Check-In</div>
+    <div class="kc-subtitle">3 final questions to complete Module 2.</div>
+
+```
+<div class="kc-question" id="kc5-q1">
+  <div class="kc-q-text">1. During active labor your partner pushes your hand away and says "don't touch me." You should:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc5-q1',this,false,'Applying counter-pressure more firmly directly contradicts the signal your partner just gave you. When touch is rejected, remove it immediately.')"><span class="kc-indicator"></span>Apply counter-pressure more firmly — they probably need it more right now</button>
+    <button class="kc-option" onclick="answerKC('kc5-q1',this,false,'Leaving the room removes your presence entirely, which is not the right response. Touch rejection is not rejection of you — it is a sensory signal that requires presence without touch.')"><span class="kc-indicator"></span>Step out of the room to give them space</button>
+    <button class="kc-option" onclick="answerKC('kc5-q1',this,true,'Correct. Remove your hands immediately and without comment. Stay close, maintain eye contact, breathe visibly. Your presence without touch is still significant support. Do not take it personally.')"><span class="kc-indicator"></span>Remove your hands immediately, stay close, maintain presence through eye contact and breath</button>
+    <button class="kc-option" onclick="answerKC('kc5-q1',this,false,'Asking why adds a demand to an already overwhelmed nervous system. The signal was clear — respond to it directly rather than seeking an explanation.')"><span class="kc-indicator"></span>Ask why they don\'t want to be touched</button>
+  </div>
+  <div class="kc-feedback" id="kc5-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc5-q2">
+  <div class="kc-q-text">2. Your partner is making low, rhythmic moaning sounds through contractions. You should:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc5-q2',this,false,'Asking them to be quiet removes a healthy coping mechanism. Low, rhythmic vocalization is a sign of active coping — protect it, don\'t suppress it.')"><span class="kc-indicator"></span>Ask them to try to be quieter for the other patients</button>
+    <button class="kc-option" onclick="answerKC('kc5-q2',this,false,'Low rhythmic vocalization is a sign of healthy coping — it does not indicate that something is medically wrong. Calling the nurse for this is unnecessary and disruptive.')"><span class="kc-indicator"></span>Call the nurse — this sounds like distress</button>
+    <button class="kc-option" onclick="answerKC('kc5-q2',this,true,'Exactly right. Low, rhythmic vocalization is healthy coping. It regulates breath, provides rhythm, and maintains focus. Protect it. If helpful, gently join the rhythm or breathe in sync with it.')"><span class="kc-indicator"></span>Recognize it as healthy coping — protect it, possibly match it gently</button>
+    <button class="kc-option" onclick="answerKC('kc5-q2',this,false,'Telling them to breathe instead disrupts an established coping pattern. Low rhythmic sound is its own form of breathing regulation — do not replace it with something else unprompted.')"><span class="kc-indicator"></span>Tell them to breathe instead of making sounds</button>
+  </div>
+  <div class="kc-feedback" id="kc5-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc5-q3">
+  <div class="kc-q-text">3. A technique that was working well for the last hour suddenly stops helping. Your partner seems irritated when you try it. You should:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc5-q3',this,false,'Continuing more firmly works against the signal your partner is giving you. When a technique stops working, adapt — don\'t escalate.')"><span class="kc-indicator"></span>Continue the technique but apply it more firmly</button>
+    <button class="kc-option" onclick="answerKC('kc5-q3',this,false,'Explaining why the technique should work adds communication load at the worst possible moment. Read the signal and adapt — don\'t justify.')"><span class="kc-indicator"></span>Explain to them why the technique should work</button>
+    <button class="kc-option" onclick="answerKC('kc5-q3',this,true,'Correct. When support stops working, stop and adapt. Labor changes — this is not a failure of technique or support. It is a signal that something different is needed right now. Try a position change, a different touch approach, or simply quiet presence.')"><span class="kc-indicator"></span>Stop the technique without comment and try something different</button>
+    <button class="kc-option" onclick="answerKC('kc5-q3',this,false,'Asking during a contraction whether they want you to stop puts a decision burden on them at the worst possible moment. Read the signal and act on it directly.')"><span class="kc-indicator"></span>Ask during the next contraction whether they want you to stop</button>
+  </div>
+  <div class="kc-feedback" id="kc5-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-5-score">
+  <div class="kc-score-num" id="kc-5-score-num"></div>
+  <div class="kc-score-label">Module 2 Complete</div>
+  <div class="kc-score-msg" id="kc-5-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <!-- TOOL DOWNLOAD -->
+
+  <div class="tool-download">
+    <div class="eyebrow">Your Module 2 Tool</div>
+    <h3>Partner Hospital <em style="font-style:italic; color:#8B3A2A;">Bag List</em></h3>
+    <p>Not the standard "what to pack for mom" list. This one is specifically for the partner — your comfort, your food, your support tools, and a reminder about what matters most once active labor begins.</p>
+    <a href="tool_partner_bag.html" target="_blank" class="btn-download">Open & Print →</a>
   </div>
 
   <!-- SAGE -->
 
   <div class="sage-section">
-    <div class="sage-label">🌿 Ask Sage — Practice These Techniques</div>
-    <div class="sage-title">Want to go deeper on any technique?</div>
-    <ul class="sage-prompts">
-      <li>"Sage, can you walk me through the double hip squeeze step by step? I want to practice it before labor starts."</li>
-      <li>"Sage, my partner is in active labor and counter-pressure isn't helping anymore. What else can I try?"</li>
-      <li>"Sage, she told me to stop touching her during contractions. What should I do instead?"</li>
-      <li>"Sage, we're planning a hospital birth — will they let her move around and use different positions?"</li>
-    </ul>
-    <a href="https://www.chatbase.co/chatbot-iframe/a6dHWV4SmL2bw1GvMW5As" target="_blank" class="sage-btn">Open Sage →</a>
-  </div>
-
-  <!-- SOURCES -->
-
-  <div class="sources-section">
-    <div class="sources-label">Sources Cited in This Module</div>
-    <div class="source-item">Bohren, M.A., et al. (2017). Continuous support for women during childbirth. <em>Cochrane Database of Systematic Reviews</em>, Issue 7, CD003766.</div>
-    <div class="source-item">DONA International. (2022). Position Paper: The Birth Doula's Role in Perinatal Care. dona.org.</div>
-    <div class="source-item">Ergin, A. & Taskin, L. (2024). Hydrotherapy in the first stage of labour: A systematic review. <em>International Journal of Nursing Practice, 30</em>(1), e13192.</div>
-    <div class="source-item">Evans, K., et al. (2023). Supporting birth companions for women in labor. <em>Birth, 50</em>(4), 711–727.</div>
-    <div class="source-item">Güner, Ö. & Yildirim, G. (2025). Effects of labor support on childbirth comfort and satisfaction. <em>BMC Pregnancy and Childbirth, 25</em>, 562.</div>
-    <div class="source-item">Ranjbaran, M., et al. (2017). Effect of Massage Therapy on Labor Pain Reduction. <em>Iranian Journal of Nursing and Midwifery Research, 22</em>(4), 257–261.</div>
-    <div class="source-item">Sakala, C. (2019). Continuous Support: 2017 Cochrane Review Key Takeaways. <em>Journal of Perinatal Education, 28</em>(4), 200–209.</div>
-    <div class="source-item">Simkin, P. (1991/1992). Women's long-term perceptions of their first birth experience. <em>Birth, 18</em>(4) and <em>19</em>(2).</div>
-    <div class="source-item">Simkin, P. & Ancheta, R. (2011). <em>The Labor Progress Handbook</em>, 3rd Ed. Wiley-Blackwell.</div>
-    <div class="source-item">Simkin, P. & Bolding, A. (2004). Nonpharmacologic approaches to relieve labor pain. <em>JMWH, 49</em>(6), 489–504.</div>
-    <div class="source-item">Simkin, P. & Cheyney, M. (2024). <em>The Birth Partner</em>, 6th Ed. Harvard Common Press.</div>
-  </div>
-
-</div>
-
-<!-- QUIZ TRANSITION -->
-
-<div style="background:#F0E8DC; padding:3rem 2rem; text-align:center; border-top:1px solid #C9B89E;">
-  <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.8rem;">Your Module 2 Tool</div>
-  <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#1A100C; margin-bottom:0.6rem;">Partner Hospital <em style="font-style:italic; color:#8B3A2A;">Bag List</em></div>
-  <p style="font-size:0.9rem; color:#4A3020; max-width:48ch; margin:0 auto 1.5rem; line-height:1.7;">Not the standard "what to pack for mom" list. This one is specifically for the partner — your comfort, your food, your support tools, and a reminder about what matters most once active labor begins.</p>
-  <a href="tool_partner_bag.html" target="_blank" style="display:inline-block; background:#8B3A2A; color:white; padding:0.9rem 2.5rem; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none;">Open & Print →</a>
-</div>
-
-<div class="quiz-divider" id="quizDivider">
-  <h2>You've read the playbook. Now <em>own it.</em></h2>
-  <p>10 questions on the techniques, the research, and the words that matter. Take it together — the feedback after each answer is as valuable as the question itself.</p>
-  <button class="btn-start-quiz" onclick="startQuiz()">Start the Knowledge Check →</button>
-</div>
-
-<!-- QUIZ SECTION -->
-
-<div id="quiz-section">
-  <div class="quiz-header-bar">
-    <div class="quiz-title-bar">Module 2 · Knowledge Check</div>
-    <div style="display:flex; align-items:center; gap:1rem;">
-      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qProgressFill"></div></div>
-      <div class="quiz-progress-text" id="qProgressText">0 / 10</div>
+    <div class="sage-eyebrow">🌿 Ask Sage — Go Deeper</div>
+    <div class="sage-title">Have questions about what you just read?</div>
+    <div class="sage-prompts">
+      <div class="sage-prompt">"Sage, my partner tends to go quiet and shut down under stress. How do I read their signals during labor if they don't show much outwardly?"</div>
+      <div class="sage-prompt">"Sage, what are the signs that a technique is working vs. just being tolerated? How do I tell the difference?"</div>
+      <div class="sage-prompt">"Sage, I'm worried I'll freeze up or panic in the birth room. What specific things can I do before labor to build confidence in reading situations?"</div>
     </div>
+    <a href="https://www.chatbase.co/chatbot-iframe/a6dHWV4SmL2bw1GvMW5As" target="_blank" class="btn-sage">Open Sage →</a>
   </div>
 
-  <div class="quiz-inner" id="quizInner">
-    <div class="q-num" id="qNum">Question 1 of 10</div>
-    <div class="q-text" id="qText"></div>
-    <div class="options-list" id="optionsList"></div>
-    <div class="q-feedback" id="qFeedback">
-      <div class="feedback-tag" id="feedbackTag"></div>
-      <p id="feedbackContent"></p>
-    </div>
-    <button class="btn-next-q" id="btnNextQ" onclick="nextQ()">Next Question →</button>
+  <!-- COMPLETE BANNER -->
+
+  <div class="complete-banner" id="completeBanner">
+    <h2>Module 2 Complete.</h2>
+    <p>You have the framework, the techniques, and the perception skills. In Module 3 you'll learn how to navigate the hospital system itself.</p>
+    <a href="module3.html" class="btn-module-next">Continue to Module 3 →</a>
   </div>
 
-  <div class="results-section" id="resultsSection">
-    <div class="score-ring">
-      <div class="score-big" id="scoreBig">0</div>
-      <div class="score-sub">out of 10</div>
-    </div>
-    <div class="result-heading" id="resultHeading"></div>
-    <p class="result-body" id="resultBody"></p>
-    <div class="review-cards" id="reviewCards"></div>
-    <div class="result-actions">
-      <button class="btn-retry-quiz" onclick="retryQuiz()">Retake Quiz</button>
-      <a href="module1.html" class="btn-prev-module">← Module 1</a>
-      <a href="module3.html" class="btn-next-module">Continue to Module 3 →</a>
-    </div>
-    <p class="results-citation">Sources: Bohren et al./Cochrane (2017); Simkin & Bolding (2004); Simkin (1991); Güner & Yildirim (2025); DONA International (2022)</p>
-  </div>
+</div><!-- end lesson 5 -->
+</div><!-- end module-content -->
+
+<!-- CITATIONS -->
+
+<div class="citations">
+  <div class="citations-title">Sources Cited in This Module</div>
+  <div class="citation-item">Bohren, M.A., et al. (2017). Continuous support for women during childbirth. <em>Cochrane Database of Systematic Reviews, 7</em>, CD003766.</div>
+  <div class="citation-item">Simkin, P. & Ancheta, R. (2017). <em>The Labor Progress Handbook: Early Interventions to Prevent and Treat Dystocia.</em> 4th ed. Wiley-Blackwell.</div>
+  <div class="citation-item">Cluett, E.R., et al. (2018). Immersion in water during labour and birth. <em>Cochrane Database of Systematic Reviews, 5</em>, CD000111.</div>
+  <div class="citation-item">Hodnett, E.D., et al. (2013). Continuous support for women during childbirth. <em>Cochrane Database of Systematic Reviews.</em></div>
+  <div class="citation-item">DONA International (2019). <em>DONA International Standards of Practice — Birth Doula.</em> dona.org.</div>
 </div>
-
-<footer>
-  <div class="footer-logo">Pregnancy <span>Partnership</span></div>
-  <div class="footer-copy">© 2026 Pregnancy Partnership · Educational use only · Not a substitute for medical advice</div>
-</footer>
 
 <script>
-window.addEventListener('scroll', () => {
-  const content = document.getElementById('moduleContent');
-  const divider = document.getElementById('quizDivider');
-  const total = divider.offsetTop - content.offsetTop;
-  const scrolled = window.scrollY - content.offsetTop + window.innerHeight * 0.3;
-  const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
-  document.getElementById('readingProgress').style.width = pct + '%';
-});
+const kcState = {};
 
-const questions = [
-  {
-    q: "According to the largest systematic review ever conducted on labor support — 27 RCTs, nearly 16,000 women — what is the reduction in cesarean risk when support comes from someone in a doula role?",
-    options: ["About 10% reduction","About 20% reduction","39% reduction","Cesarean rates were not affected by labor support"],
-    correct: 2,
-    feedback: "<strong>39% reduction in cesarean risk</strong> when support comes from someone in a doula role — compared to 25% when any continuous support is present (Bohren et al., Cochrane, 2017). The same review found labors averaged 41 minutes shorter and birth dissatisfaction dropped by 31%. These are large, consistent effects across 17 countries. This is the evidence base for everything you're learning in this module."
-  },
-  {
-    q: "Your partner is in early labor with back pain. She says the pressure on her lower back during contractions is the worst part. What is the most appropriate technique to try first?",
-    options: ["Ask her to breathe more slowly","Apply counter-pressure — steady firm pressure on the sacrum or lower back during contractions","Suggest she get an epidural","Ask the nurse to check her dilation"],
-    correct: 1,
-    feedback: "<strong>Counter-pressure is the primary technique for back labor.</strong> Steady, firm pressure on the sacrum during contractions reduces pain through the gate control mechanism — flooding the nervous system with competing sensory input. Use the heel of your hand or your fist, press and hold during the contraction (don't rub), and ask for feedback on pressure and placement. Research shows massage and pressure techniques reduce pain scores across all phases of labor."
-  },
-  {
-    q: "What are Penny Simkin's '3 R's' — the framework she developed from decades of doula practice for effective labor support?",
-    options: ["Rest, Recovery, Reflection","Relaxation, Rhythm, Ritual","Reassurance, Respiration, Repositioning","Readiness, Routine, Response"],
-    correct: 1,
-    feedback: "<strong>Relaxation, Rhythm, and Ritual</strong> — Penny Simkin's foundational framework for labor support. Relaxation keeps adrenaline low and oxytocin flowing, which supports labor progress. Rhythm involves movement like swaying, rocking, and walking. Ritual is the repetitive activity the laboring person settles into during contractions. Your job as the partner is to support and protect these three things — not interrupt them."
-  },
-  {
-    q: "The laboring person has settled into a rhythm of moaning and rocking through contractions. It looks intense but she seems focused. What should you do?",
-    options: ["Tell her to try to be quieter — the moaning is disordered breathing","Suggest a different position to change things up","Protect and match her rhythm — she has found her ritual and it is working","Distract her by talking about something else"],
-    correct: 2,
-    feedback: "<strong>Protect the ritual.</strong> When a laboring person finds a rhythm that works — even if it looks or sounds intense — your job is to support it, not change it. This is Simkin's Ritual principle in action. Match her rhythm, breathe with her, stay close and steady. Only suggest changes if the current approach clearly stops working. A ritual that is working is one of the most powerful non-pharmacological tools available."
-  },
-  {
-    q: "What does the double hip squeeze do, and when is it most useful?",
-    options: ["It speeds up contractions by stimulating the uterus","It compresses the hip joints, widens the pelvic outlet, and reduces pain — most useful when the laboring person is leaning forward","It checks dilation by measuring hip distance","It is only useful if the baby is in a breech position"],
-    correct: 1,
-    feedback: "<strong>The double hip squeeze temporarily widens the pelvic outlet and reduces pain</strong> — one of the most consistently valued techniques in doula practice. It is most effective when the laboring person is leaning forward (hands and knees, over a birth ball, or leaning on your shoulders). Stand behind them, place palms flat on the outer hips at the widest point, press firmly inward and slightly upward during contractions, and release slowly. Always ask for feedback on placement and pressure."
-  },
-  {
-    q: "Research shows that hydrotherapy during labor — warm water immersion or shower — has what effect?",
-    options: ["It has no proven benefit and may slow labor","It significantly reduces pain intensity and may reduce the need for labor augmentation by up to 83%","It is only beneficial if used after an epidural","It increases the risk of infection and should be avoided"],
-    correct: 1,
-    feedback: "<strong>Hydrotherapy significantly reduces pain</strong> — a 2024 systematic review of 20 studies involving over 8,000 women confirmed this. The American College of Nurse-Midwives notes that water immersion may reduce the need for pharmacologic augmentation by up to 83%. Warm water (37–38°C) promotes muscle relaxation and endorphin release. If a tub or shower is available at your birth setting, it is one of the most evidence-based tools you have access to."
-  },
-  {
-    q: "Your partner tells you 'stop touching me' during a contraction. What is the most appropriate response?",
-    options: ["Apologize and move to the other side of the room","Step back and give her space — stop all physical support for the rest of labor","Understand this is likely a sign that nothing is helping right now, not that your presence is unwanted — give her space during the contraction, stay close, and offer again after","Take it personally and ask if she wants you to leave"],
-    correct: 2,
-    feedback: "<strong>Don't take it personally — she's telling you labor is intensely difficult right now.</strong> Penny Simkin's advice from decades of practice: when a laboring person lashes out or rejects a technique, she is not rejecting you — she is expressing that nothing can touch how hard this is in this moment, and you are the safest person for her to express that to. Give her space during the contraction. Stay nearby. Offer again after. Your steady presence still matters even when touch doesn't."
-  },
-  {
-    q: "According to Penny Simkin's landmark 1991 study, what did researchers find about women's birth memories?",
-    options: ["Most women had forgotten the details of their birth within 5 years","Women recalled birth experiences with remarkable accuracy 15–20 years later, and the actions of their partners were among the most vividly remembered details","Birth memories faded within 6 months and had no long-term psychological impact","Only painful birth experiences were remembered long-term"],
-    correct: 1,
-    feedback: "<strong>Women remember their births vividly for decades</strong> — and the actions and words of their partners are among the most salient memories. Women with the highest long-term satisfaction felt a sense of accomplishment, felt in control, and had positive memories of specific things their partners said and did. This means what you do in that room doesn't just affect the birth — it shapes the story both of you carry for the rest of your lives."
-  },
-  {
-    q: "Which position is most recommended for back labor, and why?",
-    options: ["Lying flat on the back — this opens the pelvis most effectively","Sitting in a chair — reduces movement and conserves energy","Hands and knees — takes pressure off the sacrum and encourages the baby to rotate away from the back","Standing upright only — gravity is the most important factor"],
-    correct: 2,
-    feedback: "<strong>Hands and knees is the primary position for back labor.</strong> When the baby is in a posterior position (back against the mother's back), the hands-and-knees position uses gravity to encourage the baby to rotate, and takes the baby's weight off the sacrum — which is the source of back labor pain. It also makes counter-pressure easier to apply. Pair hands-and-knees with counter-pressure on the sacrum for maximum relief during back labor contractions."
-  },
-  {
-    q: "A 2025 randomized controlled trial found that women who received engaged companion support during labor had what outcomes compared to standard care?",
-    options: ["No significant differences in satisfaction or postpartum wellbeing","Slightly higher satisfaction but no measurable postpartum effect","Significantly higher birth satisfaction scores across all dimensions, and partner support during birth was associated with lower depression and anxiety even two years after birth","Higher pain scores but shorter labors"],
-    correct: 2,
-    feedback: "<strong>Significantly higher satisfaction and measurably better postpartum mental health outcomes — including up to two years after birth.</strong> This is the long game of why this module matters. An engaged, prepared partner doesn't just make the birth better in the moment. It reduces postpartum depression and anxiety, improves satisfaction with the birth experience, and strengthens the foundation of the family. You are not just supporting a birth. You are investing in your family's long-term emotional health."
+function showLesson(num) {
+  document.querySelectorAll('.lesson-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.lesson-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('lesson-' + num).classList.add('active');
+  document.getElementById('tab-' + num).classList.add('active');
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+function answerKC(questionId, btn, isCorrect, feedback) {
+  if (kcState[questionId]) return;
+  kcState[questionId] = { answered:true, correct:isCorrect };
+  const allOptions = btn.parentElement.querySelectorAll('.kc-option');
+  allOptions.forEach(o => { o.classList.add('disabled','incorrect'); o.querySelector('.kc-indicator').textContent = '✗'; });
+  btn.classList.remove('incorrect');
+  btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+  btn.querySelector('.kc-indicator').textContent = isCorrect ? '✓' : '✗';
+  if (!isCorrect) {
+    allOptions.forEach(o => {
+      if (o.onclick && o.onclick.toString().includes('true,')) {
+        o.classList.remove('incorrect'); o.classList.add('correct');
+        o.querySelector('.kc-indicator').textContent = '✓';
+      }
+    });
   }
-];
-
-let cQ = 0, score = 0, userAnswers = [], answered = false;
-
-function startQuiz() {
-  document.getElementById('quizDivider').style.display = 'none';
-  const qs = document.getElementById('quiz-section');
-  qs.classList.add('active');
-  qs.scrollIntoView({ behavior: 'smooth' });
-  cQ = 0; score = 0; userAnswers = []; answered = false;
-  renderQ();
+  const fbEl = document.getElementById(questionId + '-fb');
+  if (fbEl) { fbEl.textContent = feedback; fbEl.className = 'kc-feedback ' + (isCorrect ? 'correct-fb' : 'incorrect-fb') + ' show'; }
+  checkKCComplete(questionId);
 }
 
-function renderQ() {
-  answered = false;
-  const q = questions[cQ];
-  document.getElementById('qNum').textContent = 'Question ' + (cQ+1) + ' of ' + questions.length;
-  document.getElementById('qText').textContent = q.q;
-  document.getElementById('qProgressFill').style.width = (cQ / questions.length * 100) + '%';
-  document.getElementById('qProgressText').textContent = cQ + ' / ' + questions.length;
-  const list = document.getElementById('optionsList');
-  list.innerHTML = '';
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'opt-btn';
-    btn.textContent = opt;
-    btn.onclick = () => selectA(i);
-    list.appendChild(btn);
-  });
-  document.getElementById('qFeedback').classList.remove('show');
-  const btnNext = document.getElementById('btnNextQ');
-  btnNext.classList.remove('show');
-  btnNext.textContent = cQ === questions.length - 1 ? 'See My Results →' : 'Next Question →';
+function checkKCComplete(questionId) {
+  const kcNum = questionId.charAt(2);
+  const prefix = 'kc' + kcNum;
+  const q1 = kcState[prefix + '-q1'];
+  const q2 = kcState[prefix + '-q2'];
+  const q3 = kcState[prefix + '-q3'];
+  if (q1 && q2 && q3) {
+    const score = [q1,q2,q3].filter(q => q.correct).length;
+    const scoreEl = document.getElementById('kc-' + kcNum + '-score');
+    const scoreNum = document.getElementById('kc-' + kcNum + '-score-num');
+    const scoreMsg = document.getElementById('kc-' + kcNum + '-score-msg');
+    scoreEl.classList.add('show');
+    scoreNum.textContent = score + '/3';
+    const msgs = { 3:"Perfect. Move on with confidence.", 2:"Good — one to review. Continue when ready.", 1:"Worth a re-read before moving on.", 0:"Go back through this lesson before continuing." };
+    scoreMsg.textContent = msgs[score];
+    document.getElementById('tab-' + kcNum).classList.add('completed');
+    const nextBtn = document.getElementById('btn-next-' + kcNum);
+    if (nextBtn) { nextBtn.disabled = false; nextBtn.style.background = '#A8782A'; nextBtn.style.color = '#1A100C'; }
+    if (kcNum === '5') { document.getElementById('completeBanner').classList.add('show'); }
+  }
 }
 
-function selectA(sel) {
-  if (answered) return;
-  answered = true;
-  const q = questions[cQ];
-  const btns = document.querySelectorAll('.opt-btn');
-  btns.forEach((b, i) => {
-    b.disabled = true;
-    if (i === q.correct) b.classList.add('correct');
-    else if (i === sel && sel !== q.correct) b.classList.add('incorrect');
-    else b.classList.add('dimmed');
-  });
-  const ok = sel === q.correct;
-  if (ok) score++;
-  userAnswers.push({ ok, q: q.q, a: q.options[q.correct] });
-  const fb = document.getElementById('qFeedback');
-  const tag = document.getElementById('feedbackTag');
-  tag.textContent = ok ? '✓ Correct — here\'s why it matters' : '✗ Not quite — here\'s what to know';
-  tag.style.color = ok ? '#1E3320' : '#8B3A2A';
-  fb.style.borderColor = ok ? '#1E3320' : '#8B3A2A';
-  document.getElementById('feedbackContent').innerHTML = q.feedback;
-  fb.classList.add('show');
-  document.getElementById('btnNextQ').classList.add('show');
-}
-
-function nextQ() {
-  cQ++;
-  if (cQ >= questions.length) showResults();
-  else renderQ();
-}
-
-function showResults() {
-  document.getElementById('qProgressFill').style.width = '100%';
-  document.getElementById('qProgressText').textContent = '10 / 10';
-  document.getElementById('quizInner').style.display = 'none';
-  document.getElementById('scoreBig').textContent = score;
-  let h, b;
-  if (score === 10) { h = 'Perfect. <em>You\'re ready to show up.</em>'; b = 'Every technique, every principle, every word that matters — you know it. Walk into that birth room with confidence. You\'ve done the work.'; }
-  else if (score >= 8) { h = 'Strong foundation. <em>Almost there.</em>'; b = 'You know the material. Review the questions you missed — they\'re usually the ones that come up in the most intense moments of labor.'; }
-  else if (score >= 6) { h = 'Good start. <em>A few techniques to lock in.</em>'; b = 'The core concepts are there. Go back through the techniques section and retake — knowing these cold before labor starts is the whole point.'; }
-  else { h = 'Time to review. <em>That\'s what this is for.</em>'; b = 'Read through the module again — especially the techniques and the 3 R\'s. Then retake. The goal is to know these without having to think.'; }
-  document.getElementById('resultHeading').innerHTML = h;
-  document.getElementById('resultBody').textContent = b;
-  const cards = document.getElementById('reviewCards');
-  cards.innerHTML = '<h3 style="font-family:\'Cormorant Garamond\',serif;font-size:1.2rem;font-weight:400;margin-bottom:1rem;color:#1A100C;">Your answers reviewed</h3>';
-  userAnswers.forEach((a, i) => {
-    const d = document.createElement('div');
-    d.className = 'review-card ' + (a.ok ? 'right' : 'wrong');
-    d.innerHTML = `<div class="rq">${a.ok?'✓':'✗'} Q${i+1}: ${a.q.substring(0,75)}${a.q.length>75?'...':''}</div><div class="ra">Correct: ${a.a}</div>`;
-    cards.appendChild(d);
-  });
-  document.getElementById('resultsSection').classList.add('show');
-  document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
-}
-
-function retryQuiz() {
-  document.getElementById('resultsSection').classList.remove('show');
-  document.getElementById('quizInner').style.display = 'block';
-  cQ = 0; score = 0; userAnswers = []; answered = false;
-  renderQ();
-  document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
-}
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop || document.body.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  document.getElementById('progressFill').style.width = (scrollHeight > 0 ? (scrollTop/scrollHeight)*100 : 0) + '%';
+});
 </script>
 
 </body>
