@@ -7,200 +7,176 @@
 <title>Module 5 — Postpartum Together | Pregnancy Partnership</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #F0E8DC;
-    --sand: #C9B89E;
-    --clay: #9C7A52;
-    --terracotta: #8B3A2A;
-    --deep: #1A100C;
-    --forest: #1E3320;
-    --gold: #A8782A;
-    --mid: #4A3020;
-    --teal: #1A3A3A;
-    --correct: #1E3320;
-    --incorrect: #8B3A2A;
-  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#F0E8DC; color:#1A100C; font-family:'DM Sans',sans-serif; font-weight:300; }
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { background: #F0E8DC; color: #1A100C; font-family: ‘DM Sans’, sans-serif; font-weight: 300; }
+nav { background:#1A100C; padding:1.2rem 4rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+.nav-logo { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; color:#F0E8DC; text-decoration:none; }
+.nav-logo span { color:#A8782A; }
+.nav-back { font-size:0.75rem; color:rgba(240,232,220,0.5); text-decoration:none; letter-spacing:0.08em; transition:color 0.2s; }
+.nav-back:hover { color:#A8782A; }
 
-nav { background: #1A100C; padding: 1.2rem 4rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 1.2rem; color: #F0E8DC; text-decoration: none; }
-.nav-logo span { color: #A8782A; }
-.nav-back { font-size: 0.75rem; color: rgba(240,232,220,0.5); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
-.nav-back:hover { color: #A8782A; }
+.reading-progress { height:3px; background:rgba(201,169,110,0.2); position:sticky; top:57px; z-index:99; }
+.reading-progress-fill { height:100%; background:#A8782A; width:0%; transition:width 0.1s linear; }
 
-.reading-progress { height: 3px; background: rgba(201,169,110,0.2); position: sticky; top: 57px; z-index: 99; }
-.reading-progress-fill { height: 100%; background: #A8782A; width: 0%; transition: width 0.1s linear; }
+.module-hero { background:#1A3A3A; padding:5rem 4rem 4rem; position:relative; overflow:hidden; }
+.module-hero::before { content:‘05’; position:absolute; right:3rem; top:50%; transform:translateY(-50%); font-family:‘Cormorant Garamond’,serif; font-size:14rem; font-weight:300; color:rgba(255,255,255,0.04); line-height:1; pointer-events:none; }
+.module-eyebrow { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(240,232,220,0.6); margin-bottom:1rem; display:flex; align-items:center; gap:0.8rem; }
+.module-eyebrow::before { content:’’; width:2rem; height:1px; background:rgba(240,232,220,0.4); }
+.module-title { font-family:‘Cormorant Garamond’,serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:300; color:#F0E8DC; line-height:1.1; margin-bottom:1.5rem; max-width:14ch; }
+.module-title em { font-style:italic; color:#80C0B8; }
+.module-meta { display:flex; gap:2rem; flex-wrap:wrap; }
+.meta-pill { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,232,220,0.5); display:flex; align-items:center; gap:0.4rem; }
 
-.module-hero { background: #1A3A3A; padding: 5rem 4rem 4rem; position: relative; overflow: hidden; }
-.module-hero::before { content: ‘05’; position: absolute; right: 3rem; top: 50%; transform: translateY(-50%); font-family: ‘Cormorant Garamond’, serif; font-size: 14rem; font-weight: 300; color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none; }
-.module-eyebrow { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #A8782A; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
-.module-eyebrow::before { content: ‘’; width: 2rem; height: 1px; background: #A8782A; }
-.module-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: white; line-height: 1.1; margin-bottom: 1.5rem; max-width: 16ch; }
-.module-title em { font-style: italic; color: rgba(240,232,220,0.65); }
-.module-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
-.meta-pill { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 0.4rem; }
+.lesson-nav { background:#1A100C; border-bottom:1px solid rgba(255,255,255,0.06); padding:0 4rem; display:flex; gap:0; overflow-x:auto; }
+.lesson-tab { padding:1rem 1.5rem; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,232,220,0.4); cursor:pointer; border-bottom:2px solid transparent; transition:all 0.2s; white-space:nowrap; background:none; border-top:none; border-left:none; border-right:none; font-family:‘DM Sans’,sans-serif; font-weight:400; }
+.lesson-tab:hover { color:rgba(240,232,220,0.7); }
+.lesson-tab.active { color:#A8782A; border-bottom-color:#A8782A; }
+.lesson-tab.completed::after { content:’ ✓’; }
 
-.module-content { max-width: 780px; margin: 0 auto; padding: 4rem 2rem; }
-.section-block { margin-bottom: 3.5rem; }
-.section-block h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; color: #1A100C; line-height: 1.2; margin-bottom: 1.2rem; }
-.section-block h2 em { font-style: italic; color: #8B3A2A; }
-.section-block p { font-size: 1rem; line-height: 1.85; color: #4A3020; margin-bottom: 1rem; }
-.section-block strong { color: #1A100C; font-weight: 500; }
-.eyebrow-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #8B3A2A; margin-bottom: 0.5rem; display: block; }
+.module-content { max-width:780px; margin:0 auto; padding:4rem 2rem; }
+.lesson-panel { display:none; }
+.lesson-panel.active { display:block; }
 
-/* STAT BAR */
-.stat-bar { background: #1A3A3A; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin: 2rem 0; }
-.stat-item { background: #1A3A3A; padding: 1.8rem 1.2rem; text-align: center; }
-.stat-num { font-family: ‘Cormorant Garamond’, serif; font-size: 2.5rem; font-weight: 300; color: #A8782A; line-height: 1; margin-bottom: 0.4rem; }
-.stat-label { font-size: 0.75rem; color: rgba(240,232,220,0.65); line-height: 1.5; }
-.stat-source { font-size: 0.6rem; color: rgba(240,232,220,0.3); margin-top: 0.3rem; font-style: italic; }
+.lesson-header { margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid #C9B89E; }
+.lesson-num { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:#1A3A3A; margin-bottom:0.6rem; display:block; }
+.lesson-header h1 { font-family:‘Cormorant Garamond’,serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; color:#1A100C; line-height:1.15; }
+.lesson-header h1 em { font-style:italic; color:#1A3A3A; }
+.lesson-intro { font-size:1.05rem; line-height:1.85; color:#4A3020; margin-top:1rem; max-width:60ch; }
 
-/* RESEARCH BOX */
-.research-box { background: #1A100C; padding: 2.5rem; margin: 2rem 0; position: relative; overflow: hidden; }
-.research-box::before { content: ‘”’; position: absolute; top: -1rem; left: 1.5rem; font-family: ‘Cormorant Garamond’, serif; font-size: 8rem; color: rgba(255,255,255,0.05); line-height: 1; }
-.research-box p { font-family: ‘Cormorant Garamond’, serif; font-size: 1.25rem; font-style: italic; color: #F0E8DC; line-height: 1.6; margin-bottom: 0.6rem; position: relative; z-index: 1; }
-.research-source { font-size: 0.7rem; color: #A8782A; letter-spacing: 0.1em; text-transform: uppercase; }
+.section-block { margin-bottom:3.5rem; }
+.section-block h2 { font-family:‘Cormorant Garamond’,serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:300; color:#1A100C; line-height:1.2; margin-bottom:1.2rem; }
+.section-block h2 em { font-style:italic; color:#1A3A3A; }
+.section-block h3 { font-family:‘Cormorant Garamond’,serif; font-size:1.3rem; font-weight:400; color:#1A100C; margin:2rem 0 0.8rem; padding-top:1.5rem; border-top:1px solid #C9B89E; }
+.section-block p { font-size:1rem; line-height:1.85; color:#4A3020; margin-bottom:1rem; }
+.section-block strong { color:#1A100C; font-weight:500; }
+.eyebrow-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#1A3A3A; margin-bottom:0.5rem; display:block; }
 
-/* TIMELINE */
-.timeline { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; }
-.timeline-item { display: flex; gap: 1.2rem; background: white; padding: 1.2rem 1.5rem; border-bottom: 1px solid #C9B89E; }
-.timeline-item:last-child { border-bottom: none; }
-.timeline-phase { font-family: ‘Cormorant Garamond’, serif; font-size: 0.85rem; font-weight: 600; color: #1A3A3A; width: 120px; flex-shrink: 0; padding-top: 0.1rem; line-height: 1.4; }
-.timeline-content { flex: 1; }
-.timeline-title { font-weight: 500; font-size: 0.9rem; color: #1A100C; margin-bottom: 0.3rem; }
-.timeline-desc { font-size: 0.85rem; color: #4A3020; line-height: 1.65; }
+.teal-callout { background:rgba(26,58,58,0.07); border-left:3px solid #1A3A3A; padding:0.9rem 1.2rem; margin:1rem 0; font-size:0.88rem; line-height:1.7; color:#1A3A3A; }
+.teal-callout strong { color:#1A3A3A; }
+.partner-callout { background:rgba(139,58,42,0.06); border-left:3px solid #8B3A2A; padding:0.9rem 1.2rem; margin:1rem 0; font-size:0.88rem; line-height:1.7; color:#4A3020; }
+.partner-callout strong { color:#8B3A2A; }
+.forest-callout { background:rgba(30,51,32,0.06); border-left:3px solid #1E3320; padding:0.9rem 1.2rem; margin:1rem 0; font-size:0.88rem; line-height:1.7; color:#1E3320; }
+.forest-callout strong { color:#1E3320; }
 
-/* ALERT BOX — for partner PPD */
-.alert-box { background: rgba(26,58,58,0.08); border: 1.5px solid #1A3A3A; padding: 2rem; margin: 1.5rem 0; }
-.alert-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: #1A3A3A; margin-bottom: 0.8rem; font-weight: 500; }
-.alert-box p { font-size: 0.92rem; line-height: 1.75; color: #4A3020; margin-bottom: 0.6rem; }
-.alert-box strong { color: #1A3A3A; font-weight: 500; }
+.research-box { background:#1A100C; padding:2.5rem; margin:2rem 0; position:relative; overflow:hidden; }
+.research-box::before { content:’”’; position:absolute; top:-1rem; left:1.5rem; font-family:‘Cormorant Garamond’,serif; font-size:8rem; color:rgba(255,255,255,0.05); line-height:1; }
+.research-box p { font-family:‘Cormorant Garamond’,serif; font-size:1.3rem; font-style:italic; color:#F0E8DC; line-height:1.6; margin-bottom:0.8rem; position:relative; z-index:1; }
+.research-source { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(168,120,42,0.7); }
 
-/* TWO-COL SYMPTOMS */
-.symptom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: #C9B89E; margin: 1.5rem 0; }
-.symptom-col { background: white; padding: 1.5rem; }
-.symptom-header { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 500; padding-bottom: 0.6rem; border-bottom: 2px solid; }
-.symptom-col.birthing .symptom-header { color: #8B3A2A; border-color: #8B3A2A; }
-.symptom-col.partner .symptom-header { color: #1A3A3A; border-color: #1A3A3A; }
-.symptom-item { font-size: 0.85rem; line-height: 1.6; color: #4A3020; padding: 0.5rem 0; border-bottom: 1px solid rgba(201,184,158,0.3); display: flex; gap: 0.6rem; }
-.symptom-item:last-child { border-bottom: none; }
+.stat-block { background:#1A3A3A; padding:2rem 2.5rem; margin:2rem 0; display:flex; align-items:center; gap:2rem; }
+.stat-num { font-family:‘Cormorant Garamond’,serif; font-size:3.5rem; font-weight:300; color:#80C0B8; line-height:1; flex-shrink:0; }
+.stat-text { font-size:0.9rem; line-height:1.7; color:rgba(240,232,220,0.85); }
+.stat-text strong { color:#F0E8DC; }
 
-/* ROLE CARDS */
-.role-card { background: white; border-left: 4px solid #1A3A3A; margin: 1.2rem 0; }
-.role-header { background: #1A3A3A; padding: 0.8rem 1.5rem; }
-.role-title { font-family: ‘Cormorant Garamond’, serif; font-size: 1.15rem; color: #F0E8DC; }
-.role-body { padding: 1.2rem 1.5rem; }
-.role-body p { font-size: 0.9rem; line-height: 1.7; color: #4A3020; margin-bottom: 0.6rem; }
-.role-body strong { color: #1A100C; font-weight: 500; }
+.truth-box { border:1.5px solid #C9B89E; padding:1.8rem 2rem; margin:2rem 0; position:relative; }
+.truth-label { position:absolute; top:-0.6rem; left:1.5rem; background:#F0E8DC; padding:0 0.5rem; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; }
+.truth-box p { font-size:0.95rem; line-height:1.8; color:#4A3020; }
+.truth-box strong { color:#1A100C; font-weight:500; }
 
-/* SLEEP STRATEGIES */
-.sleep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
-.sleep-card { background: white; padding: 1.2rem 1.5rem; border-top: 3px solid #A8782A; }
-.sleep-card-title { font-weight: 500; font-size: 0.88rem; color: #1A100C; margin-bottom: 0.5rem; }
-.sleep-card-desc { font-size: 0.82rem; color: #4A3020; line-height: 1.6; }
+/* WEEK BY WEEK */
+.week-card { background:white; border-left:4px solid #1A3A3A; padding:2rem; margin:1.5rem 0; }
+.week-label { font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:#1A3A3A; margin-bottom:0.3rem; display:block; }
+.week-title { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; font-weight:600; color:#1A100C; margin-bottom:0.8rem; }
+.week-card p { font-size:0.92rem; line-height:1.75; color:#4A3020; margin-bottom:0.7rem; }
+.week-card strong { color:#1A100C; font-weight:500; }
 
-/* SAGE */
-.sage-section { background: #1E3320; padding: 2.5rem; margin: 3rem 0; }
-.sage-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #A8782A; margin-bottom: 0.8rem; }
-.sage-title { font-family: ‘Cormorant Garamond’, serif; font-size: 1.3rem; color: #F0E8DC; margin-bottom: 1.2rem; }
-.sage-prompts { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-.sage-prompts li { font-size: 0.88rem; color: rgba(240,232,220,0.75); line-height: 1.6; padding-left: 1.2rem; position: relative; }
-.sage-prompts li::before { content: ‘→’; position: absolute; left: 0; color: #A8782A; }
-.sage-btn { display: inline-block; margin-top: 1.5rem; background: #A8782A; color: #1A100C; padding: 0.7rem 1.5rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.3s ease; }
-.sage-btn:hover { background: #F0E8DC; }
+/* SYMPTOM GRID */
+.symptom-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#C9B89E; margin:2rem 0; }
+.symptom-col { background:white; padding:1.8rem; }
+.symptom-header { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; padding-bottom:0.8rem; border-bottom:2px solid; margin-bottom:1rem; }
+.symptom-col.birthing .symptom-header { color:#8B3A2A; border-color:#8B3A2A; }
+.symptom-col.partner .symptom-header { color:#1A3A3A; border-color:#1A3A3A; }
+.symptom-item { font-size:0.85rem; color:#3A2010; padding:0.35rem 0 0.35rem 1rem; border-bottom:1px solid #F0EDE8; line-height:1.5; position:relative; }
+.symptom-item::before { content:‘→’; position:absolute; left:0; color:#A8782A; font-size:0.7rem; top:0.45rem; }
+.symptom-item:last-child { border-bottom:none; }
+.symptom-item strong { color:#1A100C; font-weight:500; display:block; font-size:0.82rem; }
 
-/* SOURCES */
-.sources-section { border-top: 1px solid #C9B89E; padding-top: 2rem; margin-top: 3rem; }
-.sources-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #9C7A52; margin-bottom: 1rem; }
-.source-item { font-size: 0.78rem; color: #9C7A52; line-height: 1.7; margin-bottom: 0.6rem; padding-left: 1rem; border-left: 2px solid #C9B89E; }
+/* LOAD TABLE */
+.load-table { width:100%; border-collapse:collapse; margin:2rem 0; }
+.load-table thead tr { background:#1A3A3A; }
+.load-table th { font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:#F0E8DC; padding:0.8rem 1rem; text-align:left; font-weight:400; }
+.load-table tbody tr:nth-child(even) { background:#FAFAF8; }
+.load-table tbody tr:nth-child(odd) { background:white; }
+.load-table td { padding:0.8rem 1rem; border-bottom:1px solid #F0EDE8; font-size:0.85rem; color:#3A2010; line-height:1.5; }
+.load-table td:first-child { font-weight:500; color:#1A100C; }
 
-/* QUIZ DIVIDER */
-.quiz-divider { background: #1A3A3A; padding: 4rem 2rem; text-align: center; margin-top: 2rem; }
-.quiz-divider h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: white; margin-bottom: 0.8rem; }
-.quiz-divider h2 em { font-style: italic; color: #A8782A; }
-.quiz-divider p { font-size: 0.95rem; color: rgba(255,255,255,0.6); margin-bottom: 2rem; max-width: 50ch; margin-left: auto; margin-right: auto; line-height: 1.7; }
-.btn-start-quiz { background: #A8782A; color: #1A100C; border: none; padding: 1rem 2.5rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
-.btn-start-quiz:hover { background: white; transform: translateY(-2px); }
+/* FEEDING SUPPORT CARDS */
+.support-card { background:white; border-left:4px solid #C9B89E; padding:1.8rem; margin:1.2rem 0; }
+.support-card-title { font-family:‘Cormorant Garamond’,serif; font-size:1.15rem; font-weight:600; color:#1A100C; margin-bottom:0.4rem; }
+.support-card-tag { font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:#1A3A3A; margin-bottom:0.8rem; display:block; }
+.support-card p { font-size:0.88rem; line-height:1.7; color:#4A3020; margin-bottom:0.6rem; }
+.support-card strong { color:#1A100C; font-weight:500; }
 
-/* QUIZ */
-#quiz-section { display: none; background: #F0E8DC; }
-#quiz-section.active { display: block; }
-.quiz-header-bar { background: #1A100C; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 57px; z-index: 98; }
-.quiz-title-bar { font-size: 0.75rem; color: rgba(240,232,220,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
-.quiz-progress-bar { width: 140px; height: 3px; background: rgba(255,255,255,0.15); border-radius: 2px; overflow: hidden; }
-.quiz-progress-fill { height: 100%; background: #A8782A; transition: width 0.4s ease; width: 0%; }
-.quiz-progress-text { font-size: 0.72rem; color: rgba(240,232,220,0.5); }
-.quiz-inner { max-width: 720px; margin: 0 auto; padding: 3rem 2rem; }
-.q-num { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #9C7A52; margin-bottom: 0.8rem; }
-.q-text { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 400; line-height: 1.4; color: #1A100C; margin-bottom: 2rem; max-width: 58ch; }
-.options-list { display: flex; flex-direction: column; gap: 0.7rem; }
-.opt-btn { background: white; border: 1.5px solid #C9B89E; padding: 1rem 1.4rem; text-align: left; font-family: ‘DM Sans’, sans-serif; font-size: 0.9rem; color: #1A100C; cursor: pointer; transition: all 0.2s ease; line-height: 1.5; position: relative; border-radius: 2px; }
-.opt-btn:hover:not(:disabled) { border-color: #1A3A3A; background: #F0F5F5; transform: translateX(4px); }
-.opt-btn.correct { background: rgba(30,51,32,0.08); border-color: #1E3320; color: #1E3320; font-weight: 500; }
-.opt-btn.correct::after { content: ‘✓’; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #1E3320; font-weight: 700; }
-.opt-btn.incorrect { background: rgba(139,58,42,0.08); border-color: #8B3A2A; color: #8B3A2A; }
-.opt-btn.incorrect::after { content: ‘✗’; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #8B3A2A; font-weight: 700; }
-.opt-btn.dimmed { opacity: 0.35; cursor: default; }
-.opt-btn:disabled { cursor: default; }
-.q-feedback { display: none; padding: 1.5rem; margin-top: 1rem; border-left: 3px solid #A8782A; background: white; animation: fadeUp 0.3s ease; }
-.q-feedback.show { display: block; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-.feedback-tag { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 500; }
-.q-feedback p { font-size: 0.88rem; line-height: 1.75; color: #4A3020; margin: 0; }
-.q-feedback p strong { color: #1A100C; font-weight: 500; }
-.btn-next-q { display: none; margin-top: 1.5rem; background: #1A100C; color: white; border: none; padding: 0.85rem 1.8rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
-.btn-next-q.show { display: inline-block; }
-.btn-next-q:hover { background: #1A3A3A; }
+/* KNOWLEDGE CHECK */
+.knowledge-check { background:#1A100C; padding:3rem; margin:3rem 0 0; }
+.kc-header { font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:#A8782A; margin-bottom:0.5rem; }
+.kc-title { font-family:‘Cormorant Garamond’,serif; font-size:1.8rem; font-weight:300; color:#F0E8DC; margin-bottom:0.5rem; }
+.kc-subtitle { font-size:0.82rem; color:rgba(240,232,220,0.5); margin-bottom:2rem; }
+.kc-question { margin-bottom:2rem; }
+.kc-q-text { font-size:0.95rem; color:#F0E8DC; line-height:1.6; margin-bottom:1rem; font-weight:400; }
+.kc-options { display:flex; flex-direction:column; gap:0.5rem; }
+.kc-option { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.9rem 1.2rem; cursor:pointer; font-size:0.88rem; color:rgba(240,232,220,0.75); transition:all 0.2s; display:flex; align-items:center; gap:0.8rem; text-align:left; font-family:‘DM Sans’,sans-serif; }
+.kc-option:hover { background:rgba(168,120,42,0.1); border-color:rgba(168,120,42,0.3); color:#F0E8DC; }
+.kc-option.correct { background:rgba(30,51,32,0.4); border-color:#1E3320; color:#F0E8DC; }
+.kc-option.incorrect { background:rgba(139,58,42,0.2); border-color:#8B3A2A; color:rgba(240,232,220,0.6); }
+.kc-option.disabled { pointer-events:none; }
+.kc-indicator { width:18px; height:18px; border-radius:50%; border:1.5px solid rgba(255,255,255,0.2); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.7rem; }
+.kc-option.correct .kc-indicator { background:#1E3320; border-color:#1E3320; color:white; }
+.kc-option.incorrect .kc-indicator { background:#8B3A2A; border-color:#8B3A2A; color:white; }
+.kc-feedback { margin-top:0.8rem; padding:0.9rem 1.2rem; font-size:0.85rem; line-height:1.6; border-left:3px solid; display:none; }
+.kc-feedback.correct-fb { background:rgba(30,51,32,0.2); border-color:#1E3320; color:rgba(240,232,220,0.85); }
+.kc-feedback.incorrect-fb { background:rgba(139,58,42,0.15); border-color:#8B3A2A; color:rgba(240,232,220,0.75); }
+.kc-feedback.show { display:block; }
+.kc-score { display:none; background:rgba(168,120,42,0.1); border:1px solid rgba(168,120,42,0.3); padding:1.5rem; margin-top:1rem; text-align:center; }
+.kc-score.show { display:block; }
+.kc-score-num { font-family:‘Cormorant Garamond’,serif; font-size:3rem; color:#A8782A; line-height:1; }
+.kc-score-label { font-size:0.75rem; color:rgba(240,232,220,0.5); letter-spacing:0.1em; text-transform:uppercase; margin-top:0.3rem; }
+.kc-score-msg { font-size:0.9rem; color:#F0E8DC; margin-top:0.8rem; line-height:1.6; }
 
-/* RESULTS */
-.results-section { display: none; max-width: 720px; margin: 0 auto; padding: 3rem 2rem; text-align: center; }
-.results-section.show { display: block; }
-.score-ring { width: 130px; height: 130px; border-radius: 50%; background: #1A100C; border: 4px solid #A8782A; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 2rem; }
-.score-big { font-family: ‘Cormorant Garamond’, serif; font-size: 2.8rem; color: white; line-height: 1; font-weight: 300; }
-.score-sub { font-size: 0.65rem; color: #A8782A; letter-spacing: 0.1em; text-transform: uppercase; }
-.result-heading { font-family: ‘Cormorant Garamond’, serif; font-size: 1.8rem; font-weight: 300; color: #1A100C; margin-bottom: 0.8rem; line-height: 1.3; }
-.result-heading em { font-style: italic; color: #8B3A2A; }
-.result-body { font-size: 0.92rem; line-height: 1.8; color: #4A3020; max-width: 50ch; margin: 0 auto 2rem; }
-.review-cards { text-align: left; display: flex; flex-direction: column; gap: 0.8rem; margin: 2rem 0; }
-.review-card { background: white; padding: 1rem 1.2rem; border-left: 3px solid #C9B89E; font-size: 0.82rem; }
-.review-card.right { border-color: #1E3320; }
-.review-card.wrong { border-color: #8B3A2A; }
-.review-card .rq { color: #9C7A52; font-size: 0.78rem; font-style: italic; margin-bottom: 0.3rem; }
-.review-card .ra { color: #1A100C; font-weight: 500; }
-.result-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-.btn-retry-quiz { background: transparent; border: 1.5px solid #8B3A2A; color: #8B3A2A; padding: 0.8rem 1.8rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
-.btn-retry-quiz:hover { background: #8B3A2A; color: white; }
-.btn-nav { padding: 0.8rem 1.8rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; text-decoration: none; display: inline-block; border: none; }
-.btn-prev { background: #C9B89E; color: #1A100C; }
-.btn-prev:hover { background: #9C7A52; color: white; }
-.btn-complete { background: #1A3A3A; color: white; }
-.btn-complete:hover { background: #1A100C; }
-.results-citation { font-size: 0.7rem; color: #9C7A52; font-style: italic; margin-top: 2.5rem; }
+.next-lesson { background:#F0E8DC; border-top:2px solid #C9B89E; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; }
+.next-label { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:#9C7A52; margin-bottom:0.3rem; }
+.next-title { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; color:#1A100C; }
+.btn-next { background:#1A3A3A; color:#F0E8DC; border:none; padding:0.9rem 2rem; font-family:‘DM Sans’,sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; }
+.btn-next:hover { background:#234E4E; }
+.btn-next:disabled { background:#C9B89E; cursor:not-allowed; }
 
-/* COMPLETION BANNER */
-.completion-banner { background: #1E3320; padding: 3rem 2rem; text-align: center; }
-.completion-banner h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; color: white; margin-bottom: 0.8rem; }
-.completion-banner h2 em { font-style: italic; color: #A8782A; }
-.completion-banner p { font-size: 0.95rem; color: rgba(255,255,255,0.65); max-width: 52ch; margin: 0 auto 2rem; line-height: 1.8; }
-.btn-back-home { display: inline-block; background: #A8782A; color: #1A100C; padding: 1rem 2.5rem; font-family: ‘DM Sans’, sans-serif; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.3s; }
-.btn-back-home:hover { background: white; transform: translateY(-2px); }
+.tool-download { background:#F0E8DC; padding:3rem 2rem; text-align:center; border-top:1px solid #C9B89E; }
+.tool-download .eyebrow { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.8rem; }
+.tool-download h3 { font-family:‘Cormorant Garamond’,serif; font-size:1.8rem; font-weight:300; color:#1A100C; margin-bottom:0.6rem; }
+.tool-download p { font-size:0.9rem; color:#4A3020; max-width:48ch; margin:0 auto 1.5rem; line-height:1.7; }
+.btn-download { display:inline-block; background:#1A3A3A; color:white; padding:0.9rem 2.5rem; font-family:‘DM Sans’,sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; }
 
-footer { background: #1A100C; padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem; color: #F0E8DC; }
-.footer-logo span { color: #A8782A; }
-.footer-copy { font-size: 0.7rem; color: rgba(240,232,220,0.35); }
+.sage-section { background:white; padding:3rem; border-top:1px solid #C9B89E; text-align:center; }
+.sage-eyebrow { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.5rem; }
+.sage-title { font-family:‘Cormorant Garamond’,serif; font-size:1.6rem; font-weight:300; color:#1A100C; margin-bottom:1.5rem; }
+.sage-prompts { display:flex; flex-direction:column; gap:0.5rem; max-width:60ch; margin:0 auto 1.5rem; }
+.sage-prompt { font-size:0.85rem; color:#9C7A52; font-style:italic; padding:0.6rem; border:1px solid #E8DDD0; }
+.btn-sage { display:inline-block; background:#1A3A3A; color:white; padding:0.8rem 2rem; font-family:‘DM Sans’,sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; }
 
-@media (max-width: 640px) {
-nav, footer { padding: 1rem 1.5rem; }
-.module-hero { padding: 3rem 1.5rem 2.5rem; }
-.module-content, .quiz-inner, .results-section { padding: 2.5rem 1.2rem; }
-.stat-bar, .symptom-grid, .sleep-grid { grid-template-columns: 1fr; }
-.quiz-header-bar { flex-wrap: wrap; gap: 0.5rem; }
-.timeline-item { flex-direction: column; }
-.timeline-phase { width: auto; }
+.complete-banner { background:#1A3A3A; padding:4rem; text-align:center; display:none; }
+.complete-banner.show { display:block; }
+.complete-banner h2 { font-family:‘Cormorant Garamond’,serif; font-size:2.5rem; font-weight:300; color:#F0E8DC; margin-bottom:0.8rem; }
+.complete-banner h2 em { font-style:italic; color:#80C0B8; }
+.complete-banner p { font-size:0.95rem; color:rgba(240,232,220,0.65); margin-bottom:2rem; max-width:50ch; margin-left:auto; margin-right:auto; line-height:1.8; }
+.btn-module-done { display:inline-block; background:#A8782A; color:#1A100C; padding:1.1rem 3rem; font-family:‘DM Sans’,sans-serif; font-size:0.88rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; }
+
+.citations { padding:3rem 2rem; max-width:780px; margin:0 auto; }
+.citations-title { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#9C7A52; margin-bottom:1.5rem; }
+.citation-item { font-size:0.8rem; color:#9C7A52; line-height:1.6; padding:0.6rem 0; border-bottom:1px solid #E8DDD0; }
+.citation-item em { font-style:italic; }
+
+@media (max-width:768px) {
+nav { padding:1rem 1.5rem; }
+.module-hero { padding:3rem 1.5rem; }
+.lesson-nav { padding:0 1rem; }
+.module-content { padding:2.5rem 1.5rem; }
+.symptom-grid { grid-template-columns:1fr; }
+.stat-block { flex-direction:column; gap:1rem; text-align:center; }
+.next-lesson { flex-direction:column; gap:1.5rem; text-align:center; }
+.load-table { font-size:0.78rem; }
+.load-table th, .load-table td { padding:0.6rem 0.7rem; }
 }
 </style>
 
@@ -209,527 +185,696 @@ nav, footer { padding: 1rem 1.5rem; }
 
 <nav>
   <a href="index.html" class="nav-logo">Pregnancy <span>Partnership</span></a>
-  <a href="index.html#course" class="nav-back">← Back to Course</a>
+  <a href="index.html" class="nav-back">← Back to Course</a>
 </nav>
-
-<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
+<div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
 
 <div class="module-hero">
-  <div class="module-eyebrow">Module 5 of 5</div>
+  <div class="module-eyebrow">Module 05 of 05</div>
   <h1 class="module-title">Postpartum <em>Together</em></h1>
   <div class="module-meta">
-    <div class="meta-pill">📖 20 min read</div>
-    <div class="meta-pill">🤝 Both partners</div>
-    <div class="meta-pill">⚠️ Partner PPD included</div>
-    <div class="meta-pill">❓ 10-question quiz</div>
+    <span class="meta-pill">📖 4 Lessons</span>
+    <span class="meta-pill">✓ Knowledge checks after each lesson</span>
+    <span class="meta-pill">👥 Both partners</span>
   </div>
 </div>
 
-<div class="module-content" id="moduleContent">
+<div class="lesson-nav">
+  <button class="lesson-tab active" onclick="showLesson(1)" id="tab-1">Lesson 1</button>
+  <button class="lesson-tab" onclick="showLesson(2)" id="tab-2">Lesson 2</button>
+  <button class="lesson-tab" onclick="showLesson(3)" id="tab-3">Lesson 3</button>
+  <button class="lesson-tab" onclick="showLesson(4)" id="tab-4">Lesson 4</button>
+</div>
 
-  <!-- INTRO -->
+<div class="module-content">
 
-  <div class="section-block">
-    <span class="eyebrow-label">The Fourth Trimester</span>
-    <h2>Birth is not the <em>finish line.</em></h2>
-    <p>The cultural story of birth ends the moment the baby arrives. The music swells. The credits roll. What actually follows is 12 weeks of enormous physical, emotional, hormonal, and relational adjustment — for both of you — that almost no childbirth course addresses.</p>
-    <p>This module is different. It gives equal space to what the birthing parent experiences and what the non-birthing partner experiences. Because both experiences are real, both are significant, and both are shaped by whether you understood what was coming.</p>
-    <p>In 2018, ACOG formally redefined postpartum care as an ongoing process across the full 12 weeks after birth — not a single six-week checkup. That shift reflects what doulas and midwives have long advocated: the fourth trimester requires sustained attention, preparation, and support for the entire family. This module prepares you for it.</p>
+<!-- ============================================================ -->
+
+<!-- LESSON 1: The Fourth Trimester -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel active" id="lesson-1">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 1 of 4</span>
+    <h1>The Fourth Trimester — <em>What Nobody Tells the Partner</em></h1>
+    <p class="lesson-intro">The first twelve weeks after birth are the most demanding and least prepared-for period in new parenthood. This lesson gives you the map most partners never receive.</p>
   </div>
 
-  <!-- BIRTHING PARENT RECOVERY -->
-
   <div class="section-block">
-    <span class="eyebrow-label">Part 1 — Physical Recovery</span>
-    <h2>What recovery actually <em>looks like</em></h2>
-    <p>The body that just grew and delivered a baby is going through one of the most dramatic recoveries a human can experience. Partners who understand the timeline don't minimize it — and that changes everything about the support they provide.</p>
+    <span class="eyebrow-label">The Gap</span>
+    <h2>Every prenatal class ends at the birth. <em>That's where parenting begins.</em></h2>
+    <p>The term "fourth trimester" describes the first three months after birth as a developmental period — for the baby, for the birthing parent's recovery, and for the relationship. Most childbirth education stops at delivery. The conversations about what comes after — the sleep deprivation, the identity shift, the relational strain, the physical recovery — are rarely had in advance.</p>
+    <p>Partners enter the postpartum period with the lowest information and the highest expectations. They expect the hard part was birth. In many ways, the hard part is what follows. <strong>Knowing what's coming doesn't make it easy. But it makes it survivable — and it makes you useful instead of blindsided.</strong></p>
 
 ```
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-phase">First 6–12 hours<br><em style="font-weight:300; font-size:0.75rem;">Acute phase</em></div>
-    <div class="timeline-content">
-      <div class="timeline-title">Highest risk period</div>
-      <div class="timeline-desc">The acute phase carries the highest risk for complications including hemorrhage. The birthing parent is closely monitored. The partner's job: stay present, ask questions if anything seems concerning, and let the care team do their work without interruption.</div>
-    </div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-phase">Weeks 1–6<br><em style="font-weight:300; font-size:0.75rem;">Subacute phase</em></div>
-    <div class="timeline-content">
-      <div class="timeline-title">Uterine contraction, wound healing, lactation onset</div>
-      <div class="timeline-desc">The uterus contracts from roughly 2.5 pounds back to 2 ounces over six weeks. Postpartum bleeding (lochia) gradually decreases. Perineal or cesarean wound healing is underway. Milk typically comes in 2–5 days after birth. Hormones — particularly estrogen and progesterone — drop sharply, producing effects compared to a "mini-menopause": mood swings, night sweats, hair loss, vaginal dryness. 25% of women experience a postpartum migraine triggered by these hormonal changes.</div>
-    </div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-phase">Weeks 6–24+<br><em style="font-weight:300; font-size:0.75rem;">Delayed phase</em></div>
-    <div class="timeline-content">
-      <div class="timeline-title">Pelvic floor, abdominal rehabilitation, hormonal stabilization</div>
-      <div class="timeline-desc">Pelvic floor dysfunction, diastasis recti (abdominal separation), and musculoskeletal pain are common and frequently underestimated. Research in the International Journal of Environmental Research and Public Health noted that the severity of postpartum physical dysfunction is "frequently underestimated and overlooked." Full hormonal stabilization typically takes 6 months. For cesarean recovery, scar tissue management and mobility restrictions extend the timeline further. The six-week clearance does not mean full recovery.</div>
-    </div>
-  </div>
+<div class="stat-block">
+  <div class="stat-num">67%</div>
+  <div class="stat-text"><strong>of couples report a significant decline in relationship satisfaction in the first year after birth</strong> — most commonly attributed to inequitable division of labor, unmet expectations, and communication breakdown under sleep deprivation. Doss et al., Journal of Family Psychology, 2009.</div>
 </div>
 
+<p>That statistic is not a prediction — it is a warning. The couples who don't become part of it are the ones who talked about the postpartum period before it arrived.</p>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Week by Week — The First Twelve Weeks</span>
+    <h2>What to expect — <em>and what's actually happening</em></h2>
+
+```
+<div class="week-card">
+  <span class="week-label">Weeks 1–2 · The Golden Chaos</span>
+  <div class="week-title">Survival mode. Both of you.</div>
+  <p><strong>For the birthing parent:</strong> Physical recovery from birth is underway — whether vaginal or cesarean. Hormonal shifts are dramatic. Milk comes in around day 3–5, often accompanied by engorgement and emotional intensity. The "baby blues" — tearfulness, mood swings, heightened anxiety — affect up to 80% of birthing parents in this window and typically resolve within two weeks.</p>
+  <p><strong>For the partner:</strong> You are likely sleep-deprived and running on adrenaline. Your role is logistics and protection — managing the environment, handling visitors, ensuring the birthing parent can sleep, eat, and heal. This is not the time to process your own experience. That comes later.</p>
+  <div class="teal-callout"><strong>Partner's primary job in weeks 1–2:</strong> Food, sleep protection, and visitor management. Every time someone asks "what can I do?" — give them a specific task. Accept help. Don't perform self-sufficiency during a period that wasn't designed for it.</div>
+</div>
+
+<div class="week-card">
+  <span class="week-label">Weeks 3–6 · The Wall</span>
+  <div class="week-title">When the adrenaline runs out.</div>
+  <p><strong>What happens:</strong> The initial surge of new-parent adrenaline dissipates. The reality of sustained sleep deprivation sets in. Visitors slow down. The birthing parent may be cleared for limited activity but still significantly limited. The partner typically returns to work. This is when isolation and resentment most commonly begin to build.</p>
+  <p><strong>What couples miss:</strong> The return to work doesn't mean the partner's postpartum experience is over. It means they are now managing two full demands — work and a new baby — on insufficient sleep. Meanwhile the birthing parent is at home with a newborn, potentially isolated, potentially beginning to show signs of PPD.</p>
+  <div class="partner-callout"><strong>The specific risk point:</strong> The partner comes home from work exhausted. The birthing parent has been alone with the baby all day and is also exhausted. Neither has anything to give the other. Without a plan, this becomes a competition of suffering. With a plan, it becomes a handoff.</div>
+</div>
+
+<div class="week-card">
+  <span class="week-label">Weeks 7–12 · Finding a New Normal</span>
+  <div class="week-title">The renegotiation begins.</div>
+  <p><strong>What's possible now:</strong> Many birthing parents are cleared for full activity by 6 weeks. Sleep patterns may be beginning to consolidate — or not. The baby is becoming more social and responsive, which changes the emotional experience of parenting. The couple begins to find rhythms.</p>
+  <p><strong>What still needs attention:</strong> The division of labor patterns established in weeks 1–6 tend to calcify. If one partner has been doing more overnight feeds, more household management, or more emotional labor — those patterns become the default. <strong>Renegotiating them later is significantly harder than establishing them intentionally now.</strong></p>
+  <div class="teal-callout"><strong>The conversation to have at six weeks:</strong> "Is what we're doing working? Is it sustainable? Is it fair? What needs to change?" Having this conversation at six weeks, rather than six months, is the difference between adjustment and accumulated resentment.</div>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">The Identity Shift</span>
+    <h2>You are both becoming someone new. <em>That is disorienting by design.</em></h2>
+    <p>The transition to parenthood involves a significant identity shift for both partners — though it tends to be more visible and more discussed in the birthing parent. Partners often feel that their experience of becoming a parent is secondary — that their job is to support the transition of the person who gave birth, not to have their own.</p>
+    <p>This framing is partially true and partially harmful. Your experience of becoming a parent is real. Your disorientation is real. Your grief for the life before — the freedom, the spontaneity, the couple-only version of your relationship — is real and normal.</p>
+
+```
 <div class="research-box">
-  <p>"Many partners expect a return to 'normal' by six weeks. In reality, full postpartum recovery often takes a year or longer."</p>
-  <div class="research-source">ACOG Committee Opinion No. 736 · Selman et al., International Journal of Sports Physical Therapy, 2022</div>
+  <p>"Partners who acknowledged their own transition into parenthood — rather than suppressing it to focus entirely on their partner's experience — reported better long-term adjustment and higher relationship satisfaction at one year."</p>
+  <div class="research-source">Deave & Johnson, 2008 · Midwifery · The transition to parenthood</div>
 </div>
 
-<p><strong>The partner's role during physical recovery</strong> is to be what doula practice calls the "gatekeeper" — managing visitors, absorbing household tasks, bringing the baby for feedings, and creating the conditions for rest. DONA International's position paper on postpartum doulas notes that cultures with structured postpartum rest periods, where the birthing parent is expected only to nurture themselves and their baby, consistently show better postpartum adjustment outcomes. When a professional doula isn't present, this role falls to the partner.</p>
+<p>This doesn't mean centering your experience during a period when your partner needs maximum support. It means finding the space — with your partner, with a trusted person, or internally — to acknowledge what you're experiencing. Suppression doesn't make the experience go away. It stores it.</p>
 ```
 
   </div>
 
-  <!-- BABY BLUES VS PPD -->
+  <div class="knowledge-check" id="kc-1">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 1 Check-In</div>
+    <div class="kc-subtitle">3 questions before moving on.</div>
+
+```
+<div class="kc-question" id="kc1-q1">
+  <div class="kc-q-text">1. According to research, what percentage of couples report significant decline in relationship satisfaction in the first year after birth?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q1',this,false,'The actual percentage is significantly higher. This is not a rare experience — it is the majority pattern, which is exactly why the postpartum period requires intentional preparation.')"><span class="kc-indicator"></span>Around 25%</button>
+    <button class="kc-option" onclick="answerKC('kc1-q1',this,false,'Close but lower than the actual research finding. The majority of couples — not a minority — experience significant relationship decline in year one.')"><span class="kc-indicator"></span>Around 45%</button>
+    <button class="kc-option" onclick="answerKC('kc1-q1',this,true,'Correct. 67% — two thirds of couples. This is not a warning about exceptional circumstances. It is the common experience. The couples who avoid it are the ones who prepared and communicated intentionally.')"><span class="kc-indicator"></span>Around 67%</button>
+    <button class="kc-option" onclick="answerKC('kc1-q1',this,false,'The percentage is high but not quite 90%. 67% is the research figure — still a majority, which is the key point.')"><span class="kc-indicator"></span>Around 90%</button>
+  </div>
+  <div class="kc-feedback" id="kc1-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc1-q2">
+  <div class="kc-q-text">2. What is the partner's primary job in the first two weeks after birth?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q2',this,false,'Returning to work quickly is sometimes necessary but is not identified as the primary job in the first two weeks. The priority is logistics and protection of the birthing parent\'s recovery.')"><span class="kc-indicator"></span>Return to work as quickly as possible to maintain financial stability</button>
+    <button class="kc-option" onclick="answerKC('kc1-q2',this,false,'Processing your own experience is important but it comes later — not in the first two weeks when the birthing parent\'s recovery is the priority.')"><span class="kc-indicator"></span>Process your own emotional experience of the birth</button>
+    <button class="kc-option" onclick="answerKC('kc1-q2',this,true,'Correct. Food, sleep protection, and visitor management. These logistics protect the conditions the birthing parent needs to recover and establish feeding. This is active, important work — not passive waiting.')"><span class="kc-indicator"></span>Food, sleep protection, and visitor management</button>
+    <button class="kc-option" onclick="answerKC('kc1-q2',this,false,'While bonding matters, the specific primary job identified in weeks 1–2 is logistics — creating the conditions for both parents and the baby to survive and recover.')"><span class="kc-indicator"></span>Bond with the baby as much as possible</button>
+  </div>
+  <div class="kc-feedback" id="kc1-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc1-q3">
+  <div class="kc-q-text">3. Why is week 6 an important conversation point for couples?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q3',this,false,'Medical clearance is one event at six weeks, but the conversation referenced is about the couple\'s division of labor and whether current patterns are working — not a medical discussion.')"><span class="kc-indicator"></span>Because the birthing parent receives medical clearance to resume all activity</button>
+    <button class="kc-option" onclick="answerKC('kc1-q3',this,false,'Resuming sexual activity is one aspect of the six-week mark but is not the specific conversation emphasized in this lesson.')"><span class="kc-indicator"></span>Because sexual activity can resume and the relationship can return to normal</button>
+    <button class="kc-option" onclick="answerKC('kc1-q3',this,true,'Correct. Division of labor patterns established in weeks 1–6 tend to calcify. Having an intentional conversation at six weeks — is this working, is it fair, what needs to change — is significantly easier than renegotiating at six months.')"><span class="kc-indicator"></span>Because labor patterns are calcifying and renegotiating them early is easier than doing it at six months</button>
+    <button class="kc-option" onclick="answerKC('kc1-q3',this,false,'Six weeks is not when maternity or paternity leave typically ends — and the conversation isn\'t about leave. It\'s about whether current division-of-labor patterns are working.')"><span class="kc-indicator"></span>Because parental leave typically ends and work schedules return to normal</button>
+  </div>
+  <div class="kc-feedback" id="kc1-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-1-score">
+  <div class="kc-score-num" id="kc-1-score-num"></div>
+  <div class="kc-score-label">Lesson 1 Complete</div>
+  <div class="kc-score-msg" id="kc-1-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-1">
+    <div><div class="next-label">Up next</div><div class="next-title">Lesson 2 — Partner PPD</div></div>
+    <button class="btn-next" id="btn-next-1" onclick="showLesson(2)" disabled>Continue →</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+
+<!-- LESSON 2: Partner PPD -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-2">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 2 of 4</span>
+    <h1>Partner PPD — <em>The Symptoms Look Different</em></h1>
+    <p class="lesson-intro">Postpartum depression affects both parents — and in partners, it almost never looks like what most people picture. This lesson could change what you do in the first year.</p>
+  </div>
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 2 — Emotional Recovery</span>
-    <h2>Baby blues, postpartum depression, <em>and the difference</em></h2>
+    <span class="eyebrow-label">The Scope</span>
+    <h2>This is not rare. <em>It is dramatically underdiagnosed.</em></h2>
+    <p>Postpartum depression is widely known as something that affects the birthing parent. It is far less widely known that non-birthing partners develop PPD at clinically significant rates — and that the symptoms look different enough from the classic presentation that most partners, and most clinicians, miss it entirely.</p>
 
 ```
-<div class="stat-bar">
-  <div class="stat-item">
-    <div class="stat-num">80%</div>
-    <div class="stat-label">of birthing parents experience baby blues — resolves within 2 weeks</div>
-    <div class="stat-source">ACOG Committee Opinion No. 736</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">1 in 5</div>
-    <div class="stat-label">birthing parents develop postpartum depression requiring professional treatment</div>
-    <div class="stat-source">ACOG, 2018</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">57.5%</div>
-    <div class="stat-label">lower odds of PPD/PPA with doula care</div>
-    <div class="stat-source">Falconi et al., The Lancet, 2022</div>
-  </div>
+<div class="stat-block">
+  <div class="stat-num">1 in 10</div>
+  <div class="stat-text"><strong>non-birthing partners develop postpartum depression</strong> in the first year after birth. When the birthing parent has PPD, the partner's rate rises to approximately 50%. Paulson & Bazemore, <em>JAMA</em>, 2010.</div>
 </div>
 
-<p><strong>Baby blues</strong> affect approximately 80% of birthing parents. They involve mild mood swings, tearfulness, anxiety, and emotional overwhelm in the first 1–2 weeks postpartum. Baby blues are a normal hormonal adjustment and resolve on their own. They do not require treatment — but they do require acknowledgment and gentleness from partners.</p>
-<p><strong>Postpartum depression</strong> is distinct. It persists beyond two weeks, intensifies rather than resolves, and significantly impairs daily functioning. It affects approximately 1 in 5 birthing parents and requires professional treatment — therapy, medication, or both. It is not weakness. It is not a reflection of love for the baby. It is a medical condition, and it is treatable.</p>
-<p>The partner is often the first person to notice signs of postpartum depression — because the affected person may not recognize their own condition. ACOG explicitly states this in its partner guide. This is one of the most important roles a partner plays in the fourth trimester: paying attention and being willing to name what they see.</p>
+<p>One in ten is the conservative figure. Some studies find higher rates. The consistent finding across studies is that partner PPD is diagnosed at roughly half the rate it actually occurs — because the symptom profile is different, the screening is rarely done, and the cultural narrative doesn't include it.</p>
 ```
 
   </div>
-
-  <!-- PARTNER PPD — MOST IMPORTANT SECTION -->
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 3 — The Section Nobody Talks About</span>
-    <h2>Postpartum depression in <em>partners</em></h2>
+    <span class="eyebrow-label">The Symptom Difference</span>
+    <h2>Why partner PPD gets missed — <em>what to watch for in each other</em></h2>
 
 ```
-<div class="alert-box">
-  <div class="alert-label">⚠️ This is critically underdiagnosed</div>
-  <p>Postpartum depression is not exclusive to the person who gave birth. A comprehensive meta-analysis of <strong>47 studies involving over 20,000 fathers</strong> found a pooled prevalence rate of <strong>8.75%</strong> within the first postpartum year. When the birthing parent is also experiencing PPD, that rate rises to approximately <strong>50%</strong> — half of partners develop PPD when their partner does.</p>
-  <p>During the COVID-19 pandemic, the prevalence of paternal postpartum depression increased to <strong>13.8%</strong>. The actual rate in the general population may be even higher due to systematic underdiagnosis — because partner PPD often looks nothing like the cultural script of "depression."</p>
-</div>
-
-<p>This is why partner PPD is so dangerous: the symptoms frequently don't look like sadness. They look like something else entirely.</p>
-
 <div class="symptom-grid">
   <div class="symptom-col birthing">
-    <div class="symptom-header">PPD in the birthing parent — often looks like:</div>
-    <div class="symptom-item"><span>→</span> Persistent sadness or crying</div>
-    <div class="symptom-item"><span>→</span> Difficulty bonding with the baby</div>
-    <div class="symptom-item"><span>→</span> Feelings of guilt, shame, or worthlessness</div>
-    <div class="symptom-item"><span>→</span> Loss of interest in activities</div>
-    <div class="symptom-item"><span>→</span> Difficulty sleeping even when baby sleeps</div>
-    <div class="symptom-item"><span>→</span> Withdrawal from family and friends</div>
-    <div class="symptom-item"><span>→</span> In severe cases — thoughts of self-harm</div>
+    <div class="symptom-header">In the Birthing Parent</div>
+    <div class="symptom-item"><strong>Classic presentation</strong>Persistent sadness, tearfulness, low mood</div>
+    <div class="symptom-item"><strong>Bonding difficulty</strong>Withdrawal from or difficulty connecting with the baby</div>
+    <div class="symptom-item"><strong>Sleep disruption</strong>Unable to sleep even when baby sleeps</div>
+    <div class="symptom-item"><strong>Appetite changes</strong>Loss of interest in eating or eating significantly more</div>
+    <div class="symptom-item"><strong>Guilt and worthlessness</strong>Feeling like a bad parent or inadequate</div>
+    <div class="symptom-item"><strong>Anxiety and panic</strong>Persistent worry about the baby's safety</div>
+    <div class="symptom-item"><strong>Withdrawal</strong>Pulling away from friends, family, partner</div>
+    <div class="symptom-item"><strong>Intrusive thoughts</strong>Thoughts of harming self or baby — requires immediate professional contact</div>
   </div>
   <div class="symptom-col partner">
-    <div class="symptom-header">PPD in the partner — often looks like:</div>
-    <div class="symptom-item"><span>→</span> Escalating irritability or anger</div>
-    <div class="symptom-item"><span>→</span> Sudden outbursts over small things</div>
-    <div class="symptom-item"><span>→</span> Withdrawal from family life</div>
-    <div class="symptom-item"><span>→</span> Working excessively long hours</div>
-    <div class="symptom-item"><span>→</span> Increased alcohol or substance use</div>
-    <div class="symptom-item"><span>→</span> Risk-taking behavior</div>
-    <div class="symptom-item"><span>→</span> Physical complaints — headaches, digestive issues</div>
+    <div class="symptom-header">In the Non-Birthing Partner</div>
+    <div class="symptom-item"><strong>Irritability and anger</strong>Escalating frustration over minor issues — not sadness</div>
+    <div class="symptom-item"><strong>Withdrawal from family</strong>Working longer hours, spending more time away from home</div>
+    <div class="symptom-item"><strong>Risk-taking behavior</strong>Driving recklessly, substance use, financial impulsivity</div>
+    <div class="symptom-item"><strong>Physical complaints</strong>Headaches, digestive issues, fatigue without clear cause</div>
+    <div class="symptom-item"><strong>Disconnection from baby</strong>Going through the motions without emotional engagement</div>
+    <div class="symptom-item"><strong>Cynicism and hopelessness</strong>Feeling that things will not get better</div>
+    <div class="symptom-item"><strong>Loss of interest</strong>Stopping activities previously enjoyed</div>
+    <div class="symptom-item"><strong>Externalizing behavior</strong>Acting out rather than turning inward — the key diagnostic difference</div>
   </div>
 </div>
 
-<p>Because these symptoms don't match the cultural script of depression, they are frequently dismissed — by the partner themselves, by their family, and by healthcare providers. The American Academy of Pediatrics recommended in 2019 that PPD screening be incorporated into pediatric well-child visits for both parents. Research indicates approximately 10% of fathers experience PPD — and the actual rate is likely higher due to underdiagnosis.</p>
+<div class="partner-callout"><strong>The critical distinction:</strong> Partner PPD often looks like anger, avoidance, and restlessness — not sadness and tears. A partner who is increasingly irritable, spending more time away, and disengaging from family life may be experiencing PPD, not simply being difficult. The cultural script says "men don't get PPD." The research says otherwise.</div>
+```
 
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Baby Blues vs. PPD</span>
+    <h2>The distinction that <em>determines when to seek help</em></h2>
+    <p><strong>Baby blues</strong> affect up to 80% of birthing parents — tearfulness, mood swings, anxiety in the first 1–2 weeks. This is a normal hormonal adjustment and resolves on its own. It requires gentleness and rest, not treatment.</p>
+    <p><strong>Postpartum depression</strong> persists beyond two weeks, intensifies rather than resolves, and significantly impairs daily functioning. It requires professional support — therapy, medication, or both. The earlier it is identified, the better the outcomes.</p>
+    <p><strong>For partners:</strong> There is no hormonal equivalent of baby blues. Partner PPD does not have a biological "normal" adjustment period that explains away symptoms. If a partner's mood, behavior, or functioning is significantly disrupted beyond the first few weeks — that is a signal worth taking seriously.</p>
+
+```
+<div class="truth-box">
+  <div class="truth-label">What to do if you recognize these signs</div>
+  <p><strong>Contact a provider early.</strong> Don't wait until things are clearly crisis-level. Early intervention produces dramatically better outcomes than waiting. The specific provider to contact: OB or midwife for the birthing parent, primary care physician for the partner. Many OB practices now screen partners at postpartum appointments. If yours doesn't — ask to be screened.</p>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Having the Conversation</span>
+    <h2>How to tell your partner <em>you're struggling</em></h2>
+    <p>The most dangerous postpartum scenario is two people who are both struggling in silence — each assuming the other is fine, each suppressing their own difficulty to manage the other's, neither asking for help.</p>
+    <p>Have this conversation before you need it. Not "if we struggle we'll talk about it" — but "this is how we'll talk about it, this is what getting help looks like, this is the threshold at which we act."</p>
+
+```
 <div class="research-box">
-  <p>"History of mental illness is associated with a 3.48x increased risk of postpartum depression in the non-birthing partner. When the birthing parent is also experiencing PPD, approximately 50% of partners develop it as well."</p>
-  <div class="research-source">Meta-analysis of 47 studies, N=20,728 · Paulson & Bazemore, JAMA, 2010 · Updated by subsequent research</div>
+  <p>"Couples who made explicit agreements about mental health communication before the postpartum period — including specific thresholds for seeking help — were significantly more likely to identify and address PPD symptoms early."</p>
+  <div class="research-source">Falconi et al., The Lancet, 2022 · Doula care and postpartum outcomes</div>
 </div>
-
-<p>If you recognize these signs in yourself — or if your partner notices them in you — contact a healthcare provider. You are allowed to seek help for yourself. You are allowed to call the birthing parent's OB or midwife on your own behalf. Paternal postpartum depression is real, it is treatable, and leaving it untreated affects your partner, your baby, and your family.</p>
 ```
 
   </div>
 
-  <!-- DIVISION OF LABOR -->
+  <div class="knowledge-check" id="kc-2">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 2 Check-In</div>
+    <div class="kc-subtitle">3 questions on postpartum mental health.</div>
+
+```
+<div class="kc-question" id="kc2-q1">
+  <div class="kc-q-text">1. How does postpartum depression typically present differently in non-birthing partners compared to birthing parents?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q1',this,false,'Tearfulness and sadness are the classic presentation in birthing parents. Partner PPD more commonly presents as irritability, anger, withdrawal, and externalizing behavior.')"><span class="kc-indicator"></span>With more tearfulness and sadness than birthing parents experience</button>
+    <button class="kc-option" onclick="answerKC('kc2-q1',this,true,'Correct. Partner PPD commonly presents as escalating irritability, anger, withdrawal from family life, avoidance, and risk-taking behavior — not sadness and tearfulness. This is why it gets missed.')"><span class="kc-indicator"></span>With irritability, anger, withdrawal, and externalizing behavior rather than sadness</button>
+    <button class="kc-option" onclick="answerKC('kc2-q1',this,false,'Partner PPD does not typically present identically to birthing parent PPD — the symptom profile is different enough that it is routinely missed when clinicians apply the wrong screening criteria.')"><span class="kc-indicator"></span>Identically to how it presents in birthing parents</button>
+    <button class="kc-option" onclick="answerKC('kc2-q1',this,false,'Partner PPD is a real clinical condition — not simply stress. The research documents it at 1 in 10 non-birthing partners and approximately 50% when the birthing parent also has PPD.')"><span class="kc-indicator"></span>Partners don\'t experience PPD — they just experience normal stress</button>
+  </div>
+  <div class="kc-feedback" id="kc2-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc2-q2">
+  <div class="kc-q-text">2. What is the key difference between baby blues and postpartum depression?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q2',this,false,'Baby blues affect up to 80% of birthing parents — it is the majority experience, not a minority. Severity alone is not the distinguishing factor.')"><span class="kc-indicator"></span>Baby blues only affects a small minority — PPD is more common</button>
+    <button class="kc-option" onclick="answerKC('kc2-q2',this,true,'Correct. Baby blues typically resolves within 1–2 weeks on its own. PPD persists beyond two weeks, intensifies rather than resolves, and significantly impairs daily functioning. Duration and trajectory are the key diagnostic markers.')"><span class="kc-indicator"></span>Baby blues resolves within 1–2 weeks; PPD persists, intensifies, and impairs functioning</button>
+    <button class="kc-option" onclick="answerKC('kc2-q2',this,false,'Baby blues and PPD can both involve tearfulness and anxiety — the distinguishing factors are duration and trajectory, not specific symptom type.')"><span class="kc-indicator"></span>Baby blues involves anxiety while PPD involves only sadness</button>
+    <button class="kc-option" onclick="answerKC('kc2-q2',this,false,'Baby blues is not related to insufficient sleep specifically — it is a hormonal adjustment. And PPD is not simply tiredness. These are distinct clinical categories.')"><span class="kc-indicator"></span>Baby blues is caused by insufficient sleep; PPD is a separate hormonal condition</button>
+  </div>
+  <div class="kc-feedback" id="kc2-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc2-q3">
+  <div class="kc-q-text">3. When the birthing parent has PPD, what happens to the non-birthing partner's risk of developing PPD?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q3',this,false,'The partner\'s risk does not stay at 10% when the birthing parent has PPD — it rises significantly, to approximately 50%.')"><span class="kc-indicator"></span>It stays the same — around 1 in 10</button>
+    <button class="kc-option" onclick="answerKC('kc2-q3',this,false,'The partner\'s risk increases substantially — to approximately 50%, not just slightly elevated.')"><span class="kc-indicator"></span>It increases slightly — to about 15%</button>
+    <button class="kc-option" onclick="answerKC('kc2-q3',this,true,'Correct. When the birthing parent has PPD, the non-birthing partner\'s risk rises to approximately 50%. This is why both parents should be screened and monitored when either parent is struggling.')"><span class="kc-indicator"></span>It rises to approximately 50%</button>
+    <button class="kc-option" onclick="answerKC('kc2-q3',this,false,'The partner\'s risk rises dramatically — to approximately 50% — not to near certainty. But the rise is significant enough that it should trigger active monitoring of both parents.')"><span class="kc-indicator"></span>It becomes nearly certain — over 90%</button>
+  </div>
+  <div class="kc-feedback" id="kc2-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-2-score">
+  <div class="kc-score-num" id="kc-2-score-num"></div>
+  <div class="kc-score-label">Lesson 2 Complete</div>
+  <div class="kc-score-msg" id="kc-2-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-2">
+    <div><div class="next-label">Up next</div><div class="next-title">Lesson 3 — Division of Labor</div></div>
+    <button class="btn-next" id="btn-next-2" onclick="showLesson(3)" disabled>Continue →</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+
+<!-- LESSON 3: Division of Labor and the Invisible Load -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-3">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 3 of 4</span>
+    <h1>Division of Labor <em>and the Invisible Load</em></h1>
+    <p class="lesson-intro">The most common source of postpartum resentment is not dramatic — it's a slow accumulation of imbalance that nobody named until it became a problem. This lesson helps you name it before it does.</p>
+  </div>
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 4 — The Conversation to Have Before the Baby Arrives</span>
-    <h2>Division of labor — <em>negotiate it now, not at 3am</em></h2>
-    <p>Research consistently identifies inequitable division of household and infant care responsibilities as one of the most significant sources of postpartum relationship strain — particularly when it wasn't discussed before the baby arrived. A 2022 study found that couples who accurately predicted their postpartum division of labor during pregnancy reported higher relationship satisfaction after birth. Couples who didn't discuss it and encountered an unequal distribution by default reported lower satisfaction and higher conflict.</p>
-    <p>The conversation to have now — before labor — includes:</p>
-
-```
-<div class="role-card">
-  <div class="role-header"><div class="role-title">Nighttime feeding responsibilities</div></div>
-  <div class="role-body">
-    <p>Who gets up for which feeds? If breastfeeding, the partner can still take the baby after feeding for burping, changing, and settling — protecting the birthing parent's sleep in the window between feeds. If formula or pumped milk is an option, splitting feeds allows both parents to get longer sleep stretches. Decide this before exhaustion makes the conversation impossible.</p>
+    <span class="eyebrow-label">The Research</span>
+    <h2>Inequitable division of labor is the leading driver <em>of postpartum relationship decline.</em></h2>
+    <p>The research on postpartum relationship satisfaction is consistent: couples who perceive their division of labor as fair report higher satisfaction. Couples who don't — regardless of actual hours worked — report declining satisfaction, escalating conflict, and higher rates of postpartum depression in both partners.</p>
+    <p>The key word is <em>perceive.</em> Fairness is not an objective calculation. It is a felt sense. A partner who works 60-hour weeks and also does every overnight feed is being objectively crushed — but if they feel seen, acknowledged, and valued for it, they may perceive it as fair. A partner who does half the feeds but feels unappreciated may perceive it as unfair. <strong>Acknowledgment and communication are as important as actual hours.</strong></p>
   </div>
-</div>
-
-<div class="role-card">
-  <div class="role-header"><div class="role-title">Household tasks and visitors</div></div>
-  <div class="role-body">
-    <p>The partner's role as gatekeeper — managing well-meaning but exhausting visitors, handling cooking, cleaning, laundry, and older children — is active and specific. DONA's postpartum position paper describes this as one of the most valuable contributions a partner makes. The default assumption should not be that the birthing parent handles household tasks while also recovering. The partner absorbs as much as possible so the birthing parent can rest.</p>
-  </div>
-</div>
-
-<div class="role-card">
-  <div class="role-header"><div class="role-title">Returning to work and parental leave</div></div>
-  <div class="role-body">
-    <p>Discuss now — what does the transition back to work look like? Who is home and when? What additional support (family help, postpartum doula, childcare) is available? The abrupt removal of one partner's physical presence when parental leave ends is one of the most commonly reported triggers for postpartum depression in the remaining parent. Having a plan doesn't prevent the difficulty — but it prevents the surprise.</p>
-  </div>
-</div>
-
-<div class="role-card">
-  <div class="role-header"><div class="role-title">When to ask for help</div></div>
-  <div class="role-body">
-    <p>Decide together what your threshold is for reaching out for support — and who you call. Have the contact information for the birthing parent's OB or midwife, a mental health provider who specializes in perinatal mood disorders, and a crisis line. Both partners should be explicitly told: you are allowed to call these resources on behalf of yourself or your partner. Waiting until things are clearly wrong is not the standard. Asking early is the standard.</p>
-  </div>
-</div>
-```
-
-  </div>
-
-  <!-- SLEEP -->
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 5 — Sleep</span>
-    <h2>Sleep deprivation is a <em>team problem</em></h2>
-    <p>Research using actigraphy (objective sleep measurement) found that mothers lose approximately 41 minutes of nighttime sleep in the first postpartum month compared to pre-birth. Fathers average approximately 398 minutes of sleep per night — just under 6 hours 38 minutes — across the first two years, which is below the 7-hour minimum recommended for adult health. Neither parent is sleeping enough. Both are impaired.</p>
-    <p>Sleep deprivation at this level affects mood, cognitive function, reaction time, emotional regulation, and relationship satisfaction. It is not a minor inconvenience — it is a health and relationship risk. Treating it as a team problem — rather than something each person manages independently — is one of the most practical things couples can do in the postpartum period.</p>
+    <span class="eyebrow-label">What the Division Actually Covers</span>
+    <h2>The categories couples forget <em>to negotiate</em></h2>
 
 ```
-<div class="sleep-grid">
-  <div class="sleep-card">
-    <div class="sleep-card-title">Shift sleeping</div>
-    <div class="sleep-card-desc">Rather than both waking for every feed, take defined shifts. One partner takes 10pm–3am, the other takes 3am–8am. Each gets one uninterrupted sleep block per night. Even 4–5 hours of consolidated sleep is significantly more restorative than the same hours fragmented.</div>
-  </div>
-  <div class="sleep-card">
-    <div class="sleep-card-title">Separate sleeping arrangements</div>
-    <div class="sleep-card-desc">Consider having the non-feeding partner sleep in a different room on some nights so at least one person gets full sleep. This is not a failure of connection — it is a practical health decision that protects the person who needs to be functional the next day.</div>
-  </div>
-  <div class="sleep-card">
-    <div class="sleep-card-title">Nap when the baby naps</div>
-    <div class="sleep-card-desc">The advice everyone gives and nobody follows. Research supports it. A 20-minute nap reduces cortisol levels and improves mood and cognitive function more than any other comparable intervention. The laundry can wait. The nap cannot.</div>
-  </div>
-  <div class="sleep-card">
-    <div class="sleep-card-title">Ask for and accept help</div>
-    <div class="sleep-card-desc">Having family or a postpartum doula take the baby for 3–4 hours while both parents sleep is not indulgence. It is medical necessity. Plan this support in advance. Accept it without guilt when it's offered.</div>
-  </div>
-</div>
+<table class="load-table">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Visible tasks</th>
+      <th>Invisible tasks (often uncounted)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Baby care</td>
+      <td>Feeds, diaper changes, baths, doctor appointments</td>
+      <td>Tracking feeding schedules, monitoring development, researching questions, emotional regulation of baby</td>
+    </tr>
+    <tr>
+      <td>Household</td>
+      <td>Cooking, cleaning, laundry, groceries</td>
+      <td>Noticing when things need doing, planning meals, managing supplies, delegating tasks</td>
+    </tr>
+    <tr>
+      <td>Sleep</td>
+      <td>Overnight feeds, settling</td>
+      <td>Monitoring baby sound, anticipating wake-ups, mental load of listening even when off-duty</td>
+    </tr>
+    <tr>
+      <td>Social / administrative</td>
+      <td>Thank-you notes, birth announcements, scheduling</td>
+      <td>Managing visitor requests, social calendar, maintaining family relationships</td>
+    </tr>
+    <tr>
+      <td>Emotional</td>
+      <td>Visible support conversations</td>
+      <td>Tracking partner's mood, anticipating needs, managing own emotions to protect space for partner</td>
+    </tr>
+    <tr>
+      <td>Work-related</td>
+      <td>Paid employment hours</td>
+      <td>Mental load of work even when at home, transition stress, guilt about absence</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The invisible column is where resentment lives. The person managing the invisible load — noticing, planning, delegating, monitoring — is doing significant cognitive and emotional work that is rarely acknowledged and never appears on a task list. In most heterosexual couples, this burden falls disproportionately on the birthing parent regardless of how physical tasks are divided.</p>
+
+<div class="teal-callout"><strong>The partner's specific work:</strong> Learn to notice. The invisible load becomes visible when partners actively look for it — when they ask "what am I not seeing?" rather than waiting to be assigned. The goal is not equal hours on a spreadsheet. It is a shared awareness of what needs doing and a shared responsibility for noticing it.</div>
 ```
 
   </div>
-
-  <!-- PARTNER'S ROLE -->
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 6 — Your Specific Role</span>
-    <h2>What the partner does in the <em>fourth trimester</em></h2>
-    <p>The non-birthing partner's role in the postpartum period is more specific and more impactful than most people realize. Here is what the research and doula practice show actually matters:</p>
+    <span class="eyebrow-label">The Overnight Question</span>
+    <h2>Night feeds are the most contested — <em>and the most important to negotiate in advance</em></h2>
+    <p>How overnight feeds are managed has an outsized effect on both parents' wellbeing, functioning, and perception of fairness. It is also one of the most emotionally charged negotiations — because it involves real suffering on both sides and there is no perfect answer.</p>
+    <p><strong>The common mistake:</strong> Not discussing it until 3am when both parents are sleep-deprived and depleted. Whatever is decided in that moment becomes the default pattern.</p>
+    <p><strong>The better approach:</strong> Discuss overnight logistics before the birth, with specific plans rather than general intentions. "You take the first feed, I take the second" is a plan. "We'll figure it out" is an invitation to conflict.</p>
 
 ```
-<div class="role-card">
-  <div class="role-header"><div class="role-title">Skin-to-skin contact with the baby</div></div>
-  <div class="role-body">
-    <p>A 2024 Cochrane review of 69 trials involving over 7,000 pairs confirmed that immediate skin-to-skin contact significantly improves breastfeeding exclusivity (approximately 75% vs 55% at one month), thermoregulation, and physiological stability. Partners can also do skin-to-skin — a randomized controlled trial of 83 first-time fathers showed that daily father-infant skin-to-skin during the first three postpartum days significantly improved father-child attachment scores. This is not just for the birthing parent. It is for you.</p>
-  </div>
-</div>
-
-<div class="role-card">
-  <div class="role-header"><div class="role-title">Supporting the breastfeeding relationship</div></div>
-  <div class="role-body">
-    <p>ACOG's partner guide recommends specific actions: bring the baby for feedings, burp and change the baby after feeds, cuddle the baby back to sleep. These are active contributions to the breastfeeding relationship that don't require the partner to breastfeed. Doula care research found breastfeeding initiation rates of 97.9% with doula-supported births versus 80.8% in the general population — and when a professional doula isn't present, the partner's active support produces a comparable protective effect.</p>
-  </div>
-</div>
-
-<div class="role-card">
-  <div class="role-header"><div class="role-title">Watching for warning signs in both partners</div></div>
-  <div class="role-body">
-    <p>You are the first line of observation. Watch for signs of postpartum depression in the birthing parent — persistent sadness beyond two weeks, withdrawal from the baby, inability to sleep even when the baby sleeps, expressions of hopelessness or self-harm. Watch for those signs in yourself — escalating anger, withdrawal, increased substance use, physical complaints without cause. Neither of you is immune. Both of you matter. Contact a healthcare provider early — not after things have become a crisis.</p>
-  </div>
+<div class="truth-box">
+  <div class="truth-label">Questions to answer before the birth</div>
+  <p>Who takes which overnight feeds? What happens when the partner returns to work — does the arrangement change? If breastfeeding, how does the partner contribute without being able to feed? Is there a night when each parent sleeps uninterrupted? What does "asking for help" look like — and does it require asking, or will it be offered? These answers don't need to be permanent. They need to exist before 3am.</p>
 </div>
 ```
 
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">The Conversation Structure</span>
+    <h2>How to talk about this without it becoming <em>a fight</em></h2>
+    <p>Division of labor conversations in the postpartum period frequently turn into conflicts because they happen reactively — when someone is already frustrated, already depleted, already keeping score. The conversation works better when it is scheduled, calm, and framed as problem-solving rather than blame assignment.</p>
+    <p><strong>Framing that works:</strong> "I want to make sure we're both getting what we need. Can we look at how we're dividing things and see what's working and what isn't?" This frames it as a shared problem — not an accusation.</p>
+    <p><strong>Framing that doesn't:</strong> "You never help with the night feeds." "You don't appreciate everything I do." Both of these are blame statements that trigger defensiveness. Even when true, they close the conversation rather than opening it.</p>
+  </div>
+
+  <div class="knowledge-check" id="kc-3">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 3 Check-In</div>
+    <div class="kc-subtitle">3 questions on division of labor.</div>
+
+```
+<div class="kc-question" id="kc3-q1">
+  <div class="kc-q-text">1. Research shows that the leading driver of postpartum relationship decline is:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q1',this,false,'Sleep deprivation is a significant stressor but research identifies inequitable division of labor — specifically the perceived fairness of that division — as the leading driver of relationship decline.')"><span class="kc-indicator"></span>Sleep deprivation</button>
+    <button class="kc-option" onclick="answerKC('kc3-q1',this,false,'Financial stress is a real pressure but is not identified as the leading driver of postpartum relationship decline in the research.')"><span class="kc-indicator"></span>Financial stress</button>
+    <button class="kc-option" onclick="answerKC('kc3-q1',this,true,'Correct. Inequitable division of labor — specifically the perceived fairness of it — is the leading driver of postpartum relationship decline. Both actual hours and the acknowledgment of effort contribute to perceived fairness.')"><span class="kc-indicator"></span>Inequitable division of labor and perceived unfairness</button>
+    <button class="kc-option" onclick="answerKC('kc3-q1',this,false,'Reduced intimacy is common and often distressing but is typically a symptom of relationship strain rather than its primary cause.')"><span class="kc-indicator"></span>Reduced physical intimacy</button>
+  </div>
+  <div class="kc-feedback" id="kc3-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc3-q2">
+  <div class="kc-q-text">2. What is the "invisible load" and why does it matter?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q2',this,false,'Physical exhaustion from care tasks is visible and real, but the invisible load refers specifically to cognitive and emotional work — noticing, planning, monitoring, managing — which is rarely counted or acknowledged.')"><span class="kc-indicator"></span>The physical exhaustion from overnight feeds that partners don\'t acknowledge</button>
+    <button class="kc-option" onclick="answerKC('kc3-q2',this,true,'Correct. The invisible load is the cognitive and emotional work of managing the household and family — noticing what needs doing, planning, tracking, delegating. It is significant, it is often unacknowledged, and it typically falls disproportionately on the birthing parent.')"><span class="kc-indicator"></span>The cognitive and emotional work of noticing, planning, and managing that is rarely acknowledged</button>
+    <button class="kc-option" onclick="answerKC('kc3-q2',this,false,'Breastfeeding work is a component but the invisible load is a broader concept covering all the mental management work of running a household and family.')"><span class="kc-indicator"></span>The additional work of breastfeeding that non-birthing partners can\'t share</button>
+    <button class="kc-option" onclick="answerKC('kc3-q2',this,false,'PPD is a separate topic covered in Lesson 2. The invisible load is specifically about the unacknowledged cognitive and emotional management work in the household.')"><span class="kc-indicator"></span>The emotional weight of postpartum depression that partners carry</button>
+  </div>
+  <div class="kc-feedback" id="kc3-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc3-q3">
+  <div class="kc-q-text">3. When is the best time to discuss overnight feed logistics?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q3',this,false,'3am during a feed is the worst possible time to negotiate this — both parents are sleep-deprived, depleted, and emotionally reactive. Whatever is decided in that moment becomes the default.')"><span class="kc-indicator"></span>At 3am during the first overnight feed</button>
+    <button class="kc-option" onclick="answerKC('kc3-q3',this,false,'After problems develop means the conversation is reactive and likely emotionally charged. The goal is a proactive conversation before the default pattern is established.')"><span class="kc-indicator"></span>After problems develop in the first weeks</button>
+    <button class="kc-option" onclick="answerKC('kc3-q3',this,true,'Correct. Before the birth, when both parents are calm and have time to think. Specific plans — not general intentions — established in advance prevent the 3am default pattern from becoming permanent.')"><span class="kc-indicator"></span>Before the birth — with specific plans rather than general intentions</button>
+    <button class="kc-option" onclick="answerKC('kc3-q3',this,false,'Six weeks may be too late — default patterns often calcify in the first two weeks. The conversation should happen before birth.')"><span class="kc-indicator"></span>At the six-week postpartum visit</button>
+  </div>
+  <div class="kc-feedback" id="kc3-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-3-score">
+  <div class="kc-score-num" id="kc-3-score-num"></div>
+  <div class="kc-score-label">Lesson 3 Complete</div>
+  <div class="kc-score-msg" id="kc-3-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-3">
+    <div><div class="next-label">Up next</div><div class="next-title">Lesson 4 — Breastfeeding: The Partner's Role</div></div>
+    <button class="btn-next" id="btn-next-3" onclick="showLesson(4)" disabled>Continue →</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+
+<!-- LESSON 4: Breastfeeding — The Partner's Role -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-4">
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 4 of 4</span>
+    <h1>Breastfeeding — <em>The Partner's Role</em></h1>
+    <p class="lesson-intro">Breastfeeding is physically done by one person. But the research is clear: partner support is one of the strongest predictors of breastfeeding success. This lesson explains why — and what that support actually looks like.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Why This Is in the Partner Playbook</span>
+    <h2>You can't do it. <em>But you can make or break it.</em></h2>
+    <p>Breastfeeding is one of the most physically demanding aspects of early postpartum. It happens every 2–3 hours for the first weeks. It is painful while supply is establishing. It requires positioning, latching, managing supply, and significant sleep disruption. Many people who intend to breastfeed stop earlier than they planned — and the most commonly cited reason is not supply or latch. It's exhaustion and lack of support.</p>
+
+```
+<div class="stat-block">
+  <div class="stat-num">83%</div>
+  <div class="stat-text"><strong>of birthing parents who stopped breastfeeding before their intended duration</strong> cited "not enough support" as a primary factor. Partner involvement is one of the strongest modifiable predictors of breastfeeding duration. CDC Breastfeeding Report Card, 2022.</div>
+</div>
+
+<p>The research on partner support and breastfeeding is consistent: informed, actively supportive partners are associated with longer breastfeeding duration, less breastfeeding-related distress, and higher breastfeeding success rates. This is a domain where your specific knowledge and presence matter.</p>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">What Active Support Looks Like</span>
+    <h2>Specific, practical, <em>high-impact contributions</em></h2>
+
+```
+<div class="support-card">
+  <div class="support-card-title">Be present at the first feeds</div>
+  <span class="support-card-tag">First 24–48 hours · Highest leverage</span>
+  <p>The first feeds establish the foundation of breastfeeding. They are also the most technically challenging — both the birthing parent and the baby are learning. Being physically present, calm, and engaged at these feeds signals partnership rather than delegation.</p>
+  <p><strong>Specific support:</strong> Hold the baby while they position. Hand them water. Hold the nursing pillow. Ask the lactation consultant questions. Know what cluster feeding is and what it means so you don't interpret it as failure.</p>
+</div>
+
+<div class="support-card">
+  <div class="support-card-title">Learn the basics yourself</div>
+  <span class="support-card-tag">Before birth · 30 minutes of preparation</span>
+  <p>You don't need to become a lactation expert. You need to know enough to recognize when things are going normally vs. when they're not, and to support effectively. Know what a good latch looks like vs. a shallow latch. Know what cluster feeding is. Know what engorgement is and what it isn't. Know the difference between normal newborn weight loss and a concerning pattern.</p>
+  <div class="teal-callout"><strong>Cluster feeding is not a supply problem.</strong> This is the most important thing to know. Cluster feeding — when a newborn feeds very frequently for several hours — is a normal behavior, not a sign that the birthing parent "doesn't have enough milk." Incorrectly interpreting cluster feeding as supply failure is a common pathway to early breastfeeding cessation.</div>
+</div>
+
+<div class="support-card">
+  <div class="support-card-title">Handle what you can handle</div>
+  <span class="support-card-tag">Ongoing · Reduces breastfeeding burden significantly</span>
+  <p>The partner can't feed the baby. But the partner can do everything else around the feed. Diaper change before the feed. Water bottle and snack nearby. Burping after. Settling the baby while the birthing parent sleeps. Washing pump parts. Managing the feeding log if one is being kept.</p>
+  <p>These contributions don't appear dramatic. Cumulatively, they make the difference between a breastfeeding experience that is sustainable and one that isn't.</p>
+</div>
+
+<div class="support-card">
+  <div class="support-card-title">Protect the breastfeeding space</div>
+  <span class="support-card-tag">Social pressure · Requires active intervention</span>
+  <p>Breastfeeding is subject to significant social commentary — from family, from friends, from cultural messaging. The partner's role includes managing unsolicited opinions, especially from family members whose breastfeeding experience is decades old and medically outdated.</p>
+  <p><strong>What this looks like:</strong> Redirecting conversations about formula when breastfeeding is going well. Politely but clearly limiting visits when the birthing parent is establishing supply. Supporting the birthing parent's feeding choices — including the choice to stop — without commentary.</p>
+  <div class="partner-callout"><strong>The formula question:</strong> Whether to supplement with formula is the birthing parent's decision, made ideally with lactation support rather than social pressure. The partner's role is to support an informed decision — not to advocate for or against based on personal preference.</div>
+</div>
+
+<div class="support-card">
+  <div class="support-card-title">Know when to get professional support</div>
+  <span class="support-card-tag">Most important single action</span>
+  <p>A lactation consultant (IBCLC) is the most effective resource for breastfeeding difficulties. Many breastfeeding challenges that lead to early cessation — painful latching, low supply concerns, nipple damage — are addressable with professional support that most families don't access because nobody told them to.</p>
+  <p><strong>The partner's role:</strong> Be the one who identifies that support is needed and makes it happen. Know where to access lactation support — hospital lactation consultants, outpatient IBCLC consultations, breastfeeding hotlines. Suggest it before the birthing parent has to ask. Remove the friction of accessing help.</p>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">If Breastfeeding Doesn't Work Out</span>
+    <h2>Your role when the plan changes — <em>this applies here too</em></h2>
+    <p>Some people plan to breastfeed and are unable to — due to latch issues, supply challenges, medical reasons, or the weight of the cumulative demands of early postpartum. If the decision is made to stop or to supplement with formula, the partner's role is the same as with any other birth plan change: <strong>zero expressed disappointment, zero reference to what was planned, unconditional support for the decision.</strong></p>
+    <p>The research on formula supplementation and formula feeding is clear: fed is better than malnourished, and a rested, emotionally healthy birthing parent is a better parent than an exhausted, distressed one who is breastfeeding against their capacity. Do not place the cultural value of breastfeeding above the wellbeing of your partner.</p>
+  </div>
+
+  <div class="knowledge-check" id="kc-4">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 4 Check-In</div>
+    <div class="kc-subtitle">3 final questions to complete Module 5.</div>
+
+```
+<div class="kc-question" id="kc4-q1">
+  <div class="kc-q-text">1. What does research show about the relationship between partner support and breastfeeding duration?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q1',this,false,'Partner support is one of the strongest modifiable predictors of breastfeeding duration — not a minor factor. The research on this is consistent and significant.')"><span class="kc-indicator"></span>Partner support has minimal effect on breastfeeding duration</button>
+    <button class="kc-option" onclick="answerKC('kc4-q1',this,false,'Breastfeeding outcome is not entirely determined by supply alone — support, information, and access to professional help are major factors. This is exactly why partner knowledge matters.')"><span class="kc-indicator"></span>Breastfeeding outcome is entirely determined by the birthing parent\'s supply</button>
+    <button class="kc-option" onclick="answerKC('kc4-q1',this,true,'Correct. Informed, actively supportive partners are associated with longer breastfeeding duration and less breastfeeding distress. 83% of parents who stopped earlier than intended cited lack of support as a primary factor.')"><span class="kc-indicator"></span>Informed, active partner support is one of the strongest predictors of breastfeeding success</button>
+    <button class="kc-option" onclick="answerKC('kc4-q1',this,false,'Partner support is most impactful in the early weeks when supply is establishing and the birthing parent is most vulnerable to stopping — not primarily in the later months.')"><span class="kc-indicator"></span>Partner support only matters after the first six months</button>
+  </div>
+  <div class="kc-feedback" id="kc4-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc4-q2">
+  <div class="kc-q-text">2. The baby feeds frequently for several hours in a row. A family member says this means the birthing parent "doesn't have enough milk." You should:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q2',this,false,'Agreeing validates misinformation that commonly leads to early breastfeeding cessation. Cluster feeding is a normal newborn behavior, not a supply indicator.')"><span class="kc-indicator"></span>Agree — it probably does mean supply is low and formula should be added</button>
+    <button class="kc-option" onclick="answerKC('kc4-q2',this,false,'Ignoring it leaves the birthing parent to manage the misinformation alone. The partner\'s role includes protecting the breastfeeding space from unhelpful commentary.')"><span class="kc-indicator"></span>Ignore the comment and let the birthing parent handle it</button>
+    <button class="kc-option" onclick="answerKC('kc4-q2',this,true,'Correct. Cluster feeding is normal newborn behavior and is not a supply indicator. Knowing this — and protecting the birthing parent from misinformation — is one of the most specific ways a partner contributes to breastfeeding success.')"><span class="kc-indicator"></span>Explain that cluster feeding is normal and not a sign of low supply</button>
+    <button class="kc-option" onclick="answerKC('kc4-q2',this,false,'Calling a lactation consultant is appropriate if there are genuine concerns, but cluster feeding is a normal behavior that doesn\'t require professional consultation — it requires reassurance.')"><span class="kc-indicator"></span>Call a lactation consultant immediately</button>
+  </div>
+  <div class="kc-feedback" id="kc4-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc4-q3">
+  <div class="kc-q-text">3. After several difficult weeks, the birthing parent decides to stop breastfeeding. Your response should be:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q3',this,false,'Suggesting they try longer overrides their decision and disregards what they\'ve already been through. The decision belongs to them.')"><span class="kc-indicator"></span>Suggest they try for a few more weeks before deciding</button>
+    <button class="kc-option" onclick="answerKC('kc4-q3',this,false,'Expressing disappointment even subtly communicates that the outcome matters more to you than their wellbeing. This decision requires unconditional support.')"><span class="kc-indicator"></span>Express mild disappointment but say you understand</button>
+    <button class="kc-option" onclick="answerKC('kc4-q3',this,true,'Correct. Zero expressed disappointment, zero reference to what was planned, complete support. A rested and emotionally healthy birthing parent is a better parent than a depleted one who is breastfeeding against their capacity.')"><span class="kc-indicator"></span>Provide complete, unconditional support with zero expressed disappointment</button>
+    <button class="kc-option" onclick="answerKC('kc4-q3',this,false,'Asking if they\'ve consulted enough support implies the decision might be wrong. If they\'ve made the decision, support it. The time for professional consultation was before the breaking point.')"><span class="kc-indicator"></span>Ask if they\'ve consulted enough lactation support before deciding</button>
+  </div>
+  <div class="kc-feedback" id="kc4-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-4-score">
+  <div class="kc-score-num" id="kc-4-score-num"></div>
+  <div class="kc-score-label">Module 5 Complete</div>
+  <div class="kc-score-msg" id="kc-4-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <!-- TOOL DOWNLOAD -->
+
+  <div class="tool-download">
+    <div class="eyebrow">Your Module 5 Tool</div>
+    <h3>Our Birth <em style="font-style:italic; color:#1A3A3A;">Story</em></h3>
+    <p>Fill this in together in the first few days after birth. Baby's stats, the short version of the story, the moment that stands out, and space for each of you to write something to the other. You'll be glad you wrote it down.</p>
+    <a href="tool_birth_debrief.html" target="_blank" class="btn-download">Open & Print →</a>
   </div>
 
   <!-- SAGE -->
 
   <div class="sage-section">
-    <div class="sage-label">🌿 Ask Sage — Navigate the Fourth Trimester</div>
-    <div class="sage-title">Questions about recovery, mental health, or what to expect?</div>
-    <ul class="sage-prompts">
-      <li>"Sage, what are the early warning signs of postpartum depression in a non-birthing partner that are easy to miss?"</li>
-      <li>"Sage, my partner seems fine but I'm not — I'm angrier than usual and withdrawing from the family. What should I do?"</li>
-      <li>"Sage, we haven't talked about how we'll handle nighttime feedings. What does the research say works best?"</li>
-      <li>"Sage, what should we do if we think one of us might have postpartum depression?"</li>
-    </ul>
-    <a href="https://www.chatbase.co/chatbot-iframe/a6dHWV4SmL2bw1GvMW5As" target="_blank" class="sage-btn">Open Sage →</a>
-  </div>
-
-  <!-- SOURCES -->
-
-  <div class="sources-section">
-    <div class="sources-label">Sources Cited in This Module</div>
-    <div class="source-item">ACOG Committee Opinion No. 736: Optimizing Postpartum Care. <em>Obstetrics & Gynecology, 131</em>(5), e140–e150. 2018.</div>
-    <div class="source-item">Chen, E.M., et al. (2017). Effects of Father-Neonate Skin-to-Skin Contact on Attachment. <em>Nursing Research, 66</em>(1), 35–42.</div>
-    <div class="source-item">DONA International. (2022). Position Paper: The Postpartum Doula's Role in Perinatal Care. dona.org.</div>
-    <div class="source-item">Falconi, A.M., et al. (2022). Doula Care Across the Maternity Care Continuum. <em>eClinicalMedicine (The Lancet), 56</em>, 101591.</div>
-    <div class="source-item">Kozhimannil, K.B., et al. (2013). Doula Care Supports Near-Universal Breastfeeding Initiation. <em>Journal of Midwifery & Women's Health, 58</em>(4), 378–382.</div>
-    <div class="source-item">Moore, E.R., et al. (2024). Early Skin-to-Skin Contact for Mothers and Their Healthy Newborn Infants. <em>Cochrane Database of Systematic Reviews</em> (69 trials, 7,000+ pairs).</div>
-    <div class="source-item">Paulson, J.F. & Bazemore, S.D. (2010). Prenatal and postpartum depression in fathers. <em>JAMA, 303</em>(19), 1961–1969.</div>
-    <div class="source-item">Selman, R., et al. (2022). Maximizing Recovery in the Postpartum Period. <em>International Journal of Sports Physical Therapy, 17</em>(6), 1170–1183.</div>
-  </div>
-
-</div>
-
-<!-- QUIZ DIVIDER -->
-
-<div style="background:#F0E8DC; padding:3rem 2rem; text-align:center; border-top:1px solid #C9B89E;">
-  <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.8rem;">Your Module 5 Tool</div>
-  <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#1A100C; margin-bottom:0.6rem;">Our Birth <em style="font-style:italic; color:#8B3A2A;">Story</em></div>
-  <p style="font-size:0.9rem; color:#4A3020; max-width:48ch; margin:0 auto 1.5rem; line-height:1.7;">Fill this in together in the first few days after birth. Baby's stats, the short version of the story, the moment that stands out, and space for each of you to write something to the other. You'll be glad you wrote it down.</p>
-  <a href="tool_birth_debrief.html" target="_blank" style="display:inline-block; background:#1A3A3A; color:white; padding:0.9rem 2.5rem; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none;">Open & Print →</a>
-</div>
-
-<div class="quiz-divider" id="quizDivider">
-  <h2>The final quiz. <em>You've made it.</em></h2>
-  <p>10 questions on the fourth trimester — recovery, partner PPD, sleep, division of labor, and your role. This is the module most partners say changed the most about how they approached the postpartum period.</p>
-  <button class="btn-start-quiz" onclick="startQuiz()">Start the Knowledge Check →</button>
-</div>
-
-<!-- QUIZ -->
-
-<div id="quiz-section">
-  <div class="quiz-header-bar">
-    <div class="quiz-title-bar">Module 5 · Knowledge Check</div>
-    <div style="display:flex; align-items:center; gap:1rem;">
-      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qProgressFill"></div></div>
-      <div class="quiz-progress-text" id="qProgressText">0 / 10</div>
+    <div class="sage-eyebrow">🌿 Ask Sage — Go Deeper</div>
+    <div class="sage-title">Have questions about postpartum?</div>
+    <div class="sage-prompts">
+      <div class="sage-prompt">"Sage, my partner had a difficult birth and I'm worried they might be developing PPD. What are the most important things I can do in the first two weeks?"</div>
+      <div class="sage-prompt">"Sage, we're struggling to agree on how to divide nighttime responsibilities. Can you help us think through a fair structure given our specific situation?"</div>
+      <div class="sage-prompt">"Sage, breastfeeding has been really hard and my partner is considering stopping. How do I support them without influencing their decision either way?"</div>
     </div>
+    <a href="https://www.chatbase.co/chatbot-iframe/a6dHWV4SmL2bw1GvMW5As" target="_blank" class="btn-sage">Open Sage →</a>
   </div>
 
-  <div class="quiz-inner" id="quizInner">
-    <div class="q-num" id="qNum">Question 1 of 10</div>
-    <div class="q-text" id="qText"></div>
-    <div class="options-list" id="optionsList"></div>
-    <div class="q-feedback" id="qFeedback">
-      <div class="feedback-tag" id="feedbackTag"></div>
-      <p id="feedbackContent"></p>
-    </div>
-    <button class="btn-next-q" id="btnNextQ" onclick="nextQ()">Next Question →</button>
+  <!-- COMPLETE BANNER -->
+
+  <div class="complete-banner" id="completeBanner">
+    <h2>You're building <em>something real.</em></h2>
+    <p>You've completed all five modules. You are more prepared than the vast majority of partners who walk into a birth room. The knowledge you have now changes what's possible in that room — and in the weeks that follow. That's not nothing. That's the whole point.</p>
+    <a href="index.html" class="btn-module-done">Return to Course Home →</a>
   </div>
 
-  <div class="results-section" id="resultsSection">
-    <div class="score-ring">
-      <div class="score-big" id="scoreBig">0</div>
-      <div class="score-sub">out of 10</div>
-    </div>
-    <div class="result-heading" id="resultHeading"></div>
-    <p class="result-body" id="resultBody"></p>
-    <div class="review-cards" id="reviewCards"></div>
-    <div class="result-actions">
-      <button class="btn-retry-quiz" onclick="retryQuiz()">Retake Quiz</button>
-      <a href="module4.html" class="btn-nav btn-prev">← Module 4</a>
-      <a href="index.html" class="btn-nav btn-complete">Complete the Course →</a>
-    </div>
-    <p class="results-citation">Sources: ACOG (2018); Paulson & Bazemore, JAMA (2010); Moore et al., Cochrane (2024); Falconi et al., The Lancet (2022); DONA International (2022)</p>
-  </div>
+</div><!-- end lesson 4 -->
+</div><!-- end module-content -->
+
+<!-- CITATIONS -->
+
+<div class="citations">
+  <div class="citations-title">Sources Cited in This Module</div>
+  <div class="citation-item">Doss, B.D., et al. (2009). The effect of the transition to parenthood on relationship quality. <em>Journal of Personality and Social Psychology, 96</em>(3), 601–619.</div>
+  <div class="citation-item">Deave, T. & Johnson, D. (2008). The transition to parenthood: what does it mean for fathers? <em>Journal of Advanced Nursing, 63</em>(6), 626–637.</div>
+  <div class="citation-item">Paulson, J.F. & Bazemore, S.D. (2010). Prenatal and postpartum depression in fathers and its association with maternal depression. <em>JAMA, 303</em>(19), 1961–1969.</div>
+  <div class="citation-item">Falconi, A.M., et al. (2022). Doula care across the maternity care continuum and impact on maternal health. <em>The Lancet Regional Health — Americas, 10</em>, 100224.</div>
+  <div class="citation-item">CDC (2022). <em>Breastfeeding Report Card: United States 2022.</em> Centers for Disease Control and Prevention.</div>
+  <div class="citation-item">Jacques, N., et al. (2025). Partner support and breastfeeding outcomes: a systematic review. <em>Maternal & Child Nutrition, 21</em>(1).</div>
 </div>
-
-<!-- COMPLETION BANNER (shown after quiz) -->
-
-<div class="completion-banner" id="completionBanner" style="display:none;">
-  <h2>Course complete. <em>You showed up.</em></h2>
-  <p>You've covered every stage — from the language of labor to the fourth trimester. You know the techniques, the terms, the rights, and the research. You are not a spectator anymore. You are a prepared, informed, present partner. That is exactly what this course was built to give you.</p>
-  <a href="index.html" class="btn-back-home">Back to Pregnancy Partnership →</a>
-</div>
-
-<footer>
-  <div class="footer-logo">Pregnancy <span>Partnership</span></div>
-  <div class="footer-copy">© 2026 Pregnancy Partnership · Educational use only · Not a substitute for medical advice</div>
-</footer>
 
 <script>
-window.addEventListener('scroll', () => {
-  const content = document.getElementById('moduleContent');
-  const divider = document.getElementById('quizDivider');
-  const total = divider.offsetTop - content.offsetTop;
-  const scrolled = window.scrollY - content.offsetTop + window.innerHeight * 0.3;
-  const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
-  document.getElementById('readingProgress').style.width = pct + '%';
-});
+const kcState = {};
 
-const questions = [
-  {
-    q: "ACOG formally redefined postpartum care in 2018. What did that redefinition establish?",
-    options: ["The six-week checkup is sufficient for most women","Postpartum care should be an ongoing process across the full 12 weeks after birth — not a single visit","Postpartum depression screening is optional","Partners do not need to be screened for postpartum mood disorders"],
-    correct: 1,
-    feedback: "<strong>ACOG redefined postpartum care as an ongoing 12-week process</strong> (Committee Opinion No. 736, 2018). This shift — from a single six-week checkup to continuous care across three months — reflects what doulas and midwives have long advocated: the fourth trimester is a vulnerable, transformative time requiring sustained support for the entire family. Understanding this framing helps partners avoid the common assumption that everything is 'back to normal' after the six-week mark."
-  },
-  {
-    q: "A comprehensive meta-analysis of 47 studies involving over 20,000 fathers found what prevalence rate for postpartum depression in non-birthing partners within the first year?",
-    options: ["About 1-2% — very rare","About 4%","Approximately 8.75% — and up to 50% when the birthing parent is also affected","Only partners with a previous history of depression are at risk"],
-    correct: 2,
-    feedback: "<strong>8.75% baseline — rising to approximately 50% when the birthing parent is also affected.</strong> This is one of the most important statistics in this entire course. Partner postpartum depression affects nearly 1 in 10 non-birthing partners — and when the birthing parent is also experiencing PPD, roughly half of partners develop it as well. During COVID-19, the rate increased to 13.8%. This is not rare. It is common, it is underdiagnosed, and it is treatable."
-  },
-  {
-    q: "Partner postpartum depression often goes undiagnosed because it frequently looks different from the classic picture of depression. Which of the following is most characteristic of how partner PPD presents?",
-    options: ["Persistent sadness, tearfulness, and difficulty bonding with the baby","Escalating irritability, anger, withdrawal from family life, increased alcohol use, or working excessively long hours","Difficulty sleeping even when the baby sleeps","Feelings of guilt and worthlessness about parenting ability"],
-    correct: 1,
-    feedback: "<strong>Partner PPD typically manifests as irritability, anger, withdrawal, and behavioral changes — not the sadness most people associate with depression.</strong> This is exactly why it's so consistently missed — by the partner themselves, by family, and by healthcare providers. Because these symptoms don't match the cultural script of 'depression,' they are often attributed to stress or personality rather than a treatable medical condition. Knowing what to look for in yourself and each other is one of the most important things this module teaches."
-  },
-  {
-    q: "What does ACOG state about the partner's role in identifying postpartum depression in the birthing parent?",
-    options: ["Partners should leave mental health assessment to professionals","Partners are often the first to notice signs of PPD because the affected person may not recognize their own condition","Partners should not mention their concerns to avoid adding stress","PPD is always obvious and does not require a partner to identify it"],
-    correct: 1,
-    feedback: "<strong>Partners are often the first observers of PPD — because the affected person may not see their own symptoms.</strong> ACOG explicitly states this in its partner guide. This gives the non-birthing partner a specific and critical role: paying attention. Warning signs in the birthing parent include persistent sadness beyond two weeks, withdrawal from the baby, inability to sleep even when the baby sleeps, and thoughts of self-harm. If you notice these, contact a healthcare provider. You are allowed to make that call on your partner's behalf."
-  },
-  {
-    q: "Research using objective sleep measurement found that fathers average approximately how much nighttime sleep across the first two years of their baby's life?",
-    options: ["About 8 hours — fathers sleep well in the postpartum period","About 7.5 hours — just above the recommended minimum","Approximately 398 minutes (6 hours 38 minutes) — below the 7-hour minimum for adult health","About 5 hours — significantly below what is needed"],
-    correct: 2,
-    feedback: "<strong>Approximately 398 minutes — just under 6 hours 38 minutes — consistently below the 7-hour minimum recommended for adult health.</strong> Mothers lose approximately 41 minutes of nighttime sleep in the first postpartum month compared to pre-birth. Neither parent is sleeping adequately. Sleep deprivation at this level affects mood, cognitive function, emotional regulation, and relationship satisfaction. Treating this as a team problem — with defined shift sleeping, separate sleep arrangements when needed, and planned outside help — is not a luxury. It is a health decision."
-  },
-  {
-    q: "A 2024 Cochrane review of 69 trials involving over 7,000 pairs found what about immediate skin-to-skin contact after birth?",
-    options: ["Skin-to-skin had no measurable effect on breastfeeding rates","Skin-to-skin improved breastfeeding exclusivity from approximately 55% to 75% at one month, plus thermoregulation and physiological stability","Skin-to-skin benefits only apply to preterm infants","The evidence was inconclusive"],
-    correct: 1,
-    feedback: "<strong>Skin-to-skin significantly improves breastfeeding exclusivity (75% vs 55% at one month), thermoregulation, and physiological stability.</strong> The evidence is now considered strong enough that trials withholding skin-to-skin are no longer considered ethical. And critically for partners: a randomized controlled trial of 83 first-time fathers showed that daily father-infant skin-to-skin during the first three postpartum days significantly improved father-child attachment scores. Skin-to-skin is not just for the birthing parent. It is a specific and meaningful contribution the partner can make."
-  },
-  {
-    q: "What does doula practice — including DONA International — describe as the partner's most important structural role during postpartum physical recovery?",
-    options: ["Coaching the birthing parent through postpartum exercises","Being the 'gatekeeper' — managing visitors, absorbing household tasks, and creating conditions for rest","Monitoring the baby's feeding schedule and weight","Coordinating the birthing parent's medical appointments"],
-    correct: 1,
-    feedback: "<strong>The gatekeeper role.</strong> DONA International's postpartum position paper specifically describes this: the partner manages well-meaning but exhausting visitors, handles household responsibilities, brings the baby for feedings, and creates the conditions for the birthing parent to rest and heal. Cultures with structured postpartum rest periods — where the birthing parent is expected only to nurture themselves and their baby — consistently show better postpartum adjustment outcomes. When a professional postpartum doula isn't present, this role falls entirely to the partner."
-  },
-  {
-    q: "Research on the division of postpartum labor found what about couples who discussed responsibilities before the baby arrived?",
-    options: ["Pre-birth planning made no difference to postpartum satisfaction","Couples who accurately predicted their postpartum division of labor during pregnancy reported higher relationship satisfaction after birth","Discussing division of labor before birth created conflict","Only couples with very detailed plans reported better outcomes"],
-    correct: 1,
-    feedback: "<strong>Couples who accurately predicted their postpartum division of labor reported higher relationship satisfaction after birth.</strong> Inequitable division of responsibilities is one of the most significant sources of postpartum relationship strain — and it is most damaging when it wasn't discussed in advance and couples encounter it by default at 3am. Having the conversation now — about nighttime feeds, household tasks, visitors, and the return to work — doesn't prevent the difficulty of the transition. But it prevents the surprise. And surprise, compounded by exhaustion, is what becomes conflict."
-  },
-  {
-    q: "A multi-state evaluation found that women who received doula care had what reduction in odds of postpartum depression or anxiety?",
-    options: ["About 10% reduction","About 25% reduction","57.5% lower odds (OR: 0.425)","No significant difference compared to standard care"],
-    correct: 2,
-    feedback: "<strong>57.5% lower odds of postpartum depression or anxiety with doula care</strong> (Falconi et al., eClinicalMedicine/The Lancet, 2022). The same research found breastfeeding initiation rates of 97.9% with doula-supported births versus 80.8% in the general Medicaid population. When a professional doula isn't present, the partner's active engagement — as gatekeeper, as support person, as observer — produces a comparable protective effect. Your presence and your preparation are not accessories. They are clinical interventions."
-  },
-  {
-    q: "What is the most important thing a partner can do if they notice signs of postpartum depression — in themselves or in the birthing parent?",
-    options: ["Wait and see if it resolves on its own over the next few weeks","Mention it casually at the six-week checkup","Contact a healthcare provider early — you are allowed to call on behalf of yourself or your partner, and asking for help early is the standard of care","Keep it private to avoid worrying the other parent"],
-    correct: 2,
-    feedback: "<strong>Contact a healthcare provider early — and know that you are allowed to make that call for yourself or your partner.</strong> Both ACOG and doula organizations emphasize having this plan in place before birth: who you call, when you call, and explicit permission for the partner to reach out on their own behalf or their partner's. Waiting until things are clearly wrong is not the standard. Early contact with a care provider, a perinatal mental health specialist, or a crisis line is the standard — and it produces dramatically better outcomes than delayed intervention."
+function showLesson(num) {
+  document.querySelectorAll('.lesson-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.lesson-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('lesson-' + num).classList.add('active');
+  document.getElementById('tab-' + num).classList.add('active');
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+function answerKC(questionId, btn, isCorrect, feedback) {
+  if (kcState[questionId]) return;
+  kcState[questionId] = { answered:true, correct:isCorrect };
+  const allOptions = btn.parentElement.querySelectorAll('.kc-option');
+  allOptions.forEach(o => { o.classList.add('disabled','incorrect'); o.querySelector('.kc-indicator').textContent = '✗'; });
+  btn.classList.remove('incorrect');
+  btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+  btn.querySelector('.kc-indicator').textContent = isCorrect ? '✓' : '✗';
+  if (!isCorrect) {
+    allOptions.forEach(o => {
+      if (o.onclick && o.onclick.toString().includes('true,')) {
+        o.classList.remove('incorrect'); o.classList.add('correct');
+        o.querySelector('.kc-indicator').textContent = '✓';
+      }
+    });
   }
-];
-
-let cQ = 0, score = 0, userAnswers = [], answered = false;
-
-function startQuiz() {
-  document.getElementById('quizDivider').style.display = 'none';
-  const qs = document.getElementById('quiz-section');
-  qs.classList.add('active');
-  qs.scrollIntoView({ behavior: 'smooth' });
-  cQ = 0; score = 0; userAnswers = []; answered = false;
-  renderQ();
+  const fbEl = document.getElementById(questionId + '-fb');
+  if (fbEl) { fbEl.textContent = feedback; fbEl.className = 'kc-feedback ' + (isCorrect ? 'correct-fb' : 'incorrect-fb') + ' show'; }
+  checkKCComplete(questionId);
 }
 
-function renderQ() {
-  answered = false;
-  const q = questions[cQ];
-  document.getElementById('qNum').textContent = 'Question ' + (cQ+1) + ' of ' + questions.length;
-  document.getElementById('qText').textContent = q.q;
-  document.getElementById('qProgressFill').style.width = (cQ / questions.length * 100) + '%';
-  document.getElementById('qProgressText').textContent = cQ + ' / ' + questions.length;
-  const list = document.getElementById('optionsList');
-  list.innerHTML = '';
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'opt-btn';
-    btn.textContent = opt;
-    btn.onclick = () => selectA(i);
-    list.appendChild(btn);
-  });
-  document.getElementById('qFeedback').classList.remove('show');
-  const btnNext = document.getElementById('btnNextQ');
-  btnNext.classList.remove('show');
-  btnNext.textContent = cQ === questions.length - 1 ? 'See My Results →' : 'Next Question →';
+function checkKCComplete(questionId) {
+  const kcNum = questionId.charAt(2);
+  const prefix = 'kc' + kcNum;
+  const q1 = kcState[prefix + '-q1'];
+  const q2 = kcState[prefix + '-q2'];
+  const q3 = kcState[prefix + '-q3'];
+  if (q1 && q2 && q3) {
+    const score = [q1,q2,q3].filter(q => q.correct).length;
+    const scoreEl = document.getElementById('kc-' + kcNum + '-score');
+    const scoreNum = document.getElementById('kc-' + kcNum + '-score-num');
+    const scoreMsg = document.getElementById('kc-' + kcNum + '-score-msg');
+    scoreEl.classList.add('show');
+    scoreNum.textContent = score + '/3';
+    const msgs = { 3:"Perfect. Move on with confidence.", 2:"Good — one to review. Continue when ready.", 1:"Worth a re-read before moving on.", 0:"Go back through this lesson before continuing." };
+    scoreMsg.textContent = msgs[score];
+    document.getElementById('tab-' + kcNum).classList.add('completed');
+    const nextBtn = document.getElementById('btn-next-' + kcNum);
+    if (nextBtn) { nextBtn.disabled = false; nextBtn.style.background = '#A8782A'; nextBtn.style.color = '#1A100C'; }
+    if (kcNum === '4') { document.getElementById('completeBanner').classList.add('show'); }
+  }
 }
 
-function selectA(sel) {
-  if (answered) return;
-  answered = true;
-  const q = questions[cQ];
-  const btns = document.querySelectorAll('.opt-btn');
-  btns.forEach((b, i) => {
-    b.disabled = true;
-    if (i === q.correct) b.classList.add('correct');
-    else if (i === sel && sel !== q.correct) b.classList.add('incorrect');
-    else b.classList.add('dimmed');
-  });
-  const ok = sel === q.correct;
-  if (ok) score++;
-  userAnswers.push({ ok, q: q.q, a: q.options[q.correct] });
-  const fb = document.getElementById('qFeedback');
-  const tag = document.getElementById('feedbackTag');
-  tag.textContent = ok ? '✓ Correct — here\'s why it matters' : '✗ Not quite — here\'s what to know';
-  tag.style.color = ok ? '#1E3320' : '#8B3A2A';
-  fb.style.borderColor = ok ? '#1E3320' : '#8B3A2A';
-  document.getElementById('feedbackContent').innerHTML = q.feedback;
-  fb.classList.add('show');
-  document.getElementById('btnNextQ').classList.add('show');
-}
-
-function nextQ() {
-  cQ++;
-  if (cQ >= questions.length) showResults();
-  else renderQ();
-}
-
-function showResults() {
-  document.getElementById('qProgressFill').style.width = '100%';
-  document.getElementById('qProgressText').textContent = '10 / 10';
-  document.getElementById('quizInner').style.display = 'none';
-  document.getElementById('scoreBig').textContent = score;
-  let h, b;
-  if (score === 10) { h = 'Perfect. <em>You finished strong.</em>'; b = 'Every module, every quiz, every question — you showed up for it. You are more prepared for this birth and this fourth trimester than most partners ever are. That matters.'; }
-  else if (score >= 8) { h = 'Strong finish. <em>Well done.</em>'; b = 'Review the questions you missed — they\'re often the postpartum topics that catch couples off guard. Then go into the fourth trimester knowing you prepared.'; }
-  else if (score >= 6) { h = 'Good foundation. <em>A few gaps to close.</em>'; b = 'Go back through the partner PPD section in particular — it\'s the most under-discussed topic in this module and the one with the most real-world impact.'; }
-  else { h = 'Review and retake. <em>The fourth trimester deserves this preparation.</em>'; b = 'The postpartum period is harder than most people expect. Read through this module again before your due date and retake the quiz. Future you will be grateful.'; }
-  document.getElementById('resultHeading').innerHTML = h;
-  document.getElementById('resultBody').textContent = b;
-  const cards = document.getElementById('reviewCards');
-  cards.innerHTML = '<h3 style="font-family:\'Cormorant Garamond\',serif;font-size:1.2rem;font-weight:400;margin-bottom:1rem;color:#1A100C;">Your answers reviewed</h3>';
-  userAnswers.forEach((a, i) => {
-    const d = document.createElement('div');
-    d.className = 'review-card ' + (a.ok ? 'right' : 'wrong');
-    d.innerHTML = `<div class="rq">${a.ok?'✓':'✗'} Q${i+1}: ${a.q.substring(0,75)}${a.q.length>75?'...':''}</div><div class="ra">Correct: ${a.a}</div>`;
-    cards.appendChild(d);
-  });
-  document.getElementById('resultsSection').classList.add('show');
-  document.getElementById('completionBanner').style.display = 'block';
-  document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
-}
-
-function retryQuiz() {
-  document.getElementById('resultsSection').classList.remove('show');
-  document.getElementById('completionBanner').style.display = 'none';
-  document.getElementById('quizInner').style.display = 'block';
-  cQ = 0; score = 0; userAnswers = []; answered = false;
-  renderQ();
-  document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
-}
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop || document.body.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  document.getElementById('progressFill').style.width = (scrollHeight > 0 ? (scrollTop/scrollHeight)*100 : 0) + '%';
+});
 </script>
 
 </body>
