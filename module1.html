@@ -7,1256 +7,1032 @@
 <title>Module 1 — The Language of Labor | Pregnancy Partnership</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --cream: #F0E8DC;
-    --sand: #C9B89E;
-    --clay: #9C7A52;
-    --terracotta: #8B3A2A;
-    --deep: #1A100C;
-    --forest: #1E3320;
-    --gold: #A8782A;
-    --mid: #4A3020;
-    --correct: #1E3320;
-    --incorrect: #8B3A2A;
-  }
-
-- { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-body {
-background: #F0E8DC;
-color: #1A100C;
-font-family: ‘DM Sans’, sans-serif;
-font-weight: 300;
-}
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:#F0E8DC; color:#1A100C; font-family:'DM Sans',sans-serif; font-weight:300; }
 
 /* NAV */
-nav {
-background: #1A100C;
-padding: 1.2rem 4rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: sticky;
-top: 0;
-z-index: 100;
-}
+nav { background:#1A100C; padding:1.2rem 4rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+.nav-logo { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; color:#F0E8DC; text-decoration:none; }
+.nav-logo span { color:#A8782A; }
+.nav-back { font-size:0.75rem; color:rgba(240,232,220,0.5); text-decoration:none; letter-spacing:0.08em; transition:color 0.2s; }
+.nav-back:hover { color:#A8782A; }
 
-.nav-logo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.2rem;
-color: #F0E8DC;
-text-decoration: none;
-}
+/* PROGRESS */
+.reading-progress { height:3px; background:rgba(201,169,110,0.2); position:sticky; top:57px; z-index:99; }
+.reading-progress-fill { height:100%; background:#A8782A; width:0%; transition:width 0.1s linear; }
 
-.nav-logo span { color: #A8782A; }
+/* HERO */
+.module-hero { background:#1E3320; padding:5rem 4rem 4rem; position:relative; overflow:hidden; }
+.module-hero::before { content:‘01’; position:absolute; right:3rem; top:50%; transform:translateY(-50%); font-family:‘Cormorant Garamond’,serif; font-size:14rem; font-weight:300; color:rgba(255,255,255,0.04); line-height:1; pointer-events:none; }
+.module-eyebrow { font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:1rem; display:flex; align-items:center; gap:0.8rem; }
+.module-eyebrow::before { content:’’; width:2rem; height:1px; background:#A8782A; }
+.module-title { font-family:‘Cormorant Garamond’,serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:300; color:#F0E8DC; line-height:1.1; margin-bottom:1.5rem; max-width:14ch; }
+.module-title em { font-style:italic; color:#8B3A2A; }
+.module-meta { display:flex; gap:2rem; flex-wrap:wrap; }
+.meta-pill { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,232,220,0.55); display:flex; align-items:center; gap:0.4rem; }
 
-.nav-back {
-font-size: 0.75rem;
-color: rgba(240,232,220,0.5);
-text-decoration: none;
-letter-spacing: 0.08em;
-transition: color 0.2s;
-}
-
-.nav-back:hover { color: #A8782A; }
-
-/* MODULE HERO */
-.module-hero {
-background: #1E3320;
-padding: 5rem 4rem 4rem;
-position: relative;
-overflow: hidden;
-}
-
-.module-hero::before {
-content: ‘01’;
-position: absolute;
-right: 3rem;
-top: 50%;
-transform: translateY(-50%);
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 14rem;
-font-weight: 300;
-color: rgba(255,255,255,0.04);
-line-height: 1;
-pointer-events: none;
-}
-
-.module-eyebrow {
-font-size: 0.7rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #A8782A;
-margin-bottom: 1rem;
-display: flex;
-align-items: center;
-gap: 0.8rem;
-}
-
-.module-eyebrow::before {
-content: ‘’;
-width: 2rem;
-height: 1px;
-background: #A8782A;
-}
-
-.module-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(2.5rem, 5vw, 4rem);
-font-weight: 300;
-color: #F0E8DC;
-line-height: 1.1;
-margin-bottom: 1.5rem;
-max-width: 14ch;
-}
-
-.module-title em { font-style: italic; color: #8B3A2A; }
-
-.module-meta {
-display: flex;
-gap: 2rem;
-flex-wrap: wrap;
-}
-
-.meta-pill {
-font-size: 0.72rem;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: rgba(240,232,220,0.55);
-display: flex;
-align-items: center;
-gap: 0.4rem;
-}
-
-/* PROGRESS BAR */
-.reading-progress {
-height: 3px;
-background: rgba(201,169,110,0.2);
-position: sticky;
-top: 57px;
-z-index: 99;
-}
-
-.reading-progress-fill {
-height: 100%;
-background: #A8782A;
-width: 0%;
-transition: width 0.1s linear;
-}
+/* LESSON NAV */
+.lesson-nav { background:#1A100C; border-bottom:1px solid rgba(255,255,255,0.06); padding:0 4rem; display:flex; gap:0; overflow-x:auto; }
+.lesson-tab { padding:1rem 1.5rem; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(240,232,220,0.4); cursor:pointer; border-bottom:2px solid transparent; transition:all 0.2s; white-space:nowrap; background:none; border-top:none; border-left:none; border-right:none; font-family:‘DM Sans’,sans-serif; font-weight:400; }
+.lesson-tab:hover { color:rgba(240,232,220,0.7); }
+.lesson-tab.active { color:#A8782A; border-bottom-color:#A8782A; }
+.lesson-tab.completed { color:rgba(168,120,42,0.6); }
+.lesson-tab.completed::after { content:’ ✓’; }
 
 /* CONTENT */
-.module-content {
-max-width: 780px;
-margin: 0 auto;
-padding: 4rem 2rem;
-}
+.module-content { max-width:780px; margin:0 auto; padding:4rem 2rem; }
+.lesson-panel { display:none; }
+.lesson-panel.active { display:block; }
 
-.section-block {
-margin-bottom: 3.5rem;
-}
+.lesson-header { margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid #C9B89E; }
+.lesson-num { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:#A8782A; margin-bottom:0.6rem; display:block; }
+.lesson-header h1 { font-family:‘Cormorant Garamond’,serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; color:#1A100C; line-height:1.15; }
+.lesson-header h1 em { font-style:italic; color:#8B3A2A; }
+.lesson-intro { font-size:1.05rem; line-height:1.85; color:#4A3020; margin-top:1rem; max-width:60ch; }
 
-.section-block h2 {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(1.6rem, 3vw, 2.2rem);
-font-weight: 300;
-color: #1A100C;
-line-height: 1.2;
-margin-bottom: 1.2rem;
-}
-
-.section-block h2 em { font-style: italic; color: #8B3A2A; }
-
-.section-block h3 {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.3rem;
-font-weight: 400;
-color: #1A100C;
-margin: 2rem 0 0.8rem;
-padding-top: 1.5rem;
-border-top: 1px solid #C9B89E;
-}
-
-.section-block p {
-font-size: 1rem;
-line-height: 1.85;
-color: #4A3020;
-margin-bottom: 1rem;
-}
-
-.section-block strong { color: #1A100C; font-weight: 500; }
-
-.section-block em { font-style: italic; }
-
-.eyebrow-label {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #8B3A2A;
-margin-bottom: 0.5rem;
-display: block;
-}
+.section-block { margin-bottom:3.5rem; }
+.section-block h2 { font-family:‘Cormorant Garamond’,serif; font-size:clamp(1.6rem,3vw,2.2rem); font-weight:300; color:#1A100C; line-height:1.2; margin-bottom:1.2rem; }
+.section-block h2 em { font-style:italic; color:#8B3A2A; }
+.section-block h3 { font-family:‘Cormorant Garamond’,serif; font-size:1.3rem; font-weight:400; color:#1A100C; margin:2rem 0 0.8rem; padding-top:1.5rem; border-top:1px solid #C9B89E; }
+.section-block p { font-size:1rem; line-height:1.85; color:#4A3020; margin-bottom:1rem; }
+.section-block strong { color:#1A100C; font-weight:500; }
+.eyebrow-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#8B3A2A; margin-bottom:0.5rem; display:block; }
 
 /* STAGE CARDS */
-.stage-card {
-background: white;
-border-left: 4px solid #C9B89E;
-padding: 2rem;
-margin: 1.5rem 0;
-transition: border-color 0.3s;
-}
-
-.stage-card:hover { border-color: #8B3A2A; }
-
-.stage-card-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.25rem;
-font-weight: 600;
-color: #1A100C;
-margin-bottom: 1rem;
-}
-
-.stage-label {
-font-size: 0.65rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-color: #A8782A;
-margin-bottom: 0.4rem;
-display: block;
-}
-
-.stage-card p {
-font-size: 0.92rem;
-line-height: 1.75;
-color: #4A3020;
-margin-bottom: 0.8rem;
-}
-
-.partner-callout {
-background: rgba(30,51,32,0.06);
-border-left: 3px solid #1E3320;
-padding: 0.9rem 1.2rem;
-margin-top: 1rem;
-font-size: 0.88rem;
-line-height: 1.7;
-color: #1E3320;
-}
-
-.partner-callout strong { color: #1E3320; }
-
-.term-wrong {
-background: rgba(139,58,42,0.06);
-border-left: 3px solid #8B3A2A;
-padding: 0.9rem 1.2rem;
-margin-top: 0.8rem;
-font-size: 0.88rem;
-line-height: 1.7;
-color: #4A3020;
-}
-
-.term-wrong strong { color: #8B3A2A; }
-
-/* VOCAB GRID */
-.vocab-grid {
-display: flex;
-flex-direction: column;
-gap: 0;
-}
-
-.vocab-item {
-padding: 1.2rem 0;
-border-bottom: 1px solid #C9B89E;
-display: grid;
-grid-template-columns: 180px 1fr;
-gap: 1.5rem;
-align-items: start;
-}
-
-.vocab-term {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-font-weight: 600;
-color: #1A100C;
-padding-top: 0.1rem;
-}
-
-.vocab-def {
-font-size: 0.9rem;
-line-height: 1.75;
-color: #4A3020;
-}
-
-/* RESEARCH CALLOUT */
-.research-box {
-background: #1A100C;
-padding: 2.5rem;
-margin: 2rem 0;
-position: relative;
-overflow: hidden;
-}
-
-.research-box::before {
-content: ‘”’;
-position: absolute;
-top: -1rem;
-left: 1.5rem;
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 8rem;
-color: rgba(255,255,255,0.05);
-line-height: 1;
-}
-
-.research-box p {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.3rem;
-font-style: italic;
-color: #F0E8DC;
-line-height: 1.6;
-margin-bottom: 0.8rem;
-position: relative;
-z-index: 1;
-}
-
-.research-source {
-font-size: 0.72rem;
-color: #A8782A;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-}
-
-/* SAGE SECTION */
-.sage-section {
-background: #1E3320;
-padding: 2.5rem;
-margin: 3rem 0;
-}
-
-.sage-label {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #A8782A;
-margin-bottom: 0.8rem;
-}
-
-.sage-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.3rem;
-color: #F0E8DC;
-margin-bottom: 1.2rem;
-}
-
-.sage-prompts {
-list-style: none;
-display: flex;
-flex-direction: column;
-gap: 0.7rem;
-}
-
-.sage-prompts li {
-font-size: 0.88rem;
-color: rgba(240,232,220,0.75);
-line-height: 1.6;
-padding-left: 1.2rem;
-position: relative;
-}
-
-.sage-prompts li::before {
-content: ‘→’;
-position: absolute;
-left: 0;
-color: #A8782A;
-}
-
-.sage-btn {
-display: inline-block;
-margin-top: 1.5rem;
-background: #A8782A;
-color: #1A100C;
-padding: 0.7rem 1.5rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.75rem;
-font-weight: 500;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-text-decoration: none;
-transition: all 0.3s ease;
-}
-
-.sage-btn:hover { background: #F0E8DC; }
-
-/* SOURCES */
-.sources-section {
-border-top: 1px solid #C9B89E;
-padding-top: 2rem;
-margin-top: 3rem;
-}
-
-.sources-label {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #9C7A52;
-margin-bottom: 1rem;
-}
-
-.source-item {
-font-size: 0.8rem;
-color: #9C7A52;
-line-height: 1.7;
-margin-bottom: 0.6rem;
-padding-left: 1rem;
-border-left: 2px solid #C9B89E;
-}
-
-/* QUIZ DIVIDER */
-.quiz-divider {
-background: #8B3A2A;
-padding: 4rem 2rem;
-text-align: center;
-margin-top: 2rem;
-}
-
-.quiz-divider h2 {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(2rem, 4vw, 3rem);
-font-weight: 300;
-color: white;
-margin-bottom: 0.8rem;
-}
-
-.quiz-divider h2 em { font-style: italic; }
-
-.quiz-divider p {
-font-size: 0.95rem;
-color: rgba(255,255,255,0.75);
-margin-bottom: 2rem;
-max-width: 50ch;
-margin-left: auto;
-margin-right: auto;
-line-height: 1.7;
-}
-
-.btn-start-quiz {
-background: white;
-color: #8B3A2A;
-border: none;
-padding: 1rem 2.5rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.9rem;
-font-weight: 500;
-letter-spacing: 0.06em;
-text-transform: uppercase;
-cursor: pointer;
-transition: all 0.3s ease;
-}
-
-.btn-start-quiz:hover {
-background: #1A100C;
-color: white;
-transform: translateY(-2px);
-}
-
-/* ===== QUIZ SECTION ===== */
-#quiz-section {
-display: none;
-background: #F0E8DC;
-}
-
-#quiz-section.active { display: block; }
-
-.quiz-header-bar {
-background: #1A100C;
-padding: 1rem 2rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: sticky;
-top: 57px;
-z-index: 98;
-}
-
-.quiz-title-bar {
-font-size: 0.75rem;
-color: rgba(240,232,220,0.6);
-letter-spacing: 0.08em;
-text-transform: uppercase;
-}
-
-.quiz-progress-bar {
-width: 140px;
-height: 3px;
-background: rgba(255,255,255,0.15);
-border-radius: 2px;
-overflow: hidden;
-}
-
-.quiz-progress-fill {
-height: 100%;
-background: #A8782A;
-transition: width 0.4s ease;
-width: 0%;
-}
-
-.quiz-progress-text {
-font-size: 0.72rem;
-color: rgba(240,232,220,0.5);
-}
-
-.quiz-inner {
-max-width: 720px;
-margin: 0 auto;
-padding: 3rem 2rem;
-}
-
-.q-num {
-font-size: 0.65rem;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: #9C7A52;
-margin-bottom: 0.8rem;
-}
-
-.q-text {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-font-weight: 400;
-line-height: 1.4;
-color: #1A100C;
-margin-bottom: 2rem;
-max-width: 58ch;
-}
-
-.options-list {
-display: flex;
-flex-direction: column;
-gap: 0.7rem;
-}
-
-.opt-btn {
-background: white;
-border: 1.5px solid #C9B89E;
-padding: 1rem 1.4rem;
-text-align: left;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.9rem;
-color: #1A100C;
-cursor: pointer;
-transition: all 0.2s ease;
-line-height: 1.5;
-position: relative;
-border-radius: 2px;
-}
-
-.opt-btn:hover:not(:disabled) {
-border-color: #8B3A2A;
-background: #FDF8F4;
-transform: translateX(4px);
-}
-
-.opt-btn.correct {
-background: rgba(30,51,32,0.08);
-border-color: #1E3320;
-color: #1E3320;
-font-weight: 500;
-}
-
-.opt-btn.correct::after {
-content: ‘✓’;
-position: absolute;
-right: 1rem;
-top: 50%;
-transform: translateY(-50%);
-color: #1E3320;
-font-weight: 700;
-}
-
-.opt-btn.incorrect {
-background: rgba(139,58,42,0.08);
-border-color: #8B3A2A;
-color: #8B3A2A;
-}
-
-.opt-btn.incorrect::after {
-content: ‘✗’;
-position: absolute;
-right: 1rem;
-top: 50%;
-transform: translateY(-50%);
-color: #8B3A2A;
-font-weight: 700;
-}
-
-.opt-btn.dimmed { opacity: 0.35; cursor: default; }
-.opt-btn:disabled { cursor: default; }
-
-.q-feedback {
-display: none;
-padding: 1.5rem;
-margin-top: 1rem;
-border-left: 3px solid #A8782A;
-background: white;
-animation: fadeUp 0.3s ease;
-}
-
-.q-feedback.show { display: block; }
-
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(6px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-.feedback-tag {
-font-size: 0.62rem;
-letter-spacing: 0.15em;
-text-transform: uppercase;
-margin-bottom: 0.5rem;
-font-weight: 500;
-}
-
-.q-feedback p {
-font-size: 0.88rem;
-line-height: 1.75;
-color: #4A3020;
-}
-
-.q-feedback p strong { color: #1A100C; font-weight: 500; }
-
-.btn-next-q {
-display: none;
-margin-top: 1.5rem;
-background: #1A100C;
-color: white;
-border: none;
-padding: 0.85rem 1.8rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.8rem;
-font-weight: 500;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-cursor: pointer;
-transition: background 0.3s;
-}
-
-.btn-next-q.show { display: inline-block; }
-.btn-next-q:hover { background: #8B3A2A; }
-
-/* RESULTS */
-.results-section {
-display: none;
-max-width: 720px;
-margin: 0 auto;
-padding: 3rem 2rem;
-text-align: center;
-}
-
-.results-section.show { display: block; }
-
-.score-ring {
-width: 130px;
-height: 130px;
-border-radius: 50%;
-background: #1A100C;
-border: 4px solid #A8782A;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-margin: 0 auto 2rem;
-}
-
-.score-big {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 2.8rem;
-color: white;
-line-height: 1;
-font-weight: 300;
-}
-
-.score-sub {
-font-size: 0.65rem;
-color: #A8782A;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-}
-
-.result-heading {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.8rem;
-font-weight: 300;
-color: #1A100C;
-margin-bottom: 0.8rem;
-line-height: 1.3;
-}
-
-.result-heading em { font-style: italic; color: #8B3A2A; }
-
-.result-body {
-font-size: 0.92rem;
-line-height: 1.8;
-color: #4A3020;
-max-width: 50ch;
-margin: 0 auto 2rem;
-}
-
-.review-cards {
-text-align: left;
-display: flex;
-flex-direction: column;
-gap: 0.8rem;
-margin: 2rem 0;
-}
-
-.review-card {
-background: white;
-padding: 1rem 1.2rem;
-border-left: 3px solid #C9B89E;
-font-size: 0.82rem;
-}
-
-.review-card.right { border-color: #1E3320; }
-.review-card.wrong { border-color: #8B3A2A; }
-
-.review-card .rq { color: #9C7A52; font-size: 0.78rem; font-style: italic; margin-bottom: 0.3rem; }
-.review-card .ra { color: #1A100C; font-weight: 500; }
-
-.result-actions {
-display: flex;
-gap: 1rem;
-justify-content: center;
-flex-wrap: wrap;
-margin-top: 2rem;
-}
-
-.btn-retry-quiz {
-background: transparent;
-border: 1.5px solid #8B3A2A;
-color: #8B3A2A;
-padding: 0.8rem 1.8rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.8rem;
-font-weight: 500;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-cursor: pointer;
-transition: all 0.3s;
-}
-
-.btn-retry-quiz:hover { background: #8B3A2A; color: white; }
-
-.btn-next-module {
-background: #1E3320;
-color: white;
-border: none;
-padding: 0.8rem 1.8rem;
-font-family: ‘DM Sans’, sans-serif;
-font-size: 0.8rem;
-font-weight: 500;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-cursor: pointer;
-transition: background 0.3s;
-text-decoration: none;
-display: inline-block;
-}
-
-.btn-next-module:hover { background: #1A100C; }
-
-.results-citation {
-font-size: 0.7rem;
-color: #9C7A52;
-font-style: italic;
-margin-top: 2.5rem;
-text-align: center;
-}
-
-footer {
-background: #1A100C;
-padding: 2rem 4rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-gap: 1rem;
-}
-
-.footer-logo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.1rem;
-color: #F0E8DC;
-}
-
-.footer-logo span { color: #A8782A; }
-
-.footer-copy {
-font-size: 0.7rem;
-color: rgba(240,232,220,0.35);
-}
-
-@media (max-width: 640px) {
-nav, footer { padding: 1rem 1.5rem; }
-.module-hero { padding: 3rem 1.5rem 2.5rem; }
-.module-content, .quiz-inner, .results-section { padding: 2.5rem 1.2rem; }
-.vocab-item { grid-template-columns: 1fr; gap: 0.3rem; }
-.quiz-header-bar { flex-wrap: wrap; gap: 0.5rem; }
+.stage-card { background:white; border-left:4px solid #C9B89E; padding:2rem; margin:1.5rem 0; transition:border-color 0.3s; }
+.stage-card:hover { border-color:#8B3A2A; }
+.stage-card-title { font-family:‘Cormorant Garamond’,serif; font-size:1.25rem; font-weight:600; color:#1A100C; margin-bottom:0.5rem; }
+.stage-label { font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#A8782A; margin-bottom:0.4rem; display:block; }
+.stage-card p { font-size:0.92rem; line-height:1.75; color:#4A3020; margin-bottom:0.8rem; }
+.partner-callout { background:rgba(30,51,32,0.06); border-left:3px solid #1E3320; padding:0.9rem 1.2rem; margin-top:1rem; font-size:0.88rem; line-height:1.7; color:#1E3320; }
+.partner-callout strong { color:#1E3320; }
+
+/* VOCAB */
+.vocab-grid { display:flex; flex-direction:column; gap:0; }
+.vocab-item { padding:1.2rem 0; border-bottom:1px solid #C9B89E; display:grid; grid-template-columns:180px 1fr; gap:1.5rem; align-items:start; }
+.vocab-term { font-family:‘Cormorant Garamond’,serif; font-size:1.1rem; font-weight:600; color:#1A100C; }
+.vocab-def { font-size:0.9rem; line-height:1.75; color:#4A3020; }
+.vocab-partner-note { font-size:0.8rem; color:#1E3320; margin-top:0.4rem; font-style:italic; }
+
+/* RESEARCH BOX */
+.research-box { background:#1A100C; padding:2.5rem; margin:2rem 0; position:relative; overflow:hidden; }
+.research-box::before { content:’”’; position:absolute; top:-1rem; left:1.5rem; font-family:‘Cormorant Garamond’,serif; font-size:8rem; color:rgba(255,255,255,0.05); line-height:1; }
+.research-box p { font-family:‘Cormorant Garamond’,serif; font-size:1.3rem; font-style:italic; color:#F0E8DC; line-height:1.6; margin-bottom:0.8rem; position:relative; z-index:1; }
+.research-source { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(168,120,42,0.7); }
+
+/* STAT CALLOUT */
+.stat-block { background:#1E3320; padding:2rem 2.5rem; margin:2rem 0; display:flex; align-items:center; gap:2rem; }
+.stat-num { font-family:‘Cormorant Garamond’,serif; font-size:3.5rem; font-weight:300; color:#A8782A; line-height:1; flex-shrink:0; }
+.stat-text { font-size:0.9rem; line-height:1.7; color:rgba(240,232,220,0.8); }
+.stat-text strong { color:#F0E8DC; }
+
+/* FEELING CARD */
+.feeling-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:#C9B89E; margin:1.5rem 0; }
+.feeling-col { background:white; padding:1.8rem; }
+.feeling-col-header { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500; padding-bottom:0.8rem; border-bottom:2px solid; margin-bottom:1rem; }
+.feeling-col.birthing .feeling-col-header { color:#8B3A2A; border-color:#8B3A2A; }
+.feeling-col.partner .feeling-col-header { color:#1E3320; border-color:#1E3320; }
+.feeling-item { font-size:0.88rem; color:#3A2010; padding:0.4rem 0; border-bottom:1px solid #F0EDE8; line-height:1.5; }
+.feeling-item:last-child { border-bottom:none; }
+.feeling-item strong { color:#1A100C; font-weight:500; }
+
+/* TRUTH BOX */
+.truth-box { border:1.5px solid #C9B89E; padding:1.8rem 2rem; margin:2rem 0; position:relative; }
+.truth-label { position:absolute; top:-0.6rem; left:1.5rem; background:#F0E8DC; padding:0 0.5rem; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; }
+.truth-box p { font-size:0.95rem; line-height:1.8; color:#4A3020; }
+.truth-box strong { color:#1A100C; font-weight:500; }
+
+/* KNOWLEDGE CHECK */
+.knowledge-check { background:#1A100C; padding:3rem; margin:3rem 0 0; }
+.kc-header { font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:#A8782A; margin-bottom:0.5rem; }
+.kc-title { font-family:‘Cormorant Garamond’,serif; font-size:1.8rem; font-weight:300; color:#F0E8DC; margin-bottom:0.5rem; }
+.kc-subtitle { font-size:0.82rem; color:rgba(240,232,220,0.5); margin-bottom:2rem; }
+.kc-question { margin-bottom:2rem; }
+.kc-q-text { font-size:0.95rem; color:#F0E8DC; line-height:1.6; margin-bottom:1rem; font-weight:400; }
+.kc-options { display:flex; flex-direction:column; gap:0.5rem; }
+.kc-option { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.9rem 1.2rem; cursor:pointer; font-size:0.88rem; color:rgba(240,232,220,0.75); transition:all 0.2s; display:flex; align-items:center; gap:0.8rem; text-align:left; font-family:‘DM Sans’,sans-serif; }
+.kc-option:hover { background:rgba(168,120,42,0.1); border-color:rgba(168,120,42,0.3); color:#F0E8DC; }
+.kc-option.correct { background:rgba(30,51,32,0.4); border-color:#1E3320; color:#F0E8DC; }
+.kc-option.incorrect { background:rgba(139,58,42,0.2); border-color:#8B3A2A; color:rgba(240,232,220,0.6); }
+.kc-option.disabled { pointer-events:none; }
+.kc-indicator { width:18px; height:18px; border-radius:50%; border:1.5px solid rgba(255,255,255,0.2); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.7rem; }
+.kc-option.correct .kc-indicator { background:#1E3320; border-color:#1E3320; color:white; }
+.kc-option.incorrect .kc-indicator { background:#8B3A2A; border-color:#8B3A2A; color:white; }
+.kc-feedback { margin-top:0.8rem; padding:0.9rem 1.2rem; font-size:0.85rem; line-height:1.6; border-left:3px solid; display:none; }
+.kc-feedback.correct-fb { background:rgba(30,51,32,0.2); border-color:#1E3320; color:rgba(240,232,220,0.85); }
+.kc-feedback.incorrect-fb { background:rgba(139,58,42,0.15); border-color:#8B3A2A; color:rgba(240,232,220,0.75); }
+.kc-feedback.show { display:block; }
+.kc-score { display:none; background:rgba(168,120,42,0.1); border:1px solid rgba(168,120,42,0.3); padding:1.5rem; margin-top:1rem; text-align:center; }
+.kc-score.show { display:block; }
+.kc-score-num { font-family:‘Cormorant Garamond’,serif; font-size:3rem; color:#A8782A; line-height:1; }
+.kc-score-label { font-size:0.75rem; color:rgba(240,232,220,0.5); letter-spacing:0.1em; text-transform:uppercase; margin-top:0.3rem; }
+.kc-score-msg { font-size:0.9rem; color:#F0E8DC; margin-top:0.8rem; line-height:1.6; }
+
+/* NEXT LESSON */
+.next-lesson { background:#F0E8DC; border-top:2px solid #C9B89E; padding:2.5rem; display:flex; justify-content:space-between; align-items:center; margin-top:0; }
+.next-label { font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:#9C7A52; margin-bottom:0.3rem; }
+.next-title { font-family:‘Cormorant Garamond’,serif; font-size:1.2rem; color:#1A100C; }
+.btn-next { background:#1E3320; color:#F0E8DC; border:none; padding:0.9rem 2rem; font-family:‘DM Sans’,sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.2s; }
+.btn-next:hover { background:#2A4A2C; }
+.btn-next:disabled { background:#C9B89E; cursor:not-allowed; }
+
+/* TOOL DOWNLOAD */
+.tool-download { background:#F0E8DC; padding:3rem 2rem; text-align:center; border-top:1px solid #C9B89E; }
+.tool-download .eyebrow { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.8rem; }
+.tool-download h3 { font-family:‘Cormorant Garamond’,serif; font-size:1.8rem; font-weight:300; color:#1A100C; margin-bottom:0.6rem; }
+.tool-download p { font-size:0.9rem; color:#4A3020; max-width:48ch; margin:0 auto 1.5rem; line-height:1.7; }
+.btn-download { display:inline-block; background:#1E3320; color:white; padding:0.9rem 2.5rem; font-family:‘DM Sans’,sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; }
+
+/* SAGE */
+.sage-section { background:white; padding:3rem; border-top:1px solid #C9B89E; text-align:center; }
+.sage-eyebrow { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.5rem; }
+.sage-title { font-family:‘Cormorant Garamond’,serif; font-size:1.6rem; font-weight:300; color:#1A100C; margin-bottom:1.5rem; }
+.sage-prompts { display:flex; flex-direction:column; gap:0.5rem; max-width:60ch; margin:0 auto 1.5rem; }
+.sage-prompt { font-size:0.85rem; color:#9C7A52; font-style:italic; padding:0.6rem; border:1px solid #E8DDD0; }
+.btn-sage { display:inline-block; background:#1E3320; color:white; padding:0.8rem 2rem; font-family:‘DM Sans’,sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; }
+
+/* CITATIONS */
+.citations { padding:3rem 2rem; max-width:780px; margin:0 auto; }
+.citations-title { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#9C7A52; margin-bottom:1.5rem; }
+.citation-item { font-size:0.8rem; color:#9C7A52; line-height:1.6; padding:0.6rem 0; border-bottom:1px solid #E8DDD0; }
+.citation-item em { font-style:italic; }
+
+/* COMPLETE BANNER */
+.complete-banner { background:#1E3320; padding:3rem; text-align:center; display:none; }
+.complete-banner.show { display:block; }
+.complete-banner h2 { font-family:‘Cormorant Garamond’,serif; font-size:2rem; font-weight:300; color:#F0E8DC; margin-bottom:0.5rem; }
+.complete-banner p { font-size:0.9rem; color:rgba(240,232,220,0.6); margin-bottom:1.5rem; }
+.btn-module-next { display:inline-block; background:#A8782A; color:#1A100C; padding:1rem 2.5rem; font-family:‘DM Sans’,sans-serif; font-size:0.85rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; }
+
+@media (max-width:768px) {
+nav { padding:1rem 1.5rem; }
+.module-hero { padding:3rem 1.5rem; }
+.lesson-nav { padding:0 1rem; }
+.module-content { padding:2.5rem 1.5rem; }
+.vocab-item { grid-template-columns:1fr; gap:0.5rem; }
+.feeling-grid { grid-template-columns:1fr; }
+.stat-block { flex-direction:column; gap:1rem; text-align:center; }
+.next-lesson { flex-direction:column; gap:1.5rem; text-align:center; }
 }
 </style>
 
 </head>
 <body>
 
-<!-- NAV -->
-
 <nav>
   <a href="index.html" class="nav-logo">Pregnancy <span>Partnership</span></a>
-  <a href="index.html#course" class="nav-back">← Back to Course</a>
+  <a href="index.html" class="nav-back">← Back to Course</a>
 </nav>
 
-<!-- READING PROGRESS -->
+<div class="reading-progress"><div class="reading-progress-fill" id="progressFill"></div></div>
 
-<div class="reading-progress"><div class="reading-progress-fill" id="readingProgress"></div></div>
-
-<!-- MODULE HERO -->
+<!-- HERO -->
 
 <div class="module-hero">
-  <div class="module-eyebrow">Module 1 of 5</div>
-  <h1 class="module-title">The Language of <em>Labor</em></h1>
+  <div class="module-eyebrow">Module 01 of 05</div>
+  <h1 class="module-title">The Language <em>of Labor</em></h1>
   <div class="module-meta">
-    <div class="meta-pill">📖 15 min read</div>
-    <div class="meta-pill">❓ 10-question quiz</div>
-    <div class="meta-pill">👥 Take together</div>
-    <div class="meta-pill">📋 Glossary card included</div>
+    <span class="meta-pill">📖 4 Lessons</span>
+    <span class="meta-pill">✓ Knowledge checks after each lesson</span>
+    <span class="meta-pill">👥 Both partners</span>
   </div>
 </div>
 
-<!-- MODULE CONTENT -->
+<!-- LESSON NAV TABS -->
 
-<div class="module-content" id="moduleContent">
+<div class="lesson-nav" id="lessonNav">
+  <button class="lesson-tab active" onclick="showLesson(1)" id="tab-1">Lesson 1</button>
+  <button class="lesson-tab" onclick="showLesson(2)" id="tab-2">Lesson 2</button>
+  <button class="lesson-tab" onclick="showLesson(3)" id="tab-3">Lesson 3</button>
+  <button class="lesson-tab" onclick="showLesson(4)" id="tab-4">Lesson 4</button>
+</div>
 
-  <!-- INTRO -->
+<div class="module-content">
 
-  <div class="section-block">
-    <span class="eyebrow-label">Before You Begin</span>
-    <h2>This module was built for <em>both of you.</em></h2>
-    <p>Not just the person who is pregnant. Not just the partner. Both of you — reading together, learning together, arriving at the birth room with the same map.</p>
-    <p>Because that's what this is. A map. Labor has a shape. It has stages, a rhythm, a vocabulary. And when both of you know that shape — when you can say the same words and mean the same things — something shifts. Fear loses its grip. The unknown becomes the known. And instead of one of you experiencing birth while the other watches, you move through it together.</p>
+<!-- ============================================================ -->
+
+<!-- LESSON 1: Why This Module Exists -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel active" id="lesson-1">
+
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 1 of 4</span>
+    <h1>Why This Module <em>Exists</em></h1>
+    <p class="lesson-intro">Before we teach you a single term, here's why it matters that we do — and why you are exactly the right person to be here.</p>
   </div>
-
-  <!-- RESEARCH -->
 
   <div class="section-block">
     <span class="eyebrow-label">The Research</span>
-    <h2>Why this module <em>exists</em></h2>
-    <p>Before we teach you a single term, here's why it matters that we do.</p>
-    <p>Researchers studying the non-birthing partner's experience in the birth room have found something consistent across study after study: <strong>the single greatest source of partner anxiety during labor is not the pain, not the medical environment, and not the length of labor. It is not knowing what is happening.</strong></p>
+    <h2>The single greatest source of partner anxiety during labor is not the pain.</h2>
+    <p>Researchers studying the non-birthing partner's experience in the birth room have found something consistent across study after study: partners don't struggle most with witnessing pain. They struggle with <strong>not knowing what's happening.</strong></p>
+    <p>When you don't have a map, your brain fills in the silence with worst-case interpretations. A contraction that looks unbearable to you might be completely within normal range. A number on a monitor might mean something routine to the nurse and something terrifying to you. The distance between what's actually happening and what you're able to understand is the source of most partner fear — not the birth itself.</p>
+
+```
+<div class="stat-block">
+  <div class="stat-num">80%</div>
+  <div class="stat-text"><strong>of first-time non-birthing partners report significant fear and anxiety during labor</strong> — and the primary driver is lack of preparation and knowledge, not the birth events themselves. O'Brien, Doherty & McNamara, <em>IJERPH</em>, 2021.</div>
+</div>
+
+<p>This module gives you the map. Not because knowing the stages of labor makes it painless — but because when you know where you are, you can be present instead of panicked. You can say "this is transition, it's supposed to look like this, it means we're close" instead of reaching for the call button.</p>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">The Problem with Most Birth Education</span>
+    <h2>Most classes teach the birthing parent. <em>You get a seat.</em></h2>
+    <p>The standard childbirth education model was designed for the person giving birth. Partners were added as an afterthought — a "support person" who holds a hand and tries not to faint. The curriculum wasn't built for you. The vocabulary wasn't translated for you. You were expected to absorb by proximity.</p>
+    <p>That model produces partners who stand at the bedside looking helpful but feeling lost. They ask the nurse questions they should already know the answers to. They Google things during contractions. They make the birthing parent feel like they're managing two situations instead of one.</p>
 
 ```
 <div class="research-box">
-  <p>"Over 80% of first-time partners report childbirth-related fears — and the leading driver of those fears is lack of knowledge."</p>
-  <div class="research-source">O'Brien, Doherty & McNamara · International Journal of Environmental Research and Public Health · 2021</div>
+  <p>"Partners who received preparation specifically designed for their role reported feeling significantly more effective and less distressed during labor — and their partners reported feeling more supported."</p>
+  <div class="research-source">Hildingsson et al., Midwifery, 2011 · Partner-focused childbirth preparation</div>
 </div>
 
-<p>Let that land for a moment. The thing that makes partners check out — that makes them go quiet, stare at the ceiling, feel useless — isn't weakness. It's a knowledge gap that nobody filled.</p>
-<p>A separate prospective study of 304 couples found that only <em>continuous</em> partner presence during labor — not temporary, not in-and-out — predicted lower intervention births. The partner's presence matters. But presence without preparation is just standing in the room. <strong>This module turns presence into participation.</strong></p>
+<p>This course was built differently. Every lesson is written for the person who is <em>not</em> giving birth. The language, the framing, the focus — all of it is built around your experience of birth, not theirs. You're not an observer being briefed. You're a participant being trained.</p>
 ```
 
   </div>
 
-  <!-- STAGES -->
-
   <div class="section-block">
-    <span class="eyebrow-label">Part 1</span>
-    <h2>The stages of <em>labor</em></h2>
-    <p>Labor doesn't happen all at once. It unfolds in stages — each with its own rhythm, its own intensity, and its own call for different kinds of support. When you both understand these stages before they happen, you stop being surprised by labor. You start anticipating it.</p>
+    <span class="eyebrow-label">What You're Building This Module</span>
+    <h2>A shared vocabulary is the foundation <em>of everything else.</em></h2>
+    <p>Over the next three lessons you'll learn the shape of labor — its stages, its rhythm, its vocabulary. You'll understand what your partner is experiencing at each phase. And you'll learn what labor actually feels like for both of you, which is different from what most people expect.</p>
+    <p>By the end of this module you'll be able to listen to a clinical conversation between a nurse and your care provider and understand what's being said. That is not a small thing. <strong>Understanding what's happening is the single most powerful thing you can do for your partner in that room.</strong></p>
 
 ```
-<div class="stage-card">
-  <div class="stage-label">Stage One — First Phase</div>
-  <div class="stage-card-title">Early Labor (The Latent Phase)</div>
-  <p><strong>What's happening:</strong> The cervix dilates from 0 to approximately 6 cm and begins thinning (effacing). Contractions feel like strong menstrual cramps — irregular at first, gradually finding a pattern.</p>
-  <p><strong>How long:</strong> Nobody can tell you exactly. ACOG guidelines acknowledge the latent phase can last up to 20 hours for first-time parents. That is not a typo. This phase can be very long — and that is completely normal.</p>
-  <p><strong>What normal looks like:</strong> The birthing parent can still talk through contractions. They may be excited, nervous, or relieved. They can walk, eat lightly, rest, watch something. This is generally not the time to rush to the hospital.</p>
-  <div class="partner-callout"><strong>Partner's job:</strong> Stay calm. This is your first opportunity to be steady. Time contractions — start to start, and how long each lasts. Keep the environment relaxed. A warm shower, a walk, a meal. Make early labor feel manageable, not urgent.</div>
-  <div class="term-wrong"><strong>Term partners most often get wrong here — Effacement.</strong> Most partners understand dilation but have no idea what effacement means. Effacement is the thinning and shortening of the cervix, measured in percentages from 0% to 100%. Both dilation and effacement must happen for birth to progress.</div>
-</div>
-
-<div class="stage-card">
-  <div class="stage-label">Stage One — Second Phase</div>
-  <div class="stage-card-title">Active Labor</div>
-  <p><strong>What's happening:</strong> The cervix dilates from 6 to 10 cm. Per current ACOG guidelines (updated 2024), 6 cm is now the official start of active labor — a shift from the older 4 cm threshold. Contractions become stronger, longer, and more regular. The birthing parent will likely not be able to talk through contractions anymore.</p>
-  <p><strong>What normal looks like:</strong> Focused. Serious. The laboring person is working. They may be vocalizing, moving, leaning, rocking. They are inward. They need your full attention.</p>
-  <div class="partner-callout"><strong>Partner's job:</strong> This is when your preparation pays off. Be physically present — close, not across the room. Offer counter-pressure on the lower back. Breathe visibly and audibly with them. Suggest position changes every 20-30 minutes. Speak in short, calm sentences. Take direction.</div>
-  <div class="term-wrong"><strong>Term partners most often get wrong here — Augmentation vs. Induction.</strong> Induction means labor is being started. Augmentation means labor has started on its own and is being strengthened — usually with Pitocin. Partners who don't know the difference often panic when augmentation is mentioned. Augmentation means labor is happening and being supported, not that something is wrong.</div>
-</div>
-
-<div class="stage-card" style="border-color: #8B3A2A;">
-  <div class="stage-label">Stage One — Final Phase</div>
-  <div class="stage-card-title">Transition ⚡</div>
-  <p><strong>What's happening:</strong> The final stretch of the first stage, roughly 7–10 cm. The most intense phase. Contractions may last 60–90 seconds with only 30–60 seconds of rest between them.</p>
-  <p><strong>How long:</strong> Usually 15 minutes to an hour — the shortest phase, and the hardest.</p>
-  <p><strong>What normal looks like:</strong> Shaking. Nausea. Vomiting. Saying "I can't do this." Asking for an epidural even if that wasn't the plan. Emotional volatility. <strong>All of this is normal.</strong></p>
-  <p>Research on partner birth experience consistently shows that partners <strong>misinterpret the intensity of transition as a sign that something is going wrong.</strong> Nothing is broken. This is transition. It means birth is close.</p>
-  <div class="partner-callout"><strong>Partner's job:</strong> Stay. Do not step back. Do not look alarmed. Make eye contact. Hold their hand or put your hand firmly on their back. Say: "I'm here. You're doing it. This is the hardest part. You're almost there." Breathe with them. Your calm is their anchor.</div>
-  <div class="term-wrong"><strong>Most important distinction in this module — Transition vs. Complication.</strong> Transition looks and sounds alarming. It is not a complication. It is a phase. When you can recognize it and name it, you can be present for it instead of panicking about it.</div>
-</div>
-
-<div class="stage-card">
-  <div class="stage-label">Stage Two</div>
-  <div class="stage-card-title">Pushing and Birth</div>
-  <p><strong>What's happening:</strong> The cervix is fully dilated at 10 cm. The birthing parent works with contractions to push the baby down and out. The involuntary urge to push often guides this stage.</p>
-  <p><strong>How long:</strong> A few minutes to a few hours. ACOG defines a prolonged second stage as more than 3 hours for first-time parents and 2 hours for those who have given birth before.</p>
-  <div class="partner-callout"><strong>Partner's job:</strong> Hold a leg if asked. Count during pushes if the care team guides that. Make eye contact. Keep your voice steady. Tell them what you see — only if it's true. This stage asks for your steadiest self.</div>
-</div>
-
-<div class="stage-card">
-  <div class="stage-label">Stage Three</div>
-  <div class="stage-card-title">Delivery of the Placenta</div>
-  <p><strong>What's happening:</strong> After the baby is born, the placenta must be delivered. Contractions continue, separating it from the uterine wall. Median duration is approximately 6 minutes; typically occurs within 5–30 minutes.</p>
-  <div class="partner-callout"><strong>Partner's job:</strong> Focus on the baby and on the birthing parent. Skin-to-skin contact begins now. This is the moment the hard work becomes the reward. Be present for it.</div>
-  <div class="term-wrong"><strong>Term partners most often get wrong here — Delayed Cord Clamping.</strong> If this is in your birth preferences, it happens now. Waiting at least 30–60 seconds before clamping the umbilical cord is associated with better newborn iron stores. If you want to cut the cord, tell your care team in advance.</div>
+<div class="truth-box">
+  <div class="truth-label">What this module is not</div>
+  <p>This is not a medical textbook. We are not training you to diagnose or intervene. We are training you to understand, to ask informed questions, to stay grounded, and to be useful. Your job in the birth room is presence — not performance. This module gives you the foundation for both.</p>
 </div>
 ```
 
   </div>
 
-  <!-- VOCABULARY -->
+  <!-- KNOWLEDGE CHECK 1 -->
+
+  <div class="knowledge-check" id="kc-1">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 1 Check-In</div>
+    <div class="kc-subtitle">3 quick questions before moving on.</div>
+
+```
+<div class="kc-question" id="kc1-q1">
+  <div class="kc-q-text">1. According to research, what is the primary driver of partner fear and anxiety during labor?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q1', this, false, 'Close — witnessing pain is distressing, but research shows it\'s not the primary driver of partner anxiety. It\'s the lack of knowledge about what\'s happening.')">
+      <span class="kc-indicator"></span>Witnessing their partner in pain
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q1', this, true, 'Correct. Research consistently shows that not knowing what\'s happening — the gap between clinical events and understanding — is the primary source of partner fear during labor. Knowledge is your greatest tool.')">
+      <span class="kc-indicator"></span>Not knowing what is happening or what things mean
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q1', this, false, 'Not quite. Duration of labor can be exhausting but research points to lack of knowledge as the primary anxiety driver, not time itself.')">
+      <span class="kc-indicator"></span>The length of labor
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q1', this, false, 'The hospital environment can feel clinical and uncomfortable, but the research specifically identifies lack of knowledge as the primary driver of partner anxiety.')">
+      <span class="kc-indicator"></span>The clinical hospital environment
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc1-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc1-q2">
+  <div class="kc-q-text">2. What percentage of first-time non-birthing partners report significant fear and anxiety during labor?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q2', this, false, 'Not quite — the number is significantly higher than 45%.')">
+      <span class="kc-indicator"></span>Around 45%
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q2', this, false, 'Higher than 60% — the research shows a large majority of first-time partners experience significant fear and anxiety.')">
+      <span class="kc-indicator"></span>Around 60%
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q2', this, true, 'Correct — 80% of first-time non-birthing partners report significant fear and anxiety during labor. You are not unusual for feeling nervous. You are part of a very large majority.')">
+      <span class="kc-indicator"></span>Around 80%
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q2', this, false, 'The number is high but not quite at 95%. It\'s approximately 80% of first-time partners.')">
+      <span class="kc-indicator"></span>Around 95%
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc1-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc1-q3">
+  <div class="kc-q-text">3. What is the primary goal of learning birth vocabulary as a non-birthing partner?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc1-q3', this, false, 'Understanding birth vocabulary isn\'t about impressing medical staff — it\'s about your ability to stay present and grounded when clinical language is being used around you.')">
+      <span class="kc-indicator"></span>To impress the medical team with your knowledge
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q3', this, false, 'Vocabulary helps you understand medical conversations but doesn\'t give you authority to make clinical decisions — those belong to the birthing parent and their care team.')">
+      <span class="kc-indicator"></span>To make clinical decisions alongside the care team
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q3', this, false, 'Remembering terms for later is a benefit, but the primary goal is something more immediate and practical during labor itself.')">
+      <span class="kc-indicator"></span>To remember medical terms for future pregnancies
+    </button>
+    <button class="kc-option" onclick="answerKC('kc1-q3', this, true, 'Exactly right. When you understand what\'s happening in real time, you stay present instead of panicked. You can support your partner instead of managing your own anxiety. That\'s the entire point.')">
+      <span class="kc-indicator"></span>To stay present and grounded instead of panicked during labor
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc1-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-1-score">
+  <div class="kc-score-num" id="kc-1-score-num"></div>
+  <div class="kc-score-label">Lesson 1 Complete</div>
+  <div class="kc-score-msg" id="kc-1-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-1">
+    <div>
+      <div class="next-label">Up next</div>
+      <div class="next-title">Lesson 2 — The Shape of Labor</div>
+    </div>
+    <button class="btn-next" id="btn-next-1" onclick="showLesson(2)" disabled>Continue →</button>
+  </div>
+
+</div><!-- end lesson 1 -->
+
+<!-- ============================================================ -->
+
+<!-- LESSON 2: The Shape of Labor -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-2">
+
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 2 of 4</span>
+    <h1>The Shape <em>of Labor</em></h1>
+    <p class="lesson-intro">Labor has a structure. Once you know that structure, you stop experiencing it as an endless emergency and start experiencing it as a process with a beginning, middle, and end.</p>
+  </div>
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 2</span>
-    <h2>The vocabulary <em>you both need</em></h2>
-    <p>These are the terms most commonly misunderstood by non-birthing partners. Read them together.</p>
+    <span class="eyebrow-label">The Most Important Thing to Know First</span>
+    <h2>Labor is not a single event. <em>It's three stages.</em></h2>
+    <p>Most people talk about labor as if it's one long experience that starts when contractions begin and ends when the baby arrives. That framing sets partners up to panic — because a long, escalating, continuous experience with no milestones feels like something is always going wrong.</p>
+    <p>In reality, labor has three distinct stages, each with its own characteristics, its own timeline, and its own partner role. Understanding where you are in those stages changes everything about how you show up.</p>
+
+```
+<div class="truth-box">
+  <div class="truth-label">The reframe that changes everything</div>
+  <p><strong>Labor does not get continuously worse until it's over.</strong> It has phases. Some phases are long and manageable. One phase is short and intense. The most intense part is also the shortest — and it means you're almost at the end. When you know this, transition stops feeling like a sign that something is wrong and starts feeling like a sign that you're close.</p>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">First Stage</span>
+    <h2>Stage One — From first contraction <em>to full dilation</em></h2>
+
+```
+<div class="stage-card">
+  <span class="stage-label">Early Labor (Latent Phase) · 0–6 cm dilation</span>
+  <div class="stage-card-title">The Long Opening Act</div>
+  <p>This is where most of labor's <em>time</em> is spent — especially for first-time parents. Contractions begin irregularly, then become more regular, but remain manageable. The cervix is effacing (thinning) and dilating (opening) from 0 to 6 centimeters.</p>
+  <p><strong>Timeline:</strong> Can last 8–20 hours for first-time parents. Subsequent labors are usually faster. This is highly individual — some people move through early labor quickly, others slowly. Neither is a sign of a problem.</p>
+  <p><strong>What contractions feel like:</strong> Uncomfortable but manageable. Your partner can still talk through them, eat lightly, walk around, and rest between contractions. This is not the time to rush to the hospital.</p>
+  <div class="partner-callout"><strong>Your job in early labor:</strong> Stay calm. Keep the environment relaxed — not urgent. Eat something, because you'll be there a long time. Time contractions periodically but don't obsess over the app. The goal is conservation of energy and a relaxed nervous system.</div>
+</div>
+
+<div class="stage-card">
+  <span class="stage-label">Active Labor · 6–10 cm dilation</span>
+  <div class="stage-card-title">When Your Support Matters Most</div>
+  <p>At 6 centimeters, labor typically intensifies. Contractions become stronger, longer, and closer together. The birthing parent can no longer talk through contractions. This is when most couples head to the hospital or birth center — or when a home birth midwife becomes actively present.</p>
+  <p><strong>Timeline:</strong> Typically 4–8 hours for first-time parents, though this varies widely. Progress may not be linear — periods of faster dilation often alternate with slower periods.</p>
+  <p><strong>What contractions feel like:</strong> Intense and unavoidable. Your partner will need to focus through them. They may vocalize, rock, pace, or go inward. Do not interrupt what's working.</p>
+  <div class="partner-callout"><strong>Your job in active labor:</strong> Full presence. This is where the Partner Playbook techniques — counter-pressure, position changes, breathing cues — become essential. Put the phone away. Your physical and emotional presence is the single most effective tool available to you.</div>
+</div>
+
+<div class="stage-card">
+  <span class="stage-label">Transition · ~7–10 cm (the final push to full dilation)</span>
+  <div class="stage-card-title">The Shortest, Hardest Phase — And What It Means</div>
+  <p>Transition is the most intense part of labor and also the briefest — typically 15 minutes to 1 hour. Contractions peak in intensity, coming every 2–3 minutes and lasting 60–90 seconds. There may be very little rest between them.</p>
+  <p><strong>What it looks like:</strong> Shaking, nausea, the statement "I can't do this" or "I want to go home" are all completely normal during transition. These are not signs of a problem. They are signs that the body is doing exactly what it's supposed to do.</p>
+  <p><strong>What it means:</strong> If your partner says they cannot do this — they are almost done. Transition is the last phase before pushing. The end is genuinely close.</p>
+  <div class="partner-callout"><strong>Your job during transition:</strong> Stay closer than you've ever been. Speak less. Touch more. If they say "I can't do this" — your response is not reassurance. It's presence. "I'm right here. You're doing it right now." One contraction at a time.</div>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Second Stage</span>
+    <h2>Stage Two — <em>Pushing and birth</em></h2>
+    <p>The second stage begins at full dilation (10 centimeters) and ends with the birth of the baby. This is the pushing stage. For first-time parents it can last anywhere from a few minutes to a few hours — the average is about 1–2 hours, though significant variation is normal.</p>
+    <p>Contractions in the second stage often have a different quality — many people describe feeling a strong urge to push, sometimes before the care team is ready. This involuntary urge is called the fetal ejection reflex and it is a sign of a healthy, progressing labor.</p>
+    <div class="partner-callout"><strong>Your job during pushing:</strong> Position support, encouragement, and attention. Ask the care team how you can help. Some partners hold a leg, some provide counter-pressure, some talk their partner through each push. Ask your partner what they need — don't assume. Let the care team lead clinically. Your job is emotional and physical presence.</div>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Third Stage</span>
+    <h2>Stage Three — <em>The placenta</em></h2>
+    <p>After the baby is born, labor is not completely over. The third stage — delivery of the placenta — typically takes 5–30 minutes. Most people are entirely focused on their newborn during this stage, which is exactly where attention belongs. The care team manages the third stage.</p>
+    <p>This stage exists. Partners are often caught off guard by it. Knowing it's coming means you won't be startled when the team asks the birthing parent to push once more — and you can keep your focus where it belongs: on your new baby and your partner.</p>
+
+```
+<div class="research-box">
+  <p>"Partners who understood the stages of labor before birth reported significantly less distress during the birth and rated themselves as more effective supporters."</p>
+  <div class="research-source">Hildingsson et al., 2011 · Midwifery · Partner preparation and birth outcomes</div>
+</div>
+```
+
+  </div>
+
+  <!-- KNOWLEDGE CHECK 2 -->
+
+  <div class="knowledge-check" id="kc-2">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 2 Check-In</div>
+    <div class="kc-subtitle">3 questions on the stages of labor.</div>
+
+```
+<div class="kc-question" id="kc2-q1">
+  <div class="kc-q-text">1. During early labor, which of the following is the most appropriate partner response?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q1', this, false, 'Rushing to the hospital during early labor often results in being sent home or waiting in a less comfortable environment. Early labor is best managed at home when possible.')">
+      <span class="kc-indicator"></span>Rush to the hospital immediately
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q1', this, true, 'Correct. Early labor can last many hours. Keeping the environment calm, eating, resting, and conserving energy is exactly the right approach. Urgency during early labor creates unnecessary anxiety.')">
+      <span class="kc-indicator"></span>Keep the environment calm, eat, rest, and conserve energy
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q1', this, false, 'Timing contractions consistently is helpful to know when to call the care provider, but obsessing over the app every contraction creates anxiety rather than reducing it.')">
+      <span class="kc-indicator"></span>Obsessively time every contraction on the phone app
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q1', this, false, 'Early labor can be long and demanding — skipping meals and fluids will leave both partners depleted when active labor begins and support is most needed.')">
+      <span class="kc-indicator"></span>Skip eating to be on standby
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc2-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc2-q2">
+  <div class="kc-q-text">2. Your partner says "I can't do this anymore" during labor. What does this most likely indicate?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q2', this, false, 'This statement is actually a normal and common expression during transition — it does not indicate that something has gone wrong medically.')">
+      <span class="kc-indicator"></span>Something has gone medically wrong
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q2', this, false, 'Pain relief is always an option and always the birthing parent\'s decision — but this statement alone doesn\'t indicate they\'re asking for it. Stay present and ask what they need.')">
+      <span class="kc-indicator"></span>They need an epidural immediately
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q2', this, true, 'Exactly right. "I can\'t do this" is one of the most reliable signs that transition is happening — which means birth is close. Your response is presence and "you\'re doing it right now."')">
+      <span class="kc-indicator"></span>They are likely in transition — which means birth is very close
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q2', this, false, 'Labor may continue for some time, but this statement during active labor is most specifically associated with transition — the final and most intense phase before pushing.')">
+      <span class="kc-indicator"></span>Labor is just getting started
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc2-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc2-q3">
+  <div class="kc-q-text">3. How many stages does labor have — and which stage is the shortest but most intense?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc2-q3', this, false, 'Labor has three stages, not two. And the most intense phase — transition — occurs within the first stage, not as a separate stage itself.')">
+      <span class="kc-indicator"></span>Two stages — the second stage (pushing) is most intense
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q3', this, true, 'Correct. Labor has three stages. Within the first stage, transition — the final push from ~7–10 cm — is the shortest and most intense phase. Knowing this helps partners understand that peak intensity means the end is near.')">
+      <span class="kc-indicator"></span>Three stages — transition within the first stage is the shortest and most intense
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q3', this, false, 'Labor has three stages. The first stage (early, active, transition) is the longest. The second stage is pushing. The third is placenta delivery.')">
+      <span class="kc-indicator"></span>Three stages — the first stage (early labor) is the most intense
+    </button>
+    <button class="kc-option" onclick="answerKC('kc2-q3', this, false, 'Labor has three stages, not four. Transition is not a separate stage — it is a phase within the first stage.')">
+      <span class="kc-indicator"></span>Four stages including transition as a separate stage
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc2-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-2-score">
+  <div class="kc-score-num" id="kc-2-score-num"></div>
+  <div class="kc-score-label">Lesson 2 Complete</div>
+  <div class="kc-score-msg" id="kc-2-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-2">
+    <div>
+      <div class="next-label">Up next</div>
+      <div class="next-title">Lesson 3 — The Vocabulary You Need</div>
+    </div>
+    <button class="btn-next" id="btn-next-2" onclick="showLesson(3)" disabled>Continue →</button>
+  </div>
+
+</div><!-- end lesson 2 -->
+
+<!-- ============================================================ -->
+
+<!-- LESSON 3: The Vocabulary You Need -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-3">
+
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 3 of 4</span>
+    <h1>The Vocabulary <em>You Need</em></h1>
+    <p class="lesson-intro">You're going to hear clinical language in the birth room — from nurses, OBs, and midwives. These are the terms that matter most and what they actually mean for you and your partner.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">Why Vocabulary Matters</span>
+    <h2>Clinical language is not designed to <em>exclude you.</em> But it does.</h2>
+    <p>Medical teams use clinical shorthand because it's precise and fast. "She's at 7, 90% effaced, plus one station" contains a full picture of labor progress in eight words. To someone who knows the language, that sentence is reassuring. To someone who doesn't, it's terrifying or meaningless.</p>
+    <p>You will hear these terms during labor. Some will be said in passing. Some will be the center of a conversation about what to do next. <strong>Your ability to participate in those conversations — or at minimum to understand them — changes your experience of the birth room entirely.</strong></p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">The Core Vocabulary</span>
+    <h2>Terms that will come up. <em>What they mean for you.</em></h2>
 
 ```
 <div class="vocab-grid">
   <div class="vocab-item">
     <div class="vocab-term">Dilation</div>
-    <div class="vocab-def">Opening of the cervix, 0–10 cm. Dilation from 0–6 cm can take many hours; 6–10 cm often moves much faster. "You're at 4 cm" does not mean birth is 40% of the way there.</div>
+    <div class="vocab-def">The opening of the cervix, measured in centimeters from 0 to 10. Zero is completely closed. Ten is fully open and ready to push. <strong>Important:</strong> 4 cm does not mean 40% of the way through labor. The early centimeters can take hours. The later centimeters often move faster.
+      <div class="vocab-partner-note">→ When the nurse says "she's at 6 cm" — that's the transition from early to active labor. Things are picking up.</div>
+    </div>
   </div>
   <div class="vocab-item">
     <div class="vocab-term">Effacement</div>
-    <div class="vocab-def">Thinning of the cervix, 0–100%. Both dilation and effacement must occur for birth to progress.</div>
+    <div class="vocab-def">The thinning of the cervix, measured as a percentage from 0% to 100%. The cervix needs to thin as well as open. "80% effaced" means the cervix is mostly thinned. Both dilation and effacement need to happen before pushing.
+      <div class="vocab-partner-note">→ You'll often hear both numbers together: "6 cm, 90% effaced." Both need to happen.</div>
+    </div>
   </div>
   <div class="vocab-item">
     <div class="vocab-term">Station</div>
-    <div class="vocab-def">Baby's head position relative to the pelvis, -5 to +5. Zero = level with bony landmark. Positive numbers = descending toward birth.</div>
+    <div class="vocab-def">Baby's position in the pelvis, measured from -5 to +5. Negative numbers mean baby is above the midpoint of the pelvis. Zero means engaged at the midpoint. Positive numbers mean baby is descending toward birth. "+3 station" is very close to delivery.
+      <div class="vocab-partner-note">→ Positive station numbers are good news. The higher the number, the closer to birth.</div>
+    </div>
   </div>
   <div class="vocab-item">
-    <div class="vocab-term">Transition</div>
-    <div class="vocab-def">Most intense phase (~7–10 cm). Not a complication. A phase. It means birth is close.</div>
+    <div class="vocab-term">Contractions</div>
+    <div class="vocab-def">Tightening of the uterus that opens the cervix and moves the baby down. Measured by frequency (how far apart, start to start), duration (how long each one lasts), and intensity. The 5-1-1 rule: contractions 5 minutes apart, lasting 1 minute, for 1 hour = time to head in.
+      <div class="vocab-partner-note">→ Your partner cannot tell you how intense contractions are — watch their face and body. Trust what you see.</div>
+    </div>
   </div>
   <div class="vocab-item">
     <div class="vocab-term">Augmentation</div>
-    <div class="vocab-def">Strengthening labor that has already started, usually with Pitocin. Not the same as induction. Not a sign something is wrong.</div>
+    <div class="vocab-def">Labor has started on its own but is being strengthened or sped up — usually with Pitocin (synthetic oxytocin). This is different from induction. Augmentation is a tool, not a failure.
+      <div class="vocab-partner-note">→ If the team suggests Pitocin after labor has started, this is augmentation. Use the BRAIN framework to understand why.</div>
+    </div>
   </div>
   <div class="vocab-item">
     <div class="vocab-term">Induction</div>
-    <div class="vocab-def">Starting labor artificially when the body hasn't gone into labor on its own.</div>
+    <div class="vocab-def">Labor is being started artificially because it hasn't begun on its own. Various methods are used. Inductions can be medically necessary or elective. The BRAIN framework applies here — understand the reason, the timing, and the alternatives before agreeing.
+      <div class="vocab-partner-note">→ If induction is recommended, ask: what is the specific medical reason? What happens if we wait 24 hours?</div>
+    </div>
   </div>
   <div class="vocab-item">
     <div class="vocab-term">Failure to Progress</div>
-    <div class="vocab-def">Clinical term for labor not advancing at an expected rate. Does not mean the birthing parent failed at anything. It describes a pattern requiring a change in approach.</div>
+    <div class="vocab-def">A clinical term meaning labor is not advancing as expected. It does not mean the birthing parent has failed — it means a change in approach may be indicated. This term is often used to recommend augmentation or a cesarean. Ask clarifying questions.
+      <div class="vocab-partner-note">→ If you hear this term, stay calm. Ask: what specifically isn't progressing, and what are the options?</div>
+    </div>
   </div>
   <div class="vocab-item">
     <div class="vocab-term">Decelerations</div>
-    <div class="vocab-def">Temporary drops in baby's heart rate on the fetal monitor. Some are normal. When you hear this word, ask your nurse to explain the type and the response — don't assume the worst.</div>
-  </div>
-  <div class="vocab-item">
-    <div class="vocab-term">Meconium</div>
-    <div class="vocab-def">Baby's first stool, sometimes passed before birth. Thin meconium is common and often not concerning. Thick meconium may require precautions. Your care team will assess.</div>
-  </div>
-  <div class="vocab-item">
-    <div class="vocab-term">Apgar Score</div>
-    <div class="vocab-def">Newborn assessment at 1 and 5 minutes after birth. Scored 0–10. A score of 7–10 is reassuring. This is routine — not an alarm.</div>
+    <div class="vocab-def">Drops in the baby's heart rate visible on the fetal monitor. Some decelerations are entirely normal (early decelerations during contractions). Others may warrant attention. The care team will assess and explain. Don't interpret the monitor alone.
+      <div class="vocab-partner-note">→ If you see the monitor change and you're concerned, ask: "Can you tell us what we're seeing?" Don't guess.</div>
+    </div>
   </div>
   <div class="vocab-item">
     <div class="vocab-term">Epidural</div>
-    <div class="vocab-def">Regional anesthesia for pain relief during labor. The decision belongs entirely to the birthing parent. A partner's job is to support that decision, whatever it is.</div>
+    <div class="vocab-def">Regional anesthesia that reduces pain sensation in the lower body. The decision belongs entirely to the birthing parent. There is no right answer. Your role is to support whatever they decide — not to advocate for or against based on your own preference.
+      <div class="vocab-partner-note">→ If they ask your opinion: "This is your call and I'll support you completely either way."</div>
+    </div>
   </div>
   <div class="vocab-item">
-    <div class="vocab-term">Pitocin</div>
-    <div class="vocab-def">Synthetic oxytocin used to induce or augment labor. Can make contractions more intense — which makes your support techniques even more important.</div>
+    <div class="vocab-term">Apgar Score</div>
+    <div class="vocab-def">A quick assessment of the newborn's health at 1 and 5 minutes after birth. Scored 0–10 across five criteria. A score of 7–10 is reassuring. This is routine — not an alarm. You'll hear the number called out. It's information, not drama.
+      <div class="vocab-partner-note">→ A score of 7 or above is normal and reassuring. Lower scores prompt additional attention and support from the team — not panic.</div>
+    </div>
+  </div>
+  <div class="vocab-item">
+    <div class="vocab-term">Delayed Cord Clamping</div>
+    <div class="vocab-def">Waiting 30 seconds to 3 minutes (or longer) after birth before clamping and cutting the umbilical cord. Research supports this practice as beneficial for the newborn's iron stores and blood volume. If you want to cut the cord, mention this in advance.
+      <div class="vocab-partner-note">→ If delayed cord clamping is important to you, put it in your birth preferences and mention it to the team when you arrive.</div>
+    </div>
+  </div>
+  <div class="vocab-item">
+    <div class="vocab-term">Meconium</div>
+    <div class="vocab-def">The baby's first bowel movement, sometimes passed before birth into the amniotic fluid. Thin meconium is common and usually not concerning. Thick meconium may indicate the baby needs additional attention at birth. The care team will assess.
+      <div class="vocab-partner-note">→ If you hear "there's meconium in the fluid" — stay calm and ask what that means for the plan going forward.</div>
+    </div>
   </div>
 </div>
 ```
 
   </div>
 
-  <!-- CLOSING -->
+  <div class="section-block">
+    <span class="eyebrow-label">Out-of-Hospital Birth Note</span>
+    <h2>If you're planning a birth center or home birth — <em>the vocabulary shifts slightly.</em></h2>
+    <p>Most of the clinical language above applies across all birth settings. However, in a birth center or home birth, some terms and tools are used differently or not at all. Continuous fetal monitoring, for example, is typically replaced with intermittent monitoring via a handheld doppler. "Failure to progress" in a home or birth center setting may result in a transfer conversation rather than augmentation.</p>
+    <p>Your midwife is your primary guide in these settings. Ask them to walk you through the vocabulary specific to your birth environment at one of your prenatal appointments — they will welcome the question. The BRAIN framework (Module 3) applies equally in all settings.</p>
+  </div>
+
+  <!-- KNOWLEDGE CHECK 3 -->
+
+  <div class="knowledge-check" id="kc-3">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 3 Check-In</div>
+    <div class="kc-subtitle">3 vocabulary questions.</div>
+
+```
+<div class="kc-question" id="kc3-q1">
+  <div class="kc-q-text">1. The nurse reports your partner is "8 cm, 100% effaced, +2 station." What does this tell you?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q1', this, false, 'This is actually very active late labor — 8 cm is well into active labor and +2 station means the baby is well descended. This is encouraging progress, not early stage.')">
+      <span class="kc-indicator"></span>Labor is just beginning — she has a long way to go
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q1', this, false, 'The cervix is fully thinned and baby is well descended, but at 8 cm the birthing parent still has 2 cm of dilation to go before pushing begins.')">
+      <span class="kc-indicator"></span>The baby is about to be born right now
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q1', this, true, 'Exactly right. 8 cm is late active labor — 2 cm from full dilation. Fully effaced means the cervix is completely thinned. +2 station means baby is well descended. This is encouraging, late-stage progress.')">
+      <span class="kc-indicator"></span>She is in late active labor — 2 cm from pushing, cervix fully thinned, baby well descended
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q1', this, false, 'This combination of numbers actually describes active late-stage labor. Transition begins around 7–8 cm, so this is very encouraging progress.')">
+      <span class="kc-indicator"></span>Something has gone wrong — these numbers indicate a problem
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc3-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc3-q2">
+  <div class="kc-q-text">2. The care team recommends Pitocin. Your partner looks at you for your reaction. What is the most appropriate response?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q2', this, false, 'Pitocin is a common and often appropriate clinical tool. Refusing immediately without understanding the reason isn\'t informed advocacy — it\'s reactivity.')">
+      <span class="kc-indicator"></span>Say "absolutely not" — Pitocin should never be used
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q2', this, false, 'Agreeing without understanding robs your partner of informed decision-making and bypasses the BRAIN framework entirely.')">
+      <span class="kc-indicator"></span>Say "yes, whatever they recommend" without asking any questions
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q2', this, true, 'Correct. Use BRAIN — ask about the benefits, the reason, and whether there are alternatives. Then support whatever your partner decides. Informed consent is the goal, not a predetermined answer.')">
+      <span class="kc-indicator"></span>Ask the care team to explain why it\'s recommended and what the alternatives are, then support your partner\'s decision
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q2', this, false, 'The decision about interventions belongs to the birthing parent and care team — not to the partner alone. Your role is to support informed decision-making, not to make the call.')">
+      <span class="kc-indicator"></span>Make the decision yourself since your partner is busy with contractions
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc3-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc3-q3">
+  <div class="kc-q-text">3. What is the correct response when your partner asks your opinion on whether to get an epidural?</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc3-q3', this, false, 'Advocating for the epidural removes the decision from the person who has to live with it. This is their body and their birth — your role is to support, not to push.')">
+      <span class="kc-indicator"></span>Encourage them to get it — pain relief makes birth easier
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q3', this, false, 'Encouraging them to go without involves imposing your values on their experience. Some people plan unmedicated births and change their mind — that is always valid.')">
+      <span class="kc-indicator"></span>Encourage them to go without — natural birth is better
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q3', this, false, 'While staying out of it can feel respectful, your partner is asking because they want connection — not silence. The right response is explicit, unconditional support for their choice.')">
+      <span class="kc-indicator"></span>Stay completely silent and don\'t get involved
+    </button>
+    <button class="kc-option" onclick="answerKC('kc3-q3', this, true, 'Exactly right. "This is your call and I\'m with you either way" is the full answer. The epidural decision belongs entirely to the birthing parent. Your job is unconditional support for whatever they choose.')">
+      <span class="kc-indicator"></span>"This is your call completely — I\'m with you either way"
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc3-q3-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-3-score">
+  <div class="kc-score-num" id="kc-3-score-num"></div>
+  <div class="kc-score-label">Lesson 3 Complete</div>
+  <div class="kc-score-msg" id="kc-3-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <div class="next-lesson" id="next-3">
+    <div>
+      <div class="next-label">Up next</div>
+      <div class="next-title">Lesson 4 — What Labor Actually Feels Like</div>
+    </div>
+    <button class="btn-next" id="btn-next-3" onclick="showLesson(4)" disabled>Continue →</button>
+  </div>
+
+</div><!-- end lesson 3 -->
+
+<!-- ============================================================ -->
+
+<!-- LESSON 4: What Labor Actually Feels Like -->
+
+<!-- ============================================================ -->
+
+<div class="lesson-panel" id="lesson-4">
+
+  <div class="lesson-header">
+    <span class="lesson-num">Lesson 4 of 4</span>
+    <h1>What Labor Actually <em>Feels Like</em></h1>
+    <p class="lesson-intro">For both of you. The physical and emotional reality of labor — what to expect from your partner and what to expect from yourself.</p>
+  </div>
 
   <div class="section-block">
-    <span class="eyebrow-label">Part 3</span>
-    <h2>The most important thing <em>this module teaches</em></h2>
-    <p>More than any single term. More than any stage or definition.</p>
-    <div class="research-box">
-      <p>"Fear of the unknown is the partner's primary adversary in the birth room."</p>
-      <div class="research-source">Hilger et al. · BMC Pregnancy and Childbirth · 2022</div>
-    </div>
-    <p>When you know what transition is, you don't panic during it. When you know that "failure to progress" is a clinical term and not a verdict, you can ask a clear question instead of shutting down. When you know that the third stage exists, you're not caught off guard when labor isn't immediately over after the baby arrives.</p>
-    <p><strong>Knowledge is not just information. In the birth room, knowledge is the difference between a partner who is present and a partner who is truly <em>there.</em></strong></p>
-    <p>You're building that now. Module by module. Together.</p>
+    <span class="eyebrow-label">The Gap Between Expectation and Reality</span>
+    <h2>Labor rarely looks like <em>the movies.</em></h2>
+    <p>Most people's mental image of labor comes from film and television — dramatic, sudden, chaotic, and relatively brief. The water breaks in a restaurant. Everyone rushes to the hospital. The baby is born in the next scene. This image is almost entirely wrong, and it sets both partners up to misread what's actually happening.</p>
+    <p>Real labor is longer, more gradual, more interior, and more variable than any depiction you've seen. Understanding what it actually looks and feels like — for the birthing parent and for you — removes the most common source of partner confusion: misinterpreting normal as abnormal.</p>
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">For the Birthing Parent</span>
+    <h2>What your partner may experience — <em>phase by phase</em></h2>
+
+```
+<div class="stage-card">
+  <span class="stage-label">Early Labor</span>
+  <div class="stage-card-title">Manageable, variable, and often slow</div>
+  <p><strong>Physically:</strong> Contractions that feel like strong menstrual cramps or lower back pressure. Possible bloody show (pink or light red mucus discharge — completely normal). Waters may break or may not break until later, or may be broken by the care team during active labor.</p>
+  <p><strong>Emotionally:</strong> Excitement mixed with anxiety. Many people feel energized at first, then tired as early labor extends. Some people sleep through early contractions. The emotional tone in early labor sets the tone for everything that follows — keep it calm.</p>
+</div>
+
+<div class="stage-card">
+  <span class="stage-label">Active Labor</span>
+  <div class="stage-card-title">Intense, focused, and inward</div>
+  <p><strong>Physically:</strong> Contractions that demand full attention. Your partner may vocalize — moaning, breathing loudly, or making sounds that may concern you. These sounds are a healthy coping mechanism, not a sign of something wrong. Do not ask them to be quiet.</p>
+  <p><strong>Emotionally:</strong> Many people go inward during active labor. They may stop talking between contractions. They may become focused and serious in a way that feels alarming if you're not expecting it. This inward focus is a natural response to intensity — it is the body doing its job.</p>
+  <div class="partner-callout"><strong>Common misread:</strong> "She went quiet and stopped talking to me — I thought something was wrong." Going quiet during active labor is normal. It means they're focusing. Match their energy. Be present without demanding interaction.</div>
+</div>
+
+<div class="stage-card">
+  <span class="stage-label">Transition</span>
+  <div class="stage-card-title">The most intense — and the most misread</div>
+  <p><strong>Physically:</strong> Contractions at their peak. Shaking is common and normal — a physiological response to intense effort. Nausea and vomiting are common during transition. The feeling of needing to push before the cervix is fully dilated is also common and the care team may ask for some breathing through contractions to allow full dilation.</p>
+  <p><strong>Emotionally:</strong> This is where "I can't do this" lives. Also "I want to go home." Also "I changed my mind." These statements are transition talking, not a medical or psychological crisis. They are the most reliable sign that you are very close to the end.</p>
+  <div class="partner-callout"><strong>Your single most important tool at transition:</strong> Do not try to fix it. Do not problem-solve. Do not suggest options. Get close. Make eye contact. Say "one at a time. I'm right here. You're doing it." That's the whole job.</div>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">For You</span>
+    <h2>What you will likely feel — <em>and why it's normal</em></h2>
+    <p>Partners are rarely asked how labor feels from their side. The focus is entirely on the birthing parent — appropriately. But partners have a real emotional experience during labor, and suppressing or being surprised by it reduces your effectiveness as a support person.</p>
+
+```
+<div class="feeling-grid">
+  <div class="feeling-col birthing">
+    <div class="feeling-col-header">You may feel — and it's normal</div>
+    <div class="feeling-item"><strong>Helplessness.</strong> Watching someone you love in pain and not being able to take it away is hard. This is normal. Your presence is helping even when it doesn't feel like it.</div>
+    <div class="feeling-item"><strong>Fear.</strong> Even when everything is going well, birth can feel dangerous. Ground yourself in information — you have it now.</div>
+    <div class="feeling-item"><strong>Physical exhaustion.</strong> Labor is long. You haven't eaten. You've been on your feet. Take care of your body — you can't support anyone on empty.</div>
+    <div class="feeling-item"><strong>Emotional overwhelm.</strong> Many partners cry. Many partners feel profound awe. Being moved by birth is not weakness — it is an appropriate response to one of the most significant moments of a human life.</div>
+    <div class="feeling-item"><strong>Disconnection.</strong> In very long labors, focus can drift. Notice it. Reconnect. Your partner doesn't need you to be perfect — they need you to keep coming back.</div>
+  </div>
+  <div class="feeling-col partner">
+    <div class="feeling-col-header">What actually helps</div>
+    <div class="feeling-item"><strong>Eat and drink.</strong> You cannot sustain presence on nothing. Take food breaks when your partner is resting. This is not abandonment — it is preparation.</div>
+    <div class="feeling-item"><strong>Step outside briefly when needed.</strong> A two-minute reset in the hallway is better than slowly deteriorating presence in the room. Tell the nurse. Don't disappear.</div>
+    <div class="feeling-item"><strong>Name what you're seeing, not what you're feeling.</strong> "You're breathing so well through that" is useful. "I'm scared" during a contraction is not. Process your fear with the nurse or outside the room.</div>
+    <div class="feeling-item"><strong>Ask the nurse.</strong> Any question you have about the monitor, the timeline, what you're seeing — ask the nurse. You are allowed to ask. It's their job to answer.</div>
+    <div class="feeling-item"><strong>Remember why you're there.</strong> You are there to be the one constant in a room full of rotating clinical professionals. Your face is the familiar thing. Your presence is the anchor. That is not a small role.</div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="section-block">
+    <span class="eyebrow-label">After the Birth</span>
+    <h2>The first hour — <em>what to expect</em></h2>
+    <p>The hour immediately after birth is called the "golden hour." Skin-to-skin contact between baby and birthing parent (and partner) is encouraged. The third stage — placenta delivery — happens during this time. The birthing parent may shake, feel emotional, or feel surprisingly calm. All of these are normal.</p>
+    <p>You may feel a sudden crash after the intensity of labor — a flood of relief, emotion, or exhaustion. You may feel profoundly bonded to your baby immediately, or it may take time. Both are normal. The immediate bond many parents expect isn't universal — and its absence doesn't mean anything is wrong.</p>
+
+```
+<div class="research-box">
+  <p>"Non-birthing partners who felt informed and prepared during labor reported higher satisfaction with the birth experience and stronger early bonding with the newborn."</p>
+  <div class="research-source">Johansson et al., 2012 · Journal of Midwifery & Women's Health</div>
+</div>
+```
+
+  </div>
+
+  <!-- KNOWLEDGE CHECK 4 -->
+
+  <div class="knowledge-check" id="kc-4">
+    <div class="kc-header">Knowledge Check</div>
+    <div class="kc-title">Lesson 4 Check-In</div>
+    <div class="kc-subtitle">3 final questions to complete Module 1.</div>
+
+```
+<div class="kc-question" id="kc4-q1">
+  <div class="kc-q-text">1. During active labor, your partner goes quiet, stops talking, and seems to be focused entirely inward. You should:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q1', this, false, 'Going quiet during active labor is completely normal — it is the body\'s natural focus response to intensity. This is not a sign of a problem.')">
+      <span class="kc-indicator"></span>Call the nurse immediately — this is a sign something is wrong
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q1', this, false, 'Demanding interaction during active labor works against the natural inward focus that helps the birthing parent cope. Match their energy — don\'t pull against it.')">
+      <span class="kc-indicator"></span>Keep talking to them and asking how they\'re feeling to maintain connection
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q1', this, false, 'Leaving during active labor because they\'ve gone quiet would be exactly the wrong read of the situation. The quiet is normal and your presence is still essential.')">
+      <span class="kc-indicator"></span>Step out since they clearly don\'t need you right now
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q1', this, true, 'Correct. Going inward is a natural and healthy response to active labor. Match their energy. Stay close, stay calm, stay present. Let them lead the interaction.')">
+      <span class="kc-indicator"></span>Match their energy — stay close, stay calm, and let them lead the interaction
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc4-q1-fb"></div>
+</div>
+
+<div class="kc-question" id="kc4-q2">
+  <div class="kc-q-text">2. You're in a long labor and you realize you haven't eaten in 8 hours. Your partner is resting between contractions. You should:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q2', this, false, 'Waiting until after birth to eat in a long labor means you\'ll be supporting on empty for potentially many more hours. Your physical state directly affects your ability to support.')">
+      <span class="kc-indicator"></span>Wait until after the birth — leaving to eat feels like abandonment
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q2', this, true, 'Exactly right. Taking care of your physical needs during rest periods is not selfish — it\'s sustainable. Tell the nurse you\'re stepping out briefly. Eat something. Come back ready to support.')">
+      <span class="kc-indicator"></span>Take a brief food break during the rest period, tell the nurse, and come back
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q2', this, false, 'Asking your partner to manage their own support needs so you can eat puts an unreasonable burden on someone already doing significant physical work.')">
+      <span class="kc-indicator"></span>Ask your partner if it\'s okay to eat before doing so
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q2', this, false, 'Ignoring your own needs in a long labor will compound over time into deteriorating presence and support. Physical self-care during rest periods is part of being an effective support person.')">
+      <span class="kc-indicator"></span>Push through — your comfort doesn\'t matter right now
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc4-q2-fb"></div>
+</div>
+
+<div class="kc-question" id="kc4-q3">
+  <div class="kc-q-text">3. Immediately after birth, you don't feel the overwhelming rush of bonding you expected. You should:</div>
+  <div class="kc-options">
+    <button class="kc-option" onclick="answerKC('kc4-q3', this, false, 'Immediate bonding is not universal and its absence is not a clinical concern on its own. Telling medical staff you\'re not bonding immediately is unnecessary and likely to cause unnecessary worry.')">
+      <span class="kc-indicator"></span>Tell the medical team immediately — something may be wrong
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q3', this, false, 'Immediate bonding is a myth that causes unnecessary guilt in many new parents. The absence of immediate connection does not mean you won\'t bond — or that something is wrong with you.')">
+      <span class="kc-indicator"></span>Assume you\'re not cut out for parenting
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q3', this, true, 'Correct. Immediate bonding is not universal — for either parent. It is a normal variation, not a warning sign. Bond develops over time for many people. Stay present, stay involved, and give it time.')">
+      <span class="kc-indicator"></span>Understand this is a normal variation — bonding develops over time for many parents
+    </button>
+    <button class="kc-option" onclick="answerKC('kc4-q3', this, false, 'While your partner may have a different experience, your own emotional response is also valid and real. Concealing it doesn\'t help you process it.')">
+      <span class="kc-indicator"></span>Hide the feeling from your partner so they don\'t worry
+    </button>
+  </div>
+  <div class="kc-feedback" id="kc4-q4-fb"></div>
+</div>
+
+<div class="kc-score" id="kc-4-score">
+  <div class="kc-score-num" id="kc-4-score-num"></div>
+  <div class="kc-score-label">Module 1 Complete</div>
+  <div class="kc-score-msg" id="kc-4-score-msg"></div>
+</div>
+```
+
+  </div>
+
+  <!-- TOOL DOWNLOAD -->
+
+  <div class="tool-download">
+    <div class="eyebrow">Your Module 1 Tool</div>
+    <h3>Contraction <em style="font-style:italic; color:#8B3A2A;">Timing Log</em></h3>
+    <p>Print this before your due date and keep it in your hospital bag. 28 rows to track contractions — start time, duration, gap, and intensity. Low-tech on purpose. Phones die. Paper works.</p>
+    <a href="tool_contraction_log.html" target="_blank" class="btn-download">Open & Print →</a>
   </div>
 
   <!-- SAGE -->
 
   <div class="sage-section">
-    <div class="sage-label">🌿 Ask Sage — Go Deeper</div>
+    <div class="sage-eyebrow">🌿 Ask Sage — Go Deeper</div>
     <div class="sage-title">Have questions about what you just read?</div>
-    <ul class="sage-prompts">
-      <li>"Sage, can you walk me through what dilation from 0–10 cm actually feels like for the birthing parent, stage by stage?"</li>
-      <li>"Sage, we're planning a hospital birth with an epidural. How does that change what the stages of labor look and feel like?"</li>
-      <li>"Sage, what's the difference between failure to progress and active labor arrest, and how do care teams typically respond?"</li>
-    </ul>
-    <a href="https://www.chatbase.co/chatbot-iframe/a6dHWV4SmL2bw1GvMW5As" target="_blank" class="sage-btn">Open Sage →</a>
+    <div class="sage-prompts">
+      <div class="sage-prompt">"Sage, can you walk me through what dilation from 0–10 cm actually feels like for the birthing parent, stage by stage?"</div>
+      <div class="sage-prompt">"Sage, we're planning a hospital birth with an epidural. How does that change what the stages of labor look and feel like?"</div>
+      <div class="sage-prompt">"Sage, what's the difference between failure to progress and active labor arrest, and how do care teams typically respond?"</div>
+    </div>
+    <a href="https://www.chatbase.co/chatbot-iframe/a6dHWV4SmL2bw1GvMW5As" target="_blank" class="btn-sage">Open Sage →</a>
   </div>
 
-  <!-- SOURCES -->
+  <!-- COMPLETE BANNER -->
 
-  <div class="sources-section">
-    <div class="sources-label">Sources Cited in This Module</div>
-    <div class="source-item">Cahill, A.G., et al. (2024). First and second stage labor management: ACOG Clinical Practice Guideline No. 8. <em>Obstetrics & Gynecology, 143</em>(1), 144–162.</div>
-    <div class="source-item">Hilger, N., et al. (2022). The partner's experiences of childbirth: A scoping review. <em>BMC Pregnancy and Childbirth, 22</em>, 756.</div>
-    <div class="source-item">Hoffmann, L., et al. (2023). Partner support and relationship quality as resources for childbirth. <em>BMC Pregnancy and Childbirth, 23</em>, 435.</div>
-    <div class="source-item">O'Brien, E., Doherty, M., & McNamara, K. (2021). The paternal experience of fear of childbirth. <em>IJERPH, 18</em>(3), 1231.</div>
-    <div class="source-item">StatPearls (2025). Normal Labor: Physiology, Evaluation, and Management. NCBI Bookshelf.</div>
+  <div class="complete-banner" id="completeBanner">
+    <h2>Module 1 Complete.</h2>
+    <p>You now have the language of labor. In Module 2 you'll learn what to do with it.</p>
+    <a href="module2.html" class="btn-module-next">Continue to Module 2 →</a>
   </div>
+
+</div><!-- end lesson 4 -->
 
 </div><!-- end module-content -->
 
-<!-- QUIZ TRANSITION -->
+<!-- CITATIONS -->
 
-<div style="background:#F0E8DC; padding:3rem 2rem; text-align:center; border-top:1px solid #C9B89E;">
-  <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:#A8782A; margin-bottom:0.8rem;">Your Module 1 Tool</div>
-  <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:300; color:#1A100C; margin-bottom:0.6rem;">Contraction <em style="font-style:italic; color:#8B3A2A;">Timing Log</em></div>
-  <p style="font-size:0.9rem; color:#4A3020; max-width:48ch; margin:0 auto 1.5rem; line-height:1.7;">Print this before your due date and keep it in your hospital bag. 28 rows to track contractions — start time, duration, gap, and intensity. Low-tech on purpose. Phones die. Paper works.</p>
-  <a href="tool_contraction_log.html" target="_blank" style="display:inline-block; background:#1E3320; color:white; padding:0.9rem 2.5rem; font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none;">Open & Print →</a>
+<div class="citations">
+  <div class="citations-title">Sources Cited in This Module</div>
+  <div class="citation-item">O'Brien, E., Doherty, M., & McNamara, K. (2021). The paternal experience of fear of childbirth. <em>IJERPH, 18</em>(3), 1231.</div>
+  <div class="citation-item">Hildingsson, I., et al. (2011). Partners' experiences of support during childbirth. <em>Midwifery, 27</em>(5), e191–e197.</div>
+  <div class="citation-item">Johansson, M., et al. (2012). First-time fathers' experiences of childbirth. <em>Journal of Midwifery & Women's Health, 57</em>(2), 126–131.</div>
+  <div class="citation-item">Cahill, A.G., et al. (2024). First and second stage labor management: ACOG Clinical Practice Guideline No. 8. <em>Obstetrics & Gynecology, 143</em>(1), 144–162.</div>
+  <div class="citation-item">StatPearls (2025). Normal Labor: Physiology, Evaluation, and Management. NCBI Bookshelf.</div>
 </div>
-
-<div class="quiz-divider" id="quizDivider">
-  <h2>Ready to test what you <em>learned?</em></h2>
-  <p>10 questions. About 5 minutes. Take it together — the feedback after each question is as valuable as the question itself.</p>
-  <button class="btn-start-quiz" onclick="startQuiz()">Start the Knowledge Check →</button>
-</div>
-
-<!-- QUIZ SECTION -->
-
-<div id="quiz-section">
-  <div class="quiz-header-bar">
-    <div class="quiz-title-bar">Module 1 · Knowledge Check</div>
-    <div style="display:flex; align-items:center; gap:1rem;">
-      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qProgressFill"></div></div>
-      <div class="quiz-progress-text" id="qProgressText">0 / 10</div>
-    </div>
-  </div>
-
-  <div class="quiz-inner" id="quizInner">
-    <div class="q-num" id="qNum">Question 1 of 10</div>
-    <div class="q-text" id="qText"></div>
-    <div class="options-list" id="optionsList"></div>
-    <div class="q-feedback" id="qFeedback">
-      <div class="feedback-tag" id="feedbackTag"></div>
-      <p id="feedbackContent"></p>
-    </div>
-    <button class="btn-next-q" id="btnNextQ" onclick="nextQ()">Next Question →</button>
-  </div>
-
-  <div class="results-section" id="resultsSection">
-    <div class="score-ring">
-      <div class="score-big" id="scoreBig">0</div>
-      <div class="score-sub" id="scoreSub">out of 10</div>
-    </div>
-    <div class="result-heading" id="resultHeading"></div>
-    <p class="result-body" id="resultBody"></p>
-    <div class="review-cards" id="reviewCards"></div>
-    <div class="result-actions">
-      <button class="btn-retry-quiz" onclick="retryQuiz()">Retake Quiz</button>
-      <a href="module2.html" class="btn-next-module">Continue to Module 2 →</a>
-    </div>
-    <p class="results-citation">Sources: O'Brien et al. (2021); Cahill et al./ACOG (2024); Hoffmann et al. (2023); Hilger et al. (2022)</p>
-  </div>
-</div>
-
-<!-- FOOTER -->
-
-<footer>
-  <div class="footer-logo">Pregnancy <span>Partnership</span></div>
-  <div class="footer-copy">© 2026 Pregnancy Partnership · Educational use only · Not a substitute for medical advice</div>
-</footer>
 
 <script>
-// Reading progress
-window.addEventListener('scroll', () => {
-  const content = document.getElementById('moduleContent');
-  const divider = document.getElementById('quizDivider');
-  const total = divider.offsetTop - content.offsetTop;
-  const scrolled = window.scrollY - content.offsetTop + window.innerHeight * 0.3;
-  const pct = Math.min(100, Math.max(0, (scrolled / total) * 100));
-  document.getElementById('readingProgress').style.width = pct + '%';
-});
+// ========== LESSON NAVIGATION ==========
+const lessonProgress = { 1:false, 2:false, 3:false, 4:false };
+const kcScores = {};
 
-// Quiz data
-const questions = [
-  {
-    q: "A nurse says your partner is '6 centimeters dilated.' What does this mean and what stage of labor are they in?",
-    options: ["They are 60% of the way through pushing — almost done","They have just entered active labor — the most productive phase is beginning","They are halfway through early labor and have a long way to go","They are in transition — birth is minutes away"],
-    correct: 1,
-    feedback: "<strong>6 centimeters marks the start of active labor</strong> according to current ACOG guidelines (updated 2024). The cervix now dilates faster, contractions become more regular, and your partner support becomes most critical. Early labor (0–6 cm) can take many hours; active labor typically moves more quickly. This is your cue to be fully present and engaged."
-  },
-  {
-    q: "Your partner is shaking, says they feel like vomiting, and tells you 'I absolutely cannot do this anymore.' What is most likely happening?",
-    options: ["Something has gone wrong — get the nurse immediately","They are in early labor and need encouragement to keep going","They are in transition — the most intense but shortest phase, meaning birth is close","They are having a reaction to medication"],
-    correct: 2,
-    feedback: "<strong>This is transition — and it is completely normal.</strong> Research consistently shows that partners misinterpret transition symptoms as signs of a complication. They are not. Transition is the final stretch of the first stage, roughly 7–10 cm. It is the hardest phase and the shortest. Your job: stay calm, stay close, breathe with them, and say 'I'm here. You're almost there. This is the hardest part.'"
-  },
-  {
-    q: "What does 'effacement' mean?",
-    options: ["The baby descending into the birth canal","The thinning and shortening of the cervix, measured in percentages","The opening of the cervix, measured in centimeters","The frequency of contractions"],
-    correct: 1,
-    feedback: "<strong>Effacement is the thinning of the cervix, measured from 0% to 100%.</strong> It often happens alongside dilation but can precede it. Both dilation and effacement need to occur for birth to progress. This is one of the most commonly overlooked terms in partner education."
-  },
-  {
-    q: "Your care provider recommends 'augmentation with Pitocin.' What does this mean?",
-    options: ["Labor needs to be started because the body hasn't gone into labor on its own","Labor has started on its own and is being strengthened or sped up","The baby needs to be delivered immediately by cesarean","Pain medication is being administered"],
-    correct: 1,
-    feedback: "<strong>Augmentation means labor has already started and is being supported — not that something is wrong.</strong> Pitocin strengthens or speeds up labor that is progressing too slowly. This is different from induction. If augmentation is recommended, contractions can feel more intense — which makes your comfort support techniques even more important."
-  },
-  {
-    q: "What is fetal 'station' measuring?",
-    options: ["The baby's heart rate during contractions","How much the cervix has thinned","The position of the baby's head relative to the mother's pelvis, on a scale from -5 to +5","The frequency of the baby's movements"],
-    correct: 2,
-    feedback: "<strong>Station measures how far the baby has descended into the pelvis.</strong> Zero station = level with a specific bony landmark. Negative numbers = above that point. Positive numbers = below it, moving toward birth. 'Baby is at plus two station' means the baby is descending well."
-  },
-  {
-    q: "A nurse mentions 'fetal heart rate decelerations.' What should you do as the partner?",
-    options: ["Assume the worst — this is a medical emergency","Ignore it — decelerations are never significant","Calmly ask the nurse to explain what type of deceleration is occurring and what the response will be","Immediately ask for a cesarean section"],
-    correct: 2,
-    feedback: "<strong>Ask — don't assume.</strong> Some decelerations are completely normal and expected. The type, timing, and pattern determines their significance. Research shows partners who don't understand monitoring terminology tend to catastrophize normal variations. A calm, clear question keeps you informed without panic."
-  },
-  {
-    q: "What is the third stage of labor?",
-    options: ["Transition — the most intense phase of dilation","The pushing stage — from full dilation to birth of the baby","Delivery of the placenta — after the baby is born","Early recovery — the first hour after birth"],
-    correct: 2,
-    feedback: "<strong>The third stage is delivery of the placenta</strong> — and most partners don't know it exists. Median duration is about 6 minutes; typically occurs within 5–30 minutes. This is also when skin-to-skin contact with the baby typically begins — one of the most important moments you'll both want to be fully present for."
-  },
-  {
-    q: "Your care team mentions 'failure to progress.' What does this clinical term actually mean?",
-    options: ["The birthing parent has failed to do something correctly during labor","The baby is in distress and immediate delivery is required","A clinical pattern where labor is not advancing at an expected rate, which may warrant a change in management","The epidural has stopped working"],
-    correct: 2,
-    feedback: "<strong>'Failure to progress' is a clinical description — not a verdict.</strong> It means labor is not advancing as expected, and the care team is considering options: more time, position changes, augmentation, or in some cases a cesarean. Research documents that partners find this phrase deeply alarming because 'failure' implies personal failure. It doesn't."
-  },
-  {
-    q: "According to peer-reviewed research, what percentage of first-time non-birthing partners report childbirth-related fears — and what is the primary driver?",
-    options: ["About 30% — driven primarily by fear of medical procedures","Over 80% — driven primarily by lack of knowledge and preparation","About 50% — driven primarily by fear of seeing their partner in pain","About 65% — driven primarily by financial concerns"],
-    correct: 1,
-    feedback: "<strong>Over 80% of first-time partners report childbirth fears, and the #1 driver is lack of knowledge</strong> (O'Brien et al., 2021). You are doing something right now that directly addresses the most common obstacle partners face in the birth room. This is not just preparation — it's one of the most evidence-based things you can do."
-  },
-  {
-    q: "Your partner is in active labor and contractions are every 3–4 minutes. The laboring parent can no longer talk through contractions. What is your most important job right now?",
-    options: ["Ask the nurse how much longer labor will take","Check your phone between contractions to stay relaxed","Be physically present and close — offer counter-pressure, breathe with them, stay calm and attentive","Wait quietly so you don't distract the medical team"],
-    correct: 2,
-    feedback: "<strong>Active presence is the job.</strong> A prospective study of 304 couples found that only continuous partner presence — not temporary — predicted lower-intervention births. Your physical closeness, your breathing, your steady voice, your hands — these are not extras. Counter-pressure, breathing cues, position suggestions, short reassuring words. This is what you prepared for."
+function showLesson(num) {
+  document.querySelectorAll('.lesson-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.lesson-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('lesson-' + num).classList.add('active');
+  document.getElementById('tab-' + num).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ========== KNOWLEDGE CHECKS ==========
+const kcState = {};
+
+function answerKC(questionId, btn, isCorrect, feedback) {
+  if (kcState[questionId]) return;
+  kcState[questionId] = { answered: true, correct: isCorrect };
+
+  const allOptions = btn.parentElement.querySelectorAll('.kc-option');
+  allOptions.forEach(o => { o.classList.add('disabled'); o.classList.add('incorrect'); o.querySelector('.kc-indicator').textContent = '✗'; });
+  btn.classList.remove('incorrect');
+  btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+  btn.querySelector('.kc-indicator').textContent = isCorrect ? '✓' : '✗';
+
+  // If wrong, highlight the correct one
+  if (!isCorrect) {
+    allOptions.forEach(o => {
+      if (o.onclick && o.onclick.toString().includes('true,')) {
+        o.classList.remove('incorrect');
+        o.classList.add('correct');
+        o.querySelector('.kc-indicator').textContent = '✓';
+      }
+    });
   }
-];
 
-let cQ = 0, score = 0, userAnswers = [], answered = false;
+  const fbEl = document.getElementById(questionId + '-fb');
+  if (fbEl) {
+    fbEl.textContent = feedback;
+    fbEl.className = 'kc-feedback ' + (isCorrect ? 'correct-fb' : 'incorrect-fb') + ' show';
+  }
 
-function startQuiz() {
-  document.getElementById('quizDivider').style.display = 'none';
-  const qs = document.getElementById('quiz-section');
-  qs.classList.add('active');
-  qs.scrollIntoView({ behavior: 'smooth' });
-  cQ = 0; score = 0; userAnswers = []; answered = false;
-  renderQ();
+  checkKCComplete(questionId);
 }
 
-function renderQ() {
-  answered = false;
-  const q = questions[cQ];
-  document.getElementById('qNum').textContent = 'Question ' + (cQ+1) + ' of ' + questions.length;
-  document.getElementById('qText').textContent = q.q;
-  document.getElementById('qProgressFill').style.width = (cQ / questions.length * 100) + '%';
-  document.getElementById('qProgressText').textContent = cQ + ' / ' + questions.length;
+function checkKCComplete(questionId) {
+  const kcNum = questionId.charAt(2);
+  const prefix = 'kc' + kcNum;
+  const q1 = kcState[prefix + '-q1'];
+  const q2 = kcState[prefix + '-q2'];
+  const q3 = kcState[prefix + '-q3'];
 
-  const list = document.getElementById('optionsList');
-  list.innerHTML = '';
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'opt-btn';
-    btn.textContent = opt;
-    btn.onclick = () => selectA(i);
-    list.appendChild(btn);
-  });
+  if (q1 && q2 && q3) {
+    const score = [q1,q2,q3].filter(q => q.correct).length;
+    const scoreEl = document.getElementById('kc-' + kcNum + '-score');
+    const scoreNum = document.getElementById('kc-' + kcNum + '-score-num');
+    const scoreMsg = document.getElementById('kc-' + kcNum + '-score-msg');
 
-  document.getElementById('qFeedback').classList.remove('show');
-  const btnNext = document.getElementById('btnNextQ');
-  btnNext.classList.remove('show');
-  btnNext.textContent = cQ === questions.length - 1 ? 'See My Results →' : 'Next Question →';
+    scoreEl.classList.add('show');
+    scoreNum.textContent = score + '/3';
+
+    const msgs = {
+      3: "Perfect — you've got this. Move on with confidence.",
+      2: "Good work. One to review — re-read the relevant section if you'd like, then continue.",
+      1: "Worth a quick re-read of this lesson before moving on. The concepts build on each other.",
+      0: "Go back through this lesson — these concepts are foundational for everything that follows."
+    };
+    scoreMsg.textContent = msgs[score];
+
+    lessonProgress[parseInt(kcNum)] = true;
+
+    const nextBtn = document.getElementById('btn-next-' + kcNum);
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      nextBtn.style.background = '#A8782A';
+      nextBtn.style.color = '#1A100C';
+    }
+
+    if (kcNum === '4') {
+      document.getElementById('completeBanner').classList.add('show');
+      document.getElementById('tab-' + kcNum).classList.add('completed');
+    } else {
+      document.getElementById('tab-' + kcNum).classList.add('completed');
+    }
+  }
 }
 
-function selectA(sel) {
-  if (answered) return;
-  answered = true;
-  const q = questions[cQ];
-  const btns = document.querySelectorAll('.opt-btn');
-  btns.forEach((b, i) => {
-    b.disabled = true;
-    if (i === q.correct) b.classList.add('correct');
-    else if (i === sel && sel !== q.correct) b.classList.add('incorrect');
-    else b.classList.add('dimmed');
-  });
-  const ok = sel === q.correct;
-  if (ok) score++;
-  userAnswers.push({ ok, q: q.q, a: q.options[q.correct] });
-  const fb = document.getElementById('qFeedback');
-  const tag = document.getElementById('feedbackTag');
-  tag.textContent = ok ? '✓ Correct — here\'s why it matters' : '✗ Not quite — here\'s what to know';
-  tag.style.color = ok ? '#1E3320' : '#8B3A2A';
-  fb.style.borderColor = ok ? '#1E3320' : '#8B3A2A';
-  document.getElementById('feedbackContent').innerHTML = q.feedback;
-  fb.classList.add('show');
-  document.getElementById('btnNextQ').classList.add('show');
-}
-
-function nextQ() {
-  cQ++;
-  if (cQ >= questions.length) showResults();
-  else renderQ();
-}
-
-function showResults() {
-  document.getElementById('qProgressFill').style.width = '100%';
-  document.getElementById('qProgressText').textContent = '10 / 10';
-  document.getElementById('quizInner').style.display = 'none';
-  document.getElementById('scoreBig').textContent = score;
-
-  let h, b;
-  if (score === 10) { h = 'Perfect score. <em>You\'re ready.</em>'; b = 'Every term, every stage, every response — you know it cold. The birth room holds no surprises for you now.'; }
-  else if (score >= 8) { h = 'Almost perfect. <em>Solid foundation.</em>'; b = 'You know the material. Review the questions you missed — they\'re often the ones that matter most in the moment.'; }
-  else if (score >= 6) { h = 'Good start. <em>A few gaps to close.</em>'; b = 'You\'ve got the core concepts. The questions you missed are worth going back to — these are the terms that catch partners off guard in the birth room.'; }
-  else { h = 'More review needed. <em>That\'s what retakes are for.</em>'; b = 'Go back through the module and then retake. The terms that tripped you up are the exact ones you\'ll hear in the birth room.'; }
-
-  document.getElementById('resultHeading').innerHTML = h;
-  document.getElementById('resultBody').textContent = b;
-
-  const cards = document.getElementById('reviewCards');
-  cards.innerHTML = '<h3 style="font-family:\'Cormorant Garamond\',serif;font-size:1.2rem;font-weight:400;margin-bottom:1rem;color:#1A100C;">Your answers reviewed</h3>';
-  userAnswers.forEach((a, i) => {
-    const d = document.createElement('div');
-    d.className = 'review-card ' + (a.ok ? 'right' : 'wrong');
-    d.innerHTML = `<div class="rq">${a.ok?'✓':'✗'} Q${i+1}: ${a.q.substring(0,75)}${a.q.length>75?'...':''}</div><div class="ra">Correct: ${a.a}</div>`;
-    cards.appendChild(d);
-  });
-
-  document.getElementById('resultsSection').classList.add('show');
-  document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
-}
-
-function retryQuiz() {
-  document.getElementById('resultsSection').classList.remove('show');
-  document.getElementById('quizInner').style.display = 'block';
-  cQ = 0; score = 0; userAnswers = []; answered = false;
-  renderQ();
-  document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
-}
+// ========== READING PROGRESS ==========
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrollTop = doc.scrollTop || document.body.scrollTop;
+  const scrollHeight = doc.scrollHeight - doc.clientHeight;
+  const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  document.getElementById('progressFill').style.width = progress + '%';
+});
 </script>
 
 </body>
